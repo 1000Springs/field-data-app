@@ -1,0 +1,307 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+    
+    <!-- 
+     Feature identification fields
+     -->
+    <TextView
+        android:id="@+id/feature_id_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="@string/feature_id_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/feature_id_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/feature_id_label"
+        android:layout_alignBaseline="@+id/feature_id_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />
+    
+    <TextView
+        android:id="@+id/historic_id_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/feature_id_input"
+        android:layout_marginLeft="30dp"
+        android:text="@string/historic_id_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/historic_id_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/historic_id_label"
+        android:layout_alignBaseline="@+id/historic_id_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />
+    
+    <TextView
+        android:id="@+id/feature_name_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/feature_id_label"
+        android:layout_alignLeft="@+id/feature_id_label"
+        android:text="@string/feature_name_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/feature_name_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/feature_id_input"
+        android:layout_alignBaseline="@+id/feature_name_label"
+        android:layout_toRightOf="@+id/feature_name_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />
+    
+    <TextView
+        android:id="@+id/historic_local_name_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_alignBaseline="@+id/feature_name_label"
+        android:layout_alignLeft="@+id/historic_id_label"
+        android:text="@string/historic_local_name_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/historic_local_name_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/historic_id_input"
+        android:layout_alignBaseline="@+id/historic_local_name_label"
+        android:layout_toRightOf="@+id/historic_local_name_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />    
+        
+    <TextView
+        android:id="@+id/field_code_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_alignBaseline="@+id/field_code_label"
+        android:layout_alignLeft="@+id/feature_id_label"
+        android:layout_below="@+id/feature_name_label"
+        android:text="@string/field_code_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/field_code_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/field_code_label"
+        android:layout_alignLeft="@+id/feature_name_input"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />        
+    
+    <TextView
+        android:id="@+id/survey_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_alignBaseline="@+id/field_code_label"
+        android:layout_alignLeft="@+id/historic_id_label"
+        android:text="@string/survey_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/survey_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/historic_id_input"
+        android:layout_alignBaseline="@+id/survey_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />   
+
+     <!-- 
+     Feature location fields
+     --> 
+     <TextView
+        android:id="@+id/coord_northing_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_alignLeft="@+id/feature_id_label"
+        android:layout_below="@+id/field_code_label"
+        android:text="@string/coord_northing_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/coord_northing_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/coord_northing_label"
+        android:layout_toRightOf="@+id/coord_northing_label"
+        android:layout_marginLeft="10dp"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />        
+    
+    <TextView
+        android:id="@+id/error_estimate_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/coord_northing_input"
+        android:layout_marginLeft="30dp"
+        android:layout_alignBaseline="@+id/coord_northing_label"
+        android:text="@string/error_estimate_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/error_estimate_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/error_estimate_label"
+        android:layout_alignBaseline="@+id/error_estimate_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />  
+
+    <TextView
+        android:id="@+id/coord_easting_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/coord_northing_label"
+        android:layout_below="@+id/coord_northing_label"
+        android:layout_marginTop="30dp"
+        android:text="@string/coord_easting_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/coord_easting_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/coord_easting_label"
+        android:layout_alignLeft="@+id/coord_northing_input"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />    
+        
+    <TextView
+        android:id="@+id/elevation_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/error_estimate_label"
+        android:layout_alignBaseline="@+id/coord_easting_label"
+        android:text="@string/elevation_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/elevation_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/error_estimate_input"
+        android:layout_alignBaseline="@+id/elevation_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />    
+        
+    <TextView
+        android:id="@+id/gps_wp_no_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/coord_easting_label"
+        android:layout_below="@+id/coord_easting_label"
+        android:layout_marginTop="30dp"
+        android:text="@string/gps_wp_no_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/gps_wp_no_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/coord_easting_input"
+        android:layout_alignBaseline="@+id/gps_wp_no_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />  
+        
+    <TextView
+        android:id="@+id/relationship_to_feature_label"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gps_wp_no_label"
+        android:layout_below="@+id/gps_wp_no_label"
+        android:layout_marginTop="30dp"
+        android:text="@string/relationship_to_feature_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/relationship_to_feature_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/relationship_to_feature_label"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBaseline="@+id/relationship_to_feature_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />    
+        
+     <TextView
+        android:id="@+id/map_sheet_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gps_wp_no_label"
+        android:layout_below="@+id/relationship_to_feature_label"
+        android:layout_marginTop="30dp"
+        android:text="@string/map_sheet_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/map_sheet_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/map_sheet_label"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBaseline="@+id/map_sheet_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" /> 
+
+    <TextView
+        android:id="@+id/map_datum_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elevation_label"
+        android:layout_alignBaseline="@+id/map_sheet_label"
+        android:text="@string/map_datum_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <EditText
+        android:id="@+id/map_datum_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/elevation_input"
+        android:layout_alignBaseline="@+id/map_datum_label"
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />
+
+
+    <TextView
+        android:id="@+id/elevation_datum_label"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_sheet_label"
+        android:layout_alignLeft="@+id/gps_wp_no_label"
+        android:layout_marginTop="30dp"        
+        android:text="@string/elevation_datum_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+   <EditText
+        android:id="@+id/elevation_datum_input"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/elevation_datum_label"
+        android:layout_alignLeft="@+id/map_sheet_input"
+        android:layout_alignBaseline="@+id/elevation_datum_label"
+        
+        android:ems="10"
+        android:hint=""
+        android:inputType="text" />
+     
+</RelativeLayout>

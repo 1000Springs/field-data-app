@@ -1,0 +1,92 @@
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">1000 Springs</string>
+    <!--  
+    Strings used in multiple screens 
+    -->
+    <string name="temperature_label">Temperature</string>
+    
+    <!--  
+    Feature Identification Tab 
+    -->
+    <string name="feature_id_tab">Feature Identification</string>
+    <string name="feature_id_label">Feature ID</string>
+    <string name="historic_id_label">Historic ID</string> 
+    <string name="feature_name_label">Feature Name</string>   
+    <string name="geothermal_field_label">Geothermal Field</string>   
+    <string name="historic_local_name_label">Historic/Local Name</string>  
+    <string name="field_code_label">Field Code</string>  
+    <string name="survey_label">Survey</string>
+    
+    <string name="coord_northing_label">Coords (North/Lat)</string>
+    <string name="coord_easting_label">Coords (East/Long)</string>
+    <string name="error_estimate_label">Error Estimate</string>    
+    <string name="elevation_label">Elevation</string>  
+    <string name="gps_wp_no_label">GPS WP No.</string>     
+    <string name="relationship_to_feature_label">Relationship to feature (outlet, centre, etc)</string> 
+    <string name="map_sheet_label">Map Sheet</string>
+    <string name="map_datum_label">Map Datum</string>
+    <string name="elevation_datum_label">Elevation Datum</string>
+    
+    <!--  
+    Appearance Tab 
+    -->
+    <string name="appearance_tab">Appearance</string>
+    <string name="size_label">Size</string>
+    <string name="colour_label">Colour</string>
+    <string name="clarity_turbidity_label">Clarity, Turbidity</string>
+    <string name="ebullition_label">Ebullition</string>
+    <string name="odour_gas_label">Odour Gas</string>
+    <string name="water_level_label">Water Level</string>
+    <string name="flow_rate_label">Flow Rate</string>
+    <string name="wind_speed_label">Wind Speed</string>
+    <string name="air_temperature_label">Air Temperature</string>
+    <string name="camera_label">Camera</string>
+    <string name="image_number_label">Image Number</string>
+    <string name="bio_sample_button">Biological Sample</string>
+    
+    <!--  
+    Bio Sample Activity
+    -->
+    <string name="bio_sample_activity">Biological Sample</string>
+    <string name="location_label">Location</string>
+    <string name="name_of_spring_label">Name of Spring</string>
+    <string name="sampler_label">Sampler</string>
+    <string name="time_label">Time</string>
+    <string name="date_label">Date</string>
+    <string name="sample_number_label">Sample Number</string>
+    <string name="gps_label">GPS (NZTM)</string>
+    <string name="ph_label">pH</string>
+    <string name="conductivity_label">Conductivity</string>
+    <string name="do_label">DO</string>
+    <string name="redox_label">Redox</string>
+    
+    <string name="parameter_label">Parameter</string>
+    <string name="vessel_label">Vessel</string>
+    <string name="volume_label">Volume</string>
+    <string name="acidified_label">Acidified</string>
+    <string name="filtered_label">Filtered</string>
+    <string name="number_label">Number</string>
+    <string name="dna_label">DNA</string>
+           
+    <!--  
+    Photo tab
+    -->
+    <string name="photos_tab">Images</string>
+    <string name="add_photo_button">Add photo</string>
+</resources>

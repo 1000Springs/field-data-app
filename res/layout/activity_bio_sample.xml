@@ -1,0 +1,548 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin">
+	    
+	    <TableLayout
+	            android:id="@+id/section_one"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent">
+		    <TableRow
+		            android:padding="10dp" >        
+		        <TextView
+		            android:id="@+id/location_label"
+		            android:layout_height="wrap_content"
+		            android:layout_width="300dp"
+		            android:text="@string/location_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        <TextView
+		            android:id="@+id/location_value"
+		            android:layout_height="wrap_content"
+		            android:text="Ngatamariki"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		    </TableRow>        
+		    <TableRow
+		            android:padding="10dp" >         
+		        <TextView
+		            android:id="@+id/name_of_spring_label"
+		            android:layout_height="wrap_content"
+		            android:text="@string/name_of_spring_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        <TextView
+		            android:id="@+id/name_of_spring_value"
+		            android:layout_height="wrap_content"
+		            android:text="Radiata"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		    </TableRow>  
+	        <TableRow
+	                android:padding="10dp" >   
+		        <TextView
+		            android:id="@+id/sampler_label"
+		            android:layout_height="wrap_content"
+		            android:text="@string/sampler_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        <EditText
+		            android:id="@+id/sampler_input"
+		            
+		            android:layout_height="wrap_content"
+		            android:ems="10"
+		            android:hint=""
+	                android:inputType="text" />
+		   </TableRow>
+	        <TableRow
+	                android:padding="10dp" >   
+	            <TextView
+	                android:id="@+id/time_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/time_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/time_input"         
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>
+	       <TableRow
+	                android:padding="10dp" >   
+	            <TextView
+	                android:id="@+id/date_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/date_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/date_input"         
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>
+	       <TableRow
+	                android:padding="10dp" >   
+	            <TextView
+	                android:id="@+id/sample_number_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/sample_number_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/sample_number_input"         
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow> 
+	       
+	       <TableRow
+	                android:padding="10dp" >   
+	            <TextView
+	                android:id="@+id/gps_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/gps_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/gps_input"         
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow> 
+	    </TableLayout>  
+	    <TableLayout
+	            android:id="@+id/section_two"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_below="@+id/section_one"   
+	            android:layout_alignLeft="@+id/section_one" 
+	            android:layout_marginTop="40dp"
+	            >
+	        <TableRow
+	            android:padding="10dp" >       
+	            <TextView
+	                android:id="@+id/temperature_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/temperature_label"
+	                android:layout_width="300dp"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/temperature_input"
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>        
+	       <TableRow
+	            android:padding="10dp" >       
+		        <TextView
+		            android:id="@+id/ph_label"
+		            android:layout_height="wrap_content"
+		            android:text="@string/ph_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        <EditText
+		            android:id="@+id/ph_input"
+		            android:layout_height="wrap_content"
+		            android:ems="10"
+		            android:hint=""
+		            android:inputType="text" />
+	       </TableRow>
+	       <TableRow
+	            android:padding="10dp" >       
+	            <TextView
+	                android:id="@+id/conductivity_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/conductivity_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/conductivity_input"
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>  
+	       <TableRow
+	            android:padding="10dp" >       
+	            <TextView
+	                android:id="@+id/do_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/do_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/do_input"
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>  
+	       <TableRow
+	            android:padding="10dp" >       
+	            <TextView
+	                android:id="@+id/redox_label"
+	                android:layout_height="wrap_content"
+	                android:text="@string/redox_label"
+	                android:textAppearance="?android:attr/textAppearanceMedium" />
+	            <EditText
+	                android:id="@+id/redox_input"
+	                android:layout_height="wrap_content"
+	                android:ems="10"
+	                android:hint=""
+	                android:inputType="text" />
+	       </TableRow>                         	        
+	    </TableLayout>  
+	    <TableLayout
+                android:id="@+id/section_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/section_two"   
+                android:layout_alignLeft="@+id/section_two" 
+                android:layout_marginTop="40dp"
+                >
+            <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Parameter"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_height="wrap_content"
+                   android:layout_marginRight="15dp"
+                    android:text="Vessel"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Volume"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Acidified"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Filtered"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Number"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />   
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text=""/>                                                      
+           </TableRow> 
+           
+            <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="DNA"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="25mm filter/1.5ml tube"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="240ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Y"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="2"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="text" />                                                     
+           </TableRow>              
+
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Soil"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Cryovial with GlyTE"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1.8ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="2"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow>
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="ICP elements"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="15ml falcon"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="15ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Y"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Y"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow> 
+           
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Nutrients"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="15ml falcon"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="15ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Y"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow> 
+
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Sulphate/Chloride"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="50ml falcon"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="50ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Y"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow> 
+
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Ferrous Iron"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="15ml falcon"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="80\u00B5l"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="3"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="text" />                                                       
+           </TableRow>
+           
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Gases"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Rotoflow"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1L"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow>            
+ 
+           <TableRow
+                android:padding="10dp" >       
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="H\u2082S/CO\u2083"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="Rubber neck tube"
+                    android:textAppearance="?android:attr/textAppearanceMedium"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="500ml"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="N"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />      
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />   
+                <CheckBox
+                    android:layout_height="wrap_content" />                                                     
+           </TableRow> 
+           
+        </TableLayout>             
+	</RelativeLayout>
+</ScrollView>
