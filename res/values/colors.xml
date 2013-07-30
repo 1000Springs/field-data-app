@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_base">#449def</color>
+    <color name="blue_stroke">#2f6699</color>
+    <color name="blue_gradientS">#449def</color>
+    <color name="blue_gradientE">#2f6699</color>
+    
+    <color name="red_base">#ef4444</color>
+    <color name="red_stroke">#992f2f</color>
+    <color name="red_gradientS">#ef4444</color>
+    <color name="red_gradientE">#992f2f</color>    
+    
+    <color name="purple_base">#a276eb</color>
+    <color name="purple_stroke">#6a3ab2</color>
+    <color name="purple_gradientS">#a276eb</color>
+    <color name="purple_gradientE">#6a3ab2</color> 
+    
+    <color name="green_base">#70c656</color>
+    <color name="green_stroke">#53933f</color>
+    <color name="green_gradientS">#70c656</color>
+    <color name="green_gradientE">#53933f</color>   
+</resources>

@@ -1,0 +1,6 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" 
+    style="@style/standard_spinner"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:ellipsize="marquee" 
+    android:textIsSelectable="true"/>

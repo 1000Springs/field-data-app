@@ -15,6 +15,12 @@
   -->
 
 <resources>
+    
+    <!-- Bio sample activity tabs -->
+    <string name="sample_data_tab">Sample data</string>
+    <string name="survey_data_tab">Appearance</string>
+    <string name="images_tab">Images</string>
+    
     <string name="app_name">1000 Springs</string>
     <!--  
     Strings used in multiple screens 
@@ -25,23 +31,6 @@
     Feature Identification Tab 
     -->
     <string name="feature_id_tab">Feature Identification</string>
-    <string name="feature_id_label">Feature ID</string>
-    <string name="historic_id_label">Historic ID</string> 
-    <string name="feature_name_label">Feature Name</string>   
-    <string name="geothermal_field_label">Geothermal Field</string>   
-    <string name="historic_local_name_label">Historic/Local Name</string>  
-    <string name="field_code_label">Field Code</string>  
-    <string name="survey_label">Survey</string>
-    
-    <string name="coord_northing_label">Coords (North/Lat)</string>
-    <string name="coord_easting_label">Coords (East/Long)</string>
-    <string name="error_estimate_label">Error Estimate</string>    
-    <string name="elevation_label">Elevation</string>  
-    <string name="gps_wp_no_label">GPS WP No.</string>     
-    <string name="relationship_to_feature_label">Relationship to feature (outlet, centre, etc)</string> 
-    <string name="map_sheet_label">Map Sheet</string>
-    <string name="map_datum_label">Map Datum</string>
-    <string name="elevation_datum_label">Elevation Datum</string>
     
     <!--  
     Appearance Tab 
@@ -56,8 +45,6 @@
     <string name="flow_rate_label">Flow Rate</string>
     <string name="wind_speed_label">Wind Speed</string>
     <string name="air_temperature_label">Air Temperature</string>
-    <string name="camera_label">Camera</string>
-    <string name="image_number_label">Image Number</string>
     <string name="bio_sample_button">Biological Sample</string>
     
     <!--  
@@ -75,15 +62,7 @@
     <string name="conductivity_label">Conductivity</string>
     <string name="do_label">DO</string>
     <string name="redox_label">Redox</string>
-    
-    <string name="parameter_label">Parameter</string>
-    <string name="vessel_label">Vessel</string>
-    <string name="volume_label">Volume</string>
-    <string name="acidified_label">Acidified</string>
-    <string name="filtered_label">Filtered</string>
-    <string name="number_label">Number</string>
-    <string name="dna_label">DNA</string>
-           
+              
     <!--  
     Photo tab
     -->
