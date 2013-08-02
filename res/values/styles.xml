@@ -21,6 +21,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">@drawable/standard_button</item>
     </style>   
 
@@ -76,5 +77,38 @@
     <style name="form_row">
         <item name="android:padding">8dp</item>
     </style>
+    
+    <style name="image_fragment_button" parent="@style/standard_button">
+        <item name="android:width">150dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_margin">10dp</item>    
+    </style>  
+    
+    <style name="image_tag">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:height">35dp</item>
+        <item name="android:width">150dp</item>
+        <item name="android:height">35dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+    
+    <style name="image_tag_photo" parent="@style/image_tag">
+        <item name="android:background">@color/green_base</item>
+    </style>  
+    
+    <style name="image_tag_sketch" parent="@style/image_tag">
+        <item name="android:background">@color/purple_base</item>
+    </style> 
+    
+    <style name="image_tag_annotated_photo" parent="@style/image_tag">
+        <item name="android:background">@color/red_base</item>
+    </style> 
+    
+    
     
 </resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="bottom" 
+    style="@style/standard_layout"
+    >
+    
+    <ScrollView 
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         >
+        <GridLayout
+            android:id="@+id/photo_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3">   
+        </GridLayout>    
+    </ScrollView>       
+    
+    <LinearLayout 
+        android:id="@+id/image_tool_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left|center" 
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        >
+        <Button 
+            android:id="@+id/camera_button"
+            android:text="Camera"
+            style="@style/image_fragment_button"/>     
+        <Button 
+            android:id="@+id/sketch_button"
+            android:text="Sketch"
+            style="@style/image_fragment_button"/>  
+            
+        <LinearLayout 
+            android:id="@+id/image_types"
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical"
+            android:gravity="top|center">
+            
+            <TextView
+                android:id="@+id/best_photo_tag"
+                android:text="Best photo"
+                style="@style/image_tag_photo"
+                android:tag="BEST_PHOTO"/>
+            
+            <TextView
+                android:id="@+id/best_sketch_tag"
+                android:text="Best sketch"
+                style="@style/image_tag_sketch"
+                android:tag="BEST_SKETCH"/>
+            
+            <TextView
+                android:id="@+id/annotated_photo_tag"
+                android:text="Annotated photo"
+                style="@style/image_tag_annotated_photo"
+                android:tag="ANNOTATED_PHOTO" />
+       </LinearLayout>  
+ 
+        <ImageView
+            android:id="@+id/rubbish_bin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/rubbish_bin"
+            android:contentDescription="Drag images to here to delete"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+        />
+        
+    </LinearLayout>  
+</RelativeLayout>

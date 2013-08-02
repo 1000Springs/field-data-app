@@ -1,51 +1,57 @@
 package nz.cri.gns.springs.db;
 
+import com.j256.ormlite.field.DatabaseField;
 
-public class PersistentObject {
+
+public abstract class PersistentObject {
 	
-	private long id;
-	private long createdDate = System.currentTimeMillis();
-	private long updatedDate = System.currentTimeMillis();
-	private String status = Status.NEW.toString();
+	@DatabaseField(generatedId = true) 
+	protected Long id;
 	
+	@DatabaseField protected Long createdDate = System.currentTimeMillis();
+	@DatabaseField protected Long updatedDate = System.currentTimeMillis();
+	@DatabaseField protected Status status = Status.NEW;
+	
+	/**
+	 * NEW: object has not been exported since creation
+	 * EXPORTED: object has been exported, but has not been updated since last export
+	 * UPDATE: object has been updated since last export
+	 * @author duncanw
+	 */
 	public enum Status {
 		NEW, UPDATED, EXPORTED
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getCreatedDate() {
+	public Long getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(long createdDate) {
+	public void setCreatedDate(Long createdDate) {
 		this.createdDate = createdDate;
 	}
 
-	public long getUpdatedDate() {
+	public Long getUpdatedDate() {
 		return updatedDate;
 	}
 
-	public void setUpdatedDate(long updatedDate) {
+	public void setUpdatedDate(Long updatedDate) {
 		this.updatedDate = updatedDate;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	};
-	
 	public void setStatus(Status status) {
-		this.status = status.toString();
+		this.status = status;
 	};
 
 }

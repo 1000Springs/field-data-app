@@ -8,17 +8,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
-public class MddbApplication extends Application {
+public class SpringsApplication extends Application {
 
     private static Context context;
 
     public void onCreate(){
         super.onCreate();
-        MddbApplication.context = getApplicationContext();
+        SpringsApplication.context = getApplicationContext();
     }
 
     public static Context getAppContext() {
-        return MddbApplication.context;
+        return SpringsApplication.context;
     }
     
     public static boolean isIntentAvailable(Context context, String action) {

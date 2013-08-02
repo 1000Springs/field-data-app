@@ -1,9 +1,10 @@
 package nz.cri.gns.springs.fragments;
 
-import nz.cri.gns.springs.MddbApplication;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+
+import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.db.Feature;
-import nz.cri.gns.springs.db.FeatureDb;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
@@ -21,6 +22,25 @@ public class FeatureIdentificationFragment extends DialogFragment {
 	private Feature feature;
 	private OnDismissListener dismissListener;
 	
+	private SpringsDbHelper databaseHelper = null;
+
+	@Override
+	public void onDestroy() {
+	    super.onDestroy();
+	    if (databaseHelper != null) {
+	        OpenHelperManager.releaseHelper();
+	        databaseHelper = null;
+	    }
+	}
+
+	protected SpringsDbHelper getHelper() {
+	    if (databaseHelper == null) {
+	        databaseHelper =
+	            OpenHelperManager.getHelper(this.getActivity(), SpringsDbHelper.class);
+	    }
+	    return databaseHelper;
+	}	
+	
 	public enum DialogAction {
 		SAVE, CANCEL
 	}
@@ -36,8 +56,7 @@ public class FeatureIdentificationFragment extends DialogFragment {
     	View rootView = inflater.inflate(R.layout.fragment_feature_id, container, false);
     	getDialog().setTitle("Enter the feature details");
     	
-    	SpringsDbHelper helper = new SpringsDbHelper(this.getActivity().getBaseContext());
-    	addSaveButtonListener(rootView, helper);
+    	addSaveButtonListener(rootView);
     	addCancelButtonListener(rootView);
     	
     	if (feature != null) {
@@ -47,10 +66,11 @@ public class FeatureIdentificationFragment extends DialogFragment {
     	return rootView;
     }
     
-    public void addSaveButtonListener(final View rootView, final SpringsDbHelper helper) {
+    public void addSaveButtonListener(final View rootView) {
     	
     	Button saveButton = (Button) rootView.findViewById(R.id.save_button);
     	final FeatureIdentificationFragment dialogFragment = this;
+    	final SpringsDbHelper dbHelper = getHelper();
     	saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,16 +81,15 @@ public class FeatureIdentificationFragment extends DialogFragment {
             		currentFeature = new Feature();
             	}
             	dialogFragment.setFeatureFromInput(rootView, currentFeature);
-            	FeatureDb featureDb = new FeatureDb(helper);
             	if (currentFeature.getFeatureName().isEmpty()) {
-            		Toast.makeText(MddbApplication.getAppContext(), "Feature name is required", Toast.LENGTH_LONG).show();
-            	} else if (newFeature && featureDb.getByName(currentFeature.getFeatureName()) != null) {
-            		Toast.makeText(MddbApplication.getAppContext(), "Feature named "+currentFeature.getFeatureName()+" already exists", Toast.LENGTH_LONG).show();
+            		Toast.makeText(SpringsApplication.getAppContext(), "Feature name is required", Toast.LENGTH_LONG).show();
+            	} else if (newFeature && Feature.getByName(currentFeature.getFeatureName(), dbHelper) != null) {
+            		Toast.makeText(SpringsApplication.getAppContext(), "Feature named "+currentFeature.getFeatureName()+" already exists", Toast.LENGTH_LONG).show();
             	} else {
             		if (newFeature) {
-            			featureDb.create(currentFeature);
+            			dbHelper.getFeatureDao().create(currentFeature);
             		} else {
-            			featureDb.update(currentFeature);
+            			dbHelper.getFeatureDao().update(currentFeature);
             		}
 	            	setDialogAction(DialogAction.SAVE);
 	            	setFeature(currentFeature);

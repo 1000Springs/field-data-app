@@ -28,12 +28,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import nz.cri.gns.springs.MddbApplication;
+import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.fragments.AppearanceFragment;
 import nz.cri.gns.springs.fragments.BioSampleFragment;
-import nz.cri.gns.springs.fragments.FeatureIdentificationFragment;
-import nz.cri.gns.springs.fragments.PhotoFragment;
+import nz.cri.gns.springs.fragments.ImageFragment;
 
 public class BioSampleActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -53,7 +52,7 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bio_sample);
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -116,9 +115,9 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
         public SectionTabsPagerAdapter(FragmentManager fm) {
             super(fm);
             tabs = Arrays.asList(new SectionTab[]{
-            	new SectionTab(MddbApplication.getAppContext().getString(R.string.sample_data_tab), new BioSampleFragment()),
-            	new SectionTab(MddbApplication.getAppContext().getString(R.string.survey_data_tab), new AppearanceFragment()),
-            	new SectionTab(MddbApplication.getAppContext().getString(R.string.images_tab), new PhotoFragment())
+            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.sample_data_tab), new BioSampleFragment()),
+            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.survey_data_tab), new AppearanceFragment()),
+            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.images_tab), new ImageFragment())
             });
         }
 

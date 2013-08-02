@@ -18,5 +18,7 @@
     <color name="green_base">#70c656</color>
     <color name="green_stroke">#53933f</color>
     <color name="green_gradientS">#70c656</color>
-    <color name="green_gradientE">#53933f</color>   
+    <color name="green_gradientE">#53933f</color>       
+    
+    <color name="drop_target_border">#FFFFFF</color>   
 </resources>

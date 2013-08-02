@@ -2,29 +2,25 @@ package nz.cri.gns.springs.fragments;
 
 import java.util.List;
 
-import nz.cri.gns.springs.MddbApplication;
+import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.db.Feature;
-import nz.cri.gns.springs.db.FeatureDb;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.fragments.FeatureIdentificationFragment.DialogAction;
 
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
-public class BioSampleFragment extends Fragment {
+public class BioSampleFragment extends SpringsFragment {
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,9 +37,8 @@ public class BioSampleFragment extends Fragment {
     public void listFeatures(View rootView, SpringsDbHelper helper) {
     	
     	// populate spinner with list of features from the DB
-    	FeatureDb featureDb = new FeatureDb(helper);
     	Spinner featureSpinner = (Spinner) rootView.findViewById(R.id.feature_spinner);
-    	List<Feature> featureList = featureDb.readAll();
+    	List<Feature> featureList = Feature.getAll(getHelper());
     	ArrayAdapter<Feature> dataAdapter = new ArrayAdapter<Feature>(this.getActivity().getBaseContext(),
     				R.layout.widget_spinner, featureList);
         dataAdapter.setDropDownViewResource(R.layout.widget_spinner_item);
@@ -97,15 +92,6 @@ public class BioSampleFragment extends Fragment {
     } 
     
     void showFeatureDialog(final View rootView, final SpringsDbHelper helper, Feature currentFeature) {
-        // DialogFragment.show() will take care of adding the fragment
-        // in a transaction.  We also want to remove any currently showing
-        // dialog, so make our own transaction and take care of that here.
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-        if (prev != null) {
-            ft.remove(prev);
-        }
-        ft.addToBackStack(null);
 
         // Create and show the dialog.
         final FeatureIdentificationFragment featureDialog = new FeatureIdentificationFragment();
@@ -115,7 +101,7 @@ public class BioSampleFragment extends Fragment {
 				if (featureDialog.getDialogAction() == DialogAction.SAVE) {
 					listFeatures(rootView, helper);
 					setSelectedFeature(rootView, featureDialog.getFeature());
-					Toast.makeText(MddbApplication.getAppContext(), "Feature saved", Toast.LENGTH_LONG).show();
+					Toast.makeText(SpringsApplication.getAppContext(), "Feature saved", Toast.LENGTH_LONG).show();
 				}
 				
 			}
@@ -123,7 +109,7 @@ public class BioSampleFragment extends Fragment {
         });
         
         featureDialog.setFeature(currentFeature);
-        featureDialog.show(ft, "dialog");
+        featureDialog.show(getFragmentManager(), "dialog");
     }
         
 
