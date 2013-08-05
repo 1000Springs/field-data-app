@@ -1,8 +1,18 @@
 package nz.cri.gns.springs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+
+import android.text.TextWatcher;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnFocusChangeListener;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 
 public class Util {
 	
@@ -37,4 +47,57 @@ public class Util {
 		}
 		return result;
 	}
+	
+	public interface ViewFilter {
+		boolean matches(View view);
+	}
+	
+	public static List<View> getChildren(View v, List<View> viewList, ViewFilter filter) {
+
+	    if (v instanceof ViewGroup) {
+		    ViewGroup viewGroup = (ViewGroup) v;
+		    for (int i = 0; i < viewGroup.getChildCount(); i++) {
+		        getChildren(viewGroup.getChildAt(i), viewList, filter);
+		    }	    
+	    }
+	    
+    	if (filter.matches(v)) {
+    		viewList.add(v);
+    	}
+	   return viewList;
+	}	
+	
+    public static void addEditTextListener(final OnFocusChangeListener onFocusChangeListener, final TextWatcher textChangedListener, View rootView) {
+
+    	Util.getChildren(rootView, new ArrayList<View>(), new Util.ViewFilter() {
+			
+			@Override
+			public boolean matches(View view) {
+				if (view instanceof EditText) {
+					((EditText)view).setOnFocusChangeListener(onFocusChangeListener);
+					if (textChangedListener != null) {
+						((EditText)view).addTextChangedListener(textChangedListener);
+					}
+				}
+				
+				return false;
+			}
+		});
+    }
+    
+    public static void addCheckBoxListener(final CompoundButton.OnCheckedChangeListener changeListener, View rootView) {
+
+    	Util.getChildren(rootView, new ArrayList<View>(), new Util.ViewFilter() {
+			
+			@Override
+			public boolean matches(View view) {
+				if (view instanceof CheckBox) {
+					((CheckBox)view).setOnCheckedChangeListener(changeListener);
+				}
+				
+				return false;
+			}
+		});
+    }
+	
 }

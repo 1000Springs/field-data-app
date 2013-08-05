@@ -19,6 +19,8 @@ package nz.cri.gns.springs.activity;
 import java.util.Arrays;
 import java.util.List;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -30,7 +32,10 @@ import android.support.v4.view.ViewPager;
 
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
+import nz.cri.gns.springs.db.BiologicalSample;
+import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.fragments.AppearanceFragment;
+import nz.cri.gns.springs.fragments.BioSampleActivityFragment;
 import nz.cri.gns.springs.fragments.BioSampleFragment;
 import nz.cri.gns.springs.fragments.ImageFragment;
 
@@ -43,23 +48,48 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
      * intensive, it may be best to switch to a {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
 	private SectionTabsPagerAdapter mAppSectionsPagerAdapter;
+	
+	private BiologicalSample currentSample;
 
     /**
      * The {@link ViewPager} that will display the three primary sections of the app, one at a
      * time.
      */
     private ViewPager mViewPager;
+    
+	private SpringsDbHelper databaseHelper = null;
+
+	@Override
+	public void onDestroy() {
+	    super.onDestroy();
+	    if (databaseHelper != null) {
+	        OpenHelperManager.releaseHelper();
+	        databaseHelper = null;
+	    }
+	}
+
+	protected SpringsDbHelper getHelper() {
+	    if (databaseHelper == null) {
+	        databaseHelper =
+	            OpenHelperManager.getHelper(this, SpringsDbHelper.class);
+	    }
+	    return databaseHelper;
+	}    
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bio_sample);
+        
+        setCurrentSample(savedInstanceState);
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
-        mAppSectionsPagerAdapter = new SectionTabsPagerAdapter(getSupportFragmentManager());
+        mAppSectionsPagerAdapter = new SectionTabsPagerAdapter(getSupportFragmentManager(), currentSample);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
+        actionBar.setTitle(currentSample.getFormattedSampleNumber());
 
         // Specify that the Home/Up button should not be enabled, since there is no hierarchical
         // parent.
@@ -93,6 +123,22 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
                             .setTabListener(this));
         }
     }
+    
+    private void setCurrentSample(Bundle savedInstanceState) {
+    	
+    	if (savedInstanceState != null) {
+    		currentSample = (BiologicalSample)savedInstanceState.get("biological_sample");
+    	} else {
+    		currentSample = null;
+    	}
+    	
+    	if (currentSample == null) {
+    		currentSample = new BiologicalSample();
+    		// TODO: change to max(getMaxSampleNumber(), settings.nextSampleNumber)
+    		currentSample.setSampleNumber(BiologicalSample.getMaxSampleNumber(getHelper()) + 1);
+    		getHelper().getBiologicalSampleDao().create(currentSample);
+    	}
+    }
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -112,12 +158,15 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
     	
     	private List<SectionTab> tabs;
     	
-        public SectionTabsPagerAdapter(FragmentManager fm) {
+        public SectionTabsPagerAdapter(FragmentManager fm, BiologicalSample currentSample) {
             super(fm);
             tabs = Arrays.asList(new SectionTab[]{
-            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.sample_data_tab), new BioSampleFragment()),
-            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.survey_data_tab), new AppearanceFragment()),
-            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.images_tab), new ImageFragment())
+                new SectionTab(SpringsApplication.getAppContext().getString(R.string.survey_data_tab), 
+                			new AppearanceFragment().setCurrentSample(currentSample)),            		
+            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.sample_data_tab), 
+            			new BioSampleFragment().setCurrentSample(currentSample)),
+            	new SectionTab(SpringsApplication.getAppContext().getString(R.string.images_tab), 
+            			new ImageFragment().setCurrentSample(currentSample))
             });
         }
 
@@ -142,9 +191,9 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
     static class SectionTab {
     	
     	private String title;
-    	private Fragment fragment;
+    	private BioSampleActivityFragment fragment;
     	
-    	public SectionTab(String title, Fragment fragment) {
+    	public SectionTab(String title, BioSampleActivityFragment fragment) {
     		this.title = title;
     		this.fragment = fragment;
     	}
@@ -156,10 +205,10 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
     	public void setTitle(String title) {
     		this.title = title;
     	}
-    	public Fragment getFragment() {
+    	public BioSampleActivityFragment getFragment() {
     		return fragment;
     	}
-    	public void setFragment(Fragment fragment) {
+    	public void setFragment(BioSampleActivityFragment fragment) {
     		this.fragment = fragment;
     	}
 

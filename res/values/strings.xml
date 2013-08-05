@@ -18,54 +18,12 @@
     
     <!-- Bio sample activity tabs -->
     <string name="sample_data_tab">Sample data</string>
-    <string name="survey_data_tab">Appearance</string>
+    <string name="survey_data_tab">Feature</string>
     <string name="images_tab">Images</string>
     
     <string name="app_name">1000 Springs</string>
-    <!--  
-    Strings used in multiple screens 
-    -->
-    <string name="temperature_label">Temperature</string>
     
-    <!--  
-    Feature Identification Tab 
-    -->
-    <string name="feature_id_tab">Feature Identification</string>
-    
-    <!--  
-    Appearance Tab 
-    -->
-    <string name="appearance_tab">Appearance</string>
-    <string name="size_label">Size</string>
-    <string name="colour_label">Colour</string>
-    <string name="clarity_turbidity_label">Clarity, Turbidity</string>
-    <string name="ebullition_label">Ebullition</string>
-    <string name="odour_gas_label">Odour Gas</string>
-    <string name="water_level_label">Water Level</string>
-    <string name="flow_rate_label">Flow Rate</string>
-    <string name="wind_speed_label">Wind Speed</string>
-    <string name="air_temperature_label">Air Temperature</string>
-    <string name="bio_sample_button">Biological Sample</string>
-    
-    <!--  
-    Bio Sample Activity
-    -->
-    <string name="bio_sample_activity">Biological Sample</string>
-    <string name="location_label">Location</string>
-    <string name="name_of_spring_label">Name of Spring</string>
-    <string name="sampler_label">Sampler</string>
-    <string name="time_label">Time</string>
-    <string name="date_label">Date</string>
-    <string name="sample_number_label">Sample Number</string>
-    <string name="gps_label">GPS (NZTM)</string>
-    <string name="ph_label">pH</string>
-    <string name="conductivity_label">Conductivity</string>
-    <string name="do_label">DO</string>
-    <string name="redox_label">Redox</string>
-              
-    <!--  
-    Photo tab
-    -->
-    <string name="photos_tab">Images</string>
-    <string name="add_photo_button">Add photo</string>
+    <string name="rubberneck_label">Rubberneck (H\u2082S/HCO\u2083)</string>
+    <string name="temperature_label">Temperature (\u00B0C)</string>
+    <string name="conductivity_label">Conductivity (\u00B5S/cm)</string>
 </resources>

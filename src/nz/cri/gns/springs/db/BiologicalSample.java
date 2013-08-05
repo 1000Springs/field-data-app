@@ -1,5 +1,8 @@
 package nz.cri.gns.springs.db;
 
+import android.util.Log;
+
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -9,7 +12,7 @@ public class BiologicalSample extends PersistentObject {
 	@DatabaseField(foreign = true)
 	private Survey survey;
 	
-	@DatabaseField private String sampleNumber;
+	@DatabaseField private Integer sampleNumber;
 	@DatabaseField private Double temperature;
 	@DatabaseField private Double pH;
 	@DatabaseField private Double orp;
@@ -22,13 +25,13 @@ public class BiologicalSample extends PersistentObject {
 	public Survey getSurvey() {
 		return survey;
 	}
-	public void setSurveyId(Survey survey) {
+	public void setSurvey(Survey survey) {
 		this.survey = survey;
 	}
-	public String getSampleNumber() {
+	public Integer getSampleNumber() {
 		return sampleNumber;
 	}
-	public void setSampleNumber(String sampleNumber) {
+	public void setSampleNumber(Integer sampleNumber) {
 		this.sampleNumber = sampleNumber;
 	}
 	public Double getTemperature() {
@@ -78,6 +81,24 @@ public class BiologicalSample extends PersistentObject {
 	}
 	public void setFerrousIronAbs(Double ferrousIronAbs) {
 		this.ferrousIronAbs = ferrousIronAbs;
+	}
+	
+	public String getFormattedSampleNumber() {
+		return formatSampleNumber(getSampleNumber());
+	}
+	
+	public static String formatSampleNumber(Integer sampleNumber) {
+		return "p1." + String.format("%04d", sampleNumber);
+	}
+	
+	public static Integer getMaxSampleNumber(SpringsDbHelper dbHelper) {
+		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
+		try {
+			return (int)dao.queryRawValue("select max(sampleNumber) from BiologicalSample");
+		} catch (Exception e) {
+			Log.e(BiologicalSample.class.getSimpleName(), "Error retrieving max sampleNumber", e);
+			return 0;
+		}
 	}
 	
 	

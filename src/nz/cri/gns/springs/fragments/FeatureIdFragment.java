@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class FeatureIdentificationFragment extends DialogFragment {
+public class FeatureIdFragment extends DialogFragment {
 	
 	private DialogAction dialogAction;
 	private Feature feature;
@@ -69,7 +69,7 @@ public class FeatureIdentificationFragment extends DialogFragment {
     public void addSaveButtonListener(final View rootView) {
     	
     	Button saveButton = (Button) rootView.findViewById(R.id.save_button);
-    	final FeatureIdentificationFragment dialogFragment = this;
+    	final FeatureIdFragment dialogFragment = this;
     	final SpringsDbHelper dbHelper = getHelper();
     	saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

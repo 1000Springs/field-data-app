@@ -45,7 +45,6 @@
 
         <activity 
             android:name=".activity.BioSampleActivity" 
-            android:label="@string/bio_sample_activity" 
             />
         <activity
 		    android:name="com.aviary.android.feather.FeatherActivity"

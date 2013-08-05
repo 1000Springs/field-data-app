@@ -16,7 +16,6 @@
 		        style="@style/form_label"/>
 		    <EditText
 		        android:id="@+id/feature_name_input"
-		        android:ems="15"
 		        android:hint=""
 		        android:inputType="text" 
 		        style="@style/form_input"/>
@@ -29,7 +28,6 @@
 	            style="@style/form_label"/>
 		    <EditText
 		        android:id="@+id/historic_local_name_input"
-		        android:ems="15"
 		        android:hint=""
 		        android:inputType="text" 
 	            style="@style/form_input" />  
@@ -42,7 +40,6 @@
 	            style="@style/form_label"/>
 	        <EditText
 	            android:id="@+id/feature_type_input"
-	            android:ems="15"
 	            android:hint=""
 	            android:inputType="text" 
 	            style="@style/form_input" />  
@@ -55,7 +52,6 @@
 	            style="@style/form_label"/>
 	        <EditText
 	            android:id="@+id/geothermal_field_input"
-	            android:ems="15"
 	            android:hint=""
 	            android:inputType="text" 
 	            style="@style/form_input" />  
@@ -68,7 +64,6 @@
                 style="@style/form_label"/>
             <EditText
                 android:id="@+id/description"
-                android:ems="15"
                 android:hint=""
                 android:inputType="textMultiLine" 
                 android:singleLine="false"
@@ -91,7 +86,6 @@
 	            style="@style/form_subsection_label"/>
 	        <EditText
 	            android:id="@+id/coord_easting_input"
-	            android:ems="15"
 	            android:hint=""
 	            android:inputType="number|numberDecimal|numberSigned" 
 	            style="@style/form_input" />  
@@ -104,7 +98,6 @@
 	            style="@style/form_subsection_label"/>
 	        <EditText
 	            android:id="@+id/coord_northing_input"
-	            android:ems="15"
 	            android:hint=""
 	            android:inputType="number|numberDecimal|numberSigned" 
 	            style="@style/form_input" />  
@@ -117,7 +110,6 @@
 	            style="@style/form_subsection_label"/>
 	        <EditText
 	            android:id="@+id/coord_error_est"
-	            android:ems="15"
 	            android:hint=""
 	            android:inputType="number|numberDecimal" 
 	            style="@style/form_input" />  
@@ -130,7 +122,6 @@
 	            style="@style/form_subsection_label"/>
 	        <EditText
 	            android:id="@+id/coord_feature_rel"
-	            android:ems="15"
 	            android:hint="outlet, centre, etc"
 	            android:inputType="text" 
 	            style="@style/form_input" />  

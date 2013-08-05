@@ -12,6 +12,7 @@ import java.util.List;
 
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
+import nz.cri.gns.springs.db.BiologicalSample;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
@@ -46,7 +47,7 @@ import com.aviary.android.feather.library.Constants;
 import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-public class ImageFragment extends SpringsFragment implements OnDragListener, OnTouchListener {
+public class ImageFragment extends BioSampleActivityFragment implements OnDragListener, OnTouchListener {
 	
 	private static final int IMAGE_CAPTURE = 1;
 	private static final int IMAGE_EDIT = 2;
@@ -55,7 +56,6 @@ public class ImageFragment extends SpringsFragment implements OnDragListener, On
 	private static final String IMAGE_PARENT_TAG = "ImageParent";
 	
 	private String currentImageFile;
-	private Survey currentSurvey;
 	private View rootView;
 	
 	
@@ -118,7 +118,6 @@ public class ImageFragment extends SpringsFragment implements OnDragListener, On
     	rootView.findViewById(R.id.rubbish_bin).setOnDragListener(this);
     	rootView.setOnDragListener(this);
     	
-    	setSurvey();
     	displayImages();
     	
     	return rootView;
@@ -139,29 +138,7 @@ public class ImageFragment extends SpringsFragment implements OnDragListener, On
         out.close();
     }    
     
-    private void setSurvey() {
-    	// TODO: this is just a temporary hack, need to replace with way to 
-    	// set the currently-being-entered sample/survey
-		RuntimeExceptionDao<Survey, Long> dao = getHelper().getSurveyDao();
-		CloseableIterator<Survey> iterator = dao.closeableIterator();
-		try {
-		    while (iterator.hasNext()) {
-		    	currentSurvey = iterator.next();
-		    	break;
-		    }
-		} finally {
-		    try {
-				iterator.close();
-				if (currentSurvey == null) {
-					currentSurvey = new Survey();
-					dao.create(currentSurvey);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-    }
+
 
     @Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {

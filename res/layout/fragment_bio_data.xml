@@ -1,46 +1,262 @@
 <ScrollView 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
     style="@style/standard_layout"
     >
-    
+ 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center" >    
-	    
+        android:gravity="center">  
 	    <TableLayout
-	            android:layout_width="match_parent"
-	            android:layout_height="match_parent">
-	                   
-		    <TableRow
-		            android:padding="10dp" >        
-		        <TextView
-		            android:text="Feature"
-		            style="@style/form_label"/>
-	            <Spinner
-	                android:id="@+id/feature_spinner"
-	                android:layout_width="match_parent"
-	                android:layout_height="wrap_content" 
-	                android:background="@drawable/btn_dropdown"
-	                />
-	            
-	            <Button 
-	                android:id="@+id/edit_feature_button"
-                    android:text="Edit"
-                    android:layout_marginLeft="20dp"
-                    style="@style/standard_button"/>
-	            	            
-	            <Button 
-                    android:id="@+id/add_feature_button"
-                    android:text="Add"
-                    android:layout_marginLeft="20dp"
-                    style="@style/standard_button"/>
-	            
-			</TableRow>                   
-        </TableLayout>             
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content">    
+	        
+	        <!-- 
+	            Site checklist
+	         -->	 
+            <TableRow>	            
+		        <TableLayout
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content">	    			
+				    <TableRow
+		                style="@style/form_row" > 
+			            <TextView
+			                android:text="Site checklist"
+			                style="@style/form_section_heading"/>
+			        </TableRow> 
+		
+			        <TableRow
+			            style="@style/form_row" > 
+			            <TextView
+			                android:text="2L Nalgene"
+			                style="@style/form_subsection_label"/>
+			            <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="nalgene" />  
+			        </TableRow> 
+			        
+			        <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="500ml bottle"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="bottle500" />  
+		            </TableRow> 
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="@string/rubberneck_label"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="rubberneck" />  
+		            </TableRow> 
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Gas bag"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="gas_bag" />  
+		            </TableRow>   
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Corning/falcon for soil"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="falcon" />  
+		            </TableRow>       	        
+		        </TableLayout>  
+            </TableRow> 
+	        
+	         <!-- 
+	            Sample data
+	         -->   
+            <TableRow>	          
+		        <TableLayout
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content">   
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Sample data"
+		                    style="@style/form_section_heading"/>
+		            </TableRow>  
+			        <TableRow
+			            style="@style/form_row" > 
+			            <TextView
+			                android:text="@string/temperature_label"
+			                style="@style/form_subsection_label"/>
+			            <EditText
+			                android:id="@+id/sample_temperature_input"
+			                android:hint=""
+			                android:inputType="number|numberDecimal" 
+			                style="@style/form_input" />  
+			        </TableRow>  
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="pH"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/ph_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal" 
+		                    style="@style/form_input" />  
+		            </TableRow> 
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="ORP (mV)"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/orp_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal" 
+		                    style="@style/form_input" />  
+		            </TableRow> 
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="@string/conductivity_label"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/conductivity_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal|numberSigned" 
+		                    style="@style/form_input" />  
+		            </TableRow>   
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="DO (mg/L)"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/do_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal|numberSigned" 
+		                    style="@style/form_input" />  
+		            </TableRow>      
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Turbidity (FNU)"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/turbidity_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal|numberSigned" 
+		                    style="@style/form_input" />  
+		            </TableRow> 
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="DNA: volume (ml)"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/dna_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal|numberSigned" 
+		                    style="@style/form_input" />  
+		            </TableRow>  
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Ferrous iron: ABS@545nm"
+		                    style="@style/form_subsection_label"/>
+		                <EditText
+		                    android:id="@+id/ferrous_iron_input"
+		                    android:hint=""
+		                    android:inputType="number|numberDecimal|numberSigned" 
+		                    style="@style/form_input" />  
+		            </TableRow>                                                                         	                                    
+		        </TableLayout>    
+            </TableRow>	        
+	         <!-- 
+	            Mobile lab checklist
+	         -->    
+	        <TableRow>
+		        <TableLayout
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content">   
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Mobile lab checklist"
+		                    style="@style/form_section_heading"/>
+		            </TableRow> 
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="DNA"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="dna" />  
+		            </TableRow>    
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Ferrous iron"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="ferrous_iron" />  
+		            </TableRow>    
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="ICP elements"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="icp_elements" />  
+		            </TableRow>     
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Nutrients"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="nutrients" />  
+		            </TableRow>          
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Sulphate/Chloride"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="sulphate/chloride" />  
+		            </TableRow>  
+		            
+		            <TableRow
+		                style="@style/form_row" > 
+		                <TextView
+		                    android:text="Soil"
+		                    style="@style/form_subsection_label"/>
+		                <CheckBox
+		                    style="@style/indented_checkbox"      
+		                    android:tag="soil" />  
+		            </TableRow>              
+		        </TableLayout>
+	        </TableRow>
+	    </TableLayout>                 
 	</LinearLayout>
 </ScrollView>

@@ -15,13 +15,14 @@ import android.database.sqlite.SQLiteDatabase;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 9;
     public static final String DATABASE_NAME = "1000-Springs.db";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
     private RuntimeExceptionDao<Survey, Long> surveyDao = null;
     private RuntimeExceptionDao<SurveyImage, Long> surveyImageDao = null;
     private RuntimeExceptionDao<BiologicalSample, Long> biologicalSampleDao = null;
+    private RuntimeExceptionDao<ChecklistItem, Long> checklistItemDao = null;
     
     public SpringsDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,6 +52,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 			TableUtils.createTable(connectionSource, Survey.class);
 			TableUtils.createTable(connectionSource, SurveyImage.class);
 			TableUtils.createTable(connectionSource, BiologicalSample.class);
+			TableUtils.createTable(connectionSource, ChecklistItem.class);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,6 +145,21 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		}
 		
 		return biologicalSampleDao;
+	}
+	
+	public RuntimeExceptionDao<ChecklistItem, Long> getChecklistItemDao() {
+		if (checklistItemDao == null) {
+			Dao<ChecklistItem, Long> dao;
+			try {
+				dao = DaoManager.createDao(getConnectionSource(), ChecklistItem.class);
+				checklistItemDao = new RuntimeExceptionDao<ChecklistItem, Long>(dao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return checklistItemDao;
 	}
 	
 	public static class SpringsUpdater<T extends PersistentObject> {

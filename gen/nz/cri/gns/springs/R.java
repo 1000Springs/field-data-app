@@ -1871,26 +1871,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int aviary_wheel_shadow=0x7f020084;
         public static final int aviary_wheel_shadow_bottom=0x7f020085;
         public static final int blue_button=0x7f020086;
-        public static final int btn_dropdown=0x7f020087;
-        public static final int btn_dropdown_normal=0x7f020088;
-        public static final int btn_dropdown_pressed=0x7f020089;
-        public static final int drop_target_background=0x7f02008a;
-        public static final int drop_target_border=0x7f02008b;
-        public static final int green_button=0x7f02008c;
-        public static final int ic_launcher=0x7f02008d;
-        public static final int ic_stickers=0x7f02008e;
-        public static final int purple_button=0x7f02008f;
-        public static final int red_button=0x7f020090;
-        public static final int rounded_corners=0x7f020091;
-        public static final int rubbish_bin=0x7f020092;
-        public static final int standard_button=0x7f020093;
+        public static final int btn_check_off=0x7f020087;
+        public static final int btn_check_off_focused_holo_dark=0x7f020088;
+        public static final int btn_check_on=0x7f020089;
+        public static final int btn_check_on_focused_holo_dark=0x7f02008a;
+        public static final int btn_dropdown=0x7f02008b;
+        public static final int btn_dropdown_normal=0x7f02008c;
+        public static final int btn_dropdown_pressed=0x7f02008d;
+        public static final int drop_target_background=0x7f02008e;
+        public static final int drop_target_border=0x7f02008f;
+        public static final int green_button=0x7f020090;
+        public static final int ic_launcher=0x7f020091;
+        public static final int ic_stickers=0x7f020092;
+        public static final int purple_button=0x7f020093;
+        public static final int red_button=0x7f020094;
+        public static final int rounded_corners=0x7f020095;
+        public static final int rubbish_bin=0x7f020096;
+        public static final int standard_button=0x7f020097;
+        public static final int standard_checkbox=0x7f020098;
     }
     public static final class id {
-        public static final int add_feature_button=0x7f060077;
-        public static final int add_photo_button=0x7f060083;
-        public static final int air_temperature_input=0x7f060073;
-        public static final int air_temperature_label=0x7f060072;
-        public static final int annotated_photo_tag=0x7f06008b;
+        public static final int add_feature_button=0x7f060062;
+        public static final int annotated_photo_tag=0x7f060083;
         public static final int aviary_bottom_line=0x7f060046;
         public static final int aviary_bottombar=0x7f060036;
         public static final int aviary_button=0x7f06002c;
@@ -1947,47 +1949,47 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int aviary_workspace=0x7f06002e;
         public static final int aviary_workspace_container=0x7f06002d;
         public static final int aviary_workspace_indicator=0x7f06002f;
-        public static final int best_photo_tag=0x7f060089;
-        public static final int best_sketch_tag=0x7f06008a;
+        public static final int best_photo_tag=0x7f060081;
+        public static final int best_sketch_tag=0x7f060082;
         public static final int button1=0x7f060049;
         public static final int button2=0x7f06004b;
         public static final int button3=0x7f06004d;
-        public static final int camera_button=0x7f060086;
-        public static final int cancel_button=0x7f060081;
+        public static final int camera_button=0x7f06007e;
+        public static final int cancel_button=0x7f06007b;
         public static final int checked=0x7f060001;
-        public static final int clarity_turbidity_input=0x7f060065;
-        public static final int clarity_turbidity_label=0x7f060064;
-        public static final int colour_input=0x7f060063;
-        public static final int colour_label=0x7f060062;
-        public static final int coord_easting_input=0x7f06007d;
-        public static final int coord_error_est=0x7f06007f;
-        public static final int coord_feature_rel=0x7f060080;
-        public static final int coord_northing_input=0x7f06007e;
-        public static final int description=0x7f06007c;
+        public static final int clarity_turbidity_input=0x7f060066;
+        public static final int colour_input=0x7f060065;
+        public static final int conductivity_input=0x7f06006d;
+        public static final int coord_easting_input=0x7f060077;
+        public static final int coord_error_est=0x7f060079;
+        public static final int coord_feature_rel=0x7f06007a;
+        public static final int coord_northing_input=0x7f060078;
+        public static final int description=0x7f060076;
         public static final int divider=0x7f060025;
+        public static final int dna_input=0x7f060070;
+        public static final int do_input=0x7f06006e;
         public static final int down_top=0x7f060004;
         public static final int dragLayer=0x7f060033;
         public static final int drawing_view_container=0x7f060037;
-        public static final int ebullition_input=0x7f060067;
-        public static final int ebullition_label=0x7f060066;
         public static final int edge_bottom=0x7f060008;
         public static final int edge_left=0x7f060005;
         public static final int edge_right=0x7f060006;
         public static final int edge_top=0x7f060007;
-        public static final int edit_feature_button=0x7f060076;
+        public static final int edit_feature_button=0x7f060061;
         public static final int feather_dialogs_container=0x7f060039;
-        public static final int feature_name_input=0x7f060078;
-        public static final int feature_spinner=0x7f060075;
-        public static final int feature_type_input=0x7f06007a;
-        public static final int flow_rate_input=0x7f06006f;
-        public static final int flow_rate_label=0x7f06006e;
-        public static final int geothermal_field_input=0x7f06007b;
-        public static final int historic_local_name_input=0x7f060079;
+        public static final int feature_name_input=0x7f060072;
+        public static final int feature_size_input=0x7f060064;
+        public static final int feature_spinner=0x7f060060;
+        public static final int feature_temperature_input=0x7f060067;
+        public static final int feature_type_input=0x7f060074;
+        public static final int ferrous_iron_input=0x7f060071;
+        public static final int geothermal_field_input=0x7f060075;
+        public static final int historic_local_name_input=0x7f060073;
         public static final int horizontal=0x7f06000a;
         public static final int image=0x7f060015;
         public static final int image_loading_view=0x7f060038;
-        public static final int image_tool_bar=0x7f060085;
-        public static final int image_types=0x7f060088;
+        public static final int image_tool_bar=0x7f06007d;
+        public static final int image_types=0x7f060080;
         public static final int imagegl=0x7f060018;
         public static final int main_content=0x7f060035;
         public static final int manage_bio_samples_button=0x7f06000c;
@@ -2001,33 +2003,29 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int navbar_text2=0x7f06003e;
         public static final int new_bio_sample_button=0x7f06000d;
         public static final int nonblank=0x7f060023;
-        public static final int odour_gas_input=0x7f060069;
-        public static final int odour_gas_label=0x7f060068;
-        public static final int open_bio_sample_button=0x7f060074;
+        public static final int observer_1_input=0x7f060068;
+        public static final int observer_2_input=0x7f060069;
+        public static final int orp_input=0x7f06006c;
         public static final int pager=0x7f06000b;
-        public static final int photo_list=0x7f060084;
+        public static final int ph_input=0x7f06006b;
+        public static final int photo_list=0x7f060085;
         public static final int pressed=0x7f060000;
-        public static final int rubbish_bin=0x7f06008c;
-        public static final int save_button=0x7f060082;
+        public static final int rubbish_bin=0x7f060084;
+        public static final int sample_temperature_input=0x7f06006a;
+        public static final int save_button=0x7f06007c;
         public static final int selected=0x7f060002;
         public static final int settings_button=0x7f06000e;
-        public static final int shadow=0x7f06008d;
-        public static final int size_input=0x7f060061;
-        public static final int size_label=0x7f060060;
+        public static final int shadow=0x7f060086;
         public static final int size_preview=0x7f06005f;
-        public static final int sketch_button=0x7f060087;
-        public static final int temperature_input=0x7f06006b;
-        public static final int temperature_label=0x7f06006a;
+        public static final int sketch_button=0x7f06007f;
+        public static final int survey_date=0x7f060063;
         public static final int text=0x7f060024;
         public static final int text1=0x7f06004a;
         public static final int text2=0x7f06004c;
         public static final int text3=0x7f06004e;
         public static final int top_down=0x7f060003;
+        public static final int turbidity_input=0x7f06006f;
         public static final int vertical=0x7f060009;
-        public static final int water_level_input=0x7f06006d;
-        public static final int water_level_label=0x7f06006c;
-        public static final int wind_speed_input=0x7f060071;
-        public static final int wind_speed_label=0x7f060070;
     }
     public static final class integer {
         /**  
@@ -2245,14 +2243,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sketch_canvas=0x7f050001;
     }
     public static final class string {
-        public static final int add_photo_button=0x7f0a0093;
-        public static final int air_temperature_label=0x7f0a0084;
         public static final int app_name=0x7f0a0078;
-        /**   
-    Appearance Tab 
-    
-         */
-        public static final int appearance_tab=0x7f0a007b;
         /**  
 	############################ MEME ####################
 	
@@ -2260,20 +2251,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  or leave empty to use the default system font 
          */
         public static final int aviary_meme_font=0x7f0a0000;
-        /**   
-    Bio Sample Activity
-    
-         */
-        public static final int bio_sample_activity=0x7f0a0086;
-        public static final int bio_sample_button=0x7f0a0085;
         public static final int border_name=0x7f0a005b;
-        public static final int clarity_turbidity_label=0x7f0a007e;
-        public static final int colour_label=0x7f0a007d;
-        public static final int conductivity_label=0x7f0a008f;
+        public static final int conductivity_label=0x7f0a007b;
         public static final int confirm_quit_message=0x7f0a0062;
-        public static final int date_label=0x7f0a008b;
-        public static final int do_label=0x7f0a0090;
-        public static final int ebullition_label=0x7f0a007f;
         public static final int feather_about_dialog_message=0x7f0a0010;
         public static final int feather_activity_not_found=0x7f0a0048;
         public static final int feather_adjust=0x7f0a004f;
@@ -2386,41 +2366,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int feather_whiten=0x7f0a000a;
         public static final int feather_yes_leave=0x7f0a0028;
         public static final int feather_zoom_mode=0x7f0a0049;
-        /**   
-    Feature Identification Tab 
-    
-         */
-        public static final int feature_id_tab=0x7f0a007a;
         public static final int filter_name=0x7f0a0050;
-        public static final int flow_rate_label=0x7f0a0082;
-        public static final int gps_label=0x7f0a008d;
         public static final int images_tab=0x7f0a0077;
-        public static final int location_label=0x7f0a0087;
         public static final int menu_premium=0x7f0a0056;
-        public static final int name_of_spring_label=0x7f0a0088;
-        public static final int odour_gas_label=0x7f0a0080;
-        public static final int ph_label=0x7f0a008e;
-        /**   
-    Photo tab
-    
-         */
-        public static final int photos_tab=0x7f0a0092;
-        public static final int redox_label=0x7f0a0091;
+        public static final int rubberneck_label=0x7f0a0079;
         /**  Bio sample activity tabs 
          */
         public static final int sample_data_tab=0x7f0a0075;
-        public static final int sample_number_label=0x7f0a008c;
-        public static final int sampler_label=0x7f0a0089;
-        public static final int size_label=0x7f0a007c;
         public static final int survey_data_tab=0x7f0a0076;
-        /**   
-    Strings used in multiple screens 
-    
-         */
-        public static final int temperature_label=0x7f0a0079;
-        public static final int time_label=0x7f0a008a;
-        public static final int water_level_label=0x7f0a0081;
-        public static final int wind_speed_label=0x7f0a0083;
+        public static final int temperature_label=0x7f0a007a;
     }
     public static final class style {
         public static final int AviaryAnimations=0x7f0c0078;
@@ -2557,23 +2511,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int AviaryWidget_TextView_NavTitle=0x7f0c004e;
         public static final int AviaryWidget_TextView_Tool=0x7f0c004c;
         public static final int AviaryWidget_TiltShiftView=0x7f0c0003;
-        public static final int form_input=0x7f0c0085;
-        public static final int form_input_multiline=0x7f0c0086;
-        public static final int form_label=0x7f0c0084;
-        public static final int form_row=0x7f0c0089;
-        public static final int form_section_heading=0x7f0c0087;
-        public static final int form_subsection_label=0x7f0c0088;
-        public static final int image_fragment_button=0x7f0c008a;
-        public static final int image_tag=0x7f0c008b;
-        public static final int image_tag_annotated_photo=0x7f0c008e;
-        public static final int image_tag_photo=0x7f0c008c;
-        public static final int image_tag_sketch=0x7f0c008d;
+        public static final int form_input=0x7f0c0086;
+        public static final int form_input_multiline=0x7f0c0087;
+        public static final int form_label=0x7f0c0085;
+        public static final int form_row=0x7f0c008a;
+        public static final int form_section_heading=0x7f0c0088;
+        public static final int form_subsection_label=0x7f0c0089;
+        public static final int image_fragment_button=0x7f0c008b;
+        public static final int image_tag=0x7f0c008c;
+        public static final int image_tag_annotated_photo=0x7f0c008f;
+        public static final int image_tag_photo=0x7f0c008d;
+        public static final int image_tag_sketch=0x7f0c008e;
+        public static final int indented_checkbox=0x7f0c0091;
         public static final int main_menu_button=0x7f0c007e;
+        public static final int spaced_button=0x7f0c0090;
         public static final int standard_button=0x7f0c007f;
+        public static final int standard_checkbox=0x7f0c0081;
         public static final int standard_edit_text=0x7f0c0080;
-        public static final int standard_layout=0x7f0c0083;
-        public static final int standard_spinner=0x7f0c0081;
-        public static final int standard_spinner_item=0x7f0c0082;
+        public static final int standard_layout=0x7f0c0084;
+        public static final int standard_spinner=0x7f0c0082;
+        public static final int standard_spinner_item=0x7f0c0083;
     }
     public static final class styleable {
         /** Attributes that can be used with a AviaryAdjustImageView.
