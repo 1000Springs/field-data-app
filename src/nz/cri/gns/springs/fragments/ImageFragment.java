@@ -5,16 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
-import nz.cri.gns.springs.db.BiologicalSample;
-import nz.cri.gns.springs.db.SpringsDbHelper;
-import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,6 +20,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -33,6 +28,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
+import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
@@ -44,10 +40,8 @@ import android.widget.TextView;
 
 import com.aviary.android.feather.FeatherActivity;
 import com.aviary.android.feather.library.Constants;
-import com.j256.ormlite.dao.CloseableIterator;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-public class ImageFragment extends BioSampleActivityFragment implements OnDragListener, OnTouchListener {
+public class ImageFragment extends BioSampleActivityFragment implements OnDragListener, OnTouchListener, OnLongClickListener {
 	
 	private static final int IMAGE_CAPTURE = 1;
 	private static final int IMAGE_EDIT = 2;
@@ -57,6 +51,10 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	
 	private String currentImageFile;
 	private View rootView;
+	
+	private static final long DOUBLE_TAP_DELAY_MILLIS = 500l; 
+	private long lastImageTapMillis = 0;
+	private View lastImageTapView = null;
 	
 	
     @Override
@@ -138,22 +136,34 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         out.close();
     }    
     
+    
+	@Override
+	public boolean onLongClick(View view) {
+		ClipData data = ClipData.newPlainText("", "");
+		DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+				view);
+		view.startDrag(data, shadowBuilder, view, 0);
+		view.setVisibility(View.INVISIBLE);
+		return true;
+	}    
 
 
     @Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
     	
-		//TextView tag = (TextView) view;
-		if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-			ClipData data = ClipData.newPlainText("", "");
-			DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-					view);
-			view.startDrag(data, shadowBuilder, view, 0);
-			view.setVisibility(View.INVISIBLE);
-			return true;
-		} else {
-			return false;
-		}
+		long tapTime = System.currentTimeMillis();
+		boolean consumedEvent = false;
+		if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {		
+			if (view == lastImageTapView && tapTime - lastImageTapMillis <= DOUBLE_TAP_DELAY_MILLIS) {
+				editImage(view);
+				consumedEvent = true;
+			} else {
+				lastImageTapView = view;
+				lastImageTapMillis = tapTime;
+			}		
+		} 
+		
+		return consumedEvent;
 	}
     
     private void addTagDragListener(View rootView) {
@@ -162,7 +172,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	for (int id : ids) {
     		View tag = rootView.findViewById(id);
     		if (tag != null) {
-    			tag.setOnTouchListener(this);
+    			tag.setOnLongClickListener(this);
     		}
     	}
     }
@@ -178,12 +188,12 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 				Log.e(ImageFragment.class.getName(), "Failed to create image directory "+storageDir.getAbsolutePath());
 			}
 		}
+	
+        Time now = new Time(Time.getCurrentTimezone());
+       	now.set(System.currentTimeMillis());
 
-		// TODO: add feature identifier to file name or directory
-		String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss")
-				.format(new Date());
-		String imageFileName = timeStamp + "_";
-		File image = File.createTempFile(imageFileName, "jpg", storageDir);
+		String imageFileName = now.format("%Y%m%d%H%M%S") + "_";
+		File image = File.createTempFile(imageFileName, ".jpg", storageDir);
 		return image;
 	}
     
@@ -252,8 +262,9 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         imgView.setMaxWidth(200);
         imgView.setId(surveyImage.getId().intValue());
         imgView.setOnTouchListener(this);
-        
-        addEditImageListener(imgView);
+        imgView.setOnLongClickListener(this);
+
+//        addEditImageListener(imgView);
                 
         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         layoutParams.setMargins(20, 20, 20, 20);
@@ -413,25 +424,17 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	private String getImageViewTag(View source) {
 		return source.getTag()+"_IMAGE";
 	}
-	
-    
-    private void addEditImageListener(ImageView image) {
-    	final Activity activity = this.getActivity();
-    	final SpringsDbHelper dbHelper = getHelper();
-    	image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            	SurveyImage surveyImage = dbHelper.getSurveyImageDao().queryForId(Long.valueOf(view.getId()));
-            	String fileName = surveyImage.getFileName();
-	            Intent editImageIntent = new Intent(activity, FeatherActivity.class);
-	            editImageIntent.setData( Uri.parse(fileName) );
-	            editImageIntent.putExtra( "output", Uri.parse(fileName+"-edited"));
-	            editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
-	            editImageIntent.putExtra( "output-quality", 85 );
-	            editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
-	            startActivityForResult( editImageIntent, IMAGE_EDIT );
-            }
-        });
+	    
+    private void editImage(View imageView) {
+    	SurveyImage surveyImage = getHelper().getSurveyImageDao().queryForId(Long.valueOf(imageView.getId()));
+    	String fileName = surveyImage.getFileName();
+        Intent editImageIntent = new Intent(this.getActivity(), FeatherActivity.class);
+        editImageIntent.setData( Uri.parse(fileName) );
+        editImageIntent.putExtra( "output", Uri.parse(fileName+"-edited"));
+        editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
+        editImageIntent.putExtra( "output-quality", 85 );
+        editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
+        startActivityForResult( editImageIntent, IMAGE_EDIT );    	
     }
     
 	public static int calculateInSampleSize(BitmapFactory.Options options,

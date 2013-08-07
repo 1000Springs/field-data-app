@@ -1,7 +1,6 @@
 package nz.cri.gns.springs.fragments;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import nz.cri.gns.springs.R;
@@ -20,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +29,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher {
+public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener {
 	
 	private View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
@@ -47,13 +48,10 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	Util.addEditTextListener(this, this, rootView);
     	
         TextView dateView = (TextView) rootView.findViewById(R.id.survey_date);       
-        // TODO: replace this with the Survey instance value
         Time now = new Time(Time.getCurrentTimezone());
-        now.set(currentSurvey.getSurveyDate());
+       	now.set(currentSurvey.getSurveyDate());
         dateView.setText(now.format("%c"));
         
-        
-    	
     	return rootView;
     }
     
@@ -66,6 +64,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     				R.layout.widget_spinner, featureList);
         dataAdapter.setDropDownViewResource(R.layout.widget_spinner_item);
     	featureSpinner.setAdapter(dataAdapter);
+    	featureSpinner.setOnItemSelectedListener(this);
     	
     	// Disable 'Edit' button if the number of features = 0
     	Button editButton = (Button) rootView.findViewById(R.id.edit_feature_button);
@@ -92,6 +91,16 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	
     }
     
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		updateSurveyFromInput();	
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		updateSurveyFromInput();	
+	}
+    
     
     public void addButtonListener(final View rootView, final SpringsDbHelper helper) {
     	
@@ -110,6 +119,15 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
             	Spinner featureSpinner = (Spinner) rootView.findViewById(R.id.feature_spinner);
             	Feature selectedFeature = (Feature) featureSpinner.getSelectedItem();
             	showFeatureDialog(rootView, helper, selectedFeature);
+            }
+        });
+    	
+    	Button saveButton = (Button) rootView.findViewById(R.id.save_survey_button);
+    	saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	updateSurveyFromInput();
+        		Toast.makeText(SpringsApplication.getAppContext(), "Update saved", Toast.LENGTH_LONG).show();           	
             }
         });
     } 
@@ -164,7 +182,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	
     	String temperature = ((EditText) rootView.findViewById(R.id.feature_temperature_input)).getText().toString();
     	if (!temperature.isEmpty()) {
-    		currentSurvey.setTemperature(Double.parseDouble(size));
+    		currentSurvey.setTemperature(Double.parseDouble(temperature));
     	}
     	
     	currentSurvey.setObserver1(((EditText) rootView.findViewById(R.id.observer_1_input)).getText().toString());
@@ -172,7 +190,6 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	
     	getHelper().getSurveyDao().update(currentSurvey);
     	surveyUpdatedSinceLastSave = false;
-		Toast.makeText(SpringsApplication.getAppContext(), "Update saved", Toast.LENGTH_SHORT).show();
     }
     
     public void setInputFromSurvey() {

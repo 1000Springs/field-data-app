@@ -76,7 +76,7 @@
     
     <style name="form_section_heading" parent="@style/form_label">
         <item name="android:layout_marginTop">10dp</item>
-        <item name="android:textColor">@color/blue_gradientS</item>
+        <item name="android:textColor">@color/section_heading</item>
         <item name="android:textStyle">bold</item>
     </style>
     
@@ -125,6 +125,41 @@
     
     <style name="indented_checkbox" parent="@style/standard_checkbox">
         <item name="android:layout_marginLeft">20dp</item>
-    </style>      
+    </style>   
+    
+    <style name="column">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style> 
+    
+    <style name="column_fixed_width" parent="@style/column">
+        <item name="android:layout_width">250dp</item>
+    </style>
+    
+        <style name="column_header">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:background">@color/table_header_background</item>
+        <item name="android:textColor">@color/section_heading</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style> 
+    
+    <style name="column_header_fixed_width" parent="@style/column_header">
+        <item name="android:layout_width">250dp</item>
+    </style>
+    
+    <style name="standard_link">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:textColor">@color/link</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>    
     
 </resources>

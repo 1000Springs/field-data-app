@@ -2,10 +2,8 @@ package nz.cri.gns.springs.db;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.stmt.PreparedQuery;

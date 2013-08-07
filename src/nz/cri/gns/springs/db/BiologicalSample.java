@@ -1,14 +1,22 @@
 package nz.cri.gns.springs.db;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.util.Log;
 
+import com.j256.ormlite.dao.GenericRawResults;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
 public class BiologicalSample extends PersistentObject {
-	
+
+	private static final long serialVersionUID = -7201406858581042942L;
+
 	@DatabaseField(foreign = true)
 	private Survey survey;
 	
@@ -88,7 +96,7 @@ public class BiologicalSample extends PersistentObject {
 	}
 	
 	public static String formatSampleNumber(Integer sampleNumber) {
-		return "p1." + String.format("%04d", sampleNumber);
+		return "P1." + String.format("%04d", sampleNumber);
 	}
 	
 	public static Integer getMaxSampleNumber(SpringsDbHelper dbHelper) {
@@ -98,6 +106,47 @@ public class BiologicalSample extends PersistentObject {
 		} catch (Exception e) {
 			Log.e(BiologicalSample.class.getSimpleName(), "Error retrieving max sampleNumber", e);
 			return 0;
+		}
+	}
+	
+	
+	public static class SamplesForExportResult {
+		
+		public Long sampleId;
+		public Integer sampleNumber;
+		public String featureName;
+		public Long surveyDate;
+	}
+	
+	public static List<SamplesForExportResult> getSamplesForExport(SpringsDbHelper dbHelper) {
+		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
+		String query = 
+				"select samp.id, samp.sampleNumber, feat.featureName, surv.surveyDate " + 
+				"from BiologicalSample samp " +
+				"join Survey surv on samp.survey_id = surv.id " + 
+			    "join Feature feat on surv.feature_id = feat.id " +
+				"where samp.status in (?, ?)";
+		
+		DataType[] columnTypes = {DataType.LONG, DataType.INTEGER, DataType.STRING, DataType.LONG};
+		
+		GenericRawResults<Object[]> results = dao.queryRaw(query, columnTypes, Status.NEW.name(), Status.UPDATED.name());
+		try {
+			List<Object[]> rows = results.getResults();
+			List<SamplesForExportResult> sampleList = new ArrayList<SamplesForExportResult>(rows.size());
+			for (Object[] row : rows) {
+				SamplesForExportResult sample = new SamplesForExportResult();
+				sample.sampleId = (Long)row[0];
+				sample.sampleNumber = (Integer)row[1];
+				sample.featureName = (String)row[2];
+				sample.surveyDate = (Long)row[3];
+				sampleList.add(sample);
+			}
+			
+			return sampleList;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
 	}
 	

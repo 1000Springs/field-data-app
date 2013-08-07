@@ -14,6 +14,8 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class Feature extends PersistentObject {
 
+	private static final long serialVersionUID = -5005994265425700595L;
+	
 	@DatabaseField private String featureName;
 	@DatabaseField private String historicName;	
 	@DatabaseField private String featureType;	

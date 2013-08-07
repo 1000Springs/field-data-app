@@ -26,4 +26,18 @@
     <string name="rubberneck_label">Rubberneck (H\u2082S/HCO\u2083)</string>
     <string name="temperature_label">Temperature (\u00B0C)</string>
     <string name="conductivity_label">Conductivity (\u00B5S/cm)</string>
+    
+    
+    <!-- Values for spinner used to select rows from a table -->
+    <string-array name="tablerow_select_option_labels">
+        <item>Select all</item>
+        <item>Select none</item>
+    </string-array>   
+    <string name="select_all">ALL</string>
+    <string name="select_none">NONE</string>
+    <string-array name="tablerow_select_option_values">
+        <item>@string/select_all</item>
+        <item>@string/select_none</item>
+    </string-array>      
+    
 </resources>

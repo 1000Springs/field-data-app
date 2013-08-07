@@ -50,6 +50,8 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
 	private SectionTabsPagerAdapter mAppSectionsPagerAdapter;
 	
 	private BiologicalSample currentSample;
+	
+	public static final String BIOLOGICAL_SAMPLE = "nz.cri.gns.springs.activity.BiologicalSample";
 
     /**
      * The {@link ViewPager} that will display the three primary sections of the app, one at a
@@ -80,7 +82,7 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bio_sample);
         
-        setCurrentSample(savedInstanceState);
+        setCurrentSample();
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -90,7 +92,7 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
         final ActionBar actionBar = getActionBar();
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_TITLE);
         actionBar.setTitle(currentSample.getFormattedSampleNumber());
-
+ 
         // Specify that the Home/Up button should not be enabled, since there is no hierarchical
         // parent.
         actionBar.setHomeButtonEnabled(false);
@@ -124,10 +126,12 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
         }
     }
     
-    private void setCurrentSample(Bundle savedInstanceState) {
+    private void setCurrentSample() {
     	
-    	if (savedInstanceState != null) {
-    		currentSample = (BiologicalSample)savedInstanceState.get("biological_sample");
+    	Bundle extras = this.getIntent().getExtras();
+    	if (extras != null) {
+    		Long sampleId = extras.getLong(BIOLOGICAL_SAMPLE);
+    		currentSample = getHelper().getBiologicalSampleDao().queryForId(sampleId);
     	} else {
     		currentSample = null;
     	}

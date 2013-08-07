@@ -1,10 +1,14 @@
 package nz.cri.gns.springs.db;
 
+import java.io.Serializable;
+
 import com.j256.ormlite.field.DatabaseField;
 
 
-public abstract class PersistentObject {
+public abstract class PersistentObject implements Serializable {
 	
+	private static final long serialVersionUID = 4338757173717410713L;
+
 	@DatabaseField(generatedId = true) 
 	protected Long id;
 	

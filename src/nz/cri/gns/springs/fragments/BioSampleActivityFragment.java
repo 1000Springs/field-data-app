@@ -1,19 +1,15 @@
 package nz.cri.gns.springs.fragments;
 
-import java.util.ArrayList;
-
-import android.text.TextWatcher;
-import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.widget.EditText;
-import nz.cri.gns.springs.Util;
 import nz.cri.gns.springs.db.BiologicalSample;
 import nz.cri.gns.springs.db.Survey;
+import android.os.Bundle;
 
 public class BioSampleActivityFragment extends SpringsFragment {
 
 	protected BiologicalSample currentSample;
 	protected Survey currentSurvey;
+	
+	public static final String SAMPLE_KEY = "currentSample";
 
 	public BiologicalSample getCurrentSample() {
 		return currentSample;
@@ -27,15 +23,33 @@ public class BioSampleActivityFragment extends SpringsFragment {
 	
     protected void setCurrentSurvey() {
     	
-    	BiologicalSample sample = getCurrentSample();
-    	currentSurvey = sample.getSurvey();
+    	currentSurvey = currentSample.getSurvey();
     	if (currentSurvey == null) {
     		Survey survey = new Survey();
     		survey.setSurveyDate(System.currentTimeMillis());
     		getHelper().getSurveyDao().create(survey);
-    		sample.setSurvey(survey);
-    		getHelper().getBiologicalSampleDao().update(sample);
+    		currentSample.setSurvey(survey);
+    		getHelper().getBiologicalSampleDao().update(currentSample);
     		currentSurvey = survey;
+    	} else {
+    		getHelper().getSurveyDao().refresh(currentSurvey);
+    		getHelper().getFeatureDao().refresh(currentSurvey.getFeature());
+    	}
+    }
+    
+    @Override
+    public void onSaveInstanceState(Bundle instanceState) {
+    	super.onSaveInstanceState(instanceState);
+    	instanceState.putSerializable(SAMPLE_KEY, currentSample);
+    }
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+    	if (savedInstanceState != null) {
+    		currentSample = (BiologicalSample)savedInstanceState.getSerializable(SAMPLE_KEY);
+    		getHelper().getBiologicalSampleDao().refresh(currentSample);
+    		setCurrentSurvey();
     	}
     }
     

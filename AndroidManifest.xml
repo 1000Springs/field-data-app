@@ -46,6 +46,11 @@
         <activity 
             android:name=".activity.BioSampleActivity" 
             />
+        
+        <activity 
+            android:name=".activity.ManageBioSamplesActivity" 
+            />
+        
         <activity
 		    android:name="com.aviary.android.feather.FeatherActivity"
 		    android:configChanges="orientation|keyboardHidden|screenSize"

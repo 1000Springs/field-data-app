@@ -14,6 +14,8 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable
 public class SurveyImage extends PersistentObject {
 
+	private static final long serialVersionUID = 5806825941895415396L;
+
 	@DatabaseField(foreign = true)
 	private Survey survey;
 	

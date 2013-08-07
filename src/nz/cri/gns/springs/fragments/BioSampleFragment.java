@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnFocusChangeListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -34,6 +35,15 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
             Bundle savedInstanceState) {
     	
     	rootView = inflater.inflate(R.layout.fragment_bio_data, container, false);
+    	
+    	Button saveButton = (Button) rootView.findViewById(R.id.save_bio_sample_button);
+    	saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	updateSampleFromInput();
+        		Toast.makeText(SpringsApplication.getAppContext(), "Update saved", Toast.LENGTH_LONG).show();           	
+            }
+        });
     	
     	setInputFromSample();    	
     	Util.addEditTextListener(this, this, rootView);
@@ -99,7 +109,6 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	
     	getHelper().getBiologicalSampleDao().update(currentSample);
     	sampleUpdatedSinceLastSave = false;
-		Toast.makeText(SpringsApplication.getAppContext(), "Update saved", Toast.LENGTH_SHORT).show();
     }
     
     

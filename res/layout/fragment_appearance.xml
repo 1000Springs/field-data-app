@@ -128,7 +128,17 @@
 	                android:hint=""
 	                android:inputType="text" 
 	                style="@style/form_input" />  
-	        </TableRow>         
+	        </TableRow>  
+	        
+            <TableRow
+                style="@style/form_row" > 
+                   <Button 
+                       android:id="@+id/save_survey_button"
+                       android:text="Save"
+                       android:layout_span="2"
+                       android:layout_gravity="center"
+                       style="@style/standard_button"/>
+            </TableRow>  	        
 	    </TableLayout>  
     </LinearLayout>
 </ScrollView>

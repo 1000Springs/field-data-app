@@ -8,6 +8,7 @@ import android.view.View;
 
 public class MainMenuActivity extends Activity {
 	
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
@@ -21,6 +22,15 @@ public class MainMenuActivity extends Activity {
                 startActivity(intent);
             }
         });
+        
+        findViewById(R.id.manage_bio_samples_button)
+        .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this, ManageBioSamplesActivity.class);
+                startActivity(intent);
+            }
+        });        
     }
 
 }

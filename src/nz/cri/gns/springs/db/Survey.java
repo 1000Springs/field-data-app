@@ -1,14 +1,13 @@
 package nz.cri.gns.springs.db;
 
-import java.io.Serializable;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
-public class Survey extends PersistentObject implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class Survey extends PersistentObject {
+
+	private static final long serialVersionUID = 8672919678197291499L;
 
 	@DatabaseField(foreign = true)
 	private Feature feature;
