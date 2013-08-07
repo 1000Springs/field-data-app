@@ -3,6 +3,7 @@ package nz.cri.gns.springs.fragments;
 
 import java.util.List;
 
+import nz.cri.gns.springs.GpsLocation;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.Util;
@@ -33,6 +34,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 	
 	private View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
+	private GpsLocation gpsLocation;
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +53,8 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         Time now = new Time(Time.getCurrentTimezone());
        	now.set(currentSurvey.getSurveyDate());
         dateView.setText(now.format("%c"));
+        
+        gpsLocation = new GpsLocation(this.getActivity());
         
     	return rootView;
     }
@@ -148,6 +152,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 
         // Create and show the dialog.
         final FeatureIdFragment featureDialog = new FeatureIdFragment();
+        featureDialog.setGpsLocation(gpsLocation);
         featureDialog.setOnDismissListener(new OnDismissListener(){
 			@Override
 			public void onDismiss(DialogInterface dialog) {				

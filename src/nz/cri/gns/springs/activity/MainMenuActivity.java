@@ -30,7 +30,16 @@ public class MainMenuActivity extends Activity {
                 Intent intent = new Intent(MainMenuActivity.this, ManageBioSamplesActivity.class);
                 startActivity(intent);
             }
-        });        
+        });    
+        
+        findViewById(R.id.settings_button)
+        .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            }
+        }); 
     }
 
 }

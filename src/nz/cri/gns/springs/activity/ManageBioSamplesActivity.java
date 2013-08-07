@@ -1,8 +1,10 @@
 package nz.cri.gns.springs.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import nz.cri.gns.springs.R;
+import nz.cri.gns.springs.Util;
 import nz.cri.gns.springs.db.BiologicalSample;
 import nz.cri.gns.springs.db.BiologicalSample.SamplesForExportResult;
 import nz.cri.gns.springs.db.SpringsDbHelper;
@@ -14,6 +16,7 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -21,7 +24,7 @@ import android.widget.TextView;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener {
+public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener{
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,9 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	public void onResume() {
 		super.onResume();
 		listSamples();
+        CheckBox selectAllNone = (CheckBox)this.findViewById(R.id.select_all_none);
+        selectAllNone.setOnCheckedChangeListener(this);
+        setSelectAllNoneText(selectAllNone, false);
 	}
 	
 	
@@ -68,13 +74,17 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		tableRow.addView(sampleNumber);
 		
 		TextView featureName = (TextView)getLayoutInflater().inflate(R.layout.template_column_fixed_width, null);
-		featureName.setText(sample.featureName);
+		if (sample.featureName != null) {
+			featureName.setText(sample.featureName);
+		}
 		tableRow.addView(featureName);
 		
 		TextView collectionDate = (TextView)getLayoutInflater().inflate(R.layout.template_column, null);
-        Time now = new Time(Time.getCurrentTimezone());
-        now.set(sample.surveyDate);
-        collectionDate.setText(now.format("%c"));		
+		if (sample.surveyDate != null) {
+	        Time now = new Time(Time.getCurrentTimezone());
+	        now.set(sample.surveyDate);
+	        collectionDate.setText(now.format("%c"));		
+		}
 		tableRow.addView(collectionDate);
 		
 		return tableRow;
@@ -90,5 +100,28 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
         intent.putExtra(BioSampleActivity.BIOLOGICAL_SAMPLE, sampleId);
         startActivity(intent);
 		
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
+		
+		setSelectAllNoneText(buttonView, isChecked);
+		Util.getChildren(this.findViewById(R.id.bio_sample_table), new ArrayList<View>(), new Util.ViewFilter() {		
+			@Override
+			public boolean matches(View view) {
+				if (view instanceof CheckBox) {
+					((CheckBox)view).setChecked(isChecked);
+				}
+				
+				return false;
+			}
+		});
+		
+	}
+	
+	private void setSelectAllNoneText(CompoundButton selectAllNone, boolean isChecked) {
+		
+		String text = (isChecked) ? "Select none" : "Select all";
+		selectAllNone.setText(text);
 	}
 }

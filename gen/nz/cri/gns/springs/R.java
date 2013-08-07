@@ -25,7 +25,7 @@ public final class R {
     	"crop_values" array and it also must contain the same number of entries 
     
          */
-        public static final int aviary_crop_labels=0x7f090002;
+        public static final int aviary_crop_labels=0x7f0a0002;
         /**  
     	This defines the 'ratio' values for the 'crop_labels' array
     	Ratio is defined by 'aspectX:aspectY'
@@ -35,35 +35,31 @@ public final class R {
     	value '-1' means use the same aspect(X or Y) of the original image 
     
          */
-        public static final int aviary_crop_values=0x7f090003;
+        public static final int aviary_crop_values=0x7f0a0003;
         /**  brush sizes 
          */
-        public static final int aviary_draw_brush_sizes=0x7f090005;
+        public static final int aviary_draw_brush_sizes=0x7f0a0005;
         /**  
     	Array of colors for the drawing tool
      
          */
-        public static final int aviary_draw_fill_colors=0x7f090004;
+        public static final int aviary_draw_fill_colors=0x7f0a0004;
         /**  
     ############################ SPOT ( redeye, whiten, blemish ) ####################
      
  brush size for spot tools ( red-eye, whiten, blemish ) 
          */
-        public static final int aviary_spot_brush_sizes=0x7f090000;
+        public static final int aviary_spot_brush_sizes=0x7f0a0000;
         /**  
     	Array of colors for the text tool
      
          */
-        public static final int aviary_text_fill_colors=0x7f090001;
+        public static final int aviary_text_fill_colors=0x7f0a0001;
         /**  list of available borders 
  each border must have an equivalent "feather_plugin_border_xxx_thumb" drawable 
  and a "feather_plugin_border_xxx_name" string label 
          */
-        public static final int borders_list=0x7f090006;
-        /**  Values for spinner used to select rows from a table 
-         */
-        public static final int tablerow_select_option_labels=0x7f090007;
-        public static final int tablerow_select_option_values=0x7f090008;
+        public static final int borders_list=0x7f0a0006;
     }
     public static final class attr {
         /**  orientation panel item divider weight 
@@ -74,12 +70,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryAdjustDividerWeight=0x7f010034;
+        public static final int aviaryAdjustDividerWeight=0x7f010042;
         /**  image view used for the orientation content panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryAdjustImageViewStyle=0x7f01000e;
+        public static final int aviaryAdjustImageViewStyle=0x7f01001c;
         /**  orientation panel item weight 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -88,24 +84,24 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryAdjustItemWeight=0x7f010033;
+        public static final int aviaryAdjustItemWeight=0x7f010041;
         /**  option panel toggle buttons ( Adjust Panel )
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryAdjustOptionPanelToggleButtonStyle=0x7f010029;
+        public static final int aviaryAdjustOptionPanelToggleButtonStyle=0x7f010037;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryAdjustOptionPanelToggleCenterButtonStyle=0x7f01002b;
+        public static final int aviaryAdjustOptionPanelToggleCenterButtonStyle=0x7f010039;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryAdjustOptionPanelToggleLeftButtonStyle=0x7f01002a;
+        public static final int aviaryAdjustOptionPanelToggleLeftButtonStyle=0x7f010038;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryAdjustOptionPanelToggleRightButtonStyle=0x7f01002c;
+        public static final int aviaryAdjustOptionPanelToggleRightButtonStyle=0x7f01003a;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -114,7 +110,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryBackgroundColor=0x7f010002;
+        public static final int aviaryBackgroundColor=0x7f010010;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -124,83 +120,83 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryBottomBarHeight=0x7f010010;
+        public static final int aviaryBottomBarHeight=0x7f01001e;
         /**  tools horizontal scroll view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarHorizontalViewStyle=0x7f010017;
+        public static final int aviaryBottomBarHorizontalViewStyle=0x7f010025;
         /**  bottom bar logo container 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarLogoContainerStyle=0x7f010011;
+        public static final int aviaryBottomBarLogoContainerStyle=0x7f01001f;
         /**  bottom bar logo image 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarLogoImageStyle=0x7f010012;
+        public static final int aviaryBottomBarLogoImageStyle=0x7f010020;
         /**  default style for the option panels 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarOptionPanelContainerStyle=0x7f010015;
+        public static final int aviaryBottomBarOptionPanelContainerStyle=0x7f010023;
         /**  default style for the option panels ( if you need borderless )
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarOptionPanelContainerStyleNoMargin=0x7f010016;
+        public static final int aviaryBottomBarOptionPanelContainerStyleNoMargin=0x7f010024;
         /**  option tool panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarOptionPanelStyle=0x7f010013;
+        public static final int aviaryBottomBarOptionPanelStyle=0x7f010021;
         /**  option tool feedback 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarToolFeedBackStyle=0x7f010014;
+        public static final int aviaryBottomBarToolFeedBackStyle=0x7f010022;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarToolImageStyle=0x7f01001a;
+        public static final int aviaryBottomBarToolImageStyle=0x7f010028;
         /**  tool 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarToolStyle=0x7f010019;
+        public static final int aviaryBottomBarToolStyle=0x7f010027;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarToolTextStyle=0x7f01001b;
+        public static final int aviaryBottomBarToolTextStyle=0x7f010029;
         /**  bottom bar viewflipper 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryBottomBarViewFlipperStyle=0x7f01000f;
+        public static final int aviaryBottomBarViewFlipperStyle=0x7f01001d;
         /**  option panel toggle buttons ( Color Splash Panel ) 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryColorSplashOptionPanelToggleButtonStyle=0x7f010037;
+        public static final int aviaryColorSplashOptionPanelToggleButtonStyle=0x7f010045;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryColorSplashOptionPanelToggleLeftButtonStyle=0x7f010038;
+        public static final int aviaryColorSplashOptionPanelToggleLeftButtonStyle=0x7f010046;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryColorSplashOptionPanelToggleRightButtonStyle=0x7f010039;
+        public static final int aviaryColorSplashOptionPanelToggleRightButtonStyle=0x7f010047;
         /**  the hightlight view used in the crop image view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryCropHighlightStyle=0x7f010009;
+        public static final int aviaryCropHighlightStyle=0x7f010017;
         /**  ImageView style for the crop content panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryCropImageViewStyle=0x7f010008;
+        public static final int aviaryCropImageViewStyle=0x7f010016;
         /**  toggle the crosshari visibility 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -209,75 +205,75 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryCrosshair_enabled=0x7f01009f;
+        public static final int aviaryCrosshair_enabled=0x7f0100ad;
         /**  secondary button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryCustomDialogButtonSecondaryStyle=0x7f01007c;
+        public static final int aviaryCustomDialogButtonSecondaryStyle=0x7f01008a;
         /**  Custom dialog buttons styles 
  primary button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryCustomDialogButtonStyle=0x7f01007b;
+        public static final int aviaryCustomDialogButtonStyle=0x7f010089;
         /**  default text style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryDefaultTextStyle=0x7f010040;
+        public static final int aviaryDefaultTextStyle=0x7f01004e;
         /**  default style for the edge effect 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEdgeEffectDefaultStyle=0x7f01007d;
+        public static final int aviaryEdgeEffectDefaultStyle=0x7f01008b;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerLeftContainerStyle=0x7f010062;
+        public static final int aviaryEffectThumbDividerLeftContainerStyle=0x7f010070;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerLeftStyle=0x7f010060;
+        public static final int aviaryEffectThumbDividerLeftStyle=0x7f01006e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerRightContainerStyle=0x7f010061;
+        public static final int aviaryEffectThumbDividerRightContainerStyle=0x7f01006f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerRightStyle=0x7f01005f;
+        public static final int aviaryEffectThumbDividerRightStyle=0x7f01006d;
         /**  packs divider image style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerStyle=0x7f010064;
+        public static final int aviaryEffectThumbDividerStyle=0x7f010072;
         /**  text drawn on top of the divider bitmap 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbDividerTextStyle=0x7f010065;
+        public static final int aviaryEffectThumbDividerTextStyle=0x7f010073;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbHiddenSelector=0x7f01005e;
+        public static final int aviaryEffectThumbHiddenSelector=0x7f01006c;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbLayoutExternalStyle=0x7f01005d;
+        public static final int aviaryEffectThumbLayoutExternalStyle=0x7f01006b;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbLayoutStyle=0x7f01005c;
+        public static final int aviaryEffectThumbLayoutStyle=0x7f01006a;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectThumbTextStyle=0x7f010063;
+        public static final int aviaryEffectThumbTextStyle=0x7f010071;
         /**  horizontal scroll view for effects/frames 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEffectsHorizontalViewStyle=0x7f010018;
+        public static final int aviaryEffectsHorizontalViewStyle=0x7f010026;
         /**  horizontal weight of the single enhance item 
  this will determine the width of the toggle buttons 
  parent weightSum is 100 
@@ -288,46 +284,46 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryEnhanceItemWeight=0x7f010030;
+        public static final int aviaryEnhanceItemWeight=0x7f01003e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEnhanceOptionPanelToggleCenterButtonStyle=0x7f01002e;
+        public static final int aviaryEnhanceOptionPanelToggleCenterButtonStyle=0x7f01003c;
         /**  option panel toggle buttons ( Enhance Panel ) 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEnhanceOptionPanelToggleLeftButtonStyle=0x7f01002d;
+        public static final int aviaryEnhanceOptionPanelToggleLeftButtonStyle=0x7f01003b;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryEnhanceOptionPanelToggleRightButtonStyle=0x7f01002f;
+        public static final int aviaryEnhanceOptionPanelToggleRightButtonStyle=0x7f01003d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFeedbackDialogDividerStyle=0x7f010077;
+        public static final int aviaryFeedbackDialogDividerStyle=0x7f010085;
         /**  Feedback dialog 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFeedbackDialogStyle=0x7f010075;
+        public static final int aviaryFeedbackDialogStyle=0x7f010083;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFeedbackDialogTextMessageStyle=0x7f010078;
+        public static final int aviaryFeedbackDialogTextMessageStyle=0x7f010086;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFeedbackDialogTextVersionStyle=0x7f010076;
+        public static final int aviaryFeedbackDialogTextVersionStyle=0x7f010084;
         /**  option panel toggle buttons ( Focus Panel ) 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFocusOptionPanelToggleLeftButtonStyle=0x7f010035;
+        public static final int aviaryFocusOptionPanelToggleLeftButtonStyle=0x7f010043;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryFocusOptionPanelToggleRightButtonStyle=0x7f010036;
+        public static final int aviaryFocusOptionPanelToggleRightButtonStyle=0x7f010044;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -335,7 +331,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryFontLight=0x7f010001;
+        public static final int aviaryFontLight=0x7f01000f;
         /**  default fonts 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -344,80 +340,80 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryFontRegular=0x7f010000;
+        public static final int aviaryFontRegular=0x7f01000e;
         /**  style for the bottom indicator 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryBottomIndicatorStyle=0x7f01004d;
+        public static final int aviaryGalleryBottomIndicatorStyle=0x7f01005b;
         /**  gallery item main layout container 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemContainerStyle=0x7f010046;
+        public static final int aviaryGalleryItemContainerStyle=0x7f010054;
         /**  crop gallery item, image view for the status icon 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemCropImageViewStyle=0x7f01004b;
+        public static final int aviaryGalleryItemCropImageViewStyle=0x7f010059;
         /**  gallery item for crop with custom labels 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemCropTextCustomStyle=0x7f01004a;
+        public static final int aviaryGalleryItemCropTextCustomStyle=0x7f010058;
         /**  gallery item for crop elements 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemCropTextNormalStyle=0x7f010049;
+        public static final int aviaryGalleryItemCropTextNormalStyle=0x7f010057;
         /**  gallery item default divider 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemDividerStyle=0x7f010047;
+        public static final int aviaryGalleryItemDividerStyle=0x7f010055;
         /**  gallery item image view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryItemHighlightImageStyle=0x7f010048;
+        public static final int aviaryGalleryItemHighlightImageStyle=0x7f010056;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryStyle=0x7f010023;
+        public static final int aviaryGalleryStyle=0x7f010031;
         /**  style of the top indicator 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryGalleryTopIndicatorStyle=0x7f01004c;
+        public static final int aviaryGalleryTopIndicatorStyle=0x7f01005a;
         /**  hidden edit text style (see meme) 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryHiddenEditTextStyle=0x7f01005a;
+        public static final int aviaryHiddenEditTextStyle=0x7f010068;
         /**  hidden edit text style (see meme) 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryHiddenEditTextStyleMultiline=0x7f01005b;
+        public static final int aviaryHiddenEditTextStyleMultiline=0x7f010069;
         /**  default highlight image view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryHighlightImageButtonStyle=0x7f010021;
+        public static final int aviaryHighlightImageButtonStyle=0x7f01002f;
         /**  IAP Dialog 
  iap dialog container style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogContainerStyle=0x7f010066;
+        public static final int aviaryIAPDialogContainerStyle=0x7f010074;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogDownloadButtonStyle=0x7f010074;
+        public static final int aviaryIAPDialogDownloadButtonStyle=0x7f010082;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogGridBackground=0x7f010070;
+        public static final int aviaryIAPDialogGridBackground=0x7f01007e;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -427,7 +423,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryIAPDialogGridTopStyle=0x7f010071;
+        public static final int aviaryIAPDialogGridTopStyle=0x7f01007f;
         /**  dialog height weight ( on 100 ) 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -436,16 +432,16 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryIAPDialogHeightWeight=0x7f010068;
+        public static final int aviaryIAPDialogHeightWeight=0x7f010076;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogIcon=0x7f01006b;
+        public static final int aviaryIAPDialogIcon=0x7f010079;
         /**  main dialog layout style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogMainLayout=0x7f010067;
+        public static final int aviaryIAPDialogMainLayout=0x7f010075;
         /**  maring top height weight ( on 100 ) 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -454,23 +450,23 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryIAPDialogMarginTopWeight=0x7f010069;
+        public static final int aviaryIAPDialogMarginTopWeight=0x7f010077;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogShadowBottom=0x7f010073;
+        public static final int aviaryIAPDialogShadowBottom=0x7f010081;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogShadowTop=0x7f010072;
+        public static final int aviaryIAPDialogShadowTop=0x7f010080;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogTextStyle=0x7f01006d;
+        public static final int aviaryIAPDialogTextStyle=0x7f01007b;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogTitleStyle=0x7f01006c;
+        public static final int aviaryIAPDialogTitleStyle=0x7f01007a;
         /**  dialog width weight ( on 100 ) 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -479,43 +475,43 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryIAPDialogWidthWeight=0x7f01006a;
+        public static final int aviaryIAPDialogWidthWeight=0x7f010078;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogWorkspaceIndicatorStyle=0x7f01006f;
+        public static final int aviaryIAPDialogWorkspaceIndicatorStyle=0x7f01007d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryIAPDialogWorkspaceStyle=0x7f01006e;
+        public static final int aviaryIAPDialogWorkspaceStyle=0x7f01007c;
         /**  image view style of the stickers panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryImageViewDrawableOverlaySticker=0x7f01000c;
+        public static final int aviaryImageViewDrawableOverlaySticker=0x7f01001a;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryImageViewDrawableOverlayStickerHighlightStyle=0x7f01000d;
+        public static final int aviaryImageViewDrawableOverlayStickerHighlightStyle=0x7f01001b;
         /**  style for the ImageViewDrawableOverlay in the text panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryImageViewDrawableOverlayText=0x7f01000a;
+        public static final int aviaryImageViewDrawableOverlayText=0x7f010018;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryImageViewDrawableOverlayTextHighlightStyle=0x7f01000b;
+        public static final int aviaryImageViewDrawableOverlayTextHighlightStyle=0x7f010019;
         /**  default style for the lens button 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryLensViewStyle=0x7f010022;
+        public static final int aviaryLensViewStyle=0x7f010030;
         /**  modal toast 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryLoaderToastStyle=0x7f010079;
+        public static final int aviaryLoaderToastStyle=0x7f010087;
         /**  main image padding 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -526,17 +522,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryMainImagePadding=0x7f010058;
+        public static final int aviaryMainImagePadding=0x7f010066;
         /**  meme text button inside the meme panel 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryMemeButtonStyle=0x7f010044;
+        public static final int aviaryMemeButtonStyle=0x7f010052;
         /**  the clear button over the meme text button 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryMemeClearButtonStyle=0x7f010045;
+        public static final int aviaryMemeClearButtonStyle=0x7f010053;
         /**  navigation view height 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -547,99 +543,99 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryNavBarHeight=0x7f01001d;
+        public static final int aviaryNavBarHeight=0x7f01002b;
         /**  main navigation bar 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryNavBarStyle=0x7f01001c;
+        public static final int aviaryNavBarStyle=0x7f01002a;
         /**  navigation apply button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryNavButtonApplyStyle=0x7f010020;
+        public static final int aviaryNavButtonApplyStyle=0x7f01002e;
         /**  navigation button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryNavButtonStyle=0x7f01001f;
+        public static final int aviaryNavButtonStyle=0x7f01002d;
         /**  style for the navbar divider view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryNavDividerStyle=0x7f01004e;
+        public static final int aviaryNavDividerStyle=0x7f01005c;
         /**  navigation bar title 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryNavTitleStyle=0x7f01001e;
+        public static final int aviaryNavTitleStyle=0x7f01002c;
         /**  bottom indicator for panels with a gallery widget 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelBottomIndicatorStyle=0x7f01003e;
+        public static final int aviaryOptionPanelBottomIndicatorStyle=0x7f01004c;
         /**   
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelBottomLineStyle=0x7f01003f;
+        public static final int aviaryOptionPanelBottomLineStyle=0x7f01004d;
         /**  default option panel button 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelDefaultButtonStyle=0x7f010024;
+        public static final int aviaryOptionPanelDefaultButtonStyle=0x7f010032;
         /**  option panel toggle buttons 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelToggleButtonStyle=0x7f010025;
+        public static final int aviaryOptionPanelToggleButtonStyle=0x7f010033;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelToggleCenterButtonStyle=0x7f010027;
+        public static final int aviaryOptionPanelToggleCenterButtonStyle=0x7f010035;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelToggleLeftButtonStyle=0x7f010026;
+        public static final int aviaryOptionPanelToggleLeftButtonStyle=0x7f010034;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelToggleRightButtonStyle=0x7f010028;
+        public static final int aviaryOptionPanelToggleRightButtonStyle=0x7f010036;
         /**  top indicator for panels with a gallery widget 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryOptionPanelTopIndicatorStyle=0x7f01003d;
+        public static final int aviaryOptionPanelTopIndicatorStyle=0x7f01004b;
         /**  image/drawable/color used for the disabled status of the panels 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryPanelDisabledStatusBackground=0x7f010059;
+        public static final int aviaryPanelDisabledStatusBackground=0x7f010067;
         /**  fill preview drawable style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryPreviewFillDrawableStyle=0x7f01003b;
+        public static final int aviaryPreviewFillDrawableStyle=0x7f010049;
         /**  preview spot drawable default style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryPreviewSpotDrawableStyle=0x7f01003a;
+        public static final int aviaryPreviewSpotDrawableStyle=0x7f010048;
         /**  preview spot toast style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryPreviewSpotViewStyle=0x7f01003c;
+        public static final int aviaryPreviewSpotViewStyle=0x7f01004a;
         /**  primary button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryPrimaryButtonStyle=0x7f010041;
+        public static final int aviaryPrimaryButtonStyle=0x7f01004f;
         /**  progress bar for the actionbar 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarActionBar=0x7f010052;
+        public static final int aviaryProgressBarActionBar=0x7f010060;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -649,7 +645,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryProgressBarActionBarHeight=0x7f010054;
+        public static final int aviaryProgressBarActionBarHeight=0x7f010062;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -659,61 +655,61 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryProgressBarActionBarWidth=0x7f010053;
+        public static final int aviaryProgressBarActionBarWidth=0x7f010061;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarLarge=0x7f010051;
+        public static final int aviaryProgressBarLarge=0x7f01005f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarLargeInverse=0x7f010057;
+        public static final int aviaryProgressBarLargeInverse=0x7f010065;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarMedium=0x7f010050;
+        public static final int aviaryProgressBarMedium=0x7f01005e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarMediumInverse=0x7f010056;
+        public static final int aviaryProgressBarMediumInverse=0x7f010064;
         /**  progress bar view styles 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarSmall=0x7f01004f;
+        public static final int aviaryProgressBarSmall=0x7f01005d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryProgressBarSmallInverse=0x7f010055;
+        public static final int aviaryProgressBarSmallInverse=0x7f010063;
         /**  secondary button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySecondaryButtonStyle=0x7f010042;
+        public static final int aviarySecondaryButtonStyle=0x7f010050;
         /**  drawable for the right progress 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySeekBarSecondary=0x7f010089;
+        public static final int aviarySeekBarSecondary=0x7f010097;
         /**  drawable used when progress is 50/100 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySeekBarSecondaryCenter=0x7f01008b;
+        public static final int aviarySeekBarSecondaryCenter=0x7f010099;
         /**  drawable for the left progress 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySeekBarSecondaryInverted=0x7f01008a;
+        public static final int aviarySeekBarSecondaryInverted=0x7f010098;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySeekBarStyle=0x7f010003;
+        public static final int aviarySeekBarStyle=0x7f010011;
         /**  seekbar thumb 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySeekBarThumb=0x7f010087;
+        public static final int aviarySeekBarThumb=0x7f010095;
         /**  right/left offset for the seelbar thumb 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -724,7 +720,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviarySeekBarThumbOffset=0x7f010088;
+        public static final int aviarySeekBarThumbOffset=0x7f010096;
         /**  color splash item divider weight 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -733,7 +729,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviarySplashDividerWeight=0x7f010032;
+        public static final int aviarySplashDividerWeight=0x7f010040;
         /**  color splash item weight 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -742,29 +738,29 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviarySplashItemWeight=0x7f010031;
+        public static final int aviarySplashItemWeight=0x7f01003f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySymbolMinusStyle=0x7f010006;
+        public static final int aviarySymbolMinusStyle=0x7f010014;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviarySymbolPlusStyle=0x7f010007;
+        public static final int aviarySymbolPlusStyle=0x7f010015;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryTiltShiftViewStyle=0x7f010005;
+        public static final int aviaryTiltShiftViewStyle=0x7f010013;
         /**  exit animation for the AviaryToast view 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryToastExitAnimation=0x7f01007a;
+        public static final int aviaryToastExitAnimation=0x7f010088;
         /**  default toggle button style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryToggleButtonStyle=0x7f010043;
+        public static final int aviaryToggleButtonStyle=0x7f010051;
         /**  wave animation duration 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -773,7 +769,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryWave_animationDuration=0x7f01009e;
+        public static final int aviaryWave_animationDuration=0x7f0100ac;
         /**  wave inner radius 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -784,7 +780,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryWave_innerRadius=0x7f01009c;
+        public static final int aviaryWave_innerRadius=0x7f0100aa;
         /**  wave outer radius 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -795,31 +791,31 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviaryWave_outerRadius=0x7f01009d;
+        public static final int aviaryWave_outerRadius=0x7f0100ab;
         /**  wave dot image 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryWave_pointDrawable=0x7f01009b;
+        public static final int aviaryWave_pointDrawable=0x7f0100a9;
         /**  the line indicator 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryWheelIndicator=0x7f01008e;
+        public static final int aviaryWheelIndicator=0x7f01009c;
         /**  the single line 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryWheelLine=0x7f01008d;
+        public static final int aviaryWheelLine=0x7f01009b;
         /**  shadow overlay above all 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryWheelShadowTop=0x7f01008c;
+        public static final int aviaryWheelShadowTop=0x7f01009a;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviaryWheelStyle=0x7f010004;
+        public static final int aviaryWheelStyle=0x7f010012;
         /**  shape fade out duration 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -828,7 +824,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_animationDuration=0x7f01009a;
+        public static final int aviary_animationDuration=0x7f0100a8;
         /**  reset animation duration 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -837,7 +833,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_animationDuration2=0x7f0100c3;
+        public static final int aviary_animationDuration2=0x7f0100d1;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -846,7 +842,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_bg_color1=0x7f0100b0;
+        public static final int aviary_bg_color1=0x7f0100be;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -855,7 +851,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_bg_color2=0x7f0100b1;
+        public static final int aviary_bg_color2=0x7f0100bf;
         /**  highlight color mode 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -864,7 +860,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_blendMode=0x7f0100a4;
+        public static final int aviary_blendMode=0x7f0100b2;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -874,7 +870,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_cellBottomPadding=0x7f0100c9;
+        public static final int aviary_cellBottomPadding=0x7f0100d7;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -884,7 +880,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_cellEndPadding=0x7f0100c7;
+        public static final int aviary_cellEndPadding=0x7f0100d5;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -894,7 +890,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_cellStartPadding=0x7f0100c6;
+        public static final int aviary_cellStartPadding=0x7f0100d4;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -904,7 +900,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_cellTopPadding=0x7f0100c8;
+        public static final int aviary_cellTopPadding=0x7f0100d6;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -912,7 +908,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_cells=0x7f0100cc;
+        public static final int aviary_cells=0x7f0100da;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -920,7 +916,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_checked=0x7f0100aa;
+        public static final int aviary_checked=0x7f0100b8;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -929,7 +925,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_color1=0x7f0100ac;
+        public static final int aviary_color1=0x7f0100ba;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -938,7 +934,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_color2=0x7f0100ad;
+        public static final int aviary_color2=0x7f0100bb;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -947,7 +943,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_color3=0x7f0100ae;
+        public static final int aviary_color3=0x7f0100bc;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -956,7 +952,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_color4=0x7f0100af;
+        public static final int aviary_color4=0x7f0100bd;
         /**  inner ring crosshair edge 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -967,7 +963,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_crosshair_edge=0x7f010097;
+        public static final int aviary_crosshair_edge=0x7f0100a5;
         /**  inner ring radius 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -978,7 +974,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_crosshair_radius=0x7f010096;
+        public static final int aviary_crosshair_radius=0x7f0100a4;
         /**  inner ring stroke width 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -987,7 +983,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_crosshair_strokeWidth=0x7f010095;
+        public static final int aviary_crosshair_strokeWidth=0x7f0100a3;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -995,12 +991,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_defaultScreen=0x7f0100cf;
+        public static final int aviary_defaultScreen=0x7f0100dd;
         /**  delete knob drawable 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_deleteDrawable=0x7f0100ba;
+        public static final int aviary_deleteDrawable=0x7f0100c8;
         /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -1011,7 +1007,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>down_top</code></td><td>0x02</td><td></td></tr>
 </table>
          */
-        public static final int aviary_direction=0x7f0100a3;
+        public static final int aviary_direction=0x7f0100b1;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1019,7 +1015,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_drawableStyle=0x7f0100b5;
+        public static final int aviary_drawableStyle=0x7f0100c3;
         /**  color filter 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1029,17 +1025,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_edgeColor=0x7f0100d6;
+        public static final int aviary_edgeColor=0x7f0100e4;
         /**  edge drawable 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_edgeDrawable=0x7f0100d4;
+        public static final int aviary_edgeDrawable=0x7f0100e2;
         /**  style for the left/right edges 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_edgeStyle=0x7f01008f;
+        public static final int aviary_edgeStyle=0x7f01009d;
         /**  enable 3d animations 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1048,7 +1044,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_enable3d=0x7f0100c4;
+        public static final int aviary_enable3d=0x7f0100d2;
         /**  enable free rotation 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1057,12 +1053,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_freeRotate=0x7f0100c5;
+        public static final int aviary_freeRotate=0x7f0100d3;
         /**  glow drawable 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_glowDrawable=0x7f0100d5;
+        public static final int aviary_glowDrawable=0x7f0100e3;
         /**  how glow blur filter is applied 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -1075,7 +1071,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>selected</code></td><td>0x08</td><td></td></tr>
 </table>
          */
-        public static final int aviary_glowMode=0x7f0100a1;
+        public static final int aviary_glowMode=0x7f0100af;
         /**  glow size 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1084,12 +1080,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_glowSize=0x7f0100a9;
+        public static final int aviary_glowSize=0x7f0100b7;
         /**  knob drawable 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_handle=0x7f0100c2;
+        public static final int aviary_handle=0x7f0100d0;
         /**  highlight checked color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1099,7 +1095,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_highlightColorChecked=0x7f0100a6;
+        public static final int aviary_highlightColorChecked=0x7f0100b4;
         /**  highlight pressed color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1109,7 +1105,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_highlightColorPressed=0x7f0100a5;
+        public static final int aviary_highlightColorPressed=0x7f0100b3;
         /**  highlight selected color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1119,7 +1115,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_highlightColorSelected=0x7f0100a7;
+        public static final int aviary_highlightColorSelected=0x7f0100b5;
         /**  how highlight is managed 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -1132,11 +1128,11 @@ containing a value of this type.
 <tr><td><code>selected</code></td><td>0x08</td><td></td></tr>
 </table>
          */
-        public static final int aviary_highlightMode=0x7f0100a2;
+        public static final int aviary_highlightMode=0x7f0100b0;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_highlightStyle=0x7f0100b7;
+        public static final int aviary_highlightStyle=0x7f0100c5;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -1146,11 +1142,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_horizontalPadding=0x7f0100ca;
+        public static final int aviary_horizontalPadding=0x7f0100d8;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_indicatorId=0x7f0100ce;
+        public static final int aviary_indicatorId=0x7f0100dc;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1158,7 +1154,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_indicatorSize=0x7f0100b3;
+        public static final int aviary_indicatorSize=0x7f0100c1;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -1169,7 +1165,7 @@ containing a value of this type.
 <tr><td><code>horizontal</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int aviary_layout_direction=0x7f0100d1;
+        public static final int aviary_layout_direction=0x7f0100df;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -1179,7 +1175,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_minCropSize=0x7f0100b6;
+        public static final int aviary_minCropSize=0x7f0100c4;
         /**  overlay minimum size 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -1190,7 +1186,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_minSize=0x7f0100bb;
+        public static final int aviary_minSize=0x7f0100c9;
         /**  overlay can be moved 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1199,7 +1195,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_moveEnabled=0x7f0100bc;
+        public static final int aviary_moveEnabled=0x7f0100ca;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -1209,7 +1205,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_offsety=0x7f0100b4;
+        public static final int aviary_offsety=0x7f0100c2;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -1220,7 +1216,7 @@ containing a value of this type.
 <tr><td><code>vertical</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int aviary_orientation=0x7f0100d2;
+        public static final int aviary_orientation=0x7f0100e0;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1228,7 +1224,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_overscroll=0x7f0100d0;
+        public static final int aviary_overscroll=0x7f0100de;
         /**  radius in % of the real drawable bounds 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1237,7 +1233,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_radius=0x7f0100b2;
+        public static final int aviary_radius=0x7f0100c0;
         /**  how highlight is managed 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -1251,7 +1247,7 @@ containing a value of this type.
 <tr><td><code>edge_bottom</code></td><td>0x10</td><td></td></tr>
 </table>
          */
-        public static final int aviary_resizeEdgeMode=0x7f0100b8;
+        public static final int aviary_resizeEdgeMode=0x7f0100c6;
         /**  overlay can be resized 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1260,12 +1256,12 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_resizeEnabled=0x7f0100be;
+        public static final int aviary_resizeEnabled=0x7f0100cc;
         /**  rotate knob drawable 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int aviary_rotateDrawable=0x7f0100b9;
+        public static final int aviary_rotateDrawable=0x7f0100c7;
         /**  overlay can be rotated 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1274,7 +1270,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_rotateEnabled=0x7f0100bd;
+        public static final int aviary_rotateEnabled=0x7f0100cb;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1282,7 +1278,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_rows=0x7f0100cd;
+        public static final int aviary_rows=0x7f0100db;
         /**  shape default size 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -1293,7 +1289,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_shape_defaultsize=0x7f010094;
+        public static final int aviary_shape_defaultsize=0x7f0100a2;
         /**  shape max size ( % of the image ) 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1302,7 +1298,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_shape_maxsize=0x7f010093;
+        public static final int aviary_shape_maxsize=0x7f0100a1;
         /**  shape min size ( % of the image ) 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1311,7 +1307,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_shape_minsize=0x7f010092;
+        public static final int aviary_shape_minsize=0x7f0100a0;
         /**  outer ring stroke color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1321,7 +1317,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeColor=0x7f010090;
+        public static final int aviary_strokeColor=0x7f01009e;
         /**  inner and outer background stroke color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1331,7 +1327,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeColor2=0x7f010098;
+        public static final int aviary_strokeColor2=0x7f0100a6;
         /**  internal lines default color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1341,7 +1337,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeColor3=0x7f0100c0;
+        public static final int aviary_strokeColor3=0x7f0100ce;
         /**  internal lines pressed color 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -1351,7 +1347,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeColor4=0x7f0100c1;
+        public static final int aviary_strokeColor4=0x7f0100cf;
         /**  outer ring stroke width 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -1362,7 +1358,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeWidth=0x7f010091;
+        public static final int aviary_strokeWidth=0x7f01009f;
         /**  stroke width of the internal lines 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -1373,7 +1369,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_strokeWidth2=0x7f0100bf;
+        public static final int aviary_strokeWidth2=0x7f0100cd;
         /**  text size % based on the drawable width 
          <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1382,7 +1378,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_textPerc=0x7f0100d3;
+        public static final int aviary_textPerc=0x7f0100e1;
         /**  shape fade out timeout 
          <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1391,7 +1387,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_timeout=0x7f010099;
+        public static final int aviary_timeout=0x7f0100a7;
         /**  button is toggleable 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1400,7 +1396,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_toggleable=0x7f0100a8;
+        public static final int aviary_toggleable=0x7f0100b6;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1408,7 +1404,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_typeface=0x7f0100a0;
+        public static final int aviary_typeface=0x7f0100ae;
         /**  if false user will not able to untoggle the button status 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -1417,7 +1413,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_untoggleable=0x7f0100ab;
+        public static final int aviary_untoggleable=0x7f0100b9;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -1427,162 +1423,294 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int aviary_verticalPadding=0x7f0100cb;
+        public static final int aviary_verticalPadding=0x7f0100d9;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraBearing=0x7f010001;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLat=0x7f010002;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLng=0x7f010003;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTilt=0x7f010004;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraZoom=0x7f010005;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+         */
+        public static final int mapType=0x7f010000;
         /**  default text appearances 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearance=0x7f01007e;
+        public static final int textAppearance=0x7f01008c;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceInverted=0x7f010083;
+        public static final int textAppearanceInverted=0x7f010091;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceLarge=0x7f01007f;
+        public static final int textAppearanceLarge=0x7f01008d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceLargeInverted=0x7f010084;
+        public static final int textAppearanceLargeInverted=0x7f010092;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceMedium=0x7f010080;
+        public static final int textAppearanceMedium=0x7f01008e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceMediumInverted=0x7f010085;
+        public static final int textAppearanceMediumInverted=0x7f010093;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceSmall=0x7f010081;
+        public static final int textAppearanceSmall=0x7f01008f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceSmallInverted=0x7f010086;
+        public static final int textAppearanceSmallInverted=0x7f010094;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int textAppearanceSmallNoSelection=0x7f010082;
+        public static final int textAppearanceSmallNoSelection=0x7f010090;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiCompass=0x7f010006;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiRotateGestures=0x7f010007;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiScrollGestures=0x7f010008;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiTiltGestures=0x7f010009;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomControls=0x7f01000a;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomGestures=0x7f01000b;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int useViewLifecycle=0x7f01000c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int zOrderOnTop=0x7f01000d;
     }
     public static final class color {
-        public static final int aviary_adjust_fill_color=0x7f07002d;
-        public static final int aviary_adjust_internal_stroke_color=0x7f07002c;
+        public static final int aviary_adjust_fill_color=0x7f060037;
+        public static final int aviary_adjust_internal_stroke_color=0x7f060036;
         /**  
     ############################ ORIENTATION ####################
     
          */
-        public static final int aviary_adjust_stroke_color=0x7f07002b;
-        public static final int aviary_background_color=0x7f070000;
-        public static final int aviary_bottom_primary_color_inverse_dark=0x7f070018;
+        public static final int aviary_adjust_stroke_color=0x7f060035;
+        public static final int aviary_background_color=0x7f06000a;
+        public static final int aviary_bottom_primary_color_inverse_dark=0x7f060022;
         /**  
     ############################ EFFECTS/FRAMES/STICKERS ####################
      
  effects/frames/stickers items background color ( inverted ) 
          */
-        public static final int aviary_bottom_primary_color_inverse_light=0x7f070017;
-        public static final int aviary_circle_background_normal=0x7f070020;
-        public static final int aviary_circle_background_selected=0x7f070021;
-        public static final int aviary_circle_dark=0x7f07001d;
+        public static final int aviary_bottom_primary_color_inverse_light=0x7f060021;
+        public static final int aviary_circle_background_normal=0x7f06002a;
+        public static final int aviary_circle_background_selected=0x7f06002b;
+        public static final int aviary_circle_dark=0x7f060027;
         /**  spot circle 
          */
-        public static final int aviary_circle_light=0x7f07001c;
-        public static final int aviary_circle_selected_dark=0x7f07001f;
-        public static final int aviary_circle_selected_light=0x7f07001e;
-        public static final int aviary_crop_fill_color=0x7f070029;
-        public static final int aviary_crop_fill_color_pressed=0x7f07002a;
+        public static final int aviary_circle_light=0x7f060026;
+        public static final int aviary_circle_selected_dark=0x7f060029;
+        public static final int aviary_circle_selected_light=0x7f060028;
+        public static final int aviary_crop_fill_color=0x7f060033;
+        public static final int aviary_crop_fill_color_pressed=0x7f060034;
         /**  
     ############################ CROP ####################
      
          */
-        public static final int aviary_crop_stroke_color=0x7f070025;
-        public static final int aviary_crop_stroke_color_pressed=0x7f070026;
-        public static final int aviary_crop_stroke_internal_color=0x7f070027;
-        public static final int aviary_crop_stroke_internal_color_pressed=0x7f070028;
+        public static final int aviary_crop_stroke_color=0x7f06002f;
+        public static final int aviary_crop_stroke_color_pressed=0x7f060030;
+        public static final int aviary_crop_stroke_internal_color=0x7f060031;
+        public static final int aviary_crop_stroke_internal_color_pressed=0x7f060032;
         /**  thumbnail stroke color 
          */
-        public static final int aviary_effect_thumb_stroke_color=0x7f070019;
+        public static final int aviary_effect_thumb_stroke_color=0x7f060023;
         /**  gallery item background color when selected 
          */
-        public static final int aviary_gallery_item_background_color2=0x7f070022;
-        public static final int aviary_highlighted_text_light=0x7f070003;
-        public static final int aviary_highlighted_text_light_inverted=0x7f070014;
-        public static final int aviary_hint_foreground_light=0x7f070005;
-        public static final int aviary_hint_foreground_light_inverted=0x7f070016;
+        public static final int aviary_gallery_item_background_color2=0x7f06002c;
+        public static final int aviary_highlighted_text_light=0x7f06000d;
+        public static final int aviary_highlighted_text_light_inverted=0x7f06001e;
+        public static final int aviary_hint_foreground_light=0x7f06000f;
+        public static final int aviary_hint_foreground_light_inverted=0x7f060020;
         /**  iap dialog main color background 
          */
-        public static final int aviary_iap_background=0x7f07001b;
+        public static final int aviary_iap_background=0x7f060025;
         /**  iap dialog cell layout background 
          */
-        public static final int aviary_iap_cell_layout_background=0x7f07001a;
-        public static final int aviary_link_text_light=0x7f070004;
-        public static final int aviary_link_text_light_inverted=0x7f070015;
-        public static final int aviary_logo_primary_color=0x7f07000a;
-        public static final int aviary_logo_secondary_color=0x7f07000b;
+        public static final int aviary_iap_cell_layout_background=0x7f060024;
+        public static final int aviary_link_text_light=0x7f06000e;
+        public static final int aviary_link_text_light_inverted=0x7f06001f;
+        public static final int aviary_logo_primary_color=0x7f060014;
+        public static final int aviary_logo_secondary_color=0x7f060015;
         /**  main loader background color 
          */
-        public static final int aviary_main_loader_background=0x7f070023;
-        public static final int aviary_meme_stroke_color=0x7f07002f;
+        public static final int aviary_main_loader_background=0x7f06002d;
+        public static final int aviary_meme_stroke_color=0x7f060039;
         /**  
     ############################ MEME ####################
     
          */
-        public static final int aviary_meme_text_color=0x7f07002e;
-        public static final int aviary_nav_divider_dark=0x7f070009;
-        public static final int aviary_nav_divider_light=0x7f070008;
-        public static final int aviary_nav_primary_color=0x7f070006;
-        public static final int aviary_nav_secondary_color=0x7f070007;
+        public static final int aviary_meme_text_color=0x7f060038;
+        public static final int aviary_nav_divider_dark=0x7f060013;
+        public static final int aviary_nav_divider_light=0x7f060012;
+        public static final int aviary_nav_primary_color=0x7f060010;
+        public static final int aviary_nav_secondary_color=0x7f060011;
         /**  disabled status for panels 
          */
-        public static final int aviary_panel_disabled_status=0x7f070024;
-        public static final int aviary_primary_color=0x7f070001;
-        public static final int aviary_primary_color_inverted=0x7f070012;
-        public static final int aviary_primary_color_pressed=0x7f070002;
-        public static final int aviary_primary_color_pressed_inverted=0x7f070013;
+        public static final int aviary_panel_disabled_status=0x7f06002e;
+        public static final int aviary_primary_color=0x7f06000b;
+        public static final int aviary_primary_color_inverted=0x7f06001c;
+        public static final int aviary_primary_color_pressed=0x7f06000c;
+        public static final int aviary_primary_color_pressed_inverted=0x7f06001d;
         /**  default highlight color 
          */
-        public static final int aviary_primary_highlight_color=0x7f07000c;
+        public static final int aviary_primary_highlight_color=0x7f060016;
         /**  highlight color inverted 
          */
-        public static final int aviary_primary_highlight_color_inverted=0x7f07000d;
+        public static final int aviary_primary_highlight_color_inverted=0x7f060017;
         /**  highlight drawable background, stroke inner color pressed 
          */
-        public static final int aviary_text_highlight_background_inner_pressed=0x7f070031;
+        public static final int aviary_text_highlight_background_inner_pressed=0x7f06003b;
         /**  
     ############################ TEXT ####################
     
  highlight drawable background, stroke color 
          */
-        public static final int aviary_text_highlight_background_normal=0x7f070030;
-        public static final int aviary_tool_text_color=0x7f070047;
-        public static final int aviary_tool_text_color_inverted=0x7f070048;
-        public static final int aviary_tool_text_color_no_selected=0x7f070049;
-        public static final int aviary_workspace_indicator_normal_endColor=0x7f070011;
-        public static final int aviary_workspace_indicator_normal_startColor=0x7f070010;
-        public static final int aviary_workspace_indicator_selected_endColor=0x7f07000f;
-        public static final int aviary_workspace_indicator_selected_startColor=0x7f07000e;
-        public static final int blue_base=0x7f070032;
-        public static final int blue_gradientE=0x7f070035;
-        public static final int blue_gradientS=0x7f070034;
-        public static final int blue_stroke=0x7f070033;
-        public static final int drop_target_border=0x7f070042;
-        public static final int green_base=0x7f07003e;
-        public static final int green_gradientE=0x7f070041;
-        public static final int green_gradientS=0x7f070040;
-        public static final int green_stroke=0x7f07003f;
-        public static final int link=0x7f070043;
-        public static final int purple_base=0x7f07003a;
-        public static final int purple_gradientE=0x7f07003d;
-        public static final int purple_gradientS=0x7f07003c;
-        public static final int purple_stroke=0x7f07003b;
-        public static final int red_base=0x7f070036;
-        public static final int red_gradientE=0x7f070039;
-        public static final int red_gradientS=0x7f070038;
-        public static final int red_stroke=0x7f070037;
-        public static final int section_heading=0x7f070044;
-        public static final int table_header_background=0x7f070045;
-        public static final int table_row_separator=0x7f070046;
+        public static final int aviary_text_highlight_background_normal=0x7f06003a;
+        public static final int aviary_tool_text_color=0x7f060051;
+        public static final int aviary_tool_text_color_inverted=0x7f060052;
+        public static final int aviary_tool_text_color_no_selected=0x7f060053;
+        public static final int aviary_workspace_indicator_normal_endColor=0x7f06001b;
+        public static final int aviary_workspace_indicator_normal_startColor=0x7f06001a;
+        public static final int aviary_workspace_indicator_selected_endColor=0x7f060019;
+        public static final int aviary_workspace_indicator_selected_startColor=0x7f060018;
+        public static final int blue_base=0x7f06003c;
+        public static final int blue_gradientE=0x7f06003f;
+        public static final int blue_gradientS=0x7f06003e;
+        public static final int blue_stroke=0x7f06003d;
+        public static final int common_action_bar_splitter=0x7f060009;
+        /**  Sign-in Button Colors 
+         */
+        public static final int common_signin_btn_dark_text_default=0x7f060000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f060002;
+        public static final int common_signin_btn_dark_text_focused=0x7f060003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f060001;
+        public static final int common_signin_btn_default_background=0x7f060008;
+        public static final int common_signin_btn_light_text_default=0x7f060004;
+        public static final int common_signin_btn_light_text_disabled=0x7f060006;
+        public static final int common_signin_btn_light_text_focused=0x7f060007;
+        public static final int common_signin_btn_light_text_pressed=0x7f060005;
+        public static final int common_signin_btn_text_dark=0x7f060054;
+        public static final int common_signin_btn_text_light=0x7f060055;
+        public static final int drop_target_border=0x7f06004c;
+        public static final int green_base=0x7f060048;
+        public static final int green_gradientE=0x7f06004b;
+        public static final int green_gradientS=0x7f06004a;
+        public static final int green_stroke=0x7f060049;
+        public static final int link=0x7f06004d;
+        public static final int purple_base=0x7f060044;
+        public static final int purple_gradientE=0x7f060047;
+        public static final int purple_gradientS=0x7f060046;
+        public static final int purple_stroke=0x7f060045;
+        public static final int red_base=0x7f060040;
+        public static final int red_gradientE=0x7f060043;
+        public static final int red_gradientS=0x7f060042;
+        public static final int red_stroke=0x7f060041;
+        public static final int section_heading=0x7f06004e;
+        public static final int table_header_background=0x7f06004f;
+        public static final int table_row_separator=0x7f060050;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -1886,159 +2014,193 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int btn_dropdown=0x7f02008b;
         public static final int btn_dropdown_normal=0x7f02008c;
         public static final int btn_dropdown_pressed=0x7f02008d;
-        public static final int drop_target_background=0x7f02008e;
-        public static final int drop_target_border=0x7f02008f;
-        public static final int green_button=0x7f020090;
-        public static final int ic_launcher=0x7f020091;
-        public static final int ic_stickers=0x7f020092;
-        public static final int purple_button=0x7f020093;
-        public static final int red_button=0x7f020094;
-        public static final int rounded_corners=0x7f020095;
-        public static final int rubbish_bin=0x7f020096;
-        public static final int standard_button=0x7f020097;
-        public static final int standard_checkbox=0x7f020098;
+        public static final int common_signin_btn_icon_dark=0x7f02008e;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f02008f;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020090;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020091;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020092;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020093;
+        public static final int common_signin_btn_icon_focus_light=0x7f020094;
+        public static final int common_signin_btn_icon_light=0x7f020095;
+        public static final int common_signin_btn_icon_normal_dark=0x7f020096;
+        public static final int common_signin_btn_icon_normal_light=0x7f020097;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f020098;
+        public static final int common_signin_btn_icon_pressed_light=0x7f020099;
+        public static final int common_signin_btn_text_dark=0x7f02009a;
+        public static final int common_signin_btn_text_disabled_dark=0x7f02009b;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02009c;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f02009d;
+        public static final int common_signin_btn_text_disabled_light=0x7f02009e;
+        public static final int common_signin_btn_text_focus_dark=0x7f02009f;
+        public static final int common_signin_btn_text_focus_light=0x7f0200a0;
+        public static final int common_signin_btn_text_light=0x7f0200a1;
+        public static final int common_signin_btn_text_normal_dark=0x7f0200a2;
+        public static final int common_signin_btn_text_normal_light=0x7f0200a3;
+        public static final int common_signin_btn_text_pressed_dark=0x7f0200a4;
+        public static final int common_signin_btn_text_pressed_light=0x7f0200a5;
+        public static final int drop_target_background=0x7f0200a6;
+        public static final int drop_target_border=0x7f0200a7;
+        public static final int green_button=0x7f0200a8;
+        public static final int ic_launcher=0x7f0200a9;
+        public static final int ic_stickers=0x7f0200aa;
+        public static final int purple_button=0x7f0200ab;
+        public static final int red_button=0x7f0200ac;
+        public static final int rounded_corners=0x7f0200ad;
+        public static final int rubbish_bin=0x7f0200ae;
+        public static final int standard_button=0x7f0200af;
+        public static final int standard_checkbox=0x7f0200b0;
     }
     public static final class id {
-        public static final int add_feature_button=0x7f060064;
-        public static final int annotated_photo_tag=0x7f060087;
-        public static final int aviary_bottom_line=0x7f060049;
-        public static final int aviary_bottombar=0x7f060039;
-        public static final int aviary_button=0x7f06002f;
-        public static final int aviary_button1=0x7f060022;
-        public static final int aviary_button2=0x7f060023;
-        public static final int aviary_button3=0x7f060045;
-        public static final int aviary_button4=0x7f060046;
-        public static final int aviary_button_circle=0x7f060052;
-        public static final int aviary_button_minus=0x7f060059;
-        public static final int aviary_button_plus=0x7f06005b;
-        public static final int aviary_button_rectangle=0x7f060053;
-        public static final int aviary_clear_button1=0x7f060057;
-        public static final int aviary_clear_button2=0x7f060058;
-        public static final int aviary_content_view=0x7f060012;
-        public static final int aviary_crop_image=0x7f060017;
-        public static final int aviary_description=0x7f06002e;
-        public static final int aviary_disable_status=0x7f060047;
-        public static final int aviary_divider_left=0x7f060060;
-        public static final int aviary_divider_right=0x7f060061;
-        public static final int aviary_error_message=0x7f060034;
-        public static final int aviary_flipper=0x7f06005c;
-        public static final int aviary_gallery=0x7f060048;
-        public static final int aviary_gallery2=0x7f06004a;
-        public static final int aviary_head=0x7f06002b;
-        public static final int aviary_hidden=0x7f060024;
-        public static final int aviary_icon=0x7f06002c;
-        public static final int aviary_image=0x7f06001c;
-        public static final int aviary_image2=0x7f060025;
-        public static final int aviary_invisible_text_1=0x7f06001d;
-        public static final int aviary_invisible_text_2=0x7f06001f;
-        public static final int aviary_lens_button=0x7f060019;
-        public static final int aviary_list=0x7f060055;
-        public static final int aviary_list_packs=0x7f06005d;
-        public static final int aviary_list_stickers=0x7f06005e;
-        public static final int aviary_loader=0x7f060056;
-        public static final int aviary_main_iap_dialog=0x7f06002a;
-        public static final int aviary_main_iap_dialog_container=0x7f060033;
-        public static final int aviary_meme_dumb=0x7f06001e;
-        public static final int aviary_navbar=0x7f060037;
-        public static final int aviary_overlay=0x7f060016;
-        public static final int aviary_panel=0x7f060054;
-        public static final int aviary_progress=0x7f060029;
-        public static final int aviary_retry_button=0x7f060035;
-        public static final int aviary_seekbar=0x7f06005a;
-        public static final int aviary_switcher=0x7f06001a;
-        public static final int aviary_text=0x7f060020;
-        public static final int aviary_title=0x7f06002d;
-        public static final int aviary_tool_view=0x7f060013;
-        public static final int aviary_tools_listview=0x7f060014;
-        public static final int aviary_top_line=0x7f06004b;
-        public static final int aviary_version=0x7f060021;
-        public static final int aviary_wheel=0x7f06005f;
-        public static final int aviary_white_logo=0x7f060015;
-        public static final int aviary_workspace=0x7f060031;
-        public static final int aviary_workspace_container=0x7f060030;
-        public static final int aviary_workspace_indicator=0x7f060032;
-        public static final int best_photo_tag=0x7f060085;
-        public static final int best_sketch_tag=0x7f060086;
-        public static final int bio_sample_table=0x7f06008a;
-        public static final int button1=0x7f06004c;
-        public static final int button2=0x7f06004e;
-        public static final int button3=0x7f060050;
-        public static final int camera_button=0x7f060082;
-        public static final int cancel_button=0x7f06007f;
-        public static final int checked=0x7f060001;
-        public static final int clarity_turbidity_input=0x7f060068;
-        public static final int colour_input=0x7f060067;
-        public static final int conductivity_input=0x7f060070;
-        public static final int coord_easting_input=0x7f06007b;
-        public static final int coord_error_est=0x7f06007d;
-        public static final int coord_feature_rel=0x7f06007e;
-        public static final int coord_northing_input=0x7f06007c;
-        public static final int description=0x7f06007a;
-        public static final int divider=0x7f060028;
-        public static final int dna_input=0x7f060073;
-        public static final int do_input=0x7f060071;
-        public static final int down_top=0x7f060004;
-        public static final int dragLayer=0x7f060036;
-        public static final int drawing_view_container=0x7f06003a;
-        public static final int edge_bottom=0x7f060008;
-        public static final int edge_left=0x7f060005;
-        public static final int edge_right=0x7f060006;
-        public static final int edge_top=0x7f060007;
-        public static final int edit_feature_button=0x7f060063;
-        public static final int export_button=0x7f060010;
-        public static final int feather_dialogs_container=0x7f06003c;
-        public static final int feature_name_input=0x7f060076;
-        public static final int feature_size_input=0x7f060066;
-        public static final int feature_spinner=0x7f06000f;
-        public static final int feature_temperature_input=0x7f060069;
-        public static final int feature_type_input=0x7f060078;
-        public static final int ferrous_iron_input=0x7f060074;
-        public static final int geothermal_field_input=0x7f060079;
-        public static final int historic_local_name_input=0x7f060077;
-        public static final int horizontal=0x7f06000a;
-        public static final int image=0x7f060018;
-        public static final int image_loading_view=0x7f06003b;
-        public static final int image_tool_bar=0x7f060081;
-        public static final int image_types=0x7f060084;
-        public static final int imagegl=0x7f06001b;
-        public static final int main_content=0x7f060038;
-        public static final int manage_bio_samples_button=0x7f06000c;
-        public static final int navbar_button1=0x7f060040;
-        public static final int navbar_button2=0x7f060044;
-        public static final int navbar_divider1=0x7f06003f;
-        public static final int navbar_divider2=0x7f060043;
-        public static final int navbar_progress1=0x7f06003e;
-        public static final int navbar_progress2=0x7f060042;
-        public static final int navbar_text1=0x7f06003d;
-        public static final int navbar_text2=0x7f060041;
-        public static final int new_bio_sample_button=0x7f06000d;
-        public static final int nonblank=0x7f060026;
-        public static final int observer_1_input=0x7f06006a;
-        public static final int observer_2_input=0x7f06006b;
-        public static final int orp_input=0x7f06006f;
-        public static final int pager=0x7f06000b;
-        public static final int ph_input=0x7f06006e;
-        public static final int photo_list=0x7f060089;
-        public static final int pressed=0x7f060000;
-        public static final int rubbish_bin=0x7f060088;
-        public static final int sample_temperature_input=0x7f06006d;
-        public static final int save_bio_sample_button=0x7f060075;
-        public static final int save_button=0x7f060080;
-        public static final int save_survey_button=0x7f06006c;
-        public static final int selected=0x7f060002;
-        public static final int settings_button=0x7f06000e;
-        public static final int shadow=0x7f06008b;
-        public static final int size_preview=0x7f060062;
-        public static final int sketch_button=0x7f060083;
-        public static final int survey_date=0x7f060065;
-        public static final int table_scrollview=0x7f060011;
-        public static final int text=0x7f060027;
-        public static final int text1=0x7f06004d;
-        public static final int text2=0x7f06004f;
-        public static final int text3=0x7f060051;
-        public static final int top_down=0x7f060003;
-        public static final int turbidity_input=0x7f060072;
-        public static final int vertical=0x7f060009;
+        public static final int add_feature_button=0x7f07006d;
+        public static final int annotated_photo_tag=0x7f070091;
+        public static final int aviary_bottom_line=0x7f070051;
+        public static final int aviary_bottombar=0x7f070041;
+        public static final int aviary_button=0x7f070037;
+        public static final int aviary_button1=0x7f07002a;
+        public static final int aviary_button2=0x7f07002b;
+        public static final int aviary_button3=0x7f07004d;
+        public static final int aviary_button4=0x7f07004e;
+        public static final int aviary_button_circle=0x7f07005a;
+        public static final int aviary_button_minus=0x7f070061;
+        public static final int aviary_button_plus=0x7f070063;
+        public static final int aviary_button_rectangle=0x7f07005b;
+        public static final int aviary_clear_button1=0x7f07005f;
+        public static final int aviary_clear_button2=0x7f070060;
+        public static final int aviary_content_view=0x7f07001a;
+        public static final int aviary_crop_image=0x7f07001f;
+        public static final int aviary_description=0x7f070036;
+        public static final int aviary_disable_status=0x7f07004f;
+        public static final int aviary_divider_left=0x7f070068;
+        public static final int aviary_divider_right=0x7f070069;
+        public static final int aviary_error_message=0x7f07003c;
+        public static final int aviary_flipper=0x7f070064;
+        public static final int aviary_gallery=0x7f070050;
+        public static final int aviary_gallery2=0x7f070052;
+        public static final int aviary_head=0x7f070033;
+        public static final int aviary_hidden=0x7f07002c;
+        public static final int aviary_icon=0x7f070034;
+        public static final int aviary_image=0x7f070024;
+        public static final int aviary_image2=0x7f07002d;
+        public static final int aviary_invisible_text_1=0x7f070025;
+        public static final int aviary_invisible_text_2=0x7f070027;
+        public static final int aviary_lens_button=0x7f070021;
+        public static final int aviary_list=0x7f07005d;
+        public static final int aviary_list_packs=0x7f070065;
+        public static final int aviary_list_stickers=0x7f070066;
+        public static final int aviary_loader=0x7f07005e;
+        public static final int aviary_main_iap_dialog=0x7f070032;
+        public static final int aviary_main_iap_dialog_container=0x7f07003b;
+        public static final int aviary_meme_dumb=0x7f070026;
+        public static final int aviary_navbar=0x7f07003f;
+        public static final int aviary_overlay=0x7f07001e;
+        public static final int aviary_panel=0x7f07005c;
+        public static final int aviary_progress=0x7f070031;
+        public static final int aviary_retry_button=0x7f07003d;
+        public static final int aviary_seekbar=0x7f070062;
+        public static final int aviary_switcher=0x7f070022;
+        public static final int aviary_text=0x7f070028;
+        public static final int aviary_title=0x7f070035;
+        public static final int aviary_tool_view=0x7f07001b;
+        public static final int aviary_tools_listview=0x7f07001c;
+        public static final int aviary_top_line=0x7f070053;
+        public static final int aviary_version=0x7f070029;
+        public static final int aviary_wheel=0x7f070067;
+        public static final int aviary_white_logo=0x7f07001d;
+        public static final int aviary_workspace=0x7f070039;
+        public static final int aviary_workspace_container=0x7f070038;
+        public static final int aviary_workspace_indicator=0x7f07003a;
+        public static final int best_photo_tag=0x7f07008f;
+        public static final int best_sketch_tag=0x7f070090;
+        public static final int bio_sample_table=0x7f070094;
+        public static final int button1=0x7f070054;
+        public static final int button2=0x7f070056;
+        public static final int button3=0x7f070058;
+        public static final int camera_button=0x7f07008c;
+        public static final int cancel_button=0x7f070089;
+        public static final int checked=0x7f070006;
+        public static final int clarity_turbidity_input=0x7f070071;
+        public static final int colour_input=0x7f070070;
+        public static final int conductivity_input=0x7f070079;
+        public static final int coord_error_est=0x7f070087;
+        public static final int coord_feature_rel=0x7f070088;
+        public static final int coord_latitude=0x7f070085;
+        public static final int coord_longitude=0x7f070086;
+        public static final int description=0x7f070083;
+        public static final int divider=0x7f070030;
+        public static final int dna_input=0x7f07007c;
+        public static final int do_input=0x7f07007a;
+        public static final int down_top=0x7f070009;
+        public static final int dragLayer=0x7f07003e;
+        public static final int drawing_view_container=0x7f070042;
+        public static final int edge_bottom=0x7f07000d;
+        public static final int edge_left=0x7f07000a;
+        public static final int edge_right=0x7f07000b;
+        public static final int edge_top=0x7f07000c;
+        public static final int edit_feature_button=0x7f07006c;
+        public static final int export_button=0x7f070015;
+        public static final int feather_dialogs_container=0x7f070044;
+        public static final int feature_name_input=0x7f07007f;
+        public static final int feature_size_input=0x7f07006f;
+        public static final int feature_spinner=0x7f07006b;
+        public static final int feature_temperature_input=0x7f070072;
+        public static final int feature_type_input=0x7f070081;
+        public static final int ferrous_iron_input=0x7f07007d;
+        public static final int geothermal_field_input=0x7f070082;
+        public static final int historic_local_name_input=0x7f070080;
+        public static final int horizontal=0x7f07000f;
+        public static final int hybrid=0x7f070004;
+        public static final int image=0x7f070020;
+        public static final int image_loading_view=0x7f070043;
+        public static final int image_tool_bar=0x7f07008b;
+        public static final int image_types=0x7f07008e;
+        public static final int imagegl=0x7f070023;
+        public static final int main_content=0x7f070040;
+        public static final int manage_bio_samples_button=0x7f070011;
+        public static final int navbar_button1=0x7f070048;
+        public static final int navbar_button2=0x7f07004c;
+        public static final int navbar_divider1=0x7f070047;
+        public static final int navbar_divider2=0x7f07004b;
+        public static final int navbar_progress1=0x7f070046;
+        public static final int navbar_progress2=0x7f07004a;
+        public static final int navbar_text1=0x7f070045;
+        public static final int navbar_text2=0x7f070049;
+        public static final int new_bio_sample_button=0x7f070012;
+        public static final int next_sample_number_input=0x7f070018;
+        public static final int nonblank=0x7f07002e;
+        public static final int none=0x7f070000;
+        public static final int normal=0x7f070001;
+        public static final int observer_1_input=0x7f070073;
+        public static final int observer_2_input=0x7f070074;
+        public static final int orp_input=0x7f070078;
+        public static final int pager=0x7f070010;
+        public static final int ph_input=0x7f070077;
+        public static final int photo_list=0x7f070093;
+        public static final int pressed=0x7f070005;
+        public static final int rubbish_bin=0x7f070092;
+        public static final int sample_temperature_input=0x7f070076;
+        public static final int satellite=0x7f070002;
+        public static final int save_bio_sample_button=0x7f07007e;
+        public static final int save_button=0x7f07008a;
+        public static final int save_settings_button=0x7f070019;
+        public static final int save_survey_button=0x7f070075;
+        public static final int select_all_none=0x7f070014;
+        public static final int selected=0x7f070007;
+        public static final int settings_button=0x7f070013;
+        public static final int settings_table=0x7f070017;
+        public static final int shadow=0x7f070095;
+        public static final int size_preview=0x7f07006a;
+        public static final int sketch_button=0x7f07008d;
+        public static final int survey_date=0x7f07006e;
+        public static final int table_scrollview=0x7f070016;
+        public static final int terrain=0x7f070003;
+        public static final int text=0x7f07002f;
+        public static final int text1=0x7f070055;
+        public static final int text2=0x7f070057;
+        public static final int text3=0x7f070059;
+        public static final int top_down=0x7f070008;
+        public static final int turbidity_input=0x7f07007b;
+        public static final int use_current_location_button=0x7f070084;
+        public static final int vertical=0x7f07000e;
     }
     public static final class integer {
         /**  
@@ -2046,36 +2208,36 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 	 
  rotate/flip animation duration 
          */
-        public static final int aviary_adjust_animationDuration=0x7f080012;
+        public static final int aviary_adjust_animationDuration=0x7f090012;
         /**  reset animation duration 
          */
-        public static final int aviary_adjust_animationDuration2=0x7f080013;
+        public static final int aviary_adjust_animationDuration2=0x7f090013;
         /**  layout divider weoght 
          */
-        public static final int aviary_adjust_divider_weight=0x7f080017;
+        public static final int aviary_adjust_divider_weight=0x7f090017;
         /**  enable 3d animation on flip 
          */
-        public static final int aviary_adjust_flip3d=0x7f080014;
+        public static final int aviary_adjust_flip3d=0x7f090014;
         /**  users will be able to free rotate the image using fingers 
  0 = disable free rotation 
  1 = enable free rotation 
          */
-        public static final int aviary_adjust_free_rotate=0x7f080015;
+        public static final int aviary_adjust_free_rotate=0x7f090015;
         /**  layout item container weight 
          */
-        public static final int aviary_adjust_item_weight=0x7f080016;
+        public static final int aviary_adjust_item_weight=0x7f090016;
         /**  default glow intensity for buttons 
          */
-        public static final int aviary_button_highlight_glow_size=0x7f080023;
+        public static final int aviary_button_highlight_glow_size=0x7f090023;
         /**  divider weight 
          */
-        public static final int aviary_color_splash_divider_weight=0x7f080022;
+        public static final int aviary_color_splash_divider_weight=0x7f090022;
         /**  
     ############################ COLOR SPLASH #################### 
      
  button weight ( on 100 ) 
          */
-        public static final int aviary_color_splash_item_weight=0x7f080021;
+        public static final int aviary_color_splash_item_weight=0x7f090021;
         /**  
     ############################ CROP ####################
      
@@ -2085,22 +2247,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     	if the value is '0' the crop can be inverted 
     
          */
-        public static final int aviary_crop_invert_policy=0x7f08000b;
+        public static final int aviary_crop_invert_policy=0x7f09000b;
         /**  crop item selected by default ( based on 'aviary_crop_values' )
          */
-        public static final int aviary_crop_selected_index=0x7f08000c;
+        public static final int aviary_crop_selected_index=0x7f09000c;
         /**  default selected brush size 
          */
-        public static final int aviary_draw_brush_index=0x7f08000f;
+        public static final int aviary_draw_brush_index=0x7f09000f;
         /**  
     ############################ DRAW ####################
      
  blur softness for the drawing paint, use 0 to make hard 
          */
-        public static final int aviary_draw_brush_softValue=0x7f08000d;
+        public static final int aviary_draw_brush_softValue=0x7f09000d;
         /**  default selected fill color 
          */
-        public static final int aviary_draw_fill_color_index=0x7f08000e;
+        public static final int aviary_draw_fill_color_index=0x7f09000e;
         /**  
     ############################ STICKERS #################### 
      
@@ -2109,293 +2271,371 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
      
  button weight ( on 100 ) 
          */
-        public static final int aviary_enhance_item_weight=0x7f080020;
+        public static final int aviary_enhance_item_weight=0x7f090020;
         /**  
     ############################ FRAMES/EFFECTS #################### 
      
  max number of featured packs to display 
          */
-        public static final int aviary_featured_packs_count=0x7f08001f;
-        public static final int aviary_iap_dialog_cols_effects=0x7f08001d;
+        public static final int aviary_featured_packs_count=0x7f09001f;
+        public static final int aviary_iap_dialog_cols_effects=0x7f09001d;
         /**  IAP Dialog Workspace cols and rows 
          */
-        public static final int aviary_iap_dialog_cols_stickers=0x7f08001b;
+        public static final int aviary_iap_dialog_cols_stickers=0x7f09001b;
         /**  
     ############################ IAP Dialog #################### 
      
  height weight of the IAP dialog ( how much screen it will cover vertically ) 
          */
-        public static final int aviary_iap_dialog_height_weight=0x7f080018;
+        public static final int aviary_iap_dialog_height_weight=0x7f090018;
         /**  margin top weight 
          */
-        public static final int aviary_iap_dialog_margin_top_weight=0x7f08001a;
-        public static final int aviary_iap_dialog_rows_effects=0x7f08001e;
-        public static final int aviary_iap_dialog_rows_stickers=0x7f08001c;
-        public static final int aviary_iap_dialog_width_weight=0x7f080019;
+        public static final int aviary_iap_dialog_margin_top_weight=0x7f09001a;
+        public static final int aviary_iap_dialog_rows_effects=0x7f09001e;
+        public static final int aviary_iap_dialog_rows_stickers=0x7f09001c;
+        public static final int aviary_iap_dialog_width_weight=0x7f090019;
         /**  The duration (in milliseconds) of a medium-length animation. 
          */
-        public static final int aviary_mediumAnimTime=0x7f080001;
+        public static final int aviary_mediumAnimTime=0x7f090001;
         /**  maximum characters allowed for a single line of the meme 
          */
-        public static final int aviary_meme_max_length=0x7f080010;
+        public static final int aviary_meme_max_length=0x7f090010;
         /**  toggle stroke for the meme text 
          */
-        public static final int aviary_meme_stroke_enabled=0x7f080011;
+        public static final int aviary_meme_stroke_enabled=0x7f090011;
         /**  width weight for the seekbar inside its container 
          */
-        public static final int aviary_seekbar_weight=0x7f080003;
+        public static final int aviary_seekbar_weight=0x7f090003;
         /**  
     ############################ MISC ####################
     
  The duration (in milliseconds) of a short animation. 
          */
-        public static final int aviary_shortAnimTime=0x7f080000;
+        public static final int aviary_shortAnimTime=0x7f090000;
         /**  default selected brush size for spot tools 
          */
-        public static final int aviary_spot_brush_index=0x7f080004;
-        public static final int aviary_spot_gallery_item_max_size=0x7f080006;
+        public static final int aviary_spot_brush_index=0x7f090004;
+        public static final int aviary_spot_gallery_item_max_size=0x7f090006;
         /**  
     	for gallery items drawables, this will be the min and max radius ( in % ) of the
     	current drawable size 
     
          */
-        public static final int aviary_spot_gallery_item_min_size=0x7f080005;
+        public static final int aviary_spot_gallery_item_min_size=0x7f090005;
         /**  default selected text color 
          */
-        public static final int aviary_text_fill_color_index=0x7f080009;
+        public static final int aviary_text_fill_color_index=0x7f090009;
         /**  drawable radius size ( in % ) 
          */
-        public static final int aviary_text_gallery_drawable_radius=0x7f08000a;
+        public static final int aviary_text_gallery_drawable_radius=0x7f09000a;
         /**  
     ############################ TEXT ####################
      
  maximum characters allowed in the text tool 
          */
-        public static final int aviary_text_max_length=0x7f080007;
-        public static final int aviary_text_stroke_enabled=0x7f080008;
+        public static final int aviary_text_max_length=0x7f090007;
+        public static final int aviary_text_stroke_enabled=0x7f090008;
         /**  width weight for the wheel inside its container 
          */
-        public static final int aviary_wheel_weight=0x7f080002;
-        public static final int border_version=0x7f080028;
-        public static final int is_border=0x7f080027;
-        public static final int is_filter=0x7f080025;
+        public static final int aviary_wheel_weight=0x7f090002;
+        public static final int border_version=0x7f090028;
+        public static final int is_border=0x7f090027;
+        public static final int is_filter=0x7f090025;
         /**  PLUGIN SERVICE - DO NOT EDIT 
          */
-        public static final int is_sticker=0x7f080024;
-        public static final int is_tool=0x7f080026;
+        public static final int is_sticker=0x7f090024;
+        public static final int is_tool=0x7f090026;
     }
     public static final class layout {
         public static final int activity_bio_sample=0x7f030000;
         public static final int activity_main_menu=0x7f030001;
         public static final int activity_manage_bio_samples=0x7f030002;
-        public static final int aviary_bottombar=0x7f030003;
-        public static final int aviary_content_adjust=0x7f030004;
-        public static final int aviary_content_crop=0x7f030005;
-        public static final int aviary_content_draw=0x7f030006;
-        public static final int aviary_content_effects=0x7f030007;
-        public static final int aviary_content_effects_gl=0x7f030008;
-        public static final int aviary_content_focus=0x7f030009;
-        public static final int aviary_content_meme=0x7f03000a;
-        public static final int aviary_content_spot_draw=0x7f03000b;
-        public static final int aviary_content_stickers=0x7f03000c;
-        public static final int aviary_content_text=0x7f03000d;
-        public static final int aviary_effect_item_more=0x7f03000e;
-        public static final int aviary_feedback_dialog_view=0x7f03000f;
-        public static final int aviary_frame_item=0x7f030010;
-        public static final int aviary_frame_item_divider=0x7f030011;
-        public static final int aviary_frame_item_external=0x7f030012;
-        public static final int aviary_frame_item_more=0x7f030013;
-        public static final int aviary_gallery_crop_item_view=0x7f030014;
-        public static final int aviary_gallery_crop_item_view_custom=0x7f030015;
-        public static final int aviary_gallery_item_divider=0x7f030016;
-        public static final int aviary_gallery_item_highlight_view=0x7f030017;
-        public static final int aviary_gallery_item_view=0x7f030018;
-        public static final int aviary_iap_cell_item_effects=0x7f030019;
-        public static final int aviary_iap_cell_item_stickers=0x7f03001a;
-        public static final int aviary_iap_dialog=0x7f03001b;
-        public static final int aviary_iap_dialog_container=0x7f03001c;
-        public static final int aviary_iap_download_error_message=0x7f03001d;
-        public static final int aviary_iap_workspace_screen_effects=0x7f03001e;
-        public static final int aviary_iap_workspace_screen_stickers=0x7f03001f;
-        public static final int aviary_main_loader=0x7f030020;
-        public static final int aviary_main_view=0x7f030021;
-        public static final int aviary_modal_progress_view=0x7f030022;
-        public static final int aviary_navbar=0x7f030023;
-        public static final int aviary_navbar_text=0x7f030024;
-        public static final int aviary_panel_adjust=0x7f030025;
-        public static final int aviary_panel_colorsplash=0x7f030026;
-        public static final int aviary_panel_crop=0x7f030027;
-        public static final int aviary_panel_draw=0x7f030028;
-        public static final int aviary_panel_enhance=0x7f030029;
-        public static final int aviary_panel_focus=0x7f03002a;
-        public static final int aviary_panel_frames=0x7f03002b;
-        public static final int aviary_panel_meme=0x7f03002c;
-        public static final int aviary_panel_seekbar=0x7f03002d;
-        public static final int aviary_panel_spot=0x7f03002e;
-        public static final int aviary_panel_stickers=0x7f03002f;
-        public static final int aviary_panel_wheel=0x7f030030;
-        public static final int aviary_progress_medium=0x7f030031;
-        public static final int aviary_progress_medium_inverse=0x7f030032;
-        public static final int aviary_progress_small=0x7f030033;
-        public static final int aviary_sticker_item=0x7f030034;
-        public static final int aviary_sticker_item_more=0x7f030035;
-        public static final int aviary_sticker_item_single=0x7f030036;
-        public static final int aviary_thumb_divider_left=0x7f030037;
-        public static final int aviary_thumb_divider_right=0x7f030038;
-        public static final int aviary_toast_layout=0x7f030039;
-        public static final int aviary_tool_feedback_layout=0x7f03003a;
-        public static final int aviary_tool_layout=0x7f03003b;
-        public static final int fragment_appearance=0x7f03003c;
-        public static final int fragment_bio_data=0x7f03003d;
-        public static final int fragment_feature_id=0x7f03003e;
-        public static final int fragment_image=0x7f03003f;
-        public static final int template_checkbox=0x7f030040;
-        public static final int template_column=0x7f030041;
-        public static final int template_column_fixed_width=0x7f030042;
-        public static final int template_link=0x7f030043;
-        public static final int template_table=0x7f030044;
-        public static final int widget_spinner=0x7f030045;
-        public static final int widget_spinner_item=0x7f030046;
+        public static final int activity_settings=0x7f030003;
+        public static final int aviary_bottombar=0x7f030004;
+        public static final int aviary_content_adjust=0x7f030005;
+        public static final int aviary_content_crop=0x7f030006;
+        public static final int aviary_content_draw=0x7f030007;
+        public static final int aviary_content_effects=0x7f030008;
+        public static final int aviary_content_effects_gl=0x7f030009;
+        public static final int aviary_content_focus=0x7f03000a;
+        public static final int aviary_content_meme=0x7f03000b;
+        public static final int aviary_content_spot_draw=0x7f03000c;
+        public static final int aviary_content_stickers=0x7f03000d;
+        public static final int aviary_content_text=0x7f03000e;
+        public static final int aviary_effect_item_more=0x7f03000f;
+        public static final int aviary_feedback_dialog_view=0x7f030010;
+        public static final int aviary_frame_item=0x7f030011;
+        public static final int aviary_frame_item_divider=0x7f030012;
+        public static final int aviary_frame_item_external=0x7f030013;
+        public static final int aviary_frame_item_more=0x7f030014;
+        public static final int aviary_gallery_crop_item_view=0x7f030015;
+        public static final int aviary_gallery_crop_item_view_custom=0x7f030016;
+        public static final int aviary_gallery_item_divider=0x7f030017;
+        public static final int aviary_gallery_item_highlight_view=0x7f030018;
+        public static final int aviary_gallery_item_view=0x7f030019;
+        public static final int aviary_iap_cell_item_effects=0x7f03001a;
+        public static final int aviary_iap_cell_item_stickers=0x7f03001b;
+        public static final int aviary_iap_dialog=0x7f03001c;
+        public static final int aviary_iap_dialog_container=0x7f03001d;
+        public static final int aviary_iap_download_error_message=0x7f03001e;
+        public static final int aviary_iap_workspace_screen_effects=0x7f03001f;
+        public static final int aviary_iap_workspace_screen_stickers=0x7f030020;
+        public static final int aviary_main_loader=0x7f030021;
+        public static final int aviary_main_view=0x7f030022;
+        public static final int aviary_modal_progress_view=0x7f030023;
+        public static final int aviary_navbar=0x7f030024;
+        public static final int aviary_navbar_text=0x7f030025;
+        public static final int aviary_panel_adjust=0x7f030026;
+        public static final int aviary_panel_colorsplash=0x7f030027;
+        public static final int aviary_panel_crop=0x7f030028;
+        public static final int aviary_panel_draw=0x7f030029;
+        public static final int aviary_panel_enhance=0x7f03002a;
+        public static final int aviary_panel_focus=0x7f03002b;
+        public static final int aviary_panel_frames=0x7f03002c;
+        public static final int aviary_panel_meme=0x7f03002d;
+        public static final int aviary_panel_seekbar=0x7f03002e;
+        public static final int aviary_panel_spot=0x7f03002f;
+        public static final int aviary_panel_stickers=0x7f030030;
+        public static final int aviary_panel_wheel=0x7f030031;
+        public static final int aviary_progress_medium=0x7f030032;
+        public static final int aviary_progress_medium_inverse=0x7f030033;
+        public static final int aviary_progress_small=0x7f030034;
+        public static final int aviary_sticker_item=0x7f030035;
+        public static final int aviary_sticker_item_more=0x7f030036;
+        public static final int aviary_sticker_item_single=0x7f030037;
+        public static final int aviary_thumb_divider_left=0x7f030038;
+        public static final int aviary_thumb_divider_right=0x7f030039;
+        public static final int aviary_toast_layout=0x7f03003a;
+        public static final int aviary_tool_feedback_layout=0x7f03003b;
+        public static final int aviary_tool_layout=0x7f03003c;
+        public static final int fragment_appearance=0x7f03003d;
+        public static final int fragment_bio_data=0x7f03003e;
+        public static final int fragment_feature_id=0x7f03003f;
+        public static final int fragment_image=0x7f030040;
+        public static final int template_checkbox=0x7f030041;
+        public static final int template_column=0x7f030042;
+        public static final int template_column_fixed_width=0x7f030043;
+        public static final int template_link=0x7f030044;
+        public static final int template_table=0x7f030045;
+        public static final int widget_spinner=0x7f030046;
+        public static final int widget_spinner_item=0x7f030047;
     }
     public static final class raw {
         public static final int aviary_default_effects=0x7f050000;
         public static final int sketch_canvas=0x7f050001;
     }
     public static final class string {
-        public static final int app_name=0x7f0a0078;
+        public static final int app_name=0x7f08008d;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        enabled for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_enabling_title=0x7f080010;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        installed for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_installation_title=0x7f080011;
+        /**   Title for notification shown when GooglePlayServices needs to be
+        udpated for a application to work. [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_needs_update_title=0x7f080012;
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_play_services_err_notification_msg=0x7f080013;
+        /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
+         */
+        public static final int auth_client_requested_by_msg=0x7f080014;
+        /**   Title for notification shown when a bad version of GooglePlayServices
+        has been installed and needs correction for an application to work.
+        [CHAR LIMIT=70] 
+         */
+        public static final int auth_client_using_bad_version_title=0x7f08000f;
         /**  
 	############################ MEME ####################
 	
  change the default font used for the meme pane 
  or leave empty to use the default system font 
          */
-        public static final int aviary_meme_font=0x7f0a0000;
-        public static final int border_name=0x7f0a005b;
-        public static final int conductivity_label=0x7f0a007b;
-        public static final int confirm_quit_message=0x7f0a0062;
-        public static final int feather_about_dialog_message=0x7f0a0010;
-        public static final int feather_activity_not_found=0x7f0a0048;
-        public static final int feather_adjust=0x7f0a004f;
-        public static final int feather_apply=0x7f0a0057;
-        public static final int feather_attention=0x7f0a000c;
-        public static final int feather_auto_enhance_label=0x7f0a0005;
-        public static final int feather_back_enhance_label=0x7f0a004d;
-        public static final int feather_balance_enhance_label=0x7f0a0064;
-        public static final int feather_blemish=0x7f0a0036;
-        public static final int feather_borders=0x7f0a006c;
-        public static final int feather_borders_dialog_first_time=0x7f0a005a;
-        public static final int feather_brightness=0x7f0a0060;
-        public static final int feather_cancel=0x7f0a0070;
-        public static final int feather_circle=0x7f0a002c;
-        public static final int feather_close=0x7f0a000f;
-        public static final int feather_colorfix=0x7f0a003d;
-        public static final int feather_colorsplash_eraser=0x7f0a0067;
-        public static final int feather_colorsplash_free=0x7f0a0040;
-        public static final int feather_colorsplash_smart=0x7f0a0020;
-        public static final int feather_confirm=0x7f0a0031;
-        public static final int feather_contrast=0x7f0a002f;
-        public static final int feather_crash_toast_text=0x7f0a004b;
-        public static final int feather_crop=0x7f0a0071;
-        public static final int feather_custom=0x7f0a0043;
-        public static final int feather_delete=0x7f0a0038;
-        public static final int feather_download=0x7f0a005c;
-        public static final int feather_draw=0x7f0a0021;
-        public static final int feather_edit_bottom_text=0x7f0a004e;
-        public static final int feather_edit_top_text=0x7f0a0053;
-        public static final int feather_edit_your_photo=0x7f0a0006;
-        public static final int feather_effect_loading_message=0x7f0a0024;
-        public static final int feather_effects=0x7f0a0003;
-        public static final int feather_effects_beginning_of_list=0x7f0a002d;
-        public static final int feather_effects_end_of_list=0x7f0a000e;
-        public static final int feather_effects_error_loading_pack=0x7f0a005f;
-        public static final int feather_effects_error_loading_packs=0x7f0a004a;
-        public static final int feather_effects_error_update_editor=0x7f0a0018;
-        public static final int feather_effects_error_update_editors=0x7f0a001a;
-        public static final int feather_effects_error_update_multiple=0x7f0a0054;
-        public static final int feather_effects_error_update_pack=0x7f0a000d;
-        public static final int feather_effects_error_update_packs=0x7f0a0035;
-        public static final int feather_effects_unknown_error=0x7f0a0065;
-        public static final int feather_effects_unknown_errors=0x7f0a0059;
-        public static final int feather_enhance=0x7f0a005d;
-        public static final int feather_enter_text_here=0x7f0a0029;
-        public static final int feather_error_download_image_message=0x7f0a0022;
-        public static final int feather_error_saving_aviary_folder=0x7f0a0007;
-        public static final int feather_error_saving_image=0x7f0a0023;
-        public static final int feather_featured=0x7f0a0072;
-        public static final int feather_feedback=0x7f0a0055;
-        public static final int feather_feedback_dialog_message=0x7f0a002a;
-        public static final int feather_filter_pack_updated=0x7f0a001b;
-        public static final int feather_flip=0x7f0a006e;
-        public static final int feather_generic_error_title=0x7f0a0047;
-        public static final int feather_get_more=0x7f0a006b;
-        public static final int feather_hidef=0x7f0a0026;
-        public static final int feather_illuminate=0x7f0a0002;
-        public static final int feather_image_saved_in=0x7f0a0041;
-        public static final int feather_infoscreen_bottom_button=0x7f0a0017;
-        public static final int feather_infoscreen_text=0x7f0a0044;
-        public static final int feather_item_not_found=0x7f0a003f;
-        public static final int feather_keep_editing=0x7f0a0014;
-        public static final int feather_loading_image=0x7f0a002b;
-        public static final int feather_loading_title=0x7f0a0052;
-        public static final int feather_meme=0x7f0a0009;
-        public static final int feather_menu_reset=0x7f0a0042;
-        public static final int feather_message_button_no=0x7f0a0011;
-        public static final int feather_message_button_yes=0x7f0a0027;
-        public static final int feather_message_text=0x7f0a0045;
-        public static final int feather_message_title=0x7f0a000b;
-        public static final int feather_mirror=0x7f0a0016;
-        public static final int feather_new_effects=0x7f0a0008;
-        public static final int feather_original=0x7f0a0037;
-        public static final int feather_plugin_error_corrupted=0x7f0a0069;
-        public static final int feather_plugin_error_download=0x7f0a0030;
-        public static final int feather_plugin_error_storage_not_available=0x7f0a0034;
-        public static final int feather_plugin_filter_undefined_name=0x7f0a0001;
-        public static final int feather_rectangle=0x7f0a0012;
-        public static final int feather_red_eye=0x7f0a0073;
-        public static final int feather_remove=0x7f0a0074;
-        public static final int feather_revert_dialog_message=0x7f0a001e;
-        public static final int feather_revert_dialog_title=0x7f0a0013;
-        public static final int feather_rotate=0x7f0a0068;
-        public static final int feather_saturation=0x7f0a001c;
-        public static final int feather_save=0x7f0a005e;
-        public static final int feather_save_progress=0x7f0a0063;
-        public static final int feather_send_feedback=0x7f0a003c;
-        public static final int feather_shapes=0x7f0a0032;
-        public static final int feather_share=0x7f0a001f;
-        public static final int feather_sharpen=0x7f0a0058;
-        public static final int feather_square=0x7f0a004c;
-        public static final int feather_sticker_delete_message=0x7f0a0015;
-        public static final int feather_sticker_name=0x7f0a006f;
-        public static final int feather_sticker_pack_updated_1=0x7f0a0039;
-        public static final int feather_sticker_pack_updated_2=0x7f0a003a;
-        public static final int feather_sticker_pack_updated_3=0x7f0a003b;
-        public static final int feather_stickers=0x7f0a0046;
-        public static final int feather_stickers_dialog_first_time=0x7f0a0025;
-        public static final int feather_text=0x7f0a0033;
-        public static final int feather_tool=0x7f0a0004;
-        public static final int feather_tool_colorsplash=0x7f0a003e;
-        public static final int feather_tool_leave_question=0x7f0a0066;
-        public static final int feather_tool_name=0x7f0a006a;
-        public static final int feather_tool_temperature=0x7f0a0051;
-        public static final int feather_tool_tiltshift=0x7f0a0061;
-        public static final int feather_try_again=0x7f0a006d;
-        public static final int feather_update=0x7f0a0019;
-        public static final int feather_version=0x7f0a001d;
-        public static final int feather_view_file=0x7f0a002e;
-        public static final int feather_whiten=0x7f0a000a;
-        public static final int feather_yes_leave=0x7f0a0028;
-        public static final int feather_zoom_mode=0x7f0a0049;
-        public static final int filter_name=0x7f0a0050;
-        public static final int images_tab=0x7f0a0077;
-        public static final int menu_premium=0x7f0a0056;
-        public static final int rubberneck_label=0x7f0a0079;
+        public static final int aviary_meme_font=0x7f080015;
+        public static final int border_name=0x7f080070;
+        /**  Button in confirmation dialog to enable Google Play services.  Clicking it
+        will direct user to application settings of Google Play services where they
+        can enable it [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_button=0x7f080006;
+        /**  Message in confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_enable_text=0x7f080005;
+        /**  Title of confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_title=0x7f080004;
+        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_button=0x7f080003;
+        /**  (For phones) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_phone=0x7f080001;
+        /**  (For tablets) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_tablet=0x7f080002;
+        /**  Title of confirmation dialog informing user that they need to install
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_title=0x7f080000;
+        /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
+        services [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unknown_issue=0x7f080009;
+        /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unsupported_text=0x7f08000b;
+        /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_unsupported_title=0x7f08000a;
+        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_button=0x7f08000c;
+        /**  Message in confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_update_text=0x7f080008;
+        /**  Title of confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_title=0x7f080007;
+        /**  Sign-in button text [CHAR LIMIT=15] 
+         */
+        public static final int common_signin_button_text=0x7f08000d;
+        /**  Long form sign-in button text [CHAR LIMIT=30] 
+         */
+        public static final int common_signin_button_text_long=0x7f08000e;
+        public static final int conductivity_label=0x7f080090;
+        public static final int config_next_sample_number=0x7f080091;
+        public static final int confirm_quit_message=0x7f080077;
+        public static final int feather_about_dialog_message=0x7f080025;
+        public static final int feather_activity_not_found=0x7f08005d;
+        public static final int feather_adjust=0x7f080064;
+        public static final int feather_apply=0x7f08006c;
+        public static final int feather_attention=0x7f080021;
+        public static final int feather_auto_enhance_label=0x7f08001a;
+        public static final int feather_back_enhance_label=0x7f080062;
+        public static final int feather_balance_enhance_label=0x7f080079;
+        public static final int feather_blemish=0x7f08004b;
+        public static final int feather_borders=0x7f080081;
+        public static final int feather_borders_dialog_first_time=0x7f08006f;
+        public static final int feather_brightness=0x7f080075;
+        public static final int feather_cancel=0x7f080085;
+        public static final int feather_circle=0x7f080041;
+        public static final int feather_close=0x7f080024;
+        public static final int feather_colorfix=0x7f080052;
+        public static final int feather_colorsplash_eraser=0x7f08007c;
+        public static final int feather_colorsplash_free=0x7f080055;
+        public static final int feather_colorsplash_smart=0x7f080035;
+        public static final int feather_confirm=0x7f080046;
+        public static final int feather_contrast=0x7f080044;
+        public static final int feather_crash_toast_text=0x7f080060;
+        public static final int feather_crop=0x7f080086;
+        public static final int feather_custom=0x7f080058;
+        public static final int feather_delete=0x7f08004d;
+        public static final int feather_download=0x7f080071;
+        public static final int feather_draw=0x7f080036;
+        public static final int feather_edit_bottom_text=0x7f080063;
+        public static final int feather_edit_top_text=0x7f080068;
+        public static final int feather_edit_your_photo=0x7f08001b;
+        public static final int feather_effect_loading_message=0x7f080039;
+        public static final int feather_effects=0x7f080018;
+        public static final int feather_effects_beginning_of_list=0x7f080042;
+        public static final int feather_effects_end_of_list=0x7f080023;
+        public static final int feather_effects_error_loading_pack=0x7f080074;
+        public static final int feather_effects_error_loading_packs=0x7f08005f;
+        public static final int feather_effects_error_update_editor=0x7f08002d;
+        public static final int feather_effects_error_update_editors=0x7f08002f;
+        public static final int feather_effects_error_update_multiple=0x7f080069;
+        public static final int feather_effects_error_update_pack=0x7f080022;
+        public static final int feather_effects_error_update_packs=0x7f08004a;
+        public static final int feather_effects_unknown_error=0x7f08007a;
+        public static final int feather_effects_unknown_errors=0x7f08006e;
+        public static final int feather_enhance=0x7f080072;
+        public static final int feather_enter_text_here=0x7f08003e;
+        public static final int feather_error_download_image_message=0x7f080037;
+        public static final int feather_error_saving_aviary_folder=0x7f08001c;
+        public static final int feather_error_saving_image=0x7f080038;
+        public static final int feather_featured=0x7f080087;
+        public static final int feather_feedback=0x7f08006a;
+        public static final int feather_feedback_dialog_message=0x7f08003f;
+        public static final int feather_filter_pack_updated=0x7f080030;
+        public static final int feather_flip=0x7f080083;
+        public static final int feather_generic_error_title=0x7f08005c;
+        public static final int feather_get_more=0x7f080080;
+        public static final int feather_hidef=0x7f08003b;
+        public static final int feather_illuminate=0x7f080017;
+        public static final int feather_image_saved_in=0x7f080056;
+        public static final int feather_infoscreen_bottom_button=0x7f08002c;
+        public static final int feather_infoscreen_text=0x7f080059;
+        public static final int feather_item_not_found=0x7f080054;
+        public static final int feather_keep_editing=0x7f080029;
+        public static final int feather_loading_image=0x7f080040;
+        public static final int feather_loading_title=0x7f080067;
+        public static final int feather_meme=0x7f08001e;
+        public static final int feather_menu_reset=0x7f080057;
+        public static final int feather_message_button_no=0x7f080026;
+        public static final int feather_message_button_yes=0x7f08003c;
+        public static final int feather_message_text=0x7f08005a;
+        public static final int feather_message_title=0x7f080020;
+        public static final int feather_mirror=0x7f08002b;
+        public static final int feather_new_effects=0x7f08001d;
+        public static final int feather_original=0x7f08004c;
+        public static final int feather_plugin_error_corrupted=0x7f08007e;
+        public static final int feather_plugin_error_download=0x7f080045;
+        public static final int feather_plugin_error_storage_not_available=0x7f080049;
+        public static final int feather_plugin_filter_undefined_name=0x7f080016;
+        public static final int feather_rectangle=0x7f080027;
+        public static final int feather_red_eye=0x7f080088;
+        public static final int feather_remove=0x7f080089;
+        public static final int feather_revert_dialog_message=0x7f080033;
+        public static final int feather_revert_dialog_title=0x7f080028;
+        public static final int feather_rotate=0x7f08007d;
+        public static final int feather_saturation=0x7f080031;
+        public static final int feather_save=0x7f080073;
+        public static final int feather_save_progress=0x7f080078;
+        public static final int feather_send_feedback=0x7f080051;
+        public static final int feather_shapes=0x7f080047;
+        public static final int feather_share=0x7f080034;
+        public static final int feather_sharpen=0x7f08006d;
+        public static final int feather_square=0x7f080061;
+        public static final int feather_sticker_delete_message=0x7f08002a;
+        public static final int feather_sticker_name=0x7f080084;
+        public static final int feather_sticker_pack_updated_1=0x7f08004e;
+        public static final int feather_sticker_pack_updated_2=0x7f08004f;
+        public static final int feather_sticker_pack_updated_3=0x7f080050;
+        public static final int feather_stickers=0x7f08005b;
+        public static final int feather_stickers_dialog_first_time=0x7f08003a;
+        public static final int feather_text=0x7f080048;
+        public static final int feather_tool=0x7f080019;
+        public static final int feather_tool_colorsplash=0x7f080053;
+        public static final int feather_tool_leave_question=0x7f08007b;
+        public static final int feather_tool_name=0x7f08007f;
+        public static final int feather_tool_temperature=0x7f080066;
+        public static final int feather_tool_tiltshift=0x7f080076;
+        public static final int feather_try_again=0x7f080082;
+        public static final int feather_update=0x7f08002e;
+        public static final int feather_version=0x7f080032;
+        public static final int feather_view_file=0x7f080043;
+        public static final int feather_whiten=0x7f08001f;
+        public static final int feather_yes_leave=0x7f08003d;
+        public static final int feather_zoom_mode=0x7f08005e;
+        public static final int filter_name=0x7f080065;
+        public static final int images_tab=0x7f08008c;
+        public static final int menu_premium=0x7f08006b;
+        public static final int rubberneck_label=0x7f08008e;
         /**  Bio sample activity tabs 
          */
-        public static final int sample_data_tab=0x7f0a0075;
-        public static final int select_all=0x7f0a007c;
-        public static final int select_none=0x7f0a007d;
-        public static final int survey_data_tab=0x7f0a0076;
-        public static final int temperature_label=0x7f0a007a;
+        public static final int sample_data_tab=0x7f08008a;
+        public static final int survey_data_tab=0x7f08008b;
+        public static final int temperature_label=0x7f08008f;
     }
     public static final class style {
         public static final int AviaryAnimations=0x7f0c0078;
@@ -2590,9 +2830,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #AviaryAdjustImageView_aviary_strokeWidth2
          */
         public static final int[] AviaryAdjustImageView = {
-            0x010100d5, 0x7f010090, 0x7f010091, 0x7f010098,
-            0x7f01009a, 0x7f0100ac, 0x7f0100bf, 0x7f0100c2,
-            0x7f0100c3, 0x7f0100c4, 0x7f0100c5
+            0x010100d5, 0x7f01009e, 0x7f01009f, 0x7f0100a6,
+            0x7f0100a8, 0x7f0100ba, 0x7f0100cd, 0x7f0100d0,
+            0x7f0100d1, 0x7f0100d2, 0x7f0100d3
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#android_padding}
@@ -2790,9 +3030,9 @@ containing a value of this type.
            @see #AviaryCellLayout_aviary_verticalPadding
          */
         public static final int[] AviaryCellLayout = {
-            0x7f0100c6, 0x7f0100c7, 0x7f0100c8, 0x7f0100c9,
-            0x7f0100ca, 0x7f0100cb, 0x7f0100cc, 0x7f0100cd,
-            0x7f0100d1
+            0x7f0100d4, 0x7f0100d5, 0x7f0100d6, 0x7f0100d7,
+            0x7f0100d8, 0x7f0100d9, 0x7f0100da, 0x7f0100db,
+            0x7f0100df
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_cellBottomPadding}
@@ -2962,9 +3202,9 @@ containing a value of this type.
            @see #AviaryCropHighlightView_aviary_strokeWidth2
          */
         public static final int[] AviaryCropHighlightView = {
-            0x01010119, 0x7f010090, 0x7f010091, 0x7f010098,
-            0x7f0100ac, 0x7f0100ad, 0x7f0100bf, 0x7f0100c0,
-            0x7f0100c1
+            0x01010119, 0x7f01009e, 0x7f01009f, 0x7f0100a6,
+            0x7f0100ba, 0x7f0100bb, 0x7f0100cd, 0x7f0100ce,
+            0x7f0100cf
         };
         /**
           <p>
@@ -3125,7 +3365,7 @@ containing a value of this type.
            @see #AviaryCropImageView_aviary_minCropSize
          */
         public static final int[] AviaryCropImageView = {
-            0x7f0100b6, 0x7f0100b7
+            0x7f0100c4, 0x7f0100c5
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_highlightStyle}
@@ -3180,9 +3420,9 @@ containing a value of this type.
            @see #AviaryDrawableHighlightView_aviary_rotateEnabled
          */
         public static final int[] AviaryDrawableHighlightView = {
-            0x010100d4, 0x010100d5, 0x7f0100b8, 0x7f0100b9,
-            0x7f0100ba, 0x7f0100bb, 0x7f0100bc, 0x7f0100bd,
-            0x7f0100be
+            0x010100d4, 0x010100d5, 0x7f0100c6, 0x7f0100c7,
+            0x7f0100c8, 0x7f0100c9, 0x7f0100ca, 0x7f0100cb,
+            0x7f0100cc
         };
         /**
           <p>
@@ -3328,7 +3568,7 @@ containing a value of this type.
            @see #AviaryEdgeEffect_aviary_glowDrawable
          */
         public static final int[] AviaryEdgeEffect = {
-            0x7f0100a4, 0x7f0100d4, 0x7f0100d5, 0x7f0100d6
+            0x7f0100b2, 0x7f0100e2, 0x7f0100e3, 0x7f0100e4
         };
         /**
           <p>
@@ -3398,7 +3638,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #AviaryEffectThumbLayout_aviary_animationDuration
          */
         public static final int[] AviaryEffectThumbLayout = {
-            0x7f01009a
+            0x7f0100a8
         };
         /**
           <p>
@@ -3446,7 +3686,7 @@ containing a value of this type.
            @see #AviaryGalleryIndicatorView_aviary_drawableStyle
          */
         public static final int[] AviaryGalleryIndicatorView = {
-            0x7f0100b5
+            0x7f0100c3
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_drawableStyle}
@@ -3491,9 +3731,9 @@ containing a value of this type.
            @see #AviaryGalleryTopIndicator_aviary_strokeWidth
          */
         public static final int[] AviaryGalleryTopIndicator = {
-            0x01010140, 0x01010161, 0x01010163, 0x7f010090,
-            0x7f010091, 0x7f010098, 0x7f0100a3, 0x7f0100ac,
-            0x7f0100b3, 0x7f0100b4
+            0x01010140, 0x01010161, 0x01010163, 0x7f01009e,
+            0x7f01009f, 0x7f0100a6, 0x7f0100b1, 0x7f0100ba,
+            0x7f0100c1, 0x7f0100c2
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#android_minHeight}
@@ -3656,9 +3896,9 @@ containing a value of this type.
            @see #AviaryHighlightImageButton_aviary_untoggleable
          */
         public static final int[] AviaryHighlightImageButton = {
-            0x7f0100a1, 0x7f0100a2, 0x7f0100a4, 0x7f0100a5,
-            0x7f0100a6, 0x7f0100a7, 0x7f0100a8, 0x7f0100a9,
-            0x7f0100aa, 0x7f0100ab
+            0x7f0100af, 0x7f0100b0, 0x7f0100b2, 0x7f0100b3,
+            0x7f0100b4, 0x7f0100b5, 0x7f0100b6, 0x7f0100b7,
+            0x7f0100b8, 0x7f0100b9
         };
         /**
           <p>
@@ -3840,7 +4080,7 @@ containing a value of this type.
            @see #AviaryImageViewDrawableOverlay_aviary_highlightStyle
          */
         public static final int[] AviaryImageViewDrawableOverlay = {
-            0x7f0100b7
+            0x7f0100c5
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_highlightStyle}
@@ -3871,8 +4111,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #AviaryPluginDividerDrawable_aviary_typeface
          */
         public static final int[] AviaryPluginDividerDrawable = {
-            0x01010098, 0x7f010090, 0x7f010091, 0x7f0100a0,
-            0x7f0100d3
+            0x01010098, 0x7f01009e, 0x7f01009f, 0x7f0100ae,
+            0x7f0100e1
         };
         /**
           <p>
@@ -3964,7 +4204,7 @@ containing a value of this type.
            @see #AviaryPreviewFillDrawable_aviary_strokeWidth
          */
         public static final int[] AviaryPreviewFillDrawable = {
-            0x7f010090, 0x7f010091, 0x7f0100b2
+            0x7f01009e, 0x7f01009f, 0x7f0100c0
         };
         /**
           <p>
@@ -4046,9 +4286,9 @@ containing a value of this type.
            @see #AviaryPreviewSpotDrawable_aviary_strokeWidth
          */
         public static final int[] AviaryPreviewSpotDrawable = {
-            0x7f010090, 0x7f010091, 0x7f0100a6, 0x7f0100a9,
-            0x7f0100ac, 0x7f0100ad, 0x7f0100ae, 0x7f0100af,
-            0x7f0100b0, 0x7f0100b1
+            0x7f01009e, 0x7f01009f, 0x7f0100b4, 0x7f0100b7,
+            0x7f0100ba, 0x7f0100bb, 0x7f0100bc, 0x7f0100bd,
+            0x7f0100be, 0x7f0100bf
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_bg_color1}
@@ -4227,8 +4467,8 @@ containing a value of this type.
            @see #AviarySeekBar_aviarySeekBarThumbOffset
          */
         public static final int[] AviarySeekBar = {
-            0x7f010087, 0x7f010088, 0x7f010089, 0x7f01008a,
-            0x7f01008b
+            0x7f010095, 0x7f010096, 0x7f010097, 0x7f010098,
+            0x7f010099
         };
         /**
           <p>
@@ -4307,7 +4547,7 @@ containing a value of this type.
            @see #AviaryTextView_aviary_typeface
          */
         public static final int[] AviaryTextView = {
-            0x7f0100a0
+            0x7f0100ae
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_typeface}
@@ -4364,10 +4604,10 @@ containing a value of this type.
            @see #AviaryTiltShiftImageView_aviary_timeout
          */
         public static final int[] AviaryTiltShiftImageView = {
-            0x7f010090, 0x7f010091, 0x7f010092, 0x7f010093,
-            0x7f010094, 0x7f010095, 0x7f010096, 0x7f010097,
-            0x7f010098, 0x7f010099, 0x7f01009a, 0x7f01009b,
-            0x7f01009c, 0x7f01009d, 0x7f01009e, 0x7f01009f
+            0x7f01009e, 0x7f01009f, 0x7f0100a0, 0x7f0100a1,
+            0x7f0100a2, 0x7f0100a3, 0x7f0100a4, 0x7f0100a5,
+            0x7f0100a6, 0x7f0100a7, 0x7f0100a8, 0x7f0100a9,
+            0x7f0100aa, 0x7f0100ab, 0x7f0100ac, 0x7f0100ad
         };
         /**
           <p>
@@ -4652,7 +4892,7 @@ containing a value of this type.
            @see #AviaryWheel_aviary_edgeStyle
          */
         public static final int[] AviaryWheel = {
-            0x7f01008c, 0x7f01008d, 0x7f01008e, 0x7f01008f
+            0x7f01009a, 0x7f01009b, 0x7f01009c, 0x7f01009d
         };
         /**
           <p>
@@ -4715,7 +4955,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #AviaryWorkspace_aviary_overscroll
          */
         public static final int[] AviaryWorkspace = {
-            0x7f0100cf, 0x7f0100d0
+            0x7f0100dd, 0x7f0100de
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_defaultScreen}
@@ -4756,7 +4996,7 @@ containing a value of this type.
            @see #AviaryWorkspaceIndicator_aviary_indicatorId
          */
         public static final int[] AviaryWorkspaceIndicator = {
-            0x7f0100ce
+            0x7f0100dc
         };
         /**
           <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#aviary_indicatorId}
@@ -4768,6 +5008,250 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name android:aviary_indicatorId
         */
         public static final int AviaryWorkspaceIndicator_aviary_indicatorId = 0;
+        /** Attributes that can be used with a MapAttrs.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MapAttrs_cameraBearing nz.cri.gns.springs:cameraBearing}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLat nz.cri.gns.springs:cameraTargetLat}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLng nz.cri.gns.springs:cameraTargetLng}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTilt nz.cri.gns.springs:cameraTilt}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraZoom nz.cri.gns.springs:cameraZoom}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_mapType nz.cri.gns.springs:mapType}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiCompass nz.cri.gns.springs:uiCompass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiRotateGestures nz.cri.gns.springs:uiRotateGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiScrollGestures nz.cri.gns.springs:uiScrollGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiTiltGestures nz.cri.gns.springs:uiTiltGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomControls nz.cri.gns.springs:uiZoomControls}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomGestures nz.cri.gns.springs:uiZoomGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_useViewLifecycle nz.cri.gns.springs:useViewLifecycle}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_zOrderOnTop nz.cri.gns.springs:zOrderOnTop}</code></td><td></td></tr>
+           </table>
+           @see #MapAttrs_cameraBearing
+           @see #MapAttrs_cameraTargetLat
+           @see #MapAttrs_cameraTargetLng
+           @see #MapAttrs_cameraTilt
+           @see #MapAttrs_cameraZoom
+           @see #MapAttrs_mapType
+           @see #MapAttrs_uiCompass
+           @see #MapAttrs_uiRotateGestures
+           @see #MapAttrs_uiScrollGestures
+           @see #MapAttrs_uiTiltGestures
+           @see #MapAttrs_uiZoomControls
+           @see #MapAttrs_uiZoomGestures
+           @see #MapAttrs_useViewLifecycle
+           @see #MapAttrs_zOrderOnTop
+         */
+        public static final int[] MapAttrs = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d
+        };
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#cameraBearing}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cameraBearing
+        */
+        public static final int MapAttrs_cameraBearing = 1;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#cameraTargetLat}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cameraTargetLat
+        */
+        public static final int MapAttrs_cameraTargetLat = 2;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#cameraTargetLng}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cameraTargetLng
+        */
+        public static final int MapAttrs_cameraTargetLng = 3;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#cameraTilt}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cameraTilt
+        */
+        public static final int MapAttrs_cameraTilt = 4;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#cameraZoom}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cameraZoom
+        */
+        public static final int MapAttrs_cameraZoom = 5;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#mapType}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+          @attr name android:mapType
+        */
+        public static final int MapAttrs_mapType = 0;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiCompass}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiCompass
+        */
+        public static final int MapAttrs_uiCompass = 6;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiRotateGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiRotateGestures
+        */
+        public static final int MapAttrs_uiRotateGestures = 7;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiScrollGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiScrollGestures
+        */
+        public static final int MapAttrs_uiScrollGestures = 8;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiTiltGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiTiltGestures
+        */
+        public static final int MapAttrs_uiTiltGestures = 9;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiZoomControls}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiZoomControls
+        */
+        public static final int MapAttrs_uiZoomControls = 10;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#uiZoomGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:uiZoomGestures
+        */
+        public static final int MapAttrs_uiZoomGestures = 11;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#useViewLifecycle}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:useViewLifecycle
+        */
+        public static final int MapAttrs_useViewLifecycle = 12;
+        /**
+          <p>This symbol is the offset where the {@link nz.cri.gns.springs.R.attr#zOrderOnTop}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:zOrderOnTop
+        */
+        public static final int MapAttrs_zOrderOnTop = 13;
         /** Attributes that can be used with a Theme.
            <p>Includes the following attributes:</p>
            <table>
@@ -5051,40 +5535,40 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #Theme_textAppearanceSmallNoSelection
          */
         public static final int[] Theme = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
-            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
-            0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013,
-            0x7f010014, 0x7f010015, 0x7f010016, 0x7f010017,
-            0x7f010018, 0x7f010019, 0x7f01001a, 0x7f01001b,
-            0x7f01001c, 0x7f01001d, 0x7f01001e, 0x7f01001f,
-            0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023,
-            0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027,
-            0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b,
-            0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f,
-            0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033,
-            0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037,
-            0x7f010038, 0x7f010039, 0x7f01003a, 0x7f01003b,
-            0x7f01003c, 0x7f01003d, 0x7f01003e, 0x7f01003f,
-            0x7f010040, 0x7f010041, 0x7f010042, 0x7f010043,
-            0x7f010044, 0x7f010045, 0x7f010046, 0x7f010047,
-            0x7f010048, 0x7f010049, 0x7f01004a, 0x7f01004b,
-            0x7f01004c, 0x7f01004d, 0x7f01004e, 0x7f01004f,
-            0x7f010050, 0x7f010051, 0x7f010052, 0x7f010053,
-            0x7f010054, 0x7f010055, 0x7f010056, 0x7f010057,
-            0x7f010058, 0x7f010059, 0x7f01005a, 0x7f01005b,
-            0x7f01005c, 0x7f01005d, 0x7f01005e, 0x7f01005f,
-            0x7f010060, 0x7f010061, 0x7f010062, 0x7f010063,
-            0x7f010064, 0x7f010065, 0x7f010066, 0x7f010067,
-            0x7f010068, 0x7f010069, 0x7f01006a, 0x7f01006b,
-            0x7f01006c, 0x7f01006d, 0x7f01006e, 0x7f01006f,
-            0x7f010070, 0x7f010071, 0x7f010072, 0x7f010073,
-            0x7f010074, 0x7f010075, 0x7f010076, 0x7f010077,
-            0x7f010078, 0x7f010079, 0x7f01007a, 0x7f01007b,
-            0x7f01007c, 0x7f01007d, 0x7f01007e, 0x7f01007f,
-            0x7f010080, 0x7f010081, 0x7f010082, 0x7f010083,
-            0x7f010084, 0x7f010085, 0x7f010086
+            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
+            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
+            0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019,
+            0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d,
+            0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021,
+            0x7f010022, 0x7f010023, 0x7f010024, 0x7f010025,
+            0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029,
+            0x7f01002a, 0x7f01002b, 0x7f01002c, 0x7f01002d,
+            0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031,
+            0x7f010032, 0x7f010033, 0x7f010034, 0x7f010035,
+            0x7f010036, 0x7f010037, 0x7f010038, 0x7f010039,
+            0x7f01003a, 0x7f01003b, 0x7f01003c, 0x7f01003d,
+            0x7f01003e, 0x7f01003f, 0x7f010040, 0x7f010041,
+            0x7f010042, 0x7f010043, 0x7f010044, 0x7f010045,
+            0x7f010046, 0x7f010047, 0x7f010048, 0x7f010049,
+            0x7f01004a, 0x7f01004b, 0x7f01004c, 0x7f01004d,
+            0x7f01004e, 0x7f01004f, 0x7f010050, 0x7f010051,
+            0x7f010052, 0x7f010053, 0x7f010054, 0x7f010055,
+            0x7f010056, 0x7f010057, 0x7f010058, 0x7f010059,
+            0x7f01005a, 0x7f01005b, 0x7f01005c, 0x7f01005d,
+            0x7f01005e, 0x7f01005f, 0x7f010060, 0x7f010061,
+            0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065,
+            0x7f010066, 0x7f010067, 0x7f010068, 0x7f010069,
+            0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d,
+            0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071,
+            0x7f010072, 0x7f010073, 0x7f010074, 0x7f010075,
+            0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079,
+            0x7f01007a, 0x7f01007b, 0x7f01007c, 0x7f01007d,
+            0x7f01007e, 0x7f01007f, 0x7f010080, 0x7f010081,
+            0x7f010082, 0x7f010083, 0x7f010084, 0x7f010085,
+            0x7f010086, 0x7f010087, 0x7f010088, 0x7f010089,
+            0x7f01008a, 0x7f01008b, 0x7f01008c, 0x7f01008d,
+            0x7f01008e, 0x7f01008f, 0x7f010090, 0x7f010091,
+            0x7f010092, 0x7f010093, 0x7f010094
         };
         /**
           <p>

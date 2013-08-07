@@ -33,6 +33,7 @@ import android.support.v4.view.ViewPager;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.db.BiologicalSample;
+import nz.cri.gns.springs.db.Configuration;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.fragments.AppearanceFragment;
 import nz.cri.gns.springs.fragments.BioSampleActivityFragment;
@@ -138,8 +139,12 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
     	
     	if (currentSample == null) {
     		currentSample = new BiologicalSample();
-    		// TODO: change to max(getMaxSampleNumber(), settings.nextSampleNumber)
-    		currentSample.setSampleNumber(BiologicalSample.getMaxSampleNumber(getHelper()) + 1);
+    		String nextSampleNumberConfig = Configuration.getConfiguration(getResources().getString(R.string.config_next_sample_number), getHelper());
+    		int sampleNumber = BiologicalSample.getMaxSampleNumber(getHelper()) + 1;
+    		if (nextSampleNumberConfig != null) {
+    			sampleNumber = Math.max(sampleNumber, Integer.parseInt(nextSampleNumberConfig));
+    		}
+    		currentSample.setSampleNumber(sampleNumber);
     		getHelper().getBiologicalSampleDao().create(currentSample);
     	}
     }

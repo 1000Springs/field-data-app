@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 9;
+    public static final int DATABASE_VERSION = 11;
     public static final String DATABASE_NAME = "1000-Springs.db";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
@@ -23,6 +23,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
     private RuntimeExceptionDao<SurveyImage, Long> surveyImageDao = null;
     private RuntimeExceptionDao<BiologicalSample, Long> biologicalSampleDao = null;
     private RuntimeExceptionDao<ChecklistItem, Long> checklistItemDao = null;
+    private RuntimeExceptionDao<Configuration, String> configurationDao = null;
     
     public SpringsDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -44,6 +45,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		db.execSQL("DROP TABLE BiologicalSample");
 		db.execSQL("DROP TABLE Survey");
 		db.execSQL("DROP TABLE SurveyImage");
+		db.execSQL("DROP TABLE ChecklistItem");
 	}
 	
 	private void createTables(ConnectionSource connectionSource) {
@@ -53,6 +55,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 			TableUtils.createTable(connectionSource, SurveyImage.class);
 			TableUtils.createTable(connectionSource, BiologicalSample.class);
 			TableUtils.createTable(connectionSource, ChecklistItem.class);
+			TableUtils.createTable(connectionSource, Configuration.class);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -161,6 +164,21 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		
 		return checklistItemDao;
 	}
+	
+	public RuntimeExceptionDao<Configuration, String> getConfigurationDao() {
+		if (configurationDao == null) {
+			Dao<Configuration, String> dao;
+			try {
+				dao = DaoManager.createDao(getConnectionSource(), Configuration.class);
+				configurationDao = new RuntimeExceptionDao<Configuration, String>(dao);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return configurationDao;
+	}	
 	
 	public static class SpringsUpdater<T extends PersistentObject> {
 		

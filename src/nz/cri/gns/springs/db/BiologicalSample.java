@@ -123,8 +123,8 @@ public class BiologicalSample extends PersistentObject {
 		String query = 
 				"select samp.id, samp.sampleNumber, feat.featureName, surv.surveyDate " + 
 				"from BiologicalSample samp " +
-				"join Survey surv on samp.survey_id = surv.id " + 
-			    "join Feature feat on surv.feature_id = feat.id " +
+				"left join Survey surv on samp.survey_id = surv.id " + 
+			    "left join Feature feat on surv.feature_id = feat.id " +
 				"where samp.status in (?, ?)";
 		
 		DataType[] columnTypes = {DataType.LONG, DataType.INTEGER, DataType.STRING, DataType.LONG};

@@ -1,0 +1,56 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    style="@style/standard_layout"
+    >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" 
+        android:layout_gravity="center"
+        android:gravity="center">     
+        
+        <TableLayout
+            android:id="@+id/settings_table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">         
+            
+            <TableRow
+                style="@style/form_row" >       
+                <TextView
+                    android:text="Next sample number"
+                    style="@style/form_label"/>
+			    <LinearLayout
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal" 
+			        android:gravity="left">  
+				    <TextView
+	                    android:text="P1."
+	                    style="@style/form_label"
+	                    android:layout_width="wrap_content"/>                
+	                <EditText
+	                    android:id="@+id/next_sample_number_input"
+	                    android:hint=""
+	                    android:inputType="number" 
+	                    android:tag="@string/config_next_sample_number"
+	                    style="@style/form_input"/>
+	            </LinearLayout>
+	                
+            </TableRow>
+            
+            <TableRow
+                style="@style/form_row" > 
+                   <Button 
+                       android:id="@+id/save_settings_button"
+                       android:text="Save"
+                       android:layout_span="2"
+                       android:layout_gravity="center"
+                       style="@style/standard_button"/>
+            </TableRow>             
+        </TableLayout>  
+    </LinearLayout>
+</ScrollView>

@@ -28,6 +28,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application 
         android:debuggable="true"
@@ -49,6 +50,10 @@
         
         <activity 
             android:name=".activity.ManageBioSamplesActivity" 
+            />
+        
+        <activity 
+            android:name=".activity.SettingsActivity" 
             />
         
         <activity

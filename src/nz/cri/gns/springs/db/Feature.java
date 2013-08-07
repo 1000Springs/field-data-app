@@ -20,9 +20,9 @@ public class Feature extends PersistentObject {
 	@DatabaseField private String historicName;	
 	@DatabaseField private String featureType;	
 	@DatabaseField private String geothermalField;
-	@DatabaseField private Double coordNztmEast;
-	@DatabaseField private Double coordNztmNorth;
-	@DatabaseField private Double coordErrorEst;
+	@DatabaseField private Double coordLatitude;
+	@DatabaseField private Double coordLongitude;
+	@DatabaseField private Float coordErrorEst;
 	@DatabaseField private String coordFeatureRel;
 	@DatabaseField private String description;
 	
@@ -50,22 +50,22 @@ public class Feature extends PersistentObject {
 	public void setGeothermalField(String geothermalField) {
 		this.geothermalField = geothermalField;
 	}
-	public Double getCoordNztmEast() {
-		return coordNztmEast;
+	public Double getCoordLatitude() {
+		return coordLatitude;
 	}
-	public void setCoordNztmEast(Double coordNztmEast) {
-		this.coordNztmEast = coordNztmEast;
+	public void setCoordLatitude(Double coordLatitude) {
+		this.coordLatitude = coordLatitude;
 	}
-	public Double getCoordNztmNorth() {
-		return coordNztmNorth;
+	public Double getCoordLongitude() {
+		return coordLongitude;
 	}
-	public void setCoordNztmNorth(Double coordNztmNorth) {
-		this.coordNztmNorth = coordNztmNorth;
+	public void setCoordLongitude(Double coordLongitude) {
+		this.coordLongitude = coordLongitude;
 	}
-	public Double getCoordErrorEst() {
+	public Float getCoordErrorEst() {
 		return coordErrorEst;
 	}
-	public void setCoordErrorEst(Double coordErrorEst) {
+	public void setCoordErrorEst(Float coordErrorEst) {
 		this.coordErrorEst = coordErrorEst;
 	}
 	public String getCoordFeatureRel() {

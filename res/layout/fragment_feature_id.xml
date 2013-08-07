@@ -78,15 +78,19 @@
             <TextView
                 android:text="Location coordinates"
                 style="@style/form_section_heading"/>
+            <Button 
+               android:id="@+id/use_current_location_button"
+               android:text="Use current location"
+               style="@style/spaced_button"/>
         </TableRow> 	    
 	
 	    <TableRow
 	        style="@style/form_row" > 
 	        <TextView
-	            android:text="NZTM Easting"
+	            android:text="Latitude"
 	            style="@style/form_subsection_label"/>
 	        <EditText
-	            android:id="@+id/coord_easting_input"
+	            android:id="@+id/coord_latitude"
 	            android:hint=""
 	            android:inputType="number|numberDecimal|numberSigned" 
 	            style="@style/form_input" />  
@@ -95,10 +99,10 @@
 	    <TableRow
 	        style="@style/form_row" > 
 	        <TextView
-	            android:text="NZTM Northing"
+	            android:text="Longitude"
 	            style="@style/form_subsection_label"/>
 	        <EditText
-	            android:id="@+id/coord_northing_input"
+	            android:id="@+id/coord_longitude"
 	            android:hint=""
 	            android:inputType="number|numberDecimal|numberSigned" 
 	            style="@style/form_input" />  
