@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="20dp"
+    style="@style/standard_layout"
+    >
+
+    <Spinner
+        android:id="@+id/feature_spinner"
+        style="@style/standard_spinner"
+        android:background="@drawable/btn_dropdown"
+        android:entries="@array/tablerow_select_option_labels"
+        android:entryValues="@array/tablerow_select_option_values"
+        />
+
+    <Button
+        android:id="@+id/export_button"
+        style="@style/spaced_button"
+        android:layout_alignTop="@+id/feature_spinner"
+        android:layout_toLeftOf="@+id/feature_spinner"
+        android:text="Export" />
+    
+    <ScrollView     
+        android:id="@+id/table_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/feature_spinner"
+        android:layout_below="@+id/feature_spinner"
+        android:layout_marginTop="80dp">
+        
+    </ScrollView>
+    
+</RelativeLayout>
+    

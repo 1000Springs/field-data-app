@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bio_sample_table"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+    
+    <TableRow>
+        <TextView style="@style/column_header" />
+        <TextView 
+            android:text="Sample #"
+            style="@style/column_header" />
+        <TextView 
+            android:text="Feature"                    
+            style="@style/column_header_fixed_width" />
+        <TextView 
+            android:text="Collection date"                       
+            style="@style/column_header" />                                
+    </TableRow>
+</TableLayout>
