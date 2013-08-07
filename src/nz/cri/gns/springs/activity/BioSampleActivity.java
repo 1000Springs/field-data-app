@@ -52,6 +52,8 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
 	
 	private BiologicalSample currentSample;
 	
+	public static final String SAMPLE_KEY = "currentSample";
+	
 	public static final String BIOLOGICAL_SAMPLE = "nz.cri.gns.springs.activity.BiologicalSample";
 
     /**
@@ -81,9 +83,16 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_bio_sample);
         
-        setCurrentSample();
+    	if (savedInstanceState != null) {
+    		currentSample = (BiologicalSample)savedInstanceState.getSerializable(SAMPLE_KEY);
+    		getHelper().getBiologicalSampleDao().refresh(currentSample);
+    	} 
+    	if (currentSample == null) {
+    		setCurrentSample();
+    	}
 
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -127,6 +136,12 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
         }
     }
     
+    @Override
+    public void onSaveInstanceState(Bundle instanceState) {
+    	super.onSaveInstanceState(instanceState);
+    	instanceState.putSerializable(SAMPLE_KEY, currentSample);
+    }
+        
     private void setCurrentSample() {
     	
     	Bundle extras = this.getIntent().getExtras();

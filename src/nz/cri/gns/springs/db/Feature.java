@@ -9,6 +9,7 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.SelectArg;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable
@@ -90,8 +91,9 @@ public class Feature extends PersistentObject {
 		RuntimeExceptionDao<Feature, Long> dao = dbHelper.getFeatureDao();
 		QueryBuilder<Feature, Long> queryBuilder = dao.queryBuilder();
 		try {
-			queryBuilder.where().eq("featureName", featureName);
-			PreparedQuery<Feature> preparedQuery = queryBuilder.prepare();
+			SelectArg selectArg = new SelectArg();
+			selectArg.setValue(featureName);
+			PreparedQuery<Feature> preparedQuery = queryBuilder.where().eq("featureName", selectArg).prepare();
 			List<Feature> featureList = dao.query(preparedQuery);
 			if (featureList.size() > 0) {
 				return featureList.get(0);

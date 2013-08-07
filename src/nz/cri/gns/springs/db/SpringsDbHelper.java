@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 11;
+    public static final int DATABASE_VERSION = 13;
     public static final String DATABASE_NAME = "1000-Springs.db";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
@@ -46,6 +46,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		db.execSQL("DROP TABLE Survey");
 		db.execSQL("DROP TABLE SurveyImage");
 		db.execSQL("DROP TABLE ChecklistItem");
+		db.execSQL("DROP TABLE Configuration");
 	}
 	
 	private void createTables(ConnectionSource connectionSource) {

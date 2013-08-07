@@ -49,6 +49,8 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	
 	private static final String IMAGE_PARENT_TAG = "ImageParent";
 	
+	private static final String IMAGE_FILE_KEY = "currentImageFile";
+	
 	private String currentImageFile;
 	private View rootView;
 	
@@ -119,6 +121,20 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	displayImages();
     	
     	return rootView;
+    }
+    
+    @Override
+    public void onSaveInstanceState(Bundle instanceState) {
+    	super.onSaveInstanceState(instanceState);
+    	instanceState.putString(IMAGE_FILE_KEY, currentImageFile);
+    }
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+    	if (savedInstanceState != null) {
+    		currentImageFile = savedInstanceState.getString(IMAGE_FILE_KEY);
+    	}
     }
     
     public void copySketch(File dst) throws IOException {
