@@ -1,10 +1,33 @@
 package nz.cri.gns.springs.util;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 public class UiUtil {
 		
 	public static final long DOUBLE_TAP_DELAY_MILLIS = 500l; 
+	
+	
+	public static Bitmap loadImage(String imageFile, int targetHeight, int targetWidth) {
+		
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(imageFile, options);
+        options.inSampleSize = UiUtil.calculateInSampleSize(options, targetHeight, targetWidth);
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(imageFile, options);        		
+	}
+	
+	public static Bitmap loadImage(Resources resources, int imageId, int targetHeight, int targetWidth) {
+		
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeResource(resources, imageId, options);
+        options.inSampleSize = UiUtil.calculateInSampleSize(options, targetHeight, targetWidth);
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeResource(resources, imageId, options);       		
+	}
 	
 	
 	public static int calculateInSampleSize(BitmapFactory.Options options,

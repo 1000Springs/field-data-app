@@ -26,7 +26,7 @@
 	            <LinearLayout
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:orientation="horizontal" 
+			        android:orientation="vertical" 
 			        android:gravity="left">
 		            <Spinner
 		                android:id="@+id/feature_spinner"
@@ -36,13 +36,17 @@
 		            
 		            <Button 
 		                android:id="@+id/edit_feature_button"
-		                android:text="Edit"
-		                style="@style/spaced_button"/>
+		                android:text="Edit selected feature"
+		                style="@style/spaced_button"
+		                android:layout_marginTop="20dp"
+		                android:layout_width="270dp"/>
 		                            
 		            <Button 
 		                android:id="@+id/add_feature_button"
-		                android:text="Add"
-		                style="@style/spaced_button"/>
+		                android:text="New feature"
+		                style="@style/spaced_button"
+		                android:layout_marginTop="20dp"
+		                android:layout_width="270dp"/>
 		       </LinearLayout>
 	            
 	        </TableRow> 

@@ -40,7 +40,7 @@
     <style name="standard_spinner" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:layout_height">35dp</item>
-        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_width">300dp</item>
     </style>
 
 	<style name="standard_spinner_item" parent="android:TextAppearance.Widget.TextView.SpinnerItem">

@@ -2,6 +2,9 @@ package nz.cri.gns.springs.fragments;
 
 import java.util.List;
 
+import static nz.cri.gns.springs.fragments.ImageFragment.IMAGE_THUMBNAIL_WIDTH;
+import static nz.cri.gns.springs.fragments.ImageFragment.IMAGE_THUMBNAIL_HEIGHT;
+
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.Survey;
@@ -9,7 +12,6 @@ import nz.cri.gns.springs.db.SurveyImage;
 import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -34,7 +36,7 @@ public class ChooseImageFragment extends SpringsDialogFragment implements OnTouc
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
     	
-    	View rootView = inflater.inflate(R.layout.shared_image_grid, container, false);
+    	View rootView = inflater.inflate(R.layout.dialog_choose_image, container, false);
     	getDialog().setTitle(R.string.choose_image_dialog_title);
     	
     	displayImages(rootView);
@@ -74,16 +76,11 @@ public class ChooseImageFragment extends SpringsDialogFragment implements OnTouc
         ImageView imgView = new ImageView(SpringsApplication.getAppContext());
         imgView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
         
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(imageFile, options);
-        options.inSampleSize = UiUtil.calculateInSampleSize(options, 200, 200);
-        options.inJustDecodeBounds = false;
-        imgView.setImageBitmap(BitmapFactory.decodeFile(imageFile, options));
+        imgView.setImageBitmap(UiUtil.loadImage(imageFile, IMAGE_THUMBNAIL_WIDTH, IMAGE_THUMBNAIL_HEIGHT));
         
         imgView.setAdjustViewBounds(true);
-        imgView.setMaxHeight(200);
-        imgView.setMaxWidth(200);
+        imgView.setMaxHeight(IMAGE_THUMBNAIL_WIDTH);
+        imgView.setMaxWidth(IMAGE_THUMBNAIL_HEIGHT);
         imgView.setId(surveyImage.getId().intValue());
         imgView.setOnTouchListener(this);
 

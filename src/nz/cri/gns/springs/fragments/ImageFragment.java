@@ -12,12 +12,12 @@ import java.util.List;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.SurveyImage;
+import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -44,6 +44,9 @@ import com.aviary.android.feather.FeatherActivity;
 import com.aviary.android.feather.library.Constants;
 
 public class ImageFragment extends BioSampleActivityFragment implements OnDragListener, OnTouchListener, OnLongClickListener {
+	
+	public static final int IMAGE_THUMBNAIL_WIDTH = 200;
+	public static final int IMAGE_THUMBNAIL_HEIGHT = 200;
 	
 	private static final int IMAGE_CAPTURE = 1;
 	private static final int IMAGE_EDIT = 2;
@@ -267,15 +270,11 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         ImageView imgView = new ImageView(SpringsApplication.getAppContext());
         imgView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
         
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        options.inSampleSize = calculateInSampleSize(options, 200, 200);
-        options.inJustDecodeBounds = false;
-        imgView.setImageBitmap(BitmapFactory.decodeFile(imageFile, options));
+        imgView.setImageBitmap(UiUtil.loadImage(imageFile, IMAGE_THUMBNAIL_WIDTH, IMAGE_THUMBNAIL_HEIGHT));
         
         imgView.setAdjustViewBounds(true);
-        imgView.setMaxHeight(200);
-        imgView.setMaxWidth(200);
+        imgView.setMaxWidth(IMAGE_THUMBNAIL_WIDTH);
+        imgView.setMaxHeight(IMAGE_THUMBNAIL_HEIGHT);
         imgView.setId(surveyImage.getId().intValue());
         imgView.setOnTouchListener(this);
         imgView.setOnLongClickListener(this);
@@ -452,29 +451,4 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
         startActivityForResult( editImageIntent, IMAGE_EDIT );    	
     }
-    
-	public static int calculateInSampleSize(BitmapFactory.Options options,
-			int reqWidth, int reqHeight) {
-		// Raw height and width of image
-		final int height = options.outHeight;
-		final int width = options.outWidth;
-		int inSampleSize = 1;
-
-		if (height > reqHeight || width > reqWidth) {
-
-			// Calculate ratios of height and width to requested height and
-			// width
-			final int heightRatio = Math.round((float) height
-					/ (float) reqHeight);
-			final int widthRatio = Math.round((float) width / (float) reqWidth);
-
-			// Choose the smallest ratio as inSampleSize value, this will
-			// guarantee
-			// a final image with both dimensions larger than or equal to the
-			// requested height and width.
-			inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
-		}
-
-		return inSampleSize;
-	}
 }

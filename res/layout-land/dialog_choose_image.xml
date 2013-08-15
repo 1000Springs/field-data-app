@@ -2,13 +2,11 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="fill_parent"
      android:layout_height="wrap_content"
-     android:layout_alignParentLeft="true"
-     android:layout_alignParentTop="true"
-     style="@style/standard_layout">
+     style="@style/dialog_layout">
     <GridLayout
         android:id="@+id/photo_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3">   
+        android:columnCount="4">   
     </GridLayout>    
-</ScrollView> 
+</ScrollView>   

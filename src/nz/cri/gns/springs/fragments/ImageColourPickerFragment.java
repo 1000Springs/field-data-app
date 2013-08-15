@@ -6,7 +6,6 @@ import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -19,6 +18,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class ImageColourPickerFragment extends SpringsDialogFragment implements OnTouchListener {
+	
+	public static final int IMAGE_WIDTH = 700;
+	public static final int IMAGE_HEIGHT = 700;
 
 	private Integer selectedColour;
 	private String imageFile;
@@ -31,7 +33,7 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
     	
-    	View rootView = inflater.inflate(R.layout.fragment_image_colour_picker, container, false);
+    	View rootView = inflater.inflate(R.layout.dialog_colour_picker, container, false);
     	getDialog().setTitle(R.string.image_colour_picker_dialog_title);
     	
     	displayImage(rootView);
@@ -68,24 +70,18 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
     
     public void displayImage(View rootView) {
     	
-    	ImageView imgView = (ImageView) rootView.findViewById(R.id.colour_picker_image);
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        options.inSampleSize = UiUtil.calculateInSampleSize(options, 700, 700);
-        options.inJustDecodeBounds = false;
-        
+    	ImageView imgView = (ImageView) rootView.findViewById(R.id.colour_picker_image);       
         Bitmap bitmap;
         if (imageFile == null) {
-        	bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.colour_picker, options);
+        	bitmap = UiUtil.loadImage(this.getResources(), R.drawable.colour_picker, 700, 700);
         } else {
-        	bitmap = BitmapFactory.decodeFile(imageFile);
+        	bitmap = UiUtil.loadImage(imageFile, IMAGE_WIDTH, IMAGE_HEIGHT);
         }
         
-        imgView.setImageBitmap(bitmap);
-        
+        imgView.setImageBitmap(bitmap);        
         imgView.setAdjustViewBounds(true);
-        imgView.setMaxHeight(700);
-        imgView.setMaxWidth(700);
+        imgView.setMaxWidth(IMAGE_WIDTH);
+        imgView.setMaxHeight(IMAGE_HEIGHT);
         imgView.setOnTouchListener(this);
     }
     
@@ -132,7 +128,7 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
 	
 	private int getColour(ImageView imageView, Bitmap image, int x, int y) {
 		
-		int gridRadius = 10;
+		int gridRadius = 5;
 		int minX = Math.max(0, x - gridRadius);
 		int minY = Math.max(0, y - gridRadius);
 		int maxX = Math.min(image.getWidth(), x + gridRadius);
