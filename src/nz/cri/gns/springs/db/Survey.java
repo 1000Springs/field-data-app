@@ -13,8 +13,8 @@ public class Survey extends PersistentObject {
 	private Feature feature;
 	
 	@DatabaseField private Long surveyDate;
-	@DatabaseField private Double size;
-	@DatabaseField private String colour;
+	@DatabaseField private String size; // e.g "4 x 3 metres"
+	@DatabaseField private Integer colour;
 	@DatabaseField private String clarityTurbidity;
 	@DatabaseField private Double temperature;
 	@DatabaseField private String observer1;
@@ -32,16 +32,16 @@ public class Survey extends PersistentObject {
 	public void setSurveyDate(Long surveyDate) {
 		this.surveyDate = surveyDate;
 	}
-	public Double getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(Double size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
-	public String getColour() {
+	public Integer getColour() {
 		return colour;
 	}
-	public void setColour(String colour) {
+	public void setColour(Integer colour) {
 		this.colour = colour;
 	}
 	public String getClarityTurbidity() {

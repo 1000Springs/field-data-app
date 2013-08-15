@@ -1,16 +1,15 @@
 package nz.cri.gns.springs.fragments;
 
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-
 import nz.cri.gns.springs.GpsLocation;
-import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.R;
+import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.Feature;
+import nz.cri.gns.springs.db.PersistentObject.Status;
 import nz.cri.gns.springs.db.SpringsDbHelper;
-import android.content.DialogInterface.OnDismissListener;
+import android.app.Activity;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,49 +17,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class FeatureIdFragment extends DialogFragment {
+public class FeatureIdFragment extends SpringsDialogFragment {
 	
-	private DialogAction dialogAction;
 	private Feature feature;
-	private OnDismissListener dismissListener;
+	private transient GpsLocation gpsLocation;
 	
-	private SpringsDbHelper databaseHelper = null;
-	
-	private GpsLocation gpsLocation;
-	
-	public static final String FEATURE_KEY = "feature";
-
-	@Override
-	public void onDestroy() {
-	    super.onDestroy();
-	    if (databaseHelper != null) {
-	        OpenHelperManager.releaseHelper();
-	        databaseHelper = null;
-	    }
-	}
-
-	protected SpringsDbHelper getHelper() {
-	    if (databaseHelper == null) {
-	        databaseHelper =
-	            OpenHelperManager.getHelper(this.getActivity(), SpringsDbHelper.class);
-	    }
-	    return databaseHelper;
-	}	
-	
-	public enum DialogAction {
-		SAVE, CANCEL
-	}
-	
-	public void setOnDismissListener(OnDismissListener listener) {
-		dismissListener  = listener;
-	}
+	public static final String FEATURE_KEY = "featureKey";
 		
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
     	
     	View rootView = inflater.inflate(R.layout.fragment_feature_id, container, false);
-    	getDialog().setTitle("Enter the feature details");
+    	getDialog().setTitle(R.string.feature_dialog_title);
     	
     	addSaveButtonListener(rootView);
     	addCancelButtonListener(rootView);
@@ -112,11 +81,8 @@ public class FeatureIdFragment extends DialogFragment {
             		} else {
             			dbHelper.getFeatureDao().update(currentFeature);
             		}
-	            	setDialogAction(DialogAction.SAVE);
 	            	setFeature(currentFeature);
-	            	if (dismissListener != null) {
-	            		dialogFragment.getDialog().setOnDismissListener(dismissListener);
-	            	}
+	            	getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, new Intent().putExtra(FEATURE_KEY, currentFeature));
 	            	dismiss();
             	}
             }
@@ -165,6 +131,11 @@ public class FeatureIdFragment extends DialogFragment {
     	
     	EditText featureName = (EditText) rootView.findViewById(R.id.feature_name_input);
     	featureName.setText(currentFeature.getFeatureName());
+    	// Can't let the user change the name of the feature after it's been exported
+    	// to the main DB, since it's used as a reference when exporting.
+    	if (currentFeature.getStatus() != Status.NEW) {
+    		featureName.setEnabled(false);
+    	}
     	
     	EditText historicName = (EditText) rootView.findViewById(R.id.historic_local_name_input);
     	historicName.setText(currentFeature.getHistoricName());
@@ -209,7 +180,6 @@ public class FeatureIdFragment extends DialogFragment {
     	cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            	setDialogAction(DialogAction.CANCEL);
             	dismiss();
             }
         });
@@ -232,14 +202,6 @@ public class FeatureIdFragment extends DialogFragment {
             }
         });
     }
-
-	public DialogAction getDialogAction() {
-		return dialogAction;
-	}
-
-	public void setDialogAction(DialogAction dialogAction) {
-		this.dialogAction = dialogAction;
-	}
 
 	public Feature getFeature() {
 		return feature;

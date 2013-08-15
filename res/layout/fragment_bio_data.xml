@@ -186,7 +186,17 @@
 			                    android:hint=""
 			                    android:inputType="number|numberDecimal|numberSigned" 
 			                    style="@style/form_input" />  
-			            </TableRow>                                                                         	                                    
+			            </TableRow>  
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
+                                android:text="Comments"
+                                style="@style/form_subsection_label"/>
+				            <EditText
+				                android:id="@+id/sample_comments_input"
+				                android:hint=""
+                                style="@style/form_input_multiline" />                                  
+                        </TableRow> 			                                                                                   	                                    
 			        </TableLayout>    
 	            </TableRow>	        
 		         <!-- 

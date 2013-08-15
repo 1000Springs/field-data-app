@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
+
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.stmt.PreparedQuery;
@@ -71,6 +73,16 @@ public class SurveyImage extends PersistentObject {
 		}
 		return surveyImageList;
 
+	}
+	
+	public static int getImageCount(Survey survey, SpringsDbHelper dbHelper) {
+		RuntimeExceptionDao<SurveyImage, Long> dao = dbHelper.getSurveyImageDao();
+		try {
+			return (int)dao.queryRawValue("select count(*) from SurveyImage where survey_id=?", String.valueOf(survey.getId()));
+		} catch (Exception e) {
+			Log.e(SurveyImage.class.getSimpleName(), "Error retrieving SurveyImage count", e);
+			return 0;
+		}		
 	}
 
 }

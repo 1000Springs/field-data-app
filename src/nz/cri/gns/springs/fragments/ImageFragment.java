@@ -1,5 +1,7 @@
 package nz.cri.gns.springs.fragments;
 
+import static nz.cri.gns.springs.util.UiUtil.DOUBLE_TAP_DELAY_MILLIS;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -54,7 +56,6 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	private String currentImageFile;
 	private View rootView;
 	
-	private static final long DOUBLE_TAP_DELAY_MILLIS = 500l; 
 	private long lastImageTapMillis = 0;
 	private View lastImageTapView = null;
 	
@@ -268,7 +269,6 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(imageFile, options);
         options.inSampleSize = calculateInSampleSize(options, 200, 200);
         options.inJustDecodeBounds = false;
         imgView.setImageBitmap(BitmapFactory.decodeFile(imageFile, options));

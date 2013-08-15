@@ -105,7 +105,8 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	if (!ferrousIron.isEmpty()) {
     		currentSample.setFerrousIronAbs(Double.parseDouble(ferrousIron));
     	}
-
+    	
+    	currentSample.setComments(((EditText) rootView.findViewById(R.id.sample_comments_input)).getText().toString());
     	
     	getHelper().getBiologicalSampleDao().update(currentSample);
     	sampleUpdatedSinceLastSave = false;
@@ -145,6 +146,10 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	
     	if (currentSample.getFerrousIronAbs() != null) {
     		((EditText) rootView.findViewById(R.id.ferrous_iron_input)).setText(String.valueOf(currentSample.getFerrousIronAbs()));
+    	}
+    	
+    	if (currentSample.getComments() != null) {
+    		((EditText) rootView.findViewById(R.id.sample_comments_input)).setText(String.valueOf(currentSample.getComments()));
     	}
 
     }

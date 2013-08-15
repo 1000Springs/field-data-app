@@ -29,6 +29,7 @@ public class BiologicalSample extends PersistentObject {
 	@DatabaseField private Double turbidity;
 	@DatabaseField private Double dnaVolume;
 	@DatabaseField private Double ferrousIronAbs;
+	@DatabaseField private String comments;
 	
 	public Survey getSurvey() {
 		return survey;
@@ -90,6 +91,12 @@ public class BiologicalSample extends PersistentObject {
 	public void setFerrousIronAbs(Double ferrousIronAbs) {
 		this.ferrousIronAbs = ferrousIronAbs;
 	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}	
 	
 	public String getFormattedSampleNumber() {
 		return formatSampleNumber(getSampleNumber());
@@ -108,8 +115,7 @@ public class BiologicalSample extends PersistentObject {
 			return 0;
 		}
 	}
-	
-	
+
 	public static class SamplesForExportResult {
 		
 		public Long sampleId;

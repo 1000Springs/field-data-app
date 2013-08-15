@@ -2,6 +2,9 @@ package nz.cri.gns.springs.db;
 
 import java.sql.SQLException;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -9,14 +12,11 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 13;
-    public static final String DATABASE_NAME = "1000-Springs.db";
+    public static final int DATABASE_VERSION = 19;
+    public static final String DATABASE_NAME = "1000-Springs-DB";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
     private RuntimeExceptionDao<Survey, Long> surveyDao = null;
@@ -41,6 +41,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	}
 	
 	private void dropTables(SQLiteDatabase db) {
+		
 		db.execSQL("DROP TABLE Feature");
 		db.execSQL("DROP TABLE BiologicalSample");
 		db.execSQL("DROP TABLE Survey");

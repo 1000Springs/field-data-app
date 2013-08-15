@@ -66,10 +66,6 @@
             <EditText
                 android:id="@+id/description"
                 android:hint=""
-                android:inputType="textMultiLine" 
-                android:singleLine="false"
-                android:lines="3"
-                android:gravity="top|left"
                 style="@style/form_input_multiline" />  
         </TableRow> 
         	    

@@ -54,6 +54,10 @@
         <item name="android:buttonStyle">@style/standard_button</item>
     </style>
     
+    <style name="dialog_layout" parent="@style/standard_layout">
+        <item name="android:background">#333333</item>
+    </style>
+    
     <style name="form_label">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">35dp</item>
@@ -72,6 +76,10 @@
     
     <style name="form_input_multiline" parent="@style/form_input">
         <item name="android:layout_height">80dp</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:singleLine">false</item> 
+        <item name="android:lines">3</item>  
+        <item name="android:gravity">top|left</item>                  
     </style>
     
     <style name="form_section_heading" parent="@style/form_label">

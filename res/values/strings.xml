@@ -29,4 +29,7 @@
     
     <string name="config_next_sample_number">nextSampleNumber</string>
     
+    <string name="feature_dialog_title">Enter the feature details</string>
+    <string name="choose_image_dialog_title">Tap image to choose a colour from</string>
+    <string name="image_colour_picker_dialog_title">Tap point on image to select colour</string>
 </resources>

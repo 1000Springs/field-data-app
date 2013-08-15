@@ -9,9 +9,9 @@ import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.Util;
 import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.SpringsDbHelper;
-import nz.cri.gns.springs.fragments.FeatureIdFragment.DialogAction;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
+import nz.cri.gns.springs.db.SurveyImage;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,9 +32,14 @@ import android.widget.Toast;
 
 public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener {
 	
-	private View rootView;
+	private transient View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
-	private GpsLocation gpsLocation;
+	private transient GpsLocation gpsLocation;
+	
+	private static final int UPDATE_FEATURE = 0;
+	private static final int SELECT_IMAGE = 1;
+	private static final int SELECT_COLOUR = 2;
+	
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,7 +117,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            	showFeatureDialog(rootView, helper, null);
+            	showFeatureDialog(helper, null);
             }
         });
     	
@@ -122,7 +127,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
             public void onClick(View view) {
             	Spinner featureSpinner = (Spinner) rootView.findViewById(R.id.feature_spinner);
             	Feature selectedFeature = (Feature) featureSpinner.getSelectedItem();
-            	showFeatureDialog(rootView, helper, selectedFeature);
+            	showFeatureDialog(helper, selectedFeature);
             }
         });
     	
@@ -134,6 +139,25 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         		Toast.makeText(SpringsApplication.getAppContext(), "Update saved", Toast.LENGTH_LONG).show();           	
             }
         });
+    	
+    	Button chooseFromImageButton = (Button) rootView.findViewById(R.id.choose_colour_from_image_button);
+    	chooseFromImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	showChooseImageDialog();
+            }
+        });
+    	if (SurveyImage.getImageCount(currentSurvey, getHelper()) == 0) {
+    		chooseFromImageButton.setVisibility(View.GONE);
+    	}
+    	
+    	Button chooseColourButton = (Button) rootView.findViewById(R.id.choose_colour_from_colour_picker_button);
+    	chooseColourButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	showChooseColourDialog(null);
+            }
+        });    	
     } 
     
 	@Override
@@ -148,26 +172,60 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 		surveyUpdatedSinceLastSave = true;
 	}
     
-    void showFeatureDialog(final View rootView, final SpringsDbHelper helper, Feature currentFeature) {
+    void showFeatureDialog(final SpringsDbHelper helper, Feature currentFeature) {
 
         // Create and show the dialog.
-        final FeatureIdFragment featureDialog = new FeatureIdFragment();
-        featureDialog.setGpsLocation(gpsLocation);
-        featureDialog.setOnDismissListener(new OnDismissListener(){
-			@Override
-			public void onDismiss(DialogInterface dialog) {				
-				if (featureDialog.getDialogAction() == DialogAction.SAVE) {
-					listFeatures(rootView, helper);
-					setSelectedFeature(rootView, featureDialog.getFeature());
-					Toast.makeText(SpringsApplication.getAppContext(), "Feature saved", Toast.LENGTH_LONG).show();
-				}
-				
-			}
-        	
-        });
-        
+        FeatureIdFragment featureDialog = new FeatureIdFragment();
+        featureDialog.setGpsLocation(gpsLocation);       
         featureDialog.setFeature(currentFeature);
-        featureDialog.show(getFragmentManager(), "dialog");
+        featureDialog.setTargetFragment(this, UPDATE_FEATURE);
+        featureDialog.show(getFragmentManager(), "featureDialog");
+    }
+    
+    void showChooseImageDialog() {
+
+        // Create and show the dialog.
+        ChooseImageFragment chooseImageDialog = new ChooseImageFragment();     
+        chooseImageDialog.setCurrentSurvey(currentSurvey);
+        chooseImageDialog.setTargetFragment(this, SELECT_IMAGE);
+        chooseImageDialog.show(getFragmentManager(), "chooseImageDialog");  
+    }
+    
+    void showChooseColourDialog(String imageFile) {
+    	
+    	ImageColourPickerFragment colourPickerDialog = new ImageColourPickerFragment();   	
+    	colourPickerDialog.setImageFile(imageFile);
+    	colourPickerDialog.setInitialColour(currentSurvey.getColour());
+    	colourPickerDialog.setTargetFragment(this, SELECT_COLOUR);  	
+    	colourPickerDialog.show(getFragmentManager(), "imageColourPickerDialog");
+    }
+    
+    
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	if (resultCode == Activity.RESULT_OK) {
+    		if (requestCode == UPDATE_FEATURE) {
+    			Feature feature = (Feature)data.getSerializableExtra(FeatureIdFragment.FEATURE_KEY);
+				listFeatures(rootView, getHelper());
+				setSelectedFeature(rootView, feature);
+				Toast.makeText(SpringsApplication.getAppContext(), "Feature saved", Toast.LENGTH_LONG).show();
+				
+    		} else if (requestCode == SELECT_IMAGE) {
+    			String imageFile = data.getStringExtra(ChooseImageFragment.IMAGE_FILE_KEY);
+    			showChooseColourDialog(imageFile);
+    			
+    		} else if (requestCode == SELECT_COLOUR) {
+    			int colour = data.getIntExtra(ImageColourPickerFragment.COLOUR_KEY, 0xffffff);
+    			setColour(colour);
+    		}
+    	}
+    }
+    
+    private void setColour(int colour) {
+		View colourInput = this.getView().findViewById(R.id.colour_input);
+		colourInput.setBackgroundColor(colour);
+		colourInput.setTag(colour);
+		updateSurveyFromInput();    	
     }
     
     public void updateSurveyFromInput() {
@@ -177,12 +235,12 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         	currentSurvey.setFeature((Feature)featureSpinner.getSelectedItem());
         }
     	
-    	String size = ((EditText) rootView.findViewById(R.id.feature_size_input)).getText().toString();
-    	if (!size.isEmpty()) {
-    		currentSurvey.setSize(Double.parseDouble(size));
-    	}
-    	
-    	currentSurvey.setColour(((EditText) rootView.findViewById(R.id.colour_input)).getText().toString());
+        currentSurvey.setSize(((EditText) rootView.findViewById(R.id.feature_size_input)).getText().toString()); 
+        
+        Object colour = rootView.findViewById(R.id.colour_input).getTag();
+        if (colour != null) {
+        	currentSurvey.setColour((Integer)colour);
+        }
     	currentSurvey.setClarityTurbidity(((EditText) rootView.findViewById(R.id.clarity_turbidity_input)).getText().toString());
     	
     	String temperature = ((EditText) rootView.findViewById(R.id.feature_temperature_input)).getText().toString();
@@ -203,11 +261,16 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     		setSelectedFeature(rootView, currentSurvey.getFeature());		
     	}
     	
-    	if (currentSurvey.getSize() != null) {
-    		((EditText) rootView.findViewById(R.id.feature_size_input)).setText(String.valueOf(currentSurvey.getSize()));
+    	((EditText) rootView.findViewById(R.id.feature_size_input)).setText(currentSurvey.getSize());
+
+    	if (currentSurvey.getColour() != null) {
+        	View colourInput = rootView.findViewById(R.id.colour_input);
+    		colourInput.setBackgroundColor(currentSurvey.getColour());
+    		colourInput.setTag(currentSurvey.getColour());
     	}
-    	((EditText) rootView.findViewById(R.id.colour_input)).setText(currentSurvey.getColour());
+    	
     	((EditText) rootView.findViewById(R.id.clarity_turbidity_input)).setText(currentSurvey.getClarityTurbidity());
+    	
     	if (currentSurvey.getTemperature() != null) {
     		((EditText) rootView.findViewById(R.id.feature_temperature_input)).setText(String.valueOf(currentSurvey.getTemperature()));
     	}
