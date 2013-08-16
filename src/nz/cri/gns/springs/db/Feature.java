@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import nz.cri.gns.springs.util.Util;
+
 import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
@@ -84,6 +86,21 @@ public class Feature extends PersistentObject {
 	
 	public String toString() {
 		return this.getFeatureName();
+	}
+	
+	public boolean isForExport() {
+		return status == Status.NEW || status == Status.UPDATED;
+	}
+	
+
+	public String toTsvString() {
+		
+		String desc = (description != null) ? description.replace("\n", " ") : null;
+		return Util.join("\t", 
+				featureName, historicName, featureType, geothermalField, 
+				Util.format(coordLatitude), Util.format(coordLongitude), Util.format(coordErrorEst),
+				coordFeatureRel, desc
+				);
 	}
 	
 	public static Feature getByName(String featureName, SpringsDbHelper dbHelper) {

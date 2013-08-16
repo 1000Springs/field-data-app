@@ -1,6 +1,10 @@
 package nz.cri.gns.springs.db;
 
 
+import nz.cri.gns.springs.util.Util;
+
+import android.text.format.Time;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -67,6 +71,19 @@ public class Survey extends PersistentObject {
 	}
 	public void setObserver2(String observer2) {
 		this.observer2 = observer2;
+	}
+	
+	public String toTsvString() {
+		String date = null;
+		if (surveyDate != null) {
+	        Time now = new Time(Time.getCurrentTimezone());
+	       	now.set(surveyDate);
+	        date = now.format("%Y-%m-%d %H:%M:%S");			
+		}
+		
+		String hexColour = (colour != null) ? Integer.toHexString(colour) : null;
+
+		return Util.join("\t", date, size, hexColour, clarityTurbidity, Util.format(temperature), observer1, observer2);
 	}
 	
 

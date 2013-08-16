@@ -13,6 +13,7 @@ import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.SurveyImage;
 import nz.cri.gns.springs.util.UiUtil;
+import nz.cri.gns.springs.util.Util;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -76,9 +77,10 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
             public void onClick(View view) {
             	try {
 	                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-	                File file = createImageFile();
-	                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
-	                currentImageFile = file.getAbsolutePath();
+	                currentImageFile = createImageFileName();
+	                File currentFile = new File(currentImageFile);
+	                currentFile.createNewFile();
+	                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(currentFile));
 	                startActivityForResult(takePictureIntent, IMAGE_CAPTURE);
             	} catch (Exception e) {
             		String message = "An error occurred, unable to open camera";
@@ -98,12 +100,11 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
             @Override
             public void onClick(View view) {
 				try {
-					File dest = createImageFile();
-					copySketch(dest);
-
+					String destFile = createImageFileName();
+					Util.copy(getResources(), R.raw.sketch_canvas, new File(destFile));
 		            Intent editImageIntent = new Intent(activity, FeatherActivity.class);
-		            editImageIntent.setData( Uri.parse(dest.getAbsolutePath()));
-		            editImageIntent.putExtra( "output",  Uri.parse(dest.getAbsolutePath()));
+		            editImageIntent.setData( Uri.parse(destFile));
+		            editImageIntent.putExtra( "output",  Uri.parse(destFile));
 		            editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
 		            editImageIntent.putExtra( "output-quality", 85 );
 		            editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
@@ -141,7 +142,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	}
     }
     
-    public void copySketch(File dst) throws IOException {
+    public void copsySketch(File dst) throws IOException {
   
         InputStream in = getResources().openRawResource(R.raw.sketch_canvas);
         OutputStream out = new FileOutputStream(dst);
@@ -197,7 +198,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	}
     }
     
-	static File createImageFile() throws IOException {
+	 String createImageFileName() throws IOException {
 		File storageDir = new File(
 				Environment
 						.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
@@ -212,9 +213,11 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         Time now = new Time(Time.getCurrentTimezone());
        	now.set(System.currentTimeMillis());
 
-		String imageFileName = now.format("%Y%m%d%H%M%S") + "_";
-		File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-		return image;
+		String imageFileName = Util.join("-", 
+				now.format("%Y%m%d%H%M%S"), 
+				String.valueOf(System.currentTimeMillis())
+				);
+		return storageDir.getAbsolutePath() + "/" + imageFileName + ".jpg";
 	}
     
     @Override
@@ -292,7 +295,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         photoList.addView(imageWrapper, layoutParams);
         
         if (surveyImage.getImageType() != null) {
-        	moveImageTypeToImage(rootView.findViewWithTag(surveyImage.getImageType().name()), imgView);	
+        	moveImageTypeToImage(rootView.findViewWithTag(surveyImage.getImageType()), imgView);	
         }
         
         imgView.setOnDragListener(this);    	
@@ -340,7 +343,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 			if (target.getTag() == null) {
 				moveImageTypeToImage(source, target);				
 				SurveyImage targetSurveyImage = getHelper().getSurveyImageDao().queryForId(Long.valueOf(target.getId()));
-				targetSurveyImage.setImageType(SurveyImage.ImageType.valueOf(source.getTag().toString()));
+				targetSurveyImage.setImageType(source.getTag().toString());
 				getHelper().getSurveyImageDao().update(targetSurveyImage);								
 			}
 			
@@ -441,14 +444,19 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	}
 	    
     private void editImage(View imageView) {
-    	SurveyImage surveyImage = getHelper().getSurveyImageDao().queryForId(Long.valueOf(imageView.getId()));
-    	String fileName = surveyImage.getFileName();
-        Intent editImageIntent = new Intent(this.getActivity(), FeatherActivity.class);
-        editImageIntent.setData( Uri.parse(fileName) );
-        editImageIntent.putExtra( "output", Uri.parse(fileName+"-edited"));
-        editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
-        editImageIntent.putExtra( "output-quality", 85 );
-        editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
-        startActivityForResult( editImageIntent, IMAGE_EDIT );    	
+    	try {
+	    	SurveyImage surveyImage = getHelper().getSurveyImageDao().queryForId(Long.valueOf(imageView.getId()));
+	    	String fileName = surveyImage.getFileName();
+	        Intent editImageIntent = new Intent(this.getActivity(), FeatherActivity.class);
+	        editImageIntent.setData( Uri.parse(fileName) );
+	        editImageIntent.putExtra( "output", Uri.parse(createImageFileName()));
+	        editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
+	        editImageIntent.putExtra( "output-quality", 85 );
+	        editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
+	        startActivityForResult( editImageIntent, IMAGE_EDIT );    	
+    	} catch (IOException e) {
+    		// TODO
+    		Log.e(this.getClass().getName(), "Error opening image file", e);
+    	}
     }
 }

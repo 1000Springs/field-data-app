@@ -15,7 +15,7 @@ import com.j256.ormlite.table.TableUtils;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 19;
+    public static final int DATABASE_VERSION = 22;
     public static final String DATABASE_NAME = "1000-Springs-DB";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;

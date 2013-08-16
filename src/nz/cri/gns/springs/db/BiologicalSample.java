@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import nz.cri.gns.springs.util.Util;
 import android.util.Log;
 
 import com.j256.ormlite.dao.GenericRawResults;
@@ -97,6 +98,16 @@ public class BiologicalSample extends PersistentObject {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}	
+
+	public String toTsvString() {
+		
+		String comms = (comments != null) ? comments.replace("\n", " ") : null;
+		return Util.join("\t", getFormattedSampleNumber(),
+				Util.format(temperature), Util.format(pH), Util.format(orp),
+				Util.format(conductivity), Util.format(dO),
+				Util.format(turbidity), Util.format(dnaVolume),
+				Util.format(ferrousIronAbs), comms);
+	}
 	
 	public String getFormattedSampleNumber() {
 		return formatSampleNumber(getSampleNumber());
@@ -116,35 +127,39 @@ public class BiologicalSample extends PersistentObject {
 		}
 	}
 
-	public static class SamplesForExportResult {
+	public static class CurrentSample {
 		
 		public Long sampleId;
 		public Integer sampleNumber;
 		public String featureName;
 		public Long surveyDate;
+		public Long featureId;
+		public Long surveyId;
 	}
 	
-	public static List<SamplesForExportResult> getSamplesForExport(SpringsDbHelper dbHelper) {
+	public static List<CurrentSample> getCurrentSamples(SpringsDbHelper dbHelper) {
 		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
 		String query = 
-				"select samp.id, samp.sampleNumber, feat.featureName, surv.surveyDate " + 
+				"select samp.id, samp.sampleNumber, feat.featureName, surv.surveyDate, feat.id, surv.id " + 
 				"from BiologicalSample samp " +
 				"left join Survey surv on samp.survey_id = surv.id " + 
 			    "left join Feature feat on surv.feature_id = feat.id " +
 				"where samp.status in (?, ?)";
 		
-		DataType[] columnTypes = {DataType.LONG, DataType.INTEGER, DataType.STRING, DataType.LONG};
+		DataType[] columnTypes = {DataType.LONG, DataType.INTEGER, DataType.STRING, DataType.LONG, DataType.LONG, DataType.LONG};
 		
 		GenericRawResults<Object[]> results = dao.queryRaw(query, columnTypes, Status.NEW.name(), Status.UPDATED.name());
 		try {
 			List<Object[]> rows = results.getResults();
-			List<SamplesForExportResult> sampleList = new ArrayList<SamplesForExportResult>(rows.size());
+			List<CurrentSample> sampleList = new ArrayList<CurrentSample>(rows.size());
 			for (Object[] row : rows) {
-				SamplesForExportResult sample = new SamplesForExportResult();
+				CurrentSample sample = new CurrentSample();
 				sample.sampleId = (Long)row[0];
 				sample.sampleNumber = (Integer)row[1];
 				sample.featureName = (String)row[2];
 				sample.surveyDate = (Long)row[3];
+				sample.featureId = (Long)row[4];
+				sample.surveyId = (Long)row[5];
 				sampleList.add(sample);
 			}
 			
@@ -155,6 +170,4 @@ public class BiologicalSample extends PersistentObject {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
 }

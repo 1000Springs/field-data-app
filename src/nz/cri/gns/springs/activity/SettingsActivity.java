@@ -3,9 +3,9 @@ package nz.cri.gns.springs.activity;
 import java.util.ArrayList;
 
 import nz.cri.gns.springs.R;
-import nz.cri.gns.springs.Util;
 import nz.cri.gns.springs.db.Configuration;
 import nz.cri.gns.springs.db.SpringsDbHelper;
+import nz.cri.gns.springs.util.Util;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;

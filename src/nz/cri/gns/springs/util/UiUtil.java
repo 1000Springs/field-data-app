@@ -1,5 +1,8 @@
 package nz.cri.gns.springs.util;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -53,5 +56,17 @@ public class UiUtil {
 		}
 
 		return inSampleSize;
+	}
+	
+	public static void showWarningDialog(Context context, String title, String message) {
+		new AlertDialog.Builder(context)
+	    .setTitle(title)
+	    .setMessage(message)
+	    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	            dialog.dismiss();
+	        }
+	     })
+	     .show();		
 	}
 }

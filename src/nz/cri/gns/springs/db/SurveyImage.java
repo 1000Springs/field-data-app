@@ -21,12 +21,9 @@ public class SurveyImage extends PersistentObject {
 	@DatabaseField(foreign = true)
 	private Survey survey;
 	
-	@DatabaseField private ImageType imageType;
+	@DatabaseField private String imageType;
 	@DatabaseField private String fileName;
-	
-	public enum ImageType {
-		BEST_PHOTO, BEST_SKETCH, ANNOTATED_PHOTO
-	}
+
 
 	public Survey getSurvey() {
 		return survey;
@@ -36,16 +33,12 @@ public class SurveyImage extends PersistentObject {
 		this.survey = survey;
 	}
 
-	public ImageType getImageType() {
+	public String getImageType() {
 		return imageType;
 	}
 	
-	public void setImageType(ImageType imageType) {
+	public void setImageType(String imageType) {
 		this.imageType = imageType;
-	}
-
-	public void setImageTypeString(String imageType) {
-		this.imageType = ImageType.valueOf(imageType);
 	}
 
 	public String getFileName() {

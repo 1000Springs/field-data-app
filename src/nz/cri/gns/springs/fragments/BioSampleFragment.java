@@ -6,8 +6,8 @@ import java.util.Map;
 
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
-import nz.cri.gns.springs.Util;
 import nz.cri.gns.springs.db.ChecklistItem;
+import nz.cri.gns.springs.util.Util;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;

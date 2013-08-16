@@ -175,7 +175,7 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
 		this.imageFile = file;
 	}
 	
-	public void setInitialColour(int colour) {
+	public void setInitialColour(Integer colour) {
 		this.selectedColour = colour;
 	}
 
