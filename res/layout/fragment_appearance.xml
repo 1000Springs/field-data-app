@@ -31,8 +31,7 @@
 		            <Spinner
 		                android:id="@+id/feature_spinner"
 		                style="@style/standard_spinner"
-		                android:background="@drawable/btn_dropdown"
-		                />
+		                android:background="@drawable/btn_dropdown"/>
 		            
 		            <Button 
 		                android:id="@+id/edit_feature_button"
@@ -119,11 +118,10 @@
 	            <TextView
 	                android:text="Clarity, turbidity"
 	                style="@style/form_label"/>
-	            <EditText
-	                android:id="@+id/clarity_turbidity_input"
-	                android:hint=""
-	                android:inputType="text" 
-	                style="@style/form_input" />  
+                <Spinner
+                    android:id="@+id/clarity_turbidity_spinner"
+                    style="@style/standard_spinner"
+                    android:background="@drawable/btn_dropdown"/> 
 	        </TableRow>   
 	    
 	        <TableRow
@@ -141,26 +139,12 @@
 	        <TableRow
 	            style="@style/form_row" > 
 	            <TextView
-	                android:text="Observer 1 name"
+	                android:text="Lead observer name"
 	                style="@style/form_label"/>
-	            <EditText
-	                android:id="@+id/observer_1_input"
-	                android:hint=""
-	                android:inputType="text" 
+	            <AutoCompleteTextView 
+	                android:id="@+id/observer_input"
 	                style="@style/form_input" />  
 	        </TableRow> 
-	        
-	        <TableRow
-	            style="@style/form_row" > 
-	            <TextView
-	                android:text="Observer 2 name"
-	                style="@style/form_label"/>
-	            <EditText
-	                android:id="@+id/observer_2_input"
-	                android:hint=""
-	                android:inputType="text" 
-	                style="@style/form_input" />  
-	        </TableRow>  
 	        
             <TableRow
                 style="@style/form_row" > 

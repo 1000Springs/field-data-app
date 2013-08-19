@@ -1,13 +1,23 @@
 package nz.cri.gns.springs.db;
 
 
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
+
 import nz.cri.gns.springs.util.Util;
 
 import android.text.format.Time;
 
+import com.j256.ormlite.dao.GenericRawResults;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * A Survey captures observations of a geothermal feature at a single date and time.
+ * @author duncanw
+ */
 @DatabaseTable
 public class Survey extends PersistentObject {
 
@@ -18,11 +28,14 @@ public class Survey extends PersistentObject {
 	
 	@DatabaseField private Long surveyDate;
 	@DatabaseField private String size; // e.g "4 x 3 metres"
+	
+	// colour is the red-green-blue value, e.g white is 0xffffff
 	@DatabaseField private Integer colour;
 	@DatabaseField private String clarityTurbidity;
 	@DatabaseField private Double temperature;
-	@DatabaseField private String observer1;
-	@DatabaseField private String observer2;
+	
+	// observer is the full name of the lead scientist on the survey trip
+	@DatabaseField private String observer;
 	
 	public Feature getFeature() {
 		return feature;
@@ -60,19 +73,17 @@ public class Survey extends PersistentObject {
 	public void setTemperature(Double temperature) {
 		this.temperature = temperature;
 	}
-	public String getObserver1() {
-		return observer1;
+	public String getObserver() {
+		return observer;
 	}
-	public void setObserver1(String observer1) {
-		this.observer1 = observer1;
-	}
-	public String getObserver2() {
-		return observer2;
-	}
-	public void setObserver2(String observer2) {
-		this.observer2 = observer2;
+	public void setObserver(String observer) {
+		this.observer = observer;
 	}
 	
+	/**
+	 * @return a tab-delimited string of this Survey's data. The date/time is in yyyy-mm-dd hh:mm:ss format, aligned to 
+	 *         the tablet's timezone. Numeric values are to two decimal places.
+	 */
 	public String toTsvString() {
 		String date = null;
 		if (surveyDate != null) {
@@ -83,7 +94,25 @@ public class Survey extends PersistentObject {
 		
 		String hexColour = (colour != null) ? Integer.toHexString(colour) : null;
 
-		return Util.join("\t", date, size, hexColour, clarityTurbidity, Util.format(temperature), observer1, observer2);
+		return Util.join("\t", date, size, hexColour, clarityTurbidity, Util.format(temperature), observer);
+	}
+	
+	public static List<String> getObservers(SpringsDbHelper helper) {
+		
+		RuntimeExceptionDao<Survey, Long> surveyDao = helper.getSurveyDao();
+		List<String> names = new LinkedList<String>();
+		try {
+			GenericRawResults<String[]> rawResults =
+					surveyDao.queryRaw("select distinct observer from Survey where observer is not null");
+			List<String[]> rows = rawResults.getResults();			
+			for (String[] resultColumns : rows) {
+			    names.add(resultColumns[0]);
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		return names;
 	}
 	
 

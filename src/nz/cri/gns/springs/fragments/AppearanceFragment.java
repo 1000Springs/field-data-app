@@ -8,6 +8,7 @@ import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.SpringsDbHelper;
+import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
 import nz.cri.gns.springs.util.Util;
 import android.app.Activity;
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,9 +34,9 @@ import android.widget.Toast;
 
 public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener {
 	
-	private transient View rootView;
+	private View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
-	private transient GpsLocation gpsLocation;
+	private GpsLocation gpsLocation;
 	
 	private static final int UPDATE_FEATURE = 0;
 	private static final int SELECT_IMAGE = 1;
@@ -50,6 +52,8 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	listFeatures(rootView, getHelper());
     	addButtonListener(rootView, getHelper());
     	
+        setClarityTurbidityOptions();  
+    	
     	setInputFromSurvey();
     	
     	Util.addEditTextListener(this, this, rootView);
@@ -61,8 +65,26 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         
         gpsLocation = new GpsLocation(this.getActivity());
         
+        setObserverOptions();      
+        
     	return rootView;
     }
+
+	public void setObserverOptions() {
+		// Set options for lead observer name
+        AutoCompleteTextView observerView = (AutoCompleteTextView) rootView.findViewById(R.id.observer_input);
+        List<String> options = Survey.getObservers(getHelper());
+        observerView.setAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, options));
+	}
+
+	public void setClarityTurbidityOptions() {
+		// Set options for clarity/turbidity description
+        Spinner spinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
+             R.array.clarity_turbidity_array, R.layout.widget_spinner);
+        adapter.setDropDownViewResource(R.layout.widget_spinner_item);
+        spinner.setAdapter(adapter);
+	}
     
     public void listFeatures(View rootView, SpringsDbHelper helper) {
     	
@@ -88,16 +110,30 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     
     public void setSelectedFeature(View rootView, Feature feature) {
     	
-    	Spinner featureSpinner = (Spinner) rootView.findViewById(R.id.feature_spinner);
-    	SpinnerAdapter adapter = featureSpinner.getAdapter();
-    	for (int i = 0; i < adapter.getCount(); i++) {
-    		Feature item = (Feature)adapter.getItem(i);
-    		if (item.getFeatureName().equals(feature.getFeatureName())) {
-    			featureSpinner.setSelection(i);
-    			return;
-    		}
+    	if (feature != null) {
+	    	Spinner featureSpinner = (Spinner) rootView.findViewById(R.id.feature_spinner);
+	    	SpinnerAdapter adapter = featureSpinner.getAdapter();
+	    	for (int i = 0; i < adapter.getCount(); i++) {
+	    		Feature item = (Feature)adapter.getItem(i);
+	    		if (item.getFeatureName().equals(feature.getFeatureName())) {
+	    			featureSpinner.setSelection(i);
+	    			return;
+	    		}
+	    	}    
     	}
-    	
+    }
+    
+    public void setSelectedClarityTurbidity(View rootView, String selection) {
+    	if (selection != null) {
+    		Spinner clarityTurbiditySpinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);   
+    		SpinnerAdapter adapter = clarityTurbiditySpinner.getAdapter();
+        	for (int i = 0; i < adapter.getCount(); i++) {
+        		if (selection.equals(adapter.getItem(i))) {
+        			clarityTurbiditySpinner.setSelection(i);
+        			return;
+        		}
+        	}     		
+    	}
     }
     
 	@Override
@@ -241,15 +277,18 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         if (colour != null) {
         	currentSurvey.setColour((Integer)colour);
         }
-    	currentSurvey.setClarityTurbidity(((EditText) rootView.findViewById(R.id.clarity_turbidity_input)).getText().toString());
+        
+        Spinner clarityTurbiditySpinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);
+        if (clarityTurbiditySpinner.getSelectedItem() != null) {
+        	currentSurvey.setClarityTurbidity((String)clarityTurbiditySpinner.getSelectedItem());
+        }
     	
     	String temperature = ((EditText) rootView.findViewById(R.id.feature_temperature_input)).getText().toString();
     	if (!temperature.isEmpty()) {
     		currentSurvey.setTemperature(Double.parseDouble(temperature));
     	}
     	
-    	currentSurvey.setObserver1(((EditText) rootView.findViewById(R.id.observer_1_input)).getText().toString());
-    	currentSurvey.setObserver2(((EditText) rootView.findViewById(R.id.observer_2_input)).getText().toString());
+    	currentSurvey.setObserver(((EditText) rootView.findViewById(R.id.observer_input)).getText().toString());
     	
     	getHelper().getSurveyDao().update(currentSurvey);
     	surveyUpdatedSinceLastSave = false;
@@ -257,9 +296,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     
     public void setInputFromSurvey() {
     	
-    	if (currentSurvey.getFeature() != null) {
-    		setSelectedFeature(rootView, currentSurvey.getFeature());		
-    	}
+   		setSelectedFeature(rootView, currentSurvey.getFeature());		
     	
     	((EditText) rootView.findViewById(R.id.feature_size_input)).setText(currentSurvey.getSize());
 
@@ -269,13 +306,12 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     		colourInput.setTag(currentSurvey.getColour());
     	}
     	
-    	((EditText) rootView.findViewById(R.id.clarity_turbidity_input)).setText(currentSurvey.getClarityTurbidity());
+    	setSelectedClarityTurbidity(rootView, currentSurvey.getClarityTurbidity());
     	
     	if (currentSurvey.getTemperature() != null) {
     		((EditText) rootView.findViewById(R.id.feature_temperature_input)).setText(String.valueOf(currentSurvey.getTemperature()));
     	}
-    	((EditText) rootView.findViewById(R.id.observer_1_input)).setText(currentSurvey.getObserver1());
-    	((EditText) rootView.findViewById(R.id.observer_2_input)).setText(currentSurvey.getObserver2());
+    	((EditText) rootView.findViewById(R.id.observer_input)).setText(currentSurvey.getObserver());
     }
 
 	@Override

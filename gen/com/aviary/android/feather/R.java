@@ -766,7 +766,7 @@ public final class R {
 		public static final int navbar_text2 = 0x7f070049;
 		public static final int aviary_head = 0x7f070033;
 		public static final int aviary_content_view = 0x7f07001a;
-		public static final int shadow = 0x7f07009c;
+		public static final int shadow = 0x7f07009b;
 		public static final int navbar_text1 = 0x7f070045;
 		public static final int aviary_crop_image = 0x7f07001f;
 		public static final int image_loading_view = 0x7f070043;
