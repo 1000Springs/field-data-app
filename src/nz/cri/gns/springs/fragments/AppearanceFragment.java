@@ -84,6 +84,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
              R.array.clarity_turbidity_array, R.layout.widget_spinner);
         adapter.setDropDownViewResource(R.layout.widget_spinner_item);
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 	}
     
     public void listFeatures(View rootView, SpringsDbHelper helper) {
