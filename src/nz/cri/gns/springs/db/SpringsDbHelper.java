@@ -12,6 +12,10 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+/**
+ * Initiates creation of and connections to the app's database.
+ * @author duncanw
+ */
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
@@ -36,10 +40,11 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
-		dropTables(db);
-		createTables(connectionSource);
+		//dropTables(db);
+		//createTables(connectionSource);
 	}
 	
+	/*
 	private void dropTables(SQLiteDatabase db) {
 		
 		db.execSQL("DROP TABLE Feature");
@@ -49,6 +54,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		db.execSQL("DROP TABLE ChecklistItem");
 		db.execSQL("DROP TABLE Configuration");
 	}
+	*/
 	
 	private void createTables(ConnectionSource connectionSource) {
 		try {

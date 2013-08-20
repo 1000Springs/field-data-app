@@ -13,6 +13,11 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * A SurveyImage is a photo or sketch associated with a survey of a geothermal feature.
+ * Images are stored on the tablet's file system, the database only stores the file name.
+ * @author duncanw
+ */
 @DatabaseTable
 public class SurveyImage extends PersistentObject {
 

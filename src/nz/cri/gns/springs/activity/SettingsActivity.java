@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.db.Configuration;
 import nz.cri.gns.springs.db.SpringsDbHelper;
-import nz.cri.gns.springs.util.Util;
+import nz.cri.gns.springs.util.UiUtil;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,7 +27,7 @@ public class SettingsActivity extends OrmLiteBaseActivity<SpringsDbHelper> imple
 	public void onResume() {
 		super.onResume();
 		
-		Util.getChildren(this.findViewById(R.id.settings_table), new ArrayList<View>(), new Util.ViewFilter() {
+		UiUtil.getChildren(this.findViewById(R.id.settings_table), new ArrayList<View>(), new UiUtil.ViewFilter() {
 			
 			@Override
 			public boolean matches(View view) {
@@ -48,7 +48,7 @@ public class SettingsActivity extends OrmLiteBaseActivity<SpringsDbHelper> imple
 	}
 	@Override
 	public void onClick(View v) {
-		Util.getChildren(this.findViewById(R.id.settings_table), new ArrayList<View>(), new Util.ViewFilter() {
+		UiUtil.getChildren(this.findViewById(R.id.settings_table), new ArrayList<View>(), new UiUtil.ViewFilter() {
 			
 			@Override
 			public boolean matches(View view) {

@@ -10,12 +10,20 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * CheckListItems are named true/false flags that can be grouped and each may be
+ * associated with other objects stored in the database.
+ * @author duncanw
+ *
+ */
 @DatabaseTable
 public class ChecklistItem {
 	
 	@DatabaseField(generatedId = true) 
 	private Long id;
 	
+	// Used to group ChecklistItems and/or identify which type of database object
+	// the ChecklistItem is associated with
 	@DatabaseField private String checklistName;
 	@DatabaseField private String itemName;
 	@DatabaseField private Boolean itemValue;

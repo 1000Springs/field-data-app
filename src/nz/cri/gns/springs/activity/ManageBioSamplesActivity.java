@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.text.format.Time;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +41,16 @@ import android.widget.Toast;
 
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
+/**
+ * Activity which displays the list of biological samples which have not yet been exported,
+ * and allows the user to select samples for viewing, updating or exporting to local storage as a text file.
+ * Once samples are exported they are no longer displayed in the list.
+ * 
+ * The directory-chooser requires the 3rd party OI File Manager from Open Intents. This can be installed
+ * from the .apk file in this projects intents directory, but it's easier to just download it (free) from the Google
+ * Play Store.
+ * @author duncanw
+ */
 public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener {
 	
 	private static final int PICK_DIRECTORY = 1;
@@ -98,14 +107,20 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	        exportButton.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View view) {
+	            	String action = "org.openintents.action.PICK_DIRECTORY";
+	            	if (!SpringsApplication.isIntentAvailable(context, action)) {
+	            		UiUtil.showMessageDialog(context, "Sample export", 
+	            				"Folder selection module (OI File Manager) must be installed, please install from Play Store");	
+	            		return;
+	            	}
 	            	
 	        		List<BiologicalSample> sampleList = getSelectedSamples(); 
 	        		if (sampleList.isEmpty()) {
-	        			UiUtil.showWarningDialog(context, "Sample export", "Please select the samples you want to export");
+	        			UiUtil.showMessageDialog(context, "Sample export", "Please select the samples you want to export");
 	        			return;
 	        		}
 	            	
-	                Intent intent = new Intent("org.openintents.action.PICK_DIRECTORY");
+	                Intent intent = new Intent(action);
 	                intent.putExtra("org.openintents.extra.TITLE", "Select folder to export sample data to");
 	                intent.putExtra("org.openintents.extra.BUTTON_TEXT", "Select current folder");
 	                startActivityForResult(intent, PICK_DIRECTORY);
@@ -117,10 +132,8 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	}
 	
 	public void export(String directory) {
-		// Select all features, biological samples, surveys (combine survey with sample)
-        Time now = new Time(Time.getCurrentTimezone());
-       	now.set(System.currentTimeMillis());
-		String timestamp = now.format("%Y%m%d%H%M%S");	
+
+		String timestamp = Util.getTimestamp();
 		File exportDir = new File(directory + "/" + timestamp);
 		if (!exportDir.exists()) {
 			if (!exportDir.mkdirs()) {
@@ -143,6 +156,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		}
 	}
 	
+
 	public int exportSamples(String exportDir, String timestamp) throws IOException {
 		
 		List<BiologicalSample> sampleList = getSelectedSamples(); 
@@ -196,7 +210,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 			String message = (samplesNotExported.size() == 1) ? 
 					"The sample is not associated with a feature, so was not exported" :
 					samplesNotExported.size() + " samples are not associated with features, so were not exported";
-			UiUtil.showWarningDialog(this, "Sample export", message);
+			UiUtil.showMessageDialog(this, "Sample export", message);
 		}
 		
 		for (Feature feature : featuresExported) {
@@ -220,7 +234,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	public List<BiologicalSample> getSelectedSamples() {
 		final List<BiologicalSample> selectedSamples = new LinkedList<BiologicalSample>();
 		final SpringsDbHelper helper = getHelper();
-		Util.ViewFilter viewFilter = new Util.ViewFilter() {
+		UiUtil.ViewFilter viewFilter = new UiUtil.ViewFilter() {
 			
 			@Override
 			public boolean matches(View view) {
@@ -231,7 +245,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 				return false;
 			}
 		};
-		Util.getChildren(this.findViewById(R.id.table_scrollview), null, viewFilter);
+		UiUtil.getChildren(this.findViewById(R.id.table_scrollview), null, viewFilter);
 		return selectedSamples;
 	}
 	
@@ -269,9 +283,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		
 		TextView collectionDate = (TextView)getLayoutInflater().inflate(R.layout.template_column, null);
 		if (sample.surveyDate != null) {
-	        Time now = new Time(Time.getCurrentTimezone());
-	        now.set(sample.surveyDate);
-	        collectionDate.setText(now.format("%c"));		
+	        collectionDate.setText(UiUtil.getDisplayDate(sample.surveyDate));		
 		}
 		tableRow.addView(collectionDate);
 		
@@ -294,7 +306,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
 		
 		setSelectAllNoneText(buttonView, isChecked);
-		Util.getChildren(this.findViewById(R.id.bio_sample_table), new ArrayList<View>(), new Util.ViewFilter() {		
+		UiUtil.getChildren(this.findViewById(R.id.bio_sample_table), new ArrayList<View>(), new UiUtil.ViewFilter() {		
 			@Override
 			public boolean matches(View view) {
 				if (view instanceof CheckBox) {

@@ -23,13 +23,21 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-
+/**
+ * Dialog box which allows the user to select from images associated with
+ * a geothermal feature survey.
+ * @author duncanw
+ */
 public class ChooseImageFragment extends SpringsDialogFragment implements OnTouchListener {
 
 	private Survey currentSurvey;
 	
 	private static final String SURVEY_KEY = "currentSurvey";
 	
+	/**
+	 * Key for the intent extra-data containing the path of the image file selected.
+	 * (returned to the onActivityResult method of the activity that opened the dialog box).
+	 */
 	public static final String IMAGE_FILE_KEY = "imageFile";
 	
     @Override
@@ -83,8 +91,7 @@ public class ChooseImageFragment extends SpringsDialogFragment implements OnTouc
         imgView.setMaxWidth(IMAGE_THUMBNAIL_HEIGHT);
         imgView.setId(surveyImage.getId().intValue());
         imgView.setOnTouchListener(this);
-
-                
+            
         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         layoutParams.setMargins(20, 20, 20, 20);
         

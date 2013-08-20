@@ -23,7 +23,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -44,6 +43,13 @@ import android.widget.TextView;
 import com.aviary.android.feather.FeatherActivity;
 import com.aviary.android.feather.library.Constants;
 
+/**
+ * Screen that allows the user to add photos and sketches for a biological sample.
+ * Requires the 3rd party Aviary-SDK library, which can be downloaded from aviary.com (free, but requires sign-up).
+ * The library must be included with this app, instructions for adding it to the project
+ * are available on the Aviary site.
+ * @author duncanw
+ */
 public class ImageFragment extends BioSampleActivityFragment implements OnDragListener, OnTouchListener, OnLongClickListener {
 	
 	public static final int IMAGE_THUMBNAIL_WIDTH = 200;
@@ -210,11 +216,8 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 			}
 		}
 	
-        Time now = new Time(Time.getCurrentTimezone());
-       	now.set(System.currentTimeMillis());
-
 		String imageFileName = Util.join("-", 
-				now.format("%Y%m%d%H%M%S"), 
+				Util.getTimestamp(), 
 				String.valueOf(System.currentTimeMillis())
 				);
 		return storageDir.getAbsolutePath() + "/" + imageFileName + ".jpg";
@@ -281,8 +284,6 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
         imgView.setId(surveyImage.getId().intValue());
         imgView.setOnTouchListener(this);
         imgView.setOnLongClickListener(this);
-
-//        addEditImageListener(imgView);
                 
         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         layoutParams.setMargins(20, 20, 20, 20);

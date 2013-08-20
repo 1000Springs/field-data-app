@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * Provides the application's main menu.
+ * @author duncanw
+ */
 public class MainMenuActivity extends Activity {
 	
 	@Override

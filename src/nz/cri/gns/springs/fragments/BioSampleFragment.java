@@ -7,20 +7,26 @@ import java.util.Map;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.ChecklistItem;
-import nz.cri.gns.springs.util.Util;
+import nz.cri.gns.springs.util.UiUtil;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnFocusChangeListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * Screen where the user completes checklists and entry of measurements
+ * of a sample collected from a geothermal feature.
+ * @author duncanw
+ *
+ */
 public class BioSampleFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher,  CompoundButton.OnCheckedChangeListener {
 	
 	private View rootView;
@@ -46,16 +52,13 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
         });
     	
     	setInputFromSample();    	
-    	Util.addEditTextListener(this, this, rootView);
+    	UiUtil.addEditTextListener(this, this, rootView);
     	
     	setChecklistState();
-    	Util.addCheckBoxListener(this, rootView);
+    	UiUtil.addCheckBoxListener(this, rootView);
     	
     	return rootView;
     }
-    
-    
-    
     
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {

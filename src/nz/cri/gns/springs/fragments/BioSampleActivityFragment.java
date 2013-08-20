@@ -4,12 +4,17 @@ import nz.cri.gns.springs.db.BiologicalSample;
 import nz.cri.gns.springs.db.Survey;
 import android.os.Bundle;
 
+/**
+ * Base class for screens used to collect data related to a biological sample
+ * collected from a geothermal feature.
+ * @author duncanw
+ */
 public class BioSampleActivityFragment extends SpringsFragment {
 
 	protected BiologicalSample currentSample;
 	protected Survey currentSurvey;
 	
-	public static final String SAMPLE_KEY = "currentSample";
+	private static final String SAMPLE_KEY = "currentSample";
 
 	public BiologicalSample getCurrentSample() {
 		return currentSample;

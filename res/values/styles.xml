@@ -28,7 +28,7 @@
     <style name="standard_edit_text" parent="@android:style/Widget.EditText">
         <item name="android:background">@drawable/rounded_corners</item>
         <item name="android:textColor">#808080</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
     </style>
     
     <style name="standard_checkbox">
@@ -39,8 +39,8 @@
     
     <style name="standard_spinner" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:layout_height">35dp</item>
-        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
+        <item name="android:layout_width">@dimen/form_input_width</item>
     </style>
 
 	<style name="standard_spinner_item" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
@@ -60,14 +60,14 @@
     
     <style name="form_label">
         <item name="android:layout_width">250dp</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
     
     <style name="form_input">
-        <item name="android:layout_width">300dp</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_width">@dimen/form_input_width</item>
+        <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#333333</item>
         <item name="android:background">@drawable/rounded_corners</item>
@@ -137,7 +137,7 @@
     
     <style name="column">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:paddingLeft">20dp</item>
@@ -150,7 +150,7 @@
     
         <style name="column_header">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:background">@color/table_header_background</item>
         <item name="android:textColor">@color/section_heading</item>
         <item name="android:textStyle">bold</item>
@@ -165,7 +165,7 @@
     
     <style name="standard_link">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textColor">@color/link</item>
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>    

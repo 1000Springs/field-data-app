@@ -13,6 +13,10 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * Measurements of samples collected from geothermal features.
+ * @author duncanw
+ */
 @DatabaseTable
 public class BiologicalSample extends PersistentObject {
 
@@ -99,6 +103,10 @@ public class BiologicalSample extends PersistentObject {
 		this.comments = comments;
 	}	
 
+	/**
+	 * @return a tab separated string of this BiologicalSample's values. Empty strings are used
+	 *         for null values, numeric values are rounded to 4 decimal places.
+	 */
 	public String toTsvString() {
 		
 		String comms = (comments != null) ? comments.replace("\n", " ") : null;
@@ -109,14 +117,25 @@ public class BiologicalSample extends PersistentObject {
 				Util.format(ferrousIronAbs), comms);
 	}
 	
+	/**
+	 * @return this BiologicalSample's sample number, e.g "P1.0023"
+	 */
 	public String getFormattedSampleNumber() {
 		return formatSampleNumber(getSampleNumber());
 	}
 	
+	/**
+	 * @param sampleNumber
+	 * @return the given number in sample number format, e.g 23 converts to "P1.0023"
+	 */
 	public static String formatSampleNumber(Integer sampleNumber) {
 		return "P1." + String.format("%04d", sampleNumber);
 	}
 	
+	/**
+	 * @param dbHelper
+	 * @return the highest sample number of any BiologicalSample in the database.
+	 */
 	public static Integer getMaxSampleNumber(SpringsDbHelper dbHelper) {
 		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
 		try {
@@ -137,6 +156,10 @@ public class BiologicalSample extends PersistentObject {
 		public Long surveyId;
 	}
 	
+	/**
+	 * @param dbHelper
+	 * @return the details of all BiologicalSamples with status NEW or UPDATED.
+	 */
 	public static List<CurrentSample> getCurrentSamples(SpringsDbHelper dbHelper) {
 		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
 		String query = 

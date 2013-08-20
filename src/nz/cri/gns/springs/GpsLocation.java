@@ -7,6 +7,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+/**
+ * Listens for GPS updates from the device, and saves the location
+ * coordinates provided by those updates.
+ * @author duncanw
+ */
 public class GpsLocation implements LocationListener {
 
 	private long lastUpdateTimeMillis = 0;
@@ -49,6 +54,10 @@ public class GpsLocation implements LocationListener {
 
 	}
 	
+	/**
+	 * @return a Location instance containing the coordinates of the last
+	 *         known location, or null if no such update has been received yet. 
+	 */
 	public Location getLastLocation() {
 		
 		return lastLocation;

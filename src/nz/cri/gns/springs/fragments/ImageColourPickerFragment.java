@@ -17,9 +17,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+/**
+ * Dialog box which allows a user to select a colour from an image.
+ * @author duncanw
+ */
 public class ImageColourPickerFragment extends SpringsDialogFragment implements OnTouchListener {
 	
+	/**
+	 * Width of the image display area, in pixels.
+	 */
 	public static final int IMAGE_WIDTH = 700;
+	
+	/**
+	 * Width of the image display area, in pixels.
+	 */
 	public static final int IMAGE_HEIGHT = 700;
 
 	private Integer selectedColour;
@@ -27,6 +38,10 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
 	
 	private static final String IMAGE_FILE_KEY = "imageFile";
 	
+	/**
+	 * Key for the intent extra-data containing the RGB integer value of the selected colour.
+	 * (returned to the onActivityResult method of the activity that opened the dialog box).
+	 */
 	public static final String COLOUR_KEY = "colourKey";
 	
     @Override
@@ -73,7 +88,7 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
     	ImageView imgView = (ImageView) rootView.findViewById(R.id.colour_picker_image);       
         Bitmap bitmap;
         if (imageFile == null) {
-        	bitmap = UiUtil.loadImage(this.getResources(), R.drawable.colour_picker, 700, 700);
+        	bitmap = UiUtil.loadImage(this.getResources(), R.drawable.colour_picker, IMAGE_WIDTH, IMAGE_HEIGHT);
         } else {
         	bitmap = UiUtil.loadImage(imageFile, IMAGE_WIDTH, IMAGE_HEIGHT);
         }
@@ -128,6 +143,11 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
 	
 	private int getColour(ImageView imageView, Bitmap image, int x, int y) {
 		
+		// The selected colour is determined by averaging the RGB values
+		// of the pixels in a square around the point where the touch
+		// was detected. This is to allow for images where an area's visible colour
+		// is made up of pixels of varying colours, so individual pixels
+		// may not be represent the expected colour selection.
 		int gridRadius = 5;
 		int minX = Math.max(0, x - gridRadius);
 		int minY = Math.max(0, y - gridRadius);

@@ -14,6 +14,11 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.SelectArg;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * A Feature is a geothermal feature (e.g a hot spring).
+ * @author duncanw
+ *
+ */
 @DatabaseTable
 public class Feature extends PersistentObject {
 
@@ -88,11 +93,17 @@ public class Feature extends PersistentObject {
 		return this.getFeatureName();
 	}
 	
+	/**
+	 * @return true if this Feature's status is NEW or UPDATED, otherwise returns false.
+	 */
 	public boolean isForExport() {
 		return status == Status.NEW || status == Status.UPDATED;
 	}
 	
-
+	/**
+	 * @return a tab separated string of this Feature's values. Empty strings are used
+	 *         for null values, numeric values are rounded to 4 decimal places.
+	 */
 	public String toTsvString() {
 		
 		String desc = (description != null) ? description.replace("\n", " ") : null;

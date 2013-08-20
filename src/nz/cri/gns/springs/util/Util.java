@@ -7,28 +7,38 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 import android.content.res.Resources;
-import android.text.TextWatcher;
-import android.view.View;
-import android.view.View.OnFocusChangeListener;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.text.format.Time;
 
+/**
+ * General utility functions.
+ * @author duncanw
+ */
 public class Util {
 	
+	/** 
+	 * @param delimiter the value separator, e.g "," to get a CSV string
+	 * @param values the values to join
+	 * @return e.g join(",", "one", "two", "three") returns "one,two,three".
+	 *         Null values will be included in the return value as empty strings,
+	 *         e.g join(",", "one", null, "three") returns "one,,three".
+	 */
 	public static String join(String delimiter, String...values) {
 
 		return join(delimiter, Arrays.asList(values));
 	}
 
+	/** 
+	 * @param delimiter the value separator, e.g "," to get a CSV string
+	 * @param s the values to join
+	 * @return e.g join(",", ["one", "two", "three"]) returns "one,two,three".
+	 *         Null values will be included in the return value as empty strings,
+	 *         e.g join(",", ["one", null, "three"]) returns "one,,three".
+	 */
 	public static String join(String delimiter, Collection<?> s) {
 		StringBuilder builder = new StringBuilder();
 		Iterator<?> iter = s.iterator();
@@ -45,20 +55,12 @@ public class Util {
 		return builder.toString();
 	}
 	
-	public static <T> T[] concatArrays(T[] first, T[]... rest) {
-		int totalLength = first.length;
-		for (T[] array : rest) {
-			totalLength += array.length;
-		}
-		T[] result = Arrays.copyOf(first, totalLength);
-		int offset = first.length;
-		for (T[] array : rest) {
-			System.arraycopy(array, 0, result, offset, array.length);
-			offset += array.length;
-		}
-		return result;
-	}
-	
+	/**
+	 * @param d a Float or Double
+	 * @return the empty string if d is null, otherwise d rounded to 4 decimal places with half-even rounding
+	 *         (Rounded towards the "nearest neighbor" unless both neighbors are equidistant, in which case, 
+	 *          round towards the even neighbor).
+	 */
 	public static String format(Number d) {
 		if (d == null) {
 			return "";
@@ -67,16 +69,35 @@ public class Util {
 		}
 	}
 	
+	/**
+	 * Copies a file.
+	 * @param src source file to copy.
+	 * @param dst destination file to copy to.
+	 * @throws IOException
+	 */
 	public static void copy(File src, File dst) throws IOException {
 		copy(new FileInputStream(src), new FileOutputStream(dst));
 	}
 	
+	/**
+	 * Copies a resource to a file.
+	 * @param resources the app's resources, e.g from myActivity.getResources()
+	 * @param resourceId id of the resource to copy, e.g R.drawable.my_image
+	 * @param dst destination file to copy to.
+	 * @throws IOException
+	 */
     public static void copy(Resources resources, int resourceId, File dst) throws IOException {
     	  
        copy(resources.openRawResource(resourceId), new FileOutputStream(dst));
         
     }
     
+    /**
+     * Copies data from in to out until exhausted, then closes both streams.
+     * @param in source.
+     * @param out destination.
+     * @throws IOException
+     */
     public static void copy(InputStream in, OutputStream out) throws IOException {
 
     	try {
@@ -90,58 +111,16 @@ public class Util {
     		in.close();
     		out.close();
     	}
-    }  	
-	
-	public interface ViewFilter {
-		boolean matches(View view);
-	}
-	
-	public static List<View> getChildren(View v, List<View> viewList, ViewFilter filter) {
-
-	    if (v instanceof ViewGroup) {
-		    ViewGroup viewGroup = (ViewGroup) v;
-		    for (int i = 0; i < viewGroup.getChildCount(); i++) {
-		        getChildren(viewGroup.getChildAt(i), viewList, filter);
-		    }	    
-	    }
-	    
-    	if (filter.matches(v)) {
-    		viewList.add(v);
-    	}
-	   return viewList;
-	}	
-	
-    public static void addEditTextListener(final OnFocusChangeListener onFocusChangeListener, final TextWatcher textChangedListener, View rootView) {
-
-    	Util.getChildren(rootView, new ArrayList<View>(), new Util.ViewFilter() {
-			
-			@Override
-			public boolean matches(View view) {
-				if (view instanceof EditText) {
-					((EditText)view).setOnFocusChangeListener(onFocusChangeListener);
-					if (textChangedListener != null) {
-						((EditText)view).addTextChangedListener(textChangedListener);
-					}
-				}
-				
-				return false;
-			}
-		});
     }
-    
-    public static void addCheckBoxListener(final CompoundButton.OnCheckedChangeListener changeListener, View rootView) {
 
-    	Util.getChildren(rootView, new ArrayList<View>(), new Util.ViewFilter() {
-			
-			@Override
-			public boolean matches(View view) {
-				if (view instanceof CheckBox) {
-					((CheckBox)view).setOnCheckedChangeListener(changeListener);
-				}
-				
-				return false;
-			}
-		});
+    /**
+     * @param date milliseconds since 1 January 1970 UTC.
+     * @return the given date in the tablet's local timezone, in YYYYMMDDHHMMSS format.
+     */
+    public static String getTimestamp() {
+        Time now = new Time(Time.getCurrentTimezone());
+       	now.set(System.currentTimeMillis());
+		return now.format("%Y%m%d%H%M%S");	
     }
 	
 }

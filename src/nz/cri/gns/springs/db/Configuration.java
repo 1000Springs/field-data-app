@@ -3,6 +3,10 @@ package nz.cri.gns.springs.db;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+/**
+ * Configuration entries are key/value pairs used for application settings.
+ * @author duncanw
+ */
 @DatabaseTable
 public class Configuration {
 	

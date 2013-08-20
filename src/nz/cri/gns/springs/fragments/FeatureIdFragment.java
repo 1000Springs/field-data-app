@@ -17,11 +17,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * Dialog box which allows the user to create or edit a Feature object
+ * encapsulating information about a geothermal feature.
+ * @author duncanw
+ */
 public class FeatureIdFragment extends SpringsDialogFragment {
 	
 	private Feature feature;
 	private transient GpsLocation gpsLocation;
 	
+	/**
+	 * Key for the intent extra-data containing the Feature object created or updated by the user.
+	 * (returned to the onActivityResult method of the activity that opened the dialog box).
+	 */
 	public static final String FEATURE_KEY = "featureKey";
 		
     @Override
@@ -72,9 +81,18 @@ public class FeatureIdFragment extends SpringsDialogFragment {
             	}
             	dialogFragment.setFeatureFromInput(rootView, currentFeature);
             	if (currentFeature.getFeatureName().isEmpty()) {
-            		Toast.makeText(SpringsApplication.getAppContext(), "Feature name is required", Toast.LENGTH_LONG).show();
+            		Toast.makeText(
+            				SpringsApplication.getAppContext(), 
+            				"Feature name is required", Toast.LENGTH_LONG
+            				).show();
+            		
             	} else if (newFeature && Feature.getByName(currentFeature.getFeatureName(), dbHelper) != null) {
-            		Toast.makeText(SpringsApplication.getAppContext(), "Feature named "+currentFeature.getFeatureName()+" already exists", Toast.LENGTH_LONG).show();
+            		Toast.makeText(
+            				SpringsApplication.getAppContext(), 
+            				"Feature named "+currentFeature.getFeatureName()+" already exists", 
+            				Toast.LENGTH_LONG
+            				).show();
+            		
             	} else {
             		if (newFeature) {
             			dbHelper.getFeatureDao().create(currentFeature);

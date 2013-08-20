@@ -1714,10 +1714,6 @@ containing a value of this type.
         public static final int table_row_separator=0x7f060050;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
-         */
-        public static final int activity_horizontal_margin=0x7f0b003c;
-        public static final int activity_vertical_margin=0x7f0b003d;
         /**  adjust option panel button horizontal/vertical padding 
          */
         public static final int aviary_adjust_button_padding_left=0x7f0b002a;
@@ -1871,6 +1867,8 @@ containing a value of this type.
         /**  left and right margins for the wheel 
          */
         public static final int aviary_wheel_margin_horizontal=0x7f0b0017;
+        public static final int form_input_width=0x7f0b003c;
+        public static final int line_height=0x7f0b003d;
     }
     public static final class drawable {
         public static final int aviary_adjust_knob=0x7f020000;

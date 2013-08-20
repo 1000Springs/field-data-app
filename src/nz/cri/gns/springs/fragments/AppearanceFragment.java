@@ -10,13 +10,12 @@ import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
-import nz.cri.gns.springs.util.Util;
+import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
@@ -32,6 +31,11 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The screen where the user records the appearance of a geothermal feature
+ * when performing a survey.
+ * @author duncanw
+ */
 public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener {
 	
 	private View rootView;
@@ -50,18 +54,16 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	rootView = inflater.inflate(R.layout.fragment_appearance, container, false);
     	  	  	   	
     	listFeatures(rootView, getHelper());
-    	addButtonListener(rootView, getHelper());
+    	addButtonListeners(rootView, getHelper());
     	
         setClarityTurbidityOptions();  
     	
     	setInputFromSurvey();
     	
-    	Util.addEditTextListener(this, this, rootView);
+    	UiUtil.addEditTextListener(this, this, rootView);
     	
         TextView dateView = (TextView) rootView.findViewById(R.id.survey_date);       
-        Time now = new Time(Time.getCurrentTimezone());
-       	now.set(currentSurvey.getSurveyDate());
-        dateView.setText(now.format("%c"));
+        dateView.setText(UiUtil.getDisplayDate(currentSurvey.getSurveyDate()));
         
         gpsLocation = new GpsLocation(this.getActivity());
         
@@ -148,7 +150,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 	}
     
     
-    public void addButtonListener(final View rootView, final SpringsDbHelper helper) {
+    public void addButtonListeners(final View rootView, final SpringsDbHelper helper) {
     	
     	Button addButton = (Button) rootView.findViewById(R.id.add_feature_button);
     	addButton.setOnClickListener(new View.OnClickListener() {

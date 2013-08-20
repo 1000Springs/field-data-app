@@ -1,5 +1,11 @@
 package nz.cri.gns.springs.util;
 
+/**
+ * Used to calculate the average and standard deviation of an
+ * array of integers.
+ * @author duncanw
+ *
+ */
 public class DataStatistics {
 
 	private int[] values;
@@ -34,6 +40,10 @@ public class DataStatistics {
 	
 	private int calculageWeightedAverage() {
 		
+		// This is intended to produce an average less
+		// affected by outliers. Not sure of it's statistical
+		// validity, but seems to produce good results for
+		// averaging pixel RGB colours around a point.
 		double total = 1.0;
 		int count = 0;
 		for (int x : values) {
@@ -54,6 +64,9 @@ public class DataStatistics {
 		return stdDeviation;
 	}
 
+	/**
+	 * @return the average of values within one standard deviation of the mean. 
+	 */
 	public int getWeightedAverage() {
 		return weightedAverage;
 	}
