@@ -2,6 +2,8 @@ package nz.cri.gns.springs;
 
 import java.util.List;
 
+import nz.cri.gns.springs.util.CustomExceptionHandler;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +17,7 @@ public class SpringsApplication extends Application {
     public void onCreate(){
         super.onCreate();
         SpringsApplication.context = getApplicationContext();
+        Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler());
     }
 
     public static Context getAppContext() {

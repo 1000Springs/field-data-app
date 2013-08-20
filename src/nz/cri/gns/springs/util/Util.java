@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Locale;
 
 import android.content.res.Resources;
 import android.text.format.Time;
@@ -114,13 +116,21 @@ public class Util {
     }
 
     /**
-     * @param date milliseconds since 1 January 1970 UTC.
-     * @return the given date in the tablet's local timezone, in YYYYMMDDHHMMSS format.
+     * @return the current date in the tablet's local timezone, in yyyyMMddHHmmss format.
      */
-    public static String getTimestamp() {
+    public static String getTimestampSeconds() {
         Time now = new Time(Time.getCurrentTimezone());
        	now.set(System.currentTimeMillis());
 		return now.format("%Y%m%d%H%M%S");	
+    }
+    
+    /**
+     * @return the current date in the tablet's local timezone, in yyyyMMddHHmmssSSS format.
+     */
+    public static String getTimestampMillis() {
+
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.US);
+    	return formatter.format(new java.util.Date());	
     }
 	
 }

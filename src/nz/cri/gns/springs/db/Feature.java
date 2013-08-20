@@ -127,7 +127,7 @@ public class Feature extends PersistentObject {
 				return featureList.get(0);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
 		}
 		return null;
 
@@ -146,8 +146,7 @@ public class Feature extends PersistentObject {
 		    try {
 				iterator.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		

@@ -76,30 +76,21 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	
     	rootView = inflater.inflate(R.layout.fragment_image, container, false);
     	
-    	View cameraButton = rootView.findViewById(R.id.camera_button);
-    	cameraButton.setEnabled(SpringsApplication.isIntentAvailable(SpringsApplication.getAppContext(), MediaStore.ACTION_IMAGE_CAPTURE));   	
-    	cameraButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            	try {
-	                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-	                currentImageFile = createImageFileName();
-	                File currentFile = new File(currentImageFile);
-	                currentFile.createNewFile();
-	                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(currentFile));
-	                startActivityForResult(takePictureIntent, IMAGE_CAPTURE);
-            	} catch (Exception e) {
-            		String message = "An error occurred, unable to open camera";
-            		new AlertDialog.Builder(container.getContext())
-            			.setMessage(message)
-            			.setPositiveButton("OK", null)
-            			.show();
-            		Log.e(this.getClass().getName(), message, e);
-            	}
-            }
-        });
+    	addCameraButtonListener();  	
+    	addSketchButtonListener();
     	
-    	View sketchButton = rootView.findViewById(R.id.sketch_button);
+    	addTagDragListener(rootView);
+    	rootView.findViewById(R.id.image_types).setOnDragListener(this);
+    	rootView.findViewById(R.id.rubbish_bin).setOnDragListener(this);
+    	rootView.setOnDragListener(this);
+    	
+    	displayImages();
+    	
+    	return rootView;
+    }
+
+	public void addSketchButtonListener() {
+		View sketchButton = rootView.findViewById(R.id.sketch_button);
     	final Activity activity = this.getActivity();
     	
     	sketchButton.setOnClickListener(new View.OnClickListener() {
@@ -117,22 +108,37 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 		            startActivityForResult( editImageIntent, IMAGE_EDIT );
 		            
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					Log.e("badness", "badness", e);
+					throw new RuntimeException(e);
 				}
 
             }
         });
-    	
-    	addTagDragListener(rootView);
-    	rootView.findViewById(R.id.image_types).setOnDragListener(this);
-    	rootView.findViewById(R.id.rubbish_bin).setOnDragListener(this);
-    	rootView.setOnDragListener(this);
-    	
-    	displayImages();
-    	
-    	return rootView;
-    }
+	}
+
+	public void addCameraButtonListener() {
+		View cameraButton = rootView.findViewById(R.id.camera_button);
+    	cameraButton.setEnabled(SpringsApplication.isIntentAvailable(SpringsApplication.getAppContext(), MediaStore.ACTION_IMAGE_CAPTURE));   	
+    	cameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	try {
+	                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	                currentImageFile = createImageFileName();
+	                File currentFile = new File(currentImageFile);
+	                currentFile.createNewFile();
+	                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(currentFile));
+	                startActivityForResult(takePictureIntent, IMAGE_CAPTURE);
+            	} catch (Exception e) {
+            		String message = "An error occurred, unable to open camera";
+            		new AlertDialog.Builder(rootView.getContext())
+            			.setMessage(message)
+            			.setPositiveButton("OK", null)
+            			.show();
+            		Log.e(this.getClass().getName(), message, e);
+            	}
+            }
+        });
+	}
     
     @Override
     public void onSaveInstanceState(Bundle instanceState) {
@@ -216,10 +222,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 			}
 		}
 	
-		String imageFileName = Util.join("-", 
-				Util.getTimestamp(), 
-				String.valueOf(System.currentTimeMillis())
-				);
+		String imageFileName = Util.getTimestampMillis();
 		return storageDir.getAbsolutePath() + "/" + imageFileName + ".jpg";
 	}
     
@@ -456,8 +459,7 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 	        editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
 	        startActivityForResult( editImageIntent, IMAGE_EDIT );    	
     	} catch (IOException e) {
-    		// TODO
-    		Log.e(this.getClass().getName(), "Error opening image file", e);
+    		throw new RuntimeException(e);
     	}
     }
 }

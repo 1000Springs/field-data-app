@@ -1,7 +1,6 @@
 package nz.cri.gns.springs.db;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.j256.ormlite.dao.RuntimeExceptionDao;
@@ -74,9 +73,7 @@ public class ChecklistItem {
 			checklistItemList = dao.query(preparedQuery);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			checklistItemList = new ArrayList<ChecklistItem>();
+			throw new RuntimeException(e);
 		}
 		return checklistItemList;
 	}

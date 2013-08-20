@@ -133,7 +133,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	
 	public void export(String directory) {
 
-		String timestamp = Util.getTimestamp();
+		String timestamp = Util.getTimestampSeconds();
 		File exportDir = new File(directory + "/" + timestamp);
 		if (!exportDir.exists()) {
 			if (!exportDir.mkdirs()) {
@@ -151,8 +151,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 			}
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			Log.e(this.getClass().getName(), "Feature export error", e);
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -160,8 +159,8 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	public int exportSamples(String exportDir, String timestamp) throws IOException {
 		
 		List<BiologicalSample> sampleList = getSelectedSamples(); 
-		String sampleFile = exportDir + "/" + "samples-"+timestamp+".tsv";
-		String featureFile = exportDir + "/" + "features-"+timestamp+".tsv";
+		String sampleFile = exportDir + "/" + "samples-"+timestamp+".txt";
+		String featureFile = exportDir + "/" + "features-"+timestamp+".txt";
 		BufferedWriter sampleWriter = null;
 		BufferedWriter featureWriter = null;
 		List<String> samplesNotExported = new LinkedList<String>();
@@ -249,13 +248,17 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		return selectedSamples;
 	}
 	
-	public void exportImages(String exportDir, String sampleNumber, Survey survey) throws IOException {
+	public void exportImages(String exportDir, String sampleNumber, Survey survey)  {
 		List<SurveyImage> imageList = SurveyImage.getBySurvey(survey,getHelper());	
 		for (SurveyImage image : imageList) {
 			File imageSrc  = new File (image.getFileName());
 			String imageType = (image.getImageType() != null) ? image.getImageType().replaceAll("_", "") : "";
 			File exportDest = new File(exportDir + "/" + Util.join("_", sampleNumber, imageType, imageSrc.getName()));
-			Util.copy(imageSrc, exportDest);
+			try {
+				Util.copy(imageSrc, exportDest);
+			} catch (IOException e) {
+				Log.e(this.getClass().getName(), "Error exporting image "+imageSrc+" to "+exportDest, e);
+			}
 		}
 	}
 	

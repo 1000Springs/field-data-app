@@ -2,7 +2,6 @@ package nz.cri.gns.springs.db;
 
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import android.util.Log;
@@ -65,9 +64,7 @@ public class SurveyImage extends PersistentObject {
 			surveyImageList = dao.query(preparedQuery);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			surveyImageList = new ArrayList<SurveyImage>();
+			throw new RuntimeException(e);
 		}
 		return surveyImageList;
 

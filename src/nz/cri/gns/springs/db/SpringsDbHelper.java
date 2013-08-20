@@ -65,8 +65,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 			TableUtils.createTable(connectionSource, ChecklistItem.class);
 			TableUtils.createTable(connectionSource, Configuration.class);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}		
 	}
 	
@@ -84,8 +83,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 					}
 				};
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -106,8 +104,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 					}
 				};
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -128,8 +125,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 					}
 				};
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException();
 			}
 		}
 		
@@ -150,8 +146,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 					}
 				};
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -165,8 +160,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 				dao = DaoManager.createDao(getConnectionSource(), ChecklistItem.class);
 				checklistItemDao = new RuntimeExceptionDao<ChecklistItem, Long>(dao);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -180,8 +174,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 				dao = DaoManager.createDao(getConnectionSource(), Configuration.class);
 				configurationDao = new RuntimeExceptionDao<Configuration, String>(dao);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 		}
 		
