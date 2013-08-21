@@ -114,6 +114,13 @@ public class Feature extends PersistentObject {
 				);
 	}
 	
+	public static String tsvStringColumns() {
+		return Util.join("\t", 
+				"FeatureName", "HistoricName", "FeatureType", "GeothermalField", 
+				"LocationLatitude", "LocationLongitude", "LocationErrorEstimateMetres", 
+				"LocationRelationShipToFeature", "Description");		
+	}
+	
 	public static Feature getByName(String featureName, SpringsDbHelper dbHelper) {
 
 		RuntimeExceptionDao<Feature, Long> dao = dbHelper.getFeatureDao();

@@ -97,6 +97,10 @@ public class Survey extends PersistentObject {
 		return Util.join("\t", date, size, hexColour, clarityTurbidity, Util.format(temperature), observer);
 	}
 	
+	public static String tsvStringColumns() {
+		return Util.join("\t", "SurveyDate", "FeatureSize", "ColourRgbHex", "Turbidity", "Temperature", "LeadObserverName");
+	}
+	
 	public static List<String> getObservers(SpringsDbHelper helper) {
 		
 		RuntimeExceptionDao<Survey, Long> surveyDao = helper.getSurveyDao();

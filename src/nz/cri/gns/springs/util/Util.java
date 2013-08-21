@@ -60,8 +60,8 @@ public class Util {
 	/**
 	 * @param d a Float or Double
 	 * @return the empty string if d is null, otherwise d rounded to 4 decimal places with half-even rounding
-	 *         (Rounded towards the "nearest neighbor" unless both neighbors are equidistant, in which case, 
-	 *          round towards the even neighbor).
+	 *         (Rounded towards the "nearest neighbour" unless both neighbours are equidistant, in which case, 
+	 *          round towards the even neighbour).
 	 */
 	public static String format(Number d) {
 		if (d == null) {
@@ -129,6 +129,7 @@ public class Util {
      */
     public static String getTimestampMillis() {
 
+    	// Locale.US just ensures we only deal in ASCII characters
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmssSSS", Locale.US);
     	return formatter.format(new java.util.Date());	
     }

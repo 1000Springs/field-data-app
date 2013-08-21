@@ -176,11 +176,13 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 				if (feature != null) {	
 					if (sampleWriter == null) {
 						sampleWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(sampleFile), encoding)));
+						sampleWriter.write(toComment(Util.join("\t", "FeatureName", BiologicalSample.tsvStringColumns(), Survey.tsvStringColumns())));
 					}					
 					getHelper().getFeatureDao().refresh(feature);
 					if (feature.isForExport()) {
 						if (featureWriter == null) {
 							featureWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(featureFile), encoding)));
+							featureWriter.write(toComment(Feature.tsvStringColumns()));
 						}
 						featureWriter.write(feature.toTsvString());
 						featureWriter.newLine();
@@ -228,6 +230,10 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		}
 		
 		return samplesExported.size();
+	}
+	
+	public String toComment(String line) {
+		return "#" + line;
 	}
 	
 	public List<BiologicalSample> getSelectedSamples() {

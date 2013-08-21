@@ -117,6 +117,11 @@ public class BiologicalSample extends PersistentObject {
 				Util.format(ferrousIronAbs), comms);
 	}
 	
+	public static String tsvStringColumns() {
+		return Util.join("\t", "SampleNumber", "Temperature", "pH", "OxidationReductionPotential",
+				"Conductivity", "DisolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "Comments");		
+	}
+	
 	/**
 	 * @return this BiologicalSample's sample number, e.g "P1.0023"
 	 */
@@ -126,7 +131,8 @@ public class BiologicalSample extends PersistentObject {
 	
 	/**
 	 * @param sampleNumber
-	 * @return the given number in sample number format, e.g 23 converts to "P1.0023"
+	 * @return the given number in padded to four digits with leading zeros and prefixed with "P1.".
+	 *         e.g 23 converts to "P1.0023".
 	 */
 	public static String formatSampleNumber(Integer sampleNumber) {
 		return "P1." + String.format("%04d", sampleNumber);
