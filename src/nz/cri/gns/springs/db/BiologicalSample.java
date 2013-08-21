@@ -118,8 +118,8 @@ public class BiologicalSample extends PersistentObject {
 	}
 	
 	public static String tsvStringColumns() {
-		return Util.join("\t", "SampleNumber", "Temperature", "pH", "OxidationReductionPotential",
-				"Conductivity", "DisolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "Comments");		
+		return Util.join("\t", "SampleNumber", "SampleTemperature", "pH", "OxidationReductionPotential",
+				"Conductivity", "DissolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "Comments");		
 	}
 	
 	/**

@@ -98,7 +98,7 @@ public class Survey extends PersistentObject {
 	}
 	
 	public static String tsvStringColumns() {
-		return Util.join("\t", "SurveyDate", "FeatureSize", "ColourRgbHex", "Ebullition", "Temperature", "LeadObserverName");
+		return Util.join("\t", "SurveyDate", "FeatureSize", "ColourRgbHex", "Ebullition", "FeatureTemperature", "LeadObserverName");
 	}
 	
 	public static List<String> getObservers(SpringsDbHelper helper) {

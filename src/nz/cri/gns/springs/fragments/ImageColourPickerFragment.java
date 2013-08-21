@@ -1,5 +1,7 @@
 package nz.cri.gns.springs.fragments;
 
+import java.io.Serializable;
+
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.util.DataStatistics;
 import nz.cri.gns.springs.util.UiUtil;
@@ -71,7 +73,9 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
     public void onSaveInstanceState(Bundle instanceState) {
     	super.onSaveInstanceState(instanceState);
     	instanceState.putString(IMAGE_FILE_KEY, imageFile);
-    	instanceState.putInt(COLOUR_KEY, selectedColour);
+    	if (selectedColour != null) {
+    		instanceState.putSerializable(COLOUR_KEY, selectedColour);
+    	}
     }
     
     @Override
@@ -79,7 +83,10 @@ public class ImageColourPickerFragment extends SpringsDialogFragment implements 
     	super.onCreate(savedInstanceState);
     	if (savedInstanceState != null) {
     		imageFile = savedInstanceState.getString(IMAGE_FILE_KEY);
-    		selectedColour = savedInstanceState.getInt(COLOUR_KEY);
+    		Serializable colour = savedInstanceState.getSerializable(COLOUR_KEY);
+    		if (colour != null) {
+    			selectedColour = (Integer)colour;
+    		}
     	}
     }      
     
