@@ -57,7 +57,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	private static final int PICK_DIRECTORY = 1;
 	private static final String SELECTED_SAMPLES_LIST_KEY = "selectedSamples";
 	
-	private LinkedList<Long> selectedSamples;
+	private ArrayList<Long> selectedSamples;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -67,7 +67,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
         if (savedInstanceState != null) {
 	        Serializable ser = savedInstanceState.getSerializable(SELECTED_SAMPLES_LIST_KEY);
 	        if (ser != null) {
-	        	selectedSamples = (LinkedList<Long>)ser;
+	        	selectedSamples = (ArrayList<Long>)ser;
 	        }
         }
     }
@@ -75,7 +75,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		final LinkedList<Long> selectedSamples = new LinkedList<Long>();
+		final ArrayList<Long> selectedSamples = new ArrayList<Long>();
 		UiUtil.ViewFilter viewFilter = new UiUtil.ViewFilter() {
 			
 			@Override
@@ -221,12 +221,14 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 					if (sampleWriter == null) {
 						sampleWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(sampleFile), encoding)));
 						sampleWriter.write(toComment(Util.join("\t", "FeatureName", BiologicalSample.tsvStringColumns(), Survey.tsvStringColumns())));
+						sampleWriter.newLine();
 					}					
 					getHelper().getFeatureDao().refresh(feature);
 					if (feature.isForExport()) {
 						if (featureWriter == null) {
 							featureWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(featureFile), encoding)));
 							featureWriter.write(toComment(Feature.tsvStringColumns()));
+							featureWriter.newLine();
 						}
 						featureWriter.write(feature.toTsvString());
 						featureWriter.newLine();

@@ -69,6 +69,7 @@
         <item name="android:layout_width">@dimen/form_input_width</item>
         <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item> 
         <item name="android:textColor">#333333</item>
         <item name="android:background">@drawable/rounded_corners</item>
         <item name="android:ems">15</item>
