@@ -203,8 +203,9 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	public int exportSamples(String exportDir, String timestamp) throws IOException {
 		
 		List<BiologicalSample> sampleList = getSelectedSamples(); 
-		String sampleFile = exportDir + "/" + "samples-"+timestamp+".txt";
-		String featureFile = exportDir + "/" + "features-"+timestamp+".txt";
+		String fileExtension = ".xls";
+		String sampleFile = exportDir + "/data-samples-" + timestamp + fileExtension;
+		String featureFile = exportDir + "/data-features-"+timestamp + fileExtension;
 		BufferedWriter sampleWriter = null;
 		BufferedWriter featureWriter = null;
 		List<String> samplesNotExported = new LinkedList<String>();
