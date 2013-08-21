@@ -56,7 +56,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	listFeatures(rootView, getHelper());
     	addButtonListeners(rootView, getHelper());
     	
-        setClarityTurbidityOptions();  
+        setEbullitionOptions();  
     	
     	setInputFromSurvey();
     	
@@ -79,11 +79,11 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         observerView.setAdapter(new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, options));
 	}
 
-	public void setClarityTurbidityOptions() {
+	public void setEbullitionOptions() {
 		// Set options for clarity/turbidity description
-        Spinner spinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);
+        Spinner spinner = (Spinner) rootView.findViewById(R.id.ebullition_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-             R.array.clarity_turbidity_array, R.layout.widget_spinner);
+             R.array.ebullition_array, R.layout.widget_spinner);
         adapter.setDropDownViewResource(R.layout.widget_spinner_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
@@ -126,13 +126,13 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	}
     }
     
-    public void setSelectedClarityTurbidity(View rootView, String selection) {
+    public void setSelectedEbullition(View rootView, String selection) {
     	if (selection != null) {
-    		Spinner clarityTurbiditySpinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);   
-    		SpinnerAdapter adapter = clarityTurbiditySpinner.getAdapter();
+    		Spinner ebullitionSpinner = (Spinner) rootView.findViewById(R.id.ebullition_spinner);   
+    		SpinnerAdapter adapter = ebullitionSpinner.getAdapter();
         	for (int i = 0; i < adapter.getCount(); i++) {
         		if (selection.equals(adapter.getItem(i))) {
-        			clarityTurbiditySpinner.setSelection(i);
+        			ebullitionSpinner.setSelection(i);
         			return;
         		}
         	}     		
@@ -281,9 +281,9 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         	currentSurvey.setColour((Integer)colour);
         }
         
-        Spinner clarityTurbiditySpinner = (Spinner) rootView.findViewById(R.id.clarity_turbidity_spinner);
-        if (clarityTurbiditySpinner.getSelectedItem() != null) {
-        	currentSurvey.setClarityTurbidity((String)clarityTurbiditySpinner.getSelectedItem());
+        Spinner ebullitionSpinner = (Spinner) rootView.findViewById(R.id.ebullition_spinner);
+        if (ebullitionSpinner.getSelectedItem() != null) {
+        	currentSurvey.setEbullition((String)ebullitionSpinner.getSelectedItem());
         }
     	
     	String temperature = ((EditText) rootView.findViewById(R.id.feature_temperature_input)).getText().toString();
@@ -309,7 +309,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     		colourInput.setTag(currentSurvey.getColour());
     	}
     	
-    	setSelectedClarityTurbidity(rootView, currentSurvey.getClarityTurbidity());
+    	setSelectedEbullition(rootView, currentSurvey.getEbullition());
     	
     	if (currentSurvey.getTemperature() != null) {
     		((EditText) rootView.findViewById(R.id.feature_temperature_input)).setText(String.valueOf(currentSurvey.getTemperature()));

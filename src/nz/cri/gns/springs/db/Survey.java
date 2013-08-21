@@ -31,7 +31,7 @@ public class Survey extends PersistentObject {
 	
 	// colour is the red-green-blue value, e.g white is 0xffffff
 	@DatabaseField private Integer colour;
-	@DatabaseField private String clarityTurbidity;
+	@DatabaseField private String ebullition;
 	@DatabaseField private Double temperature;
 	
 	// observer is the full name of the lead scientist on the survey trip
@@ -61,11 +61,11 @@ public class Survey extends PersistentObject {
 	public void setColour(Integer colour) {
 		this.colour = colour;
 	}
-	public String getClarityTurbidity() {
-		return clarityTurbidity;
+	public String getEbullition() {
+		return ebullition;
 	}
-	public void setClarityTurbidity(String clarityTurbidity) {
-		this.clarityTurbidity = clarityTurbidity;
+	public void setEbullition(String ebullition) {
+		this.ebullition = ebullition;
 	}
 	public Double getTemperature() {
 		return temperature;
@@ -94,11 +94,11 @@ public class Survey extends PersistentObject {
 		
 		String hexColour = (colour != null) ? Integer.toHexString(colour) : null;
 
-		return Util.join("\t", date, size, hexColour, clarityTurbidity, Util.format(temperature), observer);
+		return Util.join("\t", date, size, hexColour, ebullition, Util.format(temperature), observer);
 	}
 	
 	public static String tsvStringColumns() {
-		return Util.join("\t", "SurveyDate", "FeatureSize", "ColourRgbHex", "Turbidity", "Temperature", "LeadObserverName");
+		return Util.join("\t", "SurveyDate", "FeatureSize", "ColourRgbHex", "Ebullition", "Temperature", "LeadObserverName");
 	}
 	
 	public static List<String> getObservers(SpringsDbHelper helper) {

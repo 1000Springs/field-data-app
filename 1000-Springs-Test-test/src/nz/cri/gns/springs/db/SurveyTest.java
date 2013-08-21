@@ -16,7 +16,7 @@ public class SurveyTest extends TestCase {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 		Date surveyDate =  dateFormat.parse("2013-08-21 11:38:21");
 		survey.setSurveyDate(surveyDate.getTime());
-		survey.setClarityTurbidity("muddy");
+		survey.setEbullition("muddy");
 		survey.setColour(0xAB34ff);
 		survey.setObserver("old mate");
 		survey.setSize("3 x 4 metres");

@@ -116,10 +116,10 @@
 	        <TableRow
 	            style="@style/form_row" > 
 	            <TextView
-	                android:text="Clarity, turbidity"
+	                android:text="Ebullition"
 	                style="@style/form_label"/>
                 <Spinner
-                    android:id="@+id/clarity_turbidity_spinner"
+                    android:id="@+id/ebullition_spinner"
                     style="@style/standard_spinner"
                     android:background="@drawable/btn_dropdown"/> 
 	        </TableRow>   

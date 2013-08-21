@@ -60,7 +60,7 @@ public final class R {
  and a "feather_plugin_border_xxx_name" string label 
          */
         public static final int borders_list=0x7f0a0006;
-        public static final int clarity_turbidity_array=0x7f0a0007;
+        public static final int ebullition_array=0x7f0a0007;
     }
     public static final class attr {
         /**  orientation panel item divider weight 
@@ -2121,7 +2121,6 @@ containing a value of this type.
         public static final int checked=0x7f070006;
         public static final int choose_colour_from_colour_picker_button=0x7f070082;
         public static final int choose_colour_from_image_button=0x7f070083;
-        public static final int clarity_turbidity_spinner=0x7f070084;
         public static final int colour_input=0x7f070081;
         public static final int colour_picker_image=0x7f07006c;
         public static final int conductivity_input=0x7f07008b;
@@ -2136,6 +2135,7 @@ containing a value of this type.
         public static final int down_top=0x7f070009;
         public static final int dragLayer=0x7f07003e;
         public static final int drawing_view_container=0x7f070042;
+        public static final int ebullition_spinner=0x7f070084;
         public static final int edge_bottom=0x7f07000d;
         public static final int edge_left=0x7f07000a;
         public static final int edge_right=0x7f07000b;

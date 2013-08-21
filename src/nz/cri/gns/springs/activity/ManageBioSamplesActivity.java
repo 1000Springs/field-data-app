@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -54,12 +55,52 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener {
 	
 	private static final int PICK_DIRECTORY = 1;
+	private static final String SELECTED_SAMPLES_LIST_KEY = "selectedSamples";
+	
+	private LinkedList<Long> selectedSamples;
 
+	@SuppressWarnings("unchecked")
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_bio_samples);
+        if (savedInstanceState != null) {
+	        Serializable ser = savedInstanceState.getSerializable(SELECTED_SAMPLES_LIST_KEY);
+	        if (ser != null) {
+	        	selectedSamples = (LinkedList<Long>)ser;
+	        }
+        }
     }
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		final LinkedList<Long> selectedSamples = new LinkedList<Long>();
+		UiUtil.ViewFilter viewFilter = new UiUtil.ViewFilter() {
+			
+			@Override
+			public boolean matches(View view) {
+				if (view instanceof CheckBox && ((CheckBox)view).isChecked()) {
+					selectedSamples.add((Long)view.getTag());
+				}
+				return false;
+			}
+		};
+		UiUtil.getChildren(this.findViewById(R.id.table_scrollview), null, viewFilter);
+		outState.putSerializable(SELECTED_SAMPLES_LIST_KEY, selectedSamples);
+	}
+	
+	public void setSelectedSamples() {
+		if (selectedSamples != null) {
+			View scrollView = this.findViewById(R.id.table_scrollview);
+			for (Long tag : selectedSamples) {
+				View checkBox = scrollView.findViewWithTag(tag);
+				if (checkBox != null && checkBox instanceof CheckBox) {
+					((CheckBox)checkBox).setChecked(true);
+				}
+			}
+		}
+	}
 	
 	@Override
 	public void onResume() {
@@ -126,6 +167,9 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	                startActivityForResult(intent, PICK_DIRECTORY);
 	            }
 	        });
+	        
+	        setSelectedSamples();
+	        
         } else {
         	exportButton.setVisibility(View.INVISIBLE);
         }

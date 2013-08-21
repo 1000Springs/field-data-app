@@ -19,7 +19,7 @@ import com.j256.ormlite.table.TableUtils;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 24;
+    public static final int DATABASE_VERSION = 25;
     public static final String DATABASE_NAME = "1000-Springs-DB";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
@@ -40,11 +40,11 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
-		//dropTables(db);
-		//createTables(connectionSource);
+		dropTables(db);
+		createTables(connectionSource);
 	}
 	
-	/*
+	
 	private void dropTables(SQLiteDatabase db) {
 		
 		db.execSQL("DROP TABLE Feature");
@@ -54,7 +54,6 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 		db.execSQL("DROP TABLE ChecklistItem");
 		db.execSQL("DROP TABLE Configuration");
 	}
-	*/
 	
 	private void createTables(ConnectionSource connectionSource) {
 		try {
