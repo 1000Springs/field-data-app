@@ -382,18 +382,10 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 		case DragEvent.ACTION_DRAG_EXITED:
 			target.setBackgroundResource(0);
 			break;
-		case DragEvent.ACTION_DROP:
-			removeImageTypeFromPreviousParent(source);
 			
-		    ViewGroup imageTypes = (ViewGroup)rootView.findViewById(R.id.image_types);
-		    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-		    		new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-		    		);
-		    params.setMargins(10, 10, 10, 10);
-		    source.setLayoutParams(params);
-			imageTypes.addView(source);
-						
-			source.setVisibility(View.VISIBLE);			
+		case DragEvent.ACTION_DROP:
+			removeImageTypeFromPreviousParent(source);			
+		    addImageTypeBackToToolbar(source);
 			break;
 			
 		case DragEvent.ACTION_DRAG_ENDED:
@@ -419,8 +411,14 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 			getHelper().getSurveyImageDao().delete(sourceSurveyImage);		
 			
 			// delete image from view
-			RelativeLayout imageWrapper = (RelativeLayout)source.getParent();
+			RelativeLayout imageWrapper = (RelativeLayout)source.getParent();		
 			imageWrapper.removeView(source);
+			if (imageWrapper.getChildCount() > 0) {
+				// Image was labelled, return label to home base
+				View imageType = imageWrapper.getChildAt(0);
+				imageWrapper.removeView(imageType);
+			    addImageTypeBackToToolbar(imageType);				
+			}
 			((ViewGroup)imageWrapper.getParent()).removeView(imageWrapper);			
 			break;
 			
@@ -441,6 +439,17 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
 			
 		}
 		oldParent.removeView(source);
+	}
+	
+	public void addImageTypeBackToToolbar(View imageType) {
+		ViewGroup imageTypes = (ViewGroup)rootView.findViewById(R.id.image_types);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+				new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+				);
+		params.setMargins(10, 10, 10, 10);
+		imageType.setLayoutParams(params);
+		imageTypes.addView(imageType);
+		imageType.setVisibility(View.VISIBLE);	
 	}
 	
 	private String getImageViewTag(View source) {
