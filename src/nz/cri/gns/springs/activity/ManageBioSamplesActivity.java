@@ -47,9 +47,8 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
  * and allows the user to select samples for viewing, updating or exporting to local storage as a text file.
  * Once samples are exported they are no longer displayed in the list.
  * 
- * The directory-chooser requires the 3rd party OI File Manager from Open Intents. This can be installed
- * from the .apk file in this projects intents directory, but it's easier to just download it (free) from the Google
- * Play Store.
+ * The directory-chooser requires the 3rd party OI File Manager from Open Intents. This can downloaded (free) 
+ * from the Google Play Store.
  * @author duncanw
  */
 public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener {

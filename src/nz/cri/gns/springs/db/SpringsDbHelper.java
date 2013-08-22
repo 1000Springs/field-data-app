@@ -40,19 +40,7 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
-		dropTables(db);
-		createTables(connectionSource);
-	}
-	
-	
-	private void dropTables(SQLiteDatabase db) {
-		
-		db.execSQL("DROP TABLE Feature");
-		db.execSQL("DROP TABLE BiologicalSample");
-		db.execSQL("DROP TABLE Survey");
-		db.execSQL("DROP TABLE SurveyImage");
-		db.execSQL("DROP TABLE ChecklistItem");
-		db.execSQL("DROP TABLE Configuration");
+
 	}
 	
 	private void createTables(ConnectionSource connectionSource) {
