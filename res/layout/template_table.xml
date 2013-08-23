@@ -6,7 +6,9 @@
     android:layout_height="wrap_content" >
     
     <TableRow>
-        <TextView style="@style/column_header" />
+        <TextView
+            android:id="@+id/template_table_first_column"
+            style="@style/column_header" />
         <TextView 
             android:text="Sample #"
             style="@style/column_header" />

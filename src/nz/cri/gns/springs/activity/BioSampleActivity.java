@@ -124,7 +124,7 @@ public class BioSampleActivity extends FragmentActivity implements ActionBar.Tab
     		currentSample = new BiologicalSample();
     		String nextSampleNumberConfig = Configuration.getConfiguration(getResources().getString(R.string.config_next_sample_number), getHelper());
     		int sampleNumber = BiologicalSample.getMaxSampleNumber(getHelper()) + 1;
-    		if (nextSampleNumberConfig != null) {
+    		if (nextSampleNumberConfig != null && !nextSampleNumberConfig.isEmpty()) {
     			sampleNumber = Math.max(sampleNumber, Integer.parseInt(nextSampleNumberConfig));
     		}
     		currentSample.setSampleNumber(sampleNumber);

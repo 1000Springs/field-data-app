@@ -2,11 +2,13 @@ package nz.cri.gns.springs.db;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import nz.cri.gns.springs.util.Util;
 import android.util.Log;
 
+import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.GenericRawResults;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.field.DataType;
@@ -198,4 +200,24 @@ public class BiologicalSample extends PersistentObject {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static List<BiologicalSample> getAll(SpringsDbHelper dbHelper) {
+		
+		RuntimeExceptionDao<BiologicalSample, Long> dao = dbHelper.getBiologicalSampleDao();
+		List<BiologicalSample> sampleList = new LinkedList<BiologicalSample>();
+		CloseableIterator<BiologicalSample> iterator = dao.closeableIterator();
+		try {
+		    while (iterator.hasNext()) {
+		    	sampleList.add(iterator.next());
+		    }
+		} finally {
+		    try {
+				iterator.close();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		return sampleList;
+	}	
 }

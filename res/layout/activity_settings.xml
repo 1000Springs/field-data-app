@@ -39,18 +39,24 @@
 	                    android:tag="@string/config_next_sample_number"
 	                    style="@style/form_input"/>
 	            </LinearLayout>
-	                
-            </TableRow>
-            
+            </TableRow>	     
+                   
             <TableRow
-                style="@style/form_row" > 
-                   <Button 
-                       android:id="@+id/save_settings_button"
-                       android:text="Save"
-                       android:layout_span="2"
-                       android:layout_gravity="center"
-                       style="@style/standard_button"/>
-            </TableRow>             
-        </TableLayout>  
+                style="@style/form_row" >   	            
+                <View />
+                    
+                <Button 
+                   android:id="@+id/edit_sample_numbers_button"
+                   android:text="Edit sample numbers"
+                   style="@style/standard_button"/>	    
+            </TableRow>           
+        </TableLayout>
+        
+	    <Button 
+			android:id="@+id/save_settings_button"
+			android:text="Save settings"
+			android:layout_gravity="center"
+			android:layout_marginTop="40dp"
+			style="@style/standard_button"/>  
     </LinearLayout>
 </ScrollView>

@@ -60,6 +60,10 @@
             android:windowSoftInputMode="stateHidden"
             />
         
+         <activity 
+            android:name=".activity.EditBiologicalSamplesActivity" 
+            />       
+        
         <activity
 		    android:name="com.aviary.android.feather.FeatherActivity"
 		    android:configChanges="orientation|keyboardHidden|screenSize"
