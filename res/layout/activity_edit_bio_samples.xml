@@ -24,12 +24,12 @@
             android:id="@+id/edit_bio_samples_cancel_btn"
             android:text="Back" 
             style="@style/standard_button"
-            android:layout_marginRight="10dp"/>             
+            android:layout_marginRight="20dp"/>             
         <Button 
             android:id="@+id/edit_bio_samples_save_btn"
             android:text="Save" 
             style="@style/standard_button"
-            android:layout_marginLeft="10dp"/>               
+            android:layout_marginLeft="20dp"/>               
     </LinearLayout>	    
 </RelativeLayout>
 	

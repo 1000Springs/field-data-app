@@ -140,13 +140,13 @@
 	                android:id="@+id/cancel_button"
 	                android:text="Cancel"
 	                style="@style/standard_button"
-	                android:layout_marginRight="10dp"/>
+	                android:layout_marginRight="20dp"/>
 	            
 	            <Button 
 	                android:id="@+id/save_button"
 	                android:text="Save"
 	                style="@style/standard_button"
-	                android:layout_marginLeft="10dp"/>
+	                android:layout_marginLeft="20dp"/>
 	       </LinearLayout>
 	   </TableRow> 
 	 

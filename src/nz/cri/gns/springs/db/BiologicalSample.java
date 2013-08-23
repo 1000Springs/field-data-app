@@ -36,6 +36,7 @@ public class BiologicalSample extends PersistentObject {
 	@DatabaseField private Double turbidity;
 	@DatabaseField private Double dnaVolume;
 	@DatabaseField private Double ferrousIronAbs;
+	@DatabaseField private Double gasVolume;	
 	@DatabaseField private String comments;
 	
 	public Survey getSurvey() {
@@ -98,6 +99,12 @@ public class BiologicalSample extends PersistentObject {
 	public void setFerrousIronAbs(Double ferrousIronAbs) {
 		this.ferrousIronAbs = ferrousIronAbs;
 	}
+	public Double getGasVolume() {
+		return gasVolume;
+	}
+	public void setGasVolume(Double gasVolume) {
+		this.gasVolume = gasVolume;
+	}
 	public String getComments() {
 		return comments;
 	}
@@ -116,12 +123,13 @@ public class BiologicalSample extends PersistentObject {
 				Util.format(temperature), Util.format(pH), Util.format(orp),
 				Util.format(conductivity), Util.format(dO),
 				Util.format(turbidity), Util.format(dnaVolume),
-				Util.format(ferrousIronAbs), comms);
+				Util.format(ferrousIronAbs), Util.format(gasVolume),
+				comms);
 	}
 	
 	public static String tsvStringColumns() {
 		return Util.join("\t", "SampleNumber", "SampleTemperature", "pH", "OxidationReductionPotential",
-				"Conductivity", "DissolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "Comments");		
+				"Conductivity", "DissolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "GasVolume", "Comments");		
 	}
 	
 	/**

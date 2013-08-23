@@ -19,7 +19,7 @@ import com.j256.ormlite.table.TableUtils;
 public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 	
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 26;
+    public static final int DATABASE_VERSION = 27;
     public static final String DATABASE_NAME = "1000-Springs-DB";
     
     private RuntimeExceptionDao<Feature, Long> featureDao = null;
@@ -40,7 +40,11 @@ public class SpringsDbHelper extends OrmLiteSqliteOpenHelper  {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource,int oldVersion, int newVersion) {
-
+	 	
+		if (oldVersion < 27) {
+			RuntimeExceptionDao<BiologicalSample, Long> sampleDao = getBiologicalSampleDao();
+			sampleDao.executeRaw("ALTER TABLE BiologicalSample ADD COLUMN gasVolume DOUBLE");
+		}
 	}
 	
 	private void createTables(ConnectionSource connectionSource) {

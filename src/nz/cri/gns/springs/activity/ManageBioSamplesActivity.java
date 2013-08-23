@@ -180,7 +180,7 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		File exportDir = new File(directory + "/" + timestamp);
 		if (!exportDir.exists()) {
 			if (!exportDir.mkdirs()) {
-				Log.e(ImageFragment.class.getName(), "Failed to create image directory "+exportDir.getAbsolutePath());
+				Log.e(ImageFragment.class.getName(), "Failed to create export directory "+exportDir.getAbsolutePath());
 			}
 		}		
 		try {
@@ -194,7 +194,10 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 			}
 			
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			// Most likely cause is the user selected a system folder or a USB drive when no memory stick
+			// is inserted.
+			String message = "Export to "+directory+" failed. Please confirm the selected folder is accessible before retrying the export.";
+			UiUtil.showMessageDialog(this, "Export failed", message);
 		}
 	}
 	

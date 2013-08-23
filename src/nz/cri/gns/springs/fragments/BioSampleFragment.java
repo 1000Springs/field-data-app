@@ -109,6 +109,11 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     		currentSample.setFerrousIronAbs(Double.parseDouble(ferrousIron));
     	}
     	
+    	String gasVolume = ((EditText) rootView.findViewById(R.id.gas_volume_input)).getText().toString();
+    	if (!gasVolume.isEmpty()) {
+    		currentSample.setGasVolume(Double.parseDouble(gasVolume));
+    	}
+    	
     	currentSample.setComments(((EditText) rootView.findViewById(R.id.sample_comments_input)).getText().toString());
     	
     	getHelper().getBiologicalSampleDao().update(currentSample);
@@ -149,6 +154,10 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	
     	if (currentSample.getFerrousIronAbs() != null) {
     		((EditText) rootView.findViewById(R.id.ferrous_iron_input)).setText(String.valueOf(currentSample.getFerrousIronAbs()));
+    	}
+    	
+    	if (currentSample.getGasVolume() != null) {
+    		((EditText) rootView.findViewById(R.id.gas_volume_input)).setText(String.valueOf(currentSample.getGasVolume()));
     	}
     	
     	if (currentSample.getComments() != null) {

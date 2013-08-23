@@ -63,6 +63,8 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	if (savedInstanceState != null) {
     		feature = (Feature)savedInstanceState.getSerializable(FEATURE_KEY);
     	}
+    	
+    	this.setCancelable(false);
     }
     
     public void addSaveButtonListener(final View rootView) {

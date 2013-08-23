@@ -190,6 +190,17 @@
                         <TableRow
                             style="@style/form_row" > 
                             <TextView
+                                android:text="Gas volume (ml)"
+                                style="@style/form_subsection_label"/>
+                            <EditText
+                                android:id="@+id/gas_volume_input"
+                                android:hint=""
+                                android:inputType="number|numberDecimal|numberSigned"
+                                style="@style/form_input" />  
+                        </TableRow> 			            
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
                                 android:text="Comments"
                                 style="@style/form_subsection_label"/>
 				            <EditText
