@@ -34,17 +34,18 @@
     <string name="image_colour_picker_dialog_title">Tap point on image to select colour</string>
     
     <string-array name="ebullition_array">
-        <item>calm</item>
-        <item>gentle effervescence</item>
-        <item>minor gas discharge</item>
-        <item>moderate gas discharge</item>
-        <item>violent gas discharge</item>
-        <item>constant bubbling</item>
-        <item>intermittent bubbling</item>
-        <item>audible bubbling</item>
-        <item>ebullient</item>
-        <item>boiling</item>
-        <item>upwelling</item>
+        <item>No ebullition (calm)</item>
+        <item>Minor and intermittent</item>
+        <item>Minor and continuous</item>
+        <item>Moderate and intermittent</item>
+        <item>Moderate and continuous</item>
+        <item>Major and intermittent</item>
+        <item>Major and continuous</item>
+        <item>Upwelling</item>
+        <item>Slow flowing water body</item>
+        <item>Intermediate flowing water body</item>
+        <item>Fast flowing water body</item>
+        <item>N/A</item>
     </string-array>
 
 </resources>

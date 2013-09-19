@@ -129,9 +129,20 @@
 			                <EditText
 			                    android:id="@+id/orp_input"
 			                    android:hint=""
-			                    android:inputType="number|numberDecimal" 
+			                    android:inputType="number|numberDecimal|numberSigned" 
 			                    style="@style/form_input" />  
 			            </TableRow> 
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
+                                android:text="DO (mg/L)"
+                                style="@style/form_subsection_label"/>
+                            <EditText
+                                android:id="@+id/do_input"
+                                android:hint=""
+                                android:inputType="number|numberDecimal|numberSigned" 
+                                style="@style/form_input" />  
+                        </TableRow>  			            
 			            <TableRow
 			                style="@style/form_row" > 
 			                <TextView
@@ -142,18 +153,7 @@
 			                    android:hint=""
 			                    android:inputType="number|numberDecimal|numberSigned" 
 			                    style="@style/form_input" />  
-			            </TableRow>   
-			            <TableRow
-			                style="@style/form_row" > 
-			                <TextView
-			                    android:text="DO (mg/L)"
-			                    style="@style/form_subsection_label"/>
-			                <EditText
-			                    android:id="@+id/do_input"
-			                    android:hint=""
-			                    android:inputType="number|numberDecimal|numberSigned" 
-			                    style="@style/form_input" />  
-			            </TableRow>      
+			            </TableRow>       
 			            <TableRow
 			                style="@style/form_row" > 
 			                <TextView
