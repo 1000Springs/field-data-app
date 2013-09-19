@@ -29,7 +29,7 @@ public class Util {
 	 *         Null values will be included in the return value as empty strings,
 	 *         e.g join(",", "one", null, "three") returns "one,,three".
 	 */
-	public static String join(String delimiter, String...values) {
+	public static String join(String delimiter, Object...values) {
 
 		return join(delimiter, Arrays.asList(values));
 	}

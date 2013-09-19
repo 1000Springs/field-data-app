@@ -197,7 +197,25 @@
                                 android:hint=""
                                 android:inputType="number|numberDecimal|numberSigned"
                                 style="@style/form_input" />  
-                        </TableRow> 			            
+                        </TableRow>
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
+                                android:text="Soil"
+                                style="@style/form_subsection_label"/>
+                            <CheckBox
+                                android:id="@+id/soil_collected_checkbox" 
+                                style="@style/indented_checkbox" />  
+                        </TableRow>    
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
+                                android:text="Water column"
+                                style="@style/form_subsection_label"/>
+                            <CheckBox
+                                android:id="@+id/water_column_collected_checkbox" 
+                                style="@style/indented_checkbox" />  
+                        </TableRow>                                                			            
                         <TableRow
                             style="@style/form_row" > 
                             <TextView
@@ -270,17 +288,7 @@
 			                <CheckBox
 			                    style="@style/indented_checkbox"      
 			                    android:tag="sulphate/chloride" />  
-			            </TableRow>  
-			            
-			            <TableRow
-			                style="@style/form_row" > 
-			                <TextView
-			                    android:text="Soil"
-			                    style="@style/form_subsection_label"/>
-			                <CheckBox
-			                    style="@style/indented_checkbox"      
-			                    android:tag="soil" />  
-			            </TableRow>              
+			            </TableRow>             
 			        </TableLayout>			    
 		        </TableRow>		        
 		    </TableLayout>                 

@@ -2052,7 +2052,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int add_feature_button=0x7f070082;
-        public static final int annotated_photo_tag=0x7f07009d;
+        public static final int annotated_photo_tag=0x7f07009f;
         public static final int aviary_bottom_line=0x7f070055;
         public static final int aviary_bottombar=0x7f070045;
         public static final int aviary_button=0x7f07003b;
@@ -2109,13 +2109,13 @@ containing a value of this type.
         public static final int aviary_workspace=0x7f07003d;
         public static final int aviary_workspace_container=0x7f07003c;
         public static final int aviary_workspace_indicator=0x7f07003e;
-        public static final int best_photo_tag=0x7f07009b;
-        public static final int best_sketch_tag=0x7f07009c;
-        public static final int bio_sample_table=0x7f07009f;
+        public static final int best_photo_tag=0x7f07009d;
+        public static final int best_sketch_tag=0x7f07009e;
+        public static final int bio_sample_table=0x7f0700a1;
         public static final int button1=0x7f070058;
         public static final int button2=0x7f07005a;
         public static final int button3=0x7f07005c;
-        public static final int camera_button=0x7f070098;
+        public static final int camera_button=0x7f07009a;
         public static final int cancel_button=0x7f07007e;
         public static final int cancel_colour_select_button=0x7f070072;
         public static final int checked=0x7f070006;
@@ -2123,7 +2123,7 @@ containing a value of this type.
         public static final int choose_colour_from_image_button=0x7f070087;
         public static final int colour_input=0x7f070085;
         public static final int colour_picker_image=0x7f070070;
-        public static final int conductivity_input=0x7f07008f;
+        public static final int conductivity_input=0x7f070090;
         public static final int coord_error_est=0x7f07007c;
         public static final int coord_feature_rel=0x7f07007d;
         public static final int coord_latitude=0x7f07007a;
@@ -2131,7 +2131,7 @@ containing a value of this type.
         public static final int description=0x7f070078;
         public static final int divider=0x7f070034;
         public static final int dna_input=0x7f070092;
-        public static final int do_input=0x7f070090;
+        public static final int do_input=0x7f07008f;
         public static final int down_top=0x7f070009;
         public static final int dragLayer=0x7f070042;
         public static final int drawing_view_container=0x7f070046;
@@ -2160,8 +2160,8 @@ containing a value of this type.
         public static final int hybrid=0x7f070004;
         public static final int image=0x7f070024;
         public static final int image_loading_view=0x7f070047;
-        public static final int image_tool_bar=0x7f070097;
-        public static final int image_types=0x7f07009a;
+        public static final int image_tool_bar=0x7f070099;
+        public static final int image_types=0x7f07009c;
         public static final int imagegl=0x7f070027;
         public static final int main_content=0x7f070044;
         public static final int manage_bio_samples_button=0x7f070014;
@@ -2185,11 +2185,11 @@ containing a value of this type.
         public static final int ph_input=0x7f07008d;
         public static final int photo_list=0x7f07006f;
         public static final int pressed=0x7f070005;
-        public static final int rubbish_bin=0x7f07009e;
-        public static final int sample_comments_input=0x7f070095;
+        public static final int rubbish_bin=0x7f0700a0;
+        public static final int sample_comments_input=0x7f070097;
         public static final int sample_temperature_input=0x7f07008c;
         public static final int satellite=0x7f070002;
-        public static final int save_bio_sample_button=0x7f070096;
+        public static final int save_bio_sample_button=0x7f070098;
         public static final int save_button=0x7f07007f;
         public static final int save_settings_button=0x7f07001d;
         public static final int save_survey_button=0x7f07008b;
@@ -2198,12 +2198,13 @@ containing a value of this type.
         public static final int selected_image_colour=0x7f070071;
         public static final int settings_button=0x7f070016;
         public static final int settings_table=0x7f07001a;
-        public static final int shadow=0x7f0700a1;
+        public static final int shadow=0x7f0700a3;
         public static final int size_preview=0x7f07006e;
-        public static final int sketch_button=0x7f070099;
+        public static final int sketch_button=0x7f07009b;
+        public static final int soil_collected_checkbox=0x7f070095;
         public static final int survey_date=0x7f070083;
         public static final int table_scrollview=0x7f070019;
-        public static final int template_table_first_column=0x7f0700a0;
+        public static final int template_table_first_column=0x7f0700a2;
         public static final int terrain=0x7f070003;
         public static final int text=0x7f070033;
         public static final int text1=0x7f070059;
@@ -2213,6 +2214,7 @@ containing a value of this type.
         public static final int turbidity_input=0x7f070091;
         public static final int use_current_location_button=0x7f070079;
         public static final int vertical=0x7f07000e;
+        public static final int water_column_collected_checkbox=0x7f070096;
     }
     public static final class integer {
         /**  

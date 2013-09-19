@@ -116,6 +116,10 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	
     	currentSample.setComments(((EditText) rootView.findViewById(R.id.sample_comments_input)).getText().toString());
     	
+    	currentSample.setSoilCollected(((CheckBox) rootView.findViewById(R.id.soil_collected_checkbox)).isChecked());
+    	
+    	currentSample.setWaterColumnCollected(((CheckBox) rootView.findViewById(R.id.water_column_collected_checkbox)).isChecked());
+    	
     	getHelper().getBiologicalSampleDao().update(currentSample);
     	sampleUpdatedSinceLastSave = false;
     }
@@ -163,26 +167,43 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	if (currentSample.getComments() != null) {
     		((EditText) rootView.findViewById(R.id.sample_comments_input)).setText(String.valueOf(currentSample.getComments()));
     	}
+    	
+    	if (currentSample.getSoilCollected() != null) {
+    		((CheckBox) rootView.findViewById(R.id.soil_collected_checkbox)).setChecked(currentSample.getSoilCollected());
+    	}
+    	
+    	if (currentSample.getWaterColumnCollected() != null) {
+    		((CheckBox) rootView.findViewById(R.id.water_column_collected_checkbox)).setChecked(currentSample.getWaterColumnCollected());
+    	}
 
     }
     
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 		
-		String itemName = buttonView.getTag().toString();
-		ChecklistItem item = checklistItemMap.get(itemName);
-		if (item == null) {
-			item = new ChecklistItem();
-			item.setChecklistName(BIO_CHECKLIST_NAME);
-			item.setItemName(itemName);
-			item.setObjectId(currentSample.getId());
-			item.setItemValue(isChecked);
-			getHelper().getChecklistItemDao().create(item);
-			checklistItemMap.put(itemName, item);
+		if (buttonView.getId() == R.id.soil_collected_checkbox) {
+			updateSampleFromInput();
+			
+		} else if (buttonView.getId() == R.id.water_column_collected_checkbox) {
+			updateSampleFromInput();
 			
 		} else {
-			item.setItemValue(isChecked);
-			getHelper().getChecklistItemDao().update(item);
+			// Checklist checkbox toggled
+			String itemName = buttonView.getTag().toString();
+			ChecklistItem item = checklistItemMap.get(itemName);
+			if (item == null) {
+				item = new ChecklistItem();
+				item.setChecklistName(BIO_CHECKLIST_NAME);
+				item.setItemName(itemName);
+				item.setObjectId(currentSample.getId());
+				item.setItemValue(isChecked);
+				getHelper().getChecklistItemDao().create(item);
+				checklistItemMap.put(itemName, item);
+				
+			} else {
+				item.setItemValue(isChecked);
+				getHelper().getChecklistItemDao().update(item);
+			}
 		}
 	}
     

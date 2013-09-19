@@ -38,6 +38,8 @@ public class BiologicalSample extends PersistentObject {
 	@DatabaseField private Double ferrousIronAbs;
 	@DatabaseField private Double gasVolume;	
 	@DatabaseField private String comments;
+	@DatabaseField private Boolean soilCollected;
+	@DatabaseField private Boolean waterColumnCollected;
 	
 	public Survey getSurvey() {
 		return survey;
@@ -112,6 +114,18 @@ public class BiologicalSample extends PersistentObject {
 		this.comments = comments;
 	}	
 
+	public Boolean getSoilCollected() {
+		return soilCollected;
+	}
+	public void setSoilCollected(Boolean soilCollected) {
+		this.soilCollected = soilCollected;
+	}
+	public Boolean getWaterColumnCollected() {
+		return waterColumnCollected;
+	}
+	public void setWaterColumnCollected(Boolean waterColumnCollected) {
+		this.waterColumnCollected = waterColumnCollected;
+	}
 	/**
 	 * @return a tab separated string of this BiologicalSample's values. Empty strings are used
 	 *         for null values, numeric values are rounded to 4 decimal places.
@@ -124,12 +138,14 @@ public class BiologicalSample extends PersistentObject {
 				Util.format(conductivity), Util.format(dO),
 				Util.format(turbidity), Util.format(dnaVolume),
 				Util.format(ferrousIronAbs), Util.format(gasVolume),
-				comms);
+				comms,
+				soilCollected, waterColumnCollected);
 	}
 	
 	public static String tsvStringColumns() {
 		return Util.join("\t", "SampleNumber", "SampleTemperature", "pH", "OxidationReductionPotential",
-				"Conductivity", "DissolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "GasVolume", "Comments");		
+				"Conductivity", "DissolvedOxygen", "Turbidity", "DnaVolume", "FerrousIronAbs", "GasVolume", "Comments", 
+				"SoilCollected", "WaterColumnCollected");		
 	}
 	
 	/**
