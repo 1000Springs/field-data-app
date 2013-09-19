@@ -33,6 +33,22 @@ public class Feature extends PersistentObject {
 	@DatabaseField private Float coordErrorEst;
 	@DatabaseField private String coordFeatureRel;
 	@DatabaseField private String description;
+	@DatabaseField private String accessType;
+	
+	public enum AccessType {
+		PRIVATE("Private"), PUBLIC_FREE("Public, free"), PUBLIC_PAID("Public, not free");
+
+		String description;
+		
+		AccessType(String description) {
+			this.description = description;
+		}
+		
+		@Override
+		public String toString() {
+			return description;
+		}
+	}
 	
 	public String getFeatureName() {
 		return featureName;
@@ -88,7 +104,12 @@ public class Feature extends PersistentObject {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	public String getAccessType() {
+		return accessType;
+	}
+	public void setAccessType(String accessType) {
+		this.accessType = accessType;
+	}
 	public String toString() {
 		return this.getFeatureName();
 	}
@@ -110,7 +131,7 @@ public class Feature extends PersistentObject {
 		return Util.join("\t", 
 				featureName, historicName, featureType, geothermalField, 
 				Util.format(coordLatitude), Util.format(coordLongitude), Util.format(coordErrorEst),
-				coordFeatureRel, desc
+				coordFeatureRel, desc, accessType
 				);
 	}
 	
@@ -118,7 +139,7 @@ public class Feature extends PersistentObject {
 		return Util.join("\t", 
 				"FeatureName", "HistoricName", "FeatureType", "GeothermalField", 
 				"LocationLatitude", "LocationLongitude", "LocationErrorEstimateMetres", 
-				"LocationRelationShipToFeature", "Description");		
+				"LocationRelationShipToFeature", "Description", "AccessType");		
 	}
 	
 	public static Feature getByName(String featureName, SpringsDbHelper dbHelper) {

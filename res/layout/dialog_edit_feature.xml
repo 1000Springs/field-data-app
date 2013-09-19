@@ -56,7 +56,7 @@
 	            android:hint=""
 	            android:inputType="text" 
 	            style="@style/form_input" />  
-	    </TableRow> 
+	    </TableRow> 	    
 	      	    
         <TableRow
             style="@style/form_row" > 
@@ -68,6 +68,17 @@
                 android:hint=""
                 style="@style/form_input_multiline" />  
         </TableRow> 
+        
+        <TableRow
+            style="@style/form_row" > 
+            <TextView
+                android:text="Access type"
+                style="@style/form_label"/>
+            <Spinner
+                android:id="@+id/access_type_spinner"
+                style="@style/standard_spinner"
+                android:background="@drawable/btn_dropdown"/>  
+        </TableRow>         
         	    
         <TableRow
             style="@style/form_row" > 

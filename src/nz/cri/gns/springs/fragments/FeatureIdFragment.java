@@ -4,6 +4,7 @@ import nz.cri.gns.springs.GpsLocation;
 import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.Feature;
+import nz.cri.gns.springs.db.Feature.AccessType;
 import nz.cri.gns.springs.db.PersistentObject.Status;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import android.app.Activity;
@@ -13,8 +14,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 /**
@@ -43,6 +47,8 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	addSaveButtonListener(rootView);
     	addCancelButtonListener(rootView);
     	addLocationButtonListener(rootView);
+    	
+    	setAccessTypeOptions(rootView);
     	
     	if (feature != null) {
     		setInputFromFeature(rootView, feature);
@@ -109,6 +115,28 @@ public class FeatureIdFragment extends SpringsDialogFragment {
         });
     } 
     
+	public void setAccessTypeOptions(View rootView) {
+        Spinner spinner = (Spinner) rootView.findViewById(R.id.access_type_spinner);
+        ArrayAdapter<AccessType> dataAdapter = new ArrayAdapter<AccessType>(
+        		this.getActivity().getBaseContext(), R.layout.widget_spinner, AccessType.values());
+        dataAdapter.setDropDownViewResource(R.layout.widget_spinner_item);
+        spinner.setAdapter(dataAdapter);
+	} 
+	
+    public void setSelectedAccessType(View rootView, String selection) {
+    	// selection should be the Feature.AccessType enum name, e.g "PRIVATE"
+    	if (selection != null) {
+    		Spinner accessTypeSpinner = (Spinner) rootView.findViewById(R.id.access_type_spinner);   
+    		SpinnerAdapter adapter = accessTypeSpinner.getAdapter();
+        	for (int i = 0; i < adapter.getCount(); i++) {
+        		if (selection.equals(((AccessType)adapter.getItem(i)).name())) {
+        			accessTypeSpinner.setSelection(i);
+        			return;
+        		}
+        	}     		
+    	}
+    }
+    
     public Feature setFeatureFromInput(View rootView, Feature currentFeature) {
     	 
     	EditText featureName = (EditText) rootView.findViewById(R.id.feature_name_input);
@@ -125,6 +153,11 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	
     	EditText description = (EditText) rootView.findViewById(R.id.description);
     	currentFeature.setDescription(description.getText().toString());
+    	
+    	Spinner accessTypeSpinner = (Spinner) rootView.findViewById(R.id.access_type_spinner);
+        if (accessTypeSpinner.getSelectedItem() != null) {
+        	currentFeature.setAccessType(((AccessType)accessTypeSpinner.getSelectedItem()).name());
+        }    	
     	
     	String easting = ((EditText) rootView.findViewById(R.id.coord_latitude)).getText().toString();
     	if (!easting.isEmpty()) {
@@ -168,6 +201,8 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	
     	EditText description = (EditText) rootView.findViewById(R.id.description);
     	description.setText(currentFeature.getDescription());
+    	
+    	setSelectedAccessType(rootView, currentFeature.getAccessType());	
     	
     	setLocationFields(rootView, currentFeature.getCoordLatitude(), currentFeature.getCoordLongitude(), currentFeature.getCoordErrorEst());
     	
