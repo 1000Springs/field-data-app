@@ -55,10 +55,22 @@
 	            <TextView
 	                android:text="Observation date"
 	                style="@style/form_label"/>
-	            <TextView
-	                android:id="@+id/survey_date"
-	                android:textIsSelectable="true"
-	                style="@style/form_label" />  
+	            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" 
+                    android:gravity="left">
+		            <TextView
+		                android:id="@+id/survey_date"
+		                android:textIsSelectable="true"
+		                style="@style/form_label" />  
+		            <Button 
+                        android:id="@+id/edit_date_button"
+                        android:text="Change"
+                        style="@style/spaced_button"
+                        android:layout_marginLeft="20dp"/>    
+		                
+		        </LinearLayout>
 	        </TableRow>           
 	        
 	        <TableRow

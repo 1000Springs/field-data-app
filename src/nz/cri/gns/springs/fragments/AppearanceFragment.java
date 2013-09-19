@@ -10,8 +10,10 @@ import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
+import nz.cri.gns.springs.util.DatePickerFragment;
 import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -25,6 +27,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -36,7 +39,7 @@ import android.widget.Toast;
  * when performing a survey.
  * @author duncanw
  */
-public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener {
+public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 	
 	private View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
@@ -62,8 +65,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	
     	UiUtil.addEditTextListener(this, this, rootView);
     	
-        TextView dateView = (TextView) rootView.findViewById(R.id.survey_date);       
-        dateView.setText(UiUtil.getDisplayDate(currentSurvey.getSurveyDate()));
+    	refreshObservationDate();
         
         gpsLocation = new GpsLocation(this.getActivity());
         
@@ -71,6 +73,11 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         
     	return rootView;
     }
+
+	public void refreshObservationDate() {
+		TextView dateView = (TextView) rootView.findViewById(R.id.survey_date);       
+        dateView.setText(UiUtil.getDisplayDate(currentSurvey.getSurveyDate()));
+	}
 
 	public void setObserverOptions() {
 		// Set options for lead observer name
@@ -197,6 +204,14 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
             	showChooseColourDialog(null);
             }
         });    	
+    	
+    	Button editDateButton = (Button) rootView.findViewById(R.id.edit_date_button);
+    	editDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	showDatePickerDialog();
+            }
+        });   
     } 
     
 	@Override
@@ -209,6 +224,13 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 	@Override
 	public void afterTextChanged(Editable s) {
 		surveyUpdatedSinceLastSave = true;
+	}
+	
+	@Override
+	public void onDateSet(DatePicker view, int year, int month, int day) {
+		currentSurvey.setSurveyDate(DatePickerFragment.getDate(year, month, day).getTime());
+		getHelper().getSurveyDao().update(currentSurvey);
+		refreshObservationDate();
 	}
     
     void showFeatureDialog(final SpringsDbHelper helper, Feature currentFeature) {
@@ -237,6 +259,12 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     	colourPickerDialog.setInitialColour(currentSurvey.getColour());
     	colourPickerDialog.setTargetFragment(this, SELECT_COLOUR);  	
     	colourPickerDialog.show(getFragmentManager(), "imageColourPickerDialog");
+    }
+    
+    void showDatePickerDialog() {
+    	DatePickerFragment datePicker = new DatePickerFragment();
+    	datePicker.setOnDateSetListener(this);
+    	datePicker.show(getFragmentManager(), "datePicker");
     }
     
     
