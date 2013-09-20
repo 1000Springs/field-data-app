@@ -143,23 +143,37 @@ public class EditBiologicalSamplesActivity extends OrmLiteBaseActivity<SpringsDb
 		
 		final Map<Integer, Long> sampleNumberToIdMap = new HashMap<Integer, Long>();
 		final Set<Integer> duplicateSampleNumbers = new HashSet<Integer>();
+		final Set<String> invalidSampleNumbers = new HashSet<String>();
+		
 		List<View> editTextList = new LinkedList<View>();
 		UiUtil.getChildren(findViewById(R.id.edit_bio_samples_scrollview), editTextList,  new ViewFilter() {	
 			@Override
 			public boolean matches(View view) {
 				if (view instanceof EditText) {
-					Integer sampleNumber = Integer.parseInt(((EditText)view).getText().toString());
-					if (sampleNumberToIdMap.containsKey(sampleNumber)) {
-						duplicateSampleNumbers.add(sampleNumber);
-					} else {
-						sampleNumberToIdMap.put(sampleNumber, (Long)view.getTag());
+					String sampleNumberString = ((EditText)view).getText().toString();
+					try {
+						Integer sampleNumber = Integer.parseInt(sampleNumberString);
+						if (sampleNumberToIdMap.containsKey(sampleNumber)) {
+							duplicateSampleNumbers.add(sampleNumber);
+						} else {
+							sampleNumberToIdMap.put(sampleNumber, (Long)view.getTag());
+						}
+						return true;
+					} catch (NumberFormatException e) {
+						invalidSampleNumbers.add(sampleNumberString);
 					}
-					return true;
 				}
 				
 				return false;
 			}
 		});
+		
+		// confirm all sample numbers are valid
+		if (!invalidSampleNumbers.isEmpty()) {
+			String message = "Invalid sample number(s) found, sample numbers must not be empty";
+			UiUtil.showMessageDialog(this, "Sample number update failed", message);
+			return;
+		}
 		
 		// confirm all sample numbers are unique
 		if (!duplicateSampleNumbers.isEmpty()) {
@@ -177,8 +191,11 @@ public class EditBiologicalSamplesActivity extends OrmLiteBaseActivity<SpringsDb
 				public Void call() throws Exception {
 					for (Map.Entry<Integer, Long> entry : sampleNumberToIdMap.entrySet()) {
 						BiologicalSample sample = sampleDao.queryForId(entry.getValue());
-						sample.setSampleNumber(entry.getKey());
-						sampleDao.update(sample);
+						Integer newSampleNumber = entry.getKey();
+						if (sample.getSampleNumber() != newSampleNumber) {
+							sample.setSampleNumber(newSampleNumber);
+							sampleDao.update(sample);
+						}
 					}
 					
 					return null;
