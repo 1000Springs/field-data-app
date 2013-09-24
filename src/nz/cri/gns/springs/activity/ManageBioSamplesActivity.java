@@ -1,10 +1,6 @@
 package nz.cri.gns.springs.activity;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -14,15 +10,14 @@ import nz.cri.gns.springs.R;
 import nz.cri.gns.springs.SpringsApplication;
 import nz.cri.gns.springs.db.BiologicalSample;
 import nz.cri.gns.springs.db.BiologicalSample.CurrentSample;
-import nz.cri.gns.springs.db.Feature;
-import nz.cri.gns.springs.db.PersistentObject.Status;
 import nz.cri.gns.springs.db.SpringsDbHelper;
-import nz.cri.gns.springs.db.Survey;
-import nz.cri.gns.springs.db.SurveyImage;
+import nz.cri.gns.springs.fragments.ExportSamplesFragment;
 import nz.cri.gns.springs.fragments.ImageFragment;
 import nz.cri.gns.springs.util.UiUtil;
 import nz.cri.gns.springs.util.Util;
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -51,12 +46,15 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
  * from the Google Play Store.
  * @author duncanw
  */
-public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener {
+public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelper> implements OnClickListener, CompoundButton.OnCheckedChangeListener, ExportSamplesFragment.TaskCallbacks {
 	
 	private static final int PICK_DIRECTORY = 1;
 	private static final String SELECTED_SAMPLES_LIST_KEY = "selectedSamples";
+	private static final String EXPORT_SAMPLES_TASK = "exportSamplesTask";
 	
 	private ArrayList<Long> selectedSamples;
+	private ProgressDialog progressDialog;
+	private ExportSamplesFragment exportSamplesFragment;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -68,6 +66,14 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 	        if (ser != null) {
 	        	selectedSamples = (ArrayList<Long>)ser;
 	        }
+        }
+        
+        exportSamplesFragment = (ExportSamplesFragment) getFragmentManager().findFragmentByTag(EXPORT_SAMPLES_TASK);
+     
+        // If the Fragment is non-null, then it is currently being
+        // retained across a configuration change.
+        if (exportSamplesFragment != null && exportSamplesFragment.isExportInProgress()) {
+        	showProgressDialog();
         }
     }
 	
@@ -182,108 +188,18 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 			if (!exportDir.mkdirs()) {
 				Log.e(ImageFragment.class.getName(), "Failed to create export directory "+exportDir.getAbsolutePath());
 			}
-		}		
-		try {
-			int exportCount = exportSamples(exportDir.getAbsolutePath(), timestamp);
-			if (exportCount > 0) {
-				String message = (exportCount == 1) ?
-						exportCount + " sample exported to "+exportDir :
-						exportCount + " samples exported to "+exportDir;
-				Toast.makeText(SpringsApplication.getAppContext(), message, Toast.LENGTH_LONG).show();  
-				listSamples();
-			}
-			
-		} catch (IOException e) {
-			// Most likely cause is the user selected a system folder or a USB drive when no memory stick
-			// is inserted.
-			String message = "Export to "+directory+" failed. Please confirm the selected folder is accessible before retrying the export.";
-			UiUtil.showMessageDialog(this, "Export failed", message);
 		}
+		
+        exportSamplesFragment = (ExportSamplesFragment) getFragmentManager().findFragmentByTag(EXPORT_SAMPLES_TASK);
+        if (exportSamplesFragment == null) {
+        	exportSamplesFragment = new ExportSamplesFragment();
+        }
+		// List<BiologicalSample> sampleList, SpringsDbHelper helper, String exportDir, String timestamp, String directory
+		exportSamplesFragment.setParameters(getSelectedSamples(), getHelper(), exportDir.getAbsolutePath(), timestamp, directory);
+		FragmentManager fm = getFragmentManager();
+		fm.beginTransaction().add(exportSamplesFragment, EXPORT_SAMPLES_TASK).commit();
 	}
-	
-
-	public int exportSamples(String exportDir, String timestamp) throws IOException {
 		
-		List<BiologicalSample> sampleList = getSelectedSamples(); 
-		String fileExtension = ".xls";
-		String sampleFile = exportDir + "/data-samples-" + timestamp + fileExtension;
-		String featureFile = exportDir + "/data-features-"+timestamp + fileExtension;
-		BufferedWriter sampleWriter = null;
-		BufferedWriter featureWriter = null;
-		List<String> samplesNotExported = new LinkedList<String>();
-		List<Feature> featuresExported = new LinkedList<Feature>();	
-		List<Survey> surveysExported = new LinkedList<Survey>();
-		List<BiologicalSample> samplesExported = new LinkedList<BiologicalSample>();
-		try {
-			String encoding = "UTF-8";
-			for (BiologicalSample sample : sampleList) {	
-				Survey survey = sample.getSurvey();
-				getHelper().getSurveyDao().refresh(survey);
-				Feature feature = survey.getFeature();
-				if (feature != null) {	
-					if (sampleWriter == null) {
-						sampleWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(sampleFile), encoding)));
-						sampleWriter.write(toComment(Util.join("\t", "FeatureName", BiologicalSample.tsvStringColumns(), Survey.tsvStringColumns())));
-						sampleWriter.newLine();
-					}					
-					getHelper().getFeatureDao().refresh(feature);
-					if (feature.isForExport()) {
-						if (featureWriter == null) {
-							featureWriter = new BufferedWriter((new OutputStreamWriter(new FileOutputStream(featureFile), encoding)));
-							featureWriter.write(toComment(Feature.tsvStringColumns()));
-							featureWriter.newLine();
-						}
-						featureWriter.write(feature.toTsvString());
-						featureWriter.newLine();
-						featuresExported.add(feature);
-					}
-					sampleWriter.write(Util.join("\t", feature.getFeatureName(), sample.toTsvString(), survey.toTsvString()));
-					sampleWriter.newLine();
-					exportImages(exportDir, sample.getFormattedSampleNumber(), survey);
-					surveysExported.add(survey);
-					samplesExported.add(sample);
-				} else {
-					samplesNotExported.add(sample.getFormattedSampleNumber());
-				}
-			}
-
-		} finally {
-			if (sampleWriter != null) {
-				sampleWriter.close();
-			}
-			if (featureWriter != null) {
-				featureWriter.close();
-			}			
-		} 
-		
-		if (!samplesNotExported.isEmpty()) {
-			String message = (samplesNotExported.size() == 1) ? 
-					"The sample is not associated with a feature, so was not exported" :
-					samplesNotExported.size() + " samples are not associated with features, so were not exported";
-			UiUtil.showMessageDialog(this, "Sample export", message);
-		}
-		
-		for (Feature feature : featuresExported) {
-			feature.setStatus(Status.EXPORTED);
-			getHelper().getFeatureDao().update(feature);
-		}
-		
-		for (Survey survey : surveysExported) {
-			survey.setStatus(Status.EXPORTED);
-			getHelper().getSurveyDao().update(survey);
-		}
-		
-		for (BiologicalSample sample : samplesExported) {
-			sample.setStatus(Status.EXPORTED);
-			getHelper().getBiologicalSampleDao().update(sample);
-		}
-		
-		return samplesExported.size();
-	}
-	
-	public String toComment(String line) {
-		return "#" + line;
-	}
 	
 	public List<BiologicalSample> getSelectedSamples() {
 		final List<BiologicalSample> selectedSamples = new LinkedList<BiologicalSample>();
@@ -301,20 +217,6 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		};
 		UiUtil.getChildren(this.findViewById(R.id.table_scrollview), null, viewFilter);
 		return selectedSamples;
-	}
-	
-	public void exportImages(String exportDir, String sampleNumber, Survey survey)  {
-		List<SurveyImage> imageList = SurveyImage.getBySurvey(survey,getHelper());	
-		for (SurveyImage image : imageList) {
-			File imageSrc  = new File (image.getFileName());
-			String imageType = (image.getImageType() != null) ? image.getImageType().replaceAll("_", "") : "";
-			File exportDest = new File(exportDir + "/" + Util.join("_", sampleNumber, imageType, imageSrc.getName()));
-			try {
-				Util.copy(imageSrc, exportDest);
-			} catch (IOException e) {
-				Log.e(this.getClass().getName(), "Error exporting image "+imageSrc+" to "+exportDest, e);
-			}
-		}
 	}
 	
 	public TableRow getTableRow(CurrentSample sample) {
@@ -381,5 +283,53 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 		
 		String text = (isChecked) ? "Select none" : "Select all";
 		selectAllNone.setText(text);
+	}
+
+	@Override
+	public void onPreSampleExport() {
+		showProgressDialog();
+	}
+	
+	private void showProgressDialog() {
+		progressDialog = ProgressDialog.show(this, "Exporting samples", 
+                "Please wait...", true);
+	}
+	
+	private void hideProgressDialog() {
+		if (progressDialog != null) {
+			progressDialog.dismiss();
+		}
+	}
+
+	@Override
+	public void onPostSampleExport(Integer exportCount, Integer notExportedCount, String exportDir) {
+		
+		hideProgressDialog();
+		
+		if (notExportedCount > 0) {
+			String message = (notExportedCount == 1) ? 
+					"The sample is not associated with a feature, so was not exported" :
+						notExportedCount + " samples are not associated with features, so were not exported";
+			UiUtil.showMessageDialog(this, "Sample export", message);
+		}
+		
+		if (exportCount > 0) {
+			String message = (exportCount == 1) ?
+					exportCount + " sample exported to "+exportDir :
+					exportCount + " samples exported to "+exportDir;
+			Toast.makeText(SpringsApplication.getAppContext(), message, Toast.LENGTH_LONG).show();  
+			this.listSamples();
+		}
+	}
+	
+	@Override
+	public void onSampleExportError(String directory) {
+		
+		hideProgressDialog();
+		
+		// Most likely cause is the user selected a system folder or a USB drive when no memory stick
+		// is inserted.
+		String message = "Export to "+directory+" failed. Please confirm the selected folder is accessible before retrying the export.";
+		UiUtil.showMessageDialog(this, "Export failed", message);
 	}
 }

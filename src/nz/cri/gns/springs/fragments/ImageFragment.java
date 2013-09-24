@@ -97,15 +97,15 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
             @Override
             public void onClick(View view) {
 				try {
-					String destFile = createImageFileName();
-					Util.copy(getResources(), R.raw.sketch_canvas, new File(destFile));
+					currentImageFile = createImageFileName();
+					Util.copy(getResources(), R.raw.sketch_canvas, new File(currentImageFile));
 		            Intent editImageIntent = new Intent(activity, FeatherActivity.class);
-		            editImageIntent.setData( Uri.parse(destFile));
-		            editImageIntent.putExtra( "output",  Uri.parse(destFile));
+		            editImageIntent.setData( Uri.parse(currentImageFile));
+		            editImageIntent.putExtra( "output",  Uri.parse(currentImageFile));
 		            editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
 		            editImageIntent.putExtra( "output-quality", 85 );
 		            editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
-		            startActivityForResult( editImageIntent, IMAGE_EDIT );
+		            startActivityForResult( editImageIntent, CREATE_SKETCH );
 		            
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -229,28 +229,27 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
     	
+    	boolean imageAdded = false;
+    	File imageFile = new File(currentImageFile);
     	if (resultCode == Activity.RESULT_OK) {
-    		if (requestCode == IMAGE_CAPTURE) {
+    		if (requestCode == IMAGE_CAPTURE && imageFile.length() > 0) {
     			addImage(currentImageFile);
-    			
+    			imageAdded = true;
     		} else if (requestCode == IMAGE_EDIT || requestCode == CREATE_SKETCH) {
                 Bundle extra = data.getExtras();
                 if( null != extra ) {
                     // image was changed by the user?
                     if (extra.getBoolean( Constants.EXTRA_OUT_BITMAP_CHANGED )) {
                     	addImage(data.getData().getPath());
-                    }
-                } else {   
-	        		if (requestCode == CREATE_SKETCH) {
-	        			new File(currentImageFile).delete();
-	        		}
+                    	imageAdded = true;
+                    } 
                 }
     		}
-    	} else {
-    		if (requestCode == CREATE_SKETCH) {
-    			new File(currentImageFile).delete();
-    		}
-    	}
+    	} 
+    	
+    	if (!imageAdded && imageFile.exists()) {
+    		imageFile.delete();
+    	}	
     }
     
     private void addImage(String fileName) {
@@ -460,9 +459,10 @@ public class ImageFragment extends BioSampleActivityFragment implements OnDragLi
     	try {
 	    	SurveyImage surveyImage = getHelper().getSurveyImageDao().queryForId(Long.valueOf(imageView.getId()));
 	    	String fileName = surveyImage.getFileName();
+	    	currentImageFile = createImageFileName();
 	        Intent editImageIntent = new Intent(this.getActivity(), FeatherActivity.class);
 	        editImageIntent.setData( Uri.parse(fileName) );
-	        editImageIntent.putExtra( "output", Uri.parse(createImageFileName()));
+	        editImageIntent.putExtra( "output", Uri.parse(currentImageFile));
 	        editImageIntent.putExtra( "output-format", Bitmap.CompressFormat.JPEG.name() );
 	        editImageIntent.putExtra( "output-quality", 85 );
 	        editImageIntent.putExtra( "tools-list", new String[]{"DRAWING", "TEXT" } );
