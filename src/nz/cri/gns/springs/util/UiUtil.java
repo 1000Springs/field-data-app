@@ -200,6 +200,6 @@ public class UiUtil {
     public static String getDisplayDate(long date) {
         Time now = new Time(Time.getCurrentTimezone());
        	now.set(date);
-       	return now.format("%x");
+       	return now.format("%c");
     }
 }

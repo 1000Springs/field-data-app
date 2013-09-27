@@ -17,6 +17,7 @@ import nz.cri.gns.springs.util.UiUtil;
 import nz.cri.gns.springs.util.Util;
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -190,14 +191,17 @@ public class ManageBioSamplesActivity extends OrmLiteBaseActivity<SpringsDbHelpe
 			}
 		}
 		
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction transaction = fm.beginTransaction();
         exportSamplesFragment = (ExportSamplesFragment) getFragmentManager().findFragmentByTag(EXPORT_SAMPLES_TASK);
         if (exportSamplesFragment == null) {
         	exportSamplesFragment = new ExportSamplesFragment();
+        } else {
+        	transaction = fm.beginTransaction().remove(exportSamplesFragment);
         }
 		// List<BiologicalSample> sampleList, SpringsDbHelper helper, String exportDir, String timestamp, String directory
 		exportSamplesFragment.setParameters(getSelectedSamples(), getHelper(), exportDir.getAbsolutePath(), timestamp, directory);
-		FragmentManager fm = getFragmentManager();
-		fm.beginTransaction().add(exportSamplesFragment, EXPORT_SAMPLES_TASK).commit();
+		transaction.add(exportSamplesFragment, EXPORT_SAMPLES_TASK).commit();
 	}
 		
 	

@@ -1,6 +1,8 @@
 package nz.cri.gns.springs.fragments;
 
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import nz.cri.gns.springs.GpsLocation;
@@ -10,10 +12,9 @@ import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.SpringsDbHelper;
 import nz.cri.gns.springs.db.Survey;
 import nz.cri.gns.springs.db.SurveyImage;
-import nz.cri.gns.springs.util.DatePickerFragment;
+import nz.cri.gns.springs.util.DateTimePickerDialog;
 import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -27,7 +28,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -39,7 +39,7 @@ import android.widget.Toast;
  * when performing a survey.
  * @author duncanw
  */
-public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
+public class AppearanceFragment extends BioSampleActivityFragment implements OnFocusChangeListener, TextWatcher, OnItemSelectedListener, DateTimePickerDialog.DatePickedListener {
 	
 	private View rootView;
 	private boolean surveyUpdatedSinceLastSave = false;
@@ -227,10 +227,10 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
 	}
 	
 	@Override
-	public void onDateSet(DatePicker view, int year, int month, int day) {
-		currentSurvey.setSurveyDate(DatePickerFragment.getDate(year, month, day).getTime());
+	public void datePicked(DateTimePickerDialog dialog, Date date) {
+		currentSurvey.setSurveyDate(date.getTime());
 		getHelper().getSurveyDao().update(currentSurvey);
-		refreshObservationDate();
+		refreshObservationDate();	
 	}
     
     void showFeatureDialog(final SpringsDbHelper helper, Feature currentFeature) {
@@ -262,11 +262,10 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
     }
     
     void showDatePickerDialog() {
-    	DatePickerFragment datePicker = new DatePickerFragment();
-    	datePicker.setOnDateSetListener(this);
-    	datePicker.show(getFragmentManager(), "datePicker");
+    	DateTimePickerDialog datePicker = new DateTimePickerDialog(this.getActivity(), this);
+    	datePicker.show();
+    	datePicker.setDate(Calendar.getInstance());
     }
-    
     
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

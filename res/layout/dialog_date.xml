@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="fill_horizontal|center_horizontal">
+	<LinearLayout 
+	    android:orientation="horizontal" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal">
+	    <DatePicker android:id="@+id/date_picker" android:layout_width="wrap_content" android:layout_height="wrap_content"></DatePicker>
+	    <TimePicker android:id="@+id/time_picker" android:layout_width="wrap_content" android:layout_height="wrap_content"></TimePicker>    
+	</LinearLayout>
+    <LinearLayout 
+        android:orientation="horizontal" 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonBarStyle" >   
+        <Button 
+            android:id="@+id/date_cancel_button" 
+            android:text="Cancel" 
+            style="?android:attr/buttonBarButtonStyle" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"/>
+        <Button 
+            android:id="@+id/date_ok_button" 
+            android:text="OK" 
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"/>     
+    </LinearLayout>	
+</LinearLayout>

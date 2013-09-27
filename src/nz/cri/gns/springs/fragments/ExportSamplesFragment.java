@@ -252,7 +252,7 @@ public class ExportSamplesFragment extends Fragment {
 		    		activity.onPostSampleExport(exportCount, samplesNotExported.size(), exportDir);
 					
 				} 
-	    	}
+	    	} 
     	}
 	    
 	}
