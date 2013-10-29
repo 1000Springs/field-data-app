@@ -82,6 +82,7 @@
 	                android:id="@+id/feature_size_input"
 	                android:hint="e.g '4 x 3 metres'"
 	                android:inputType="text" 
+	                android:maxLength="20"
 	                style="@style/form_input"/>
 	        </TableRow>
 	        
@@ -155,6 +156,7 @@
 	                style="@style/form_label"/>
 	            <AutoCompleteTextView 
 	                android:id="@+id/observer_input"
+	                android:maxLength="50"
 	                style="@style/form_input" />  
 	        </TableRow> 
 	        

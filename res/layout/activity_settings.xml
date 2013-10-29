@@ -36,6 +36,7 @@
 	                    android:id="@+id/next_sample_number_input"
 	                    android:hint=""
 	                    android:inputType="number" 
+	                    android:maxLength="4"
 	                    android:tag="@string/config_next_sample_number"
 	                    style="@style/form_input"/>
 	            </LinearLayout>

@@ -19,6 +19,7 @@
 		        android:id="@+id/feature_name_input"
 		        android:hint=""
 		        android:inputType="text" 
+		        android:maxLength="60"
 		        style="@style/form_input"/>
 		</TableRow>
 	    
@@ -55,6 +56,7 @@
 	            android:id="@+id/geothermal_field_input"
 	            android:hint=""
 	            android:inputType="text" 
+	            android:maxLength="50"
 	            style="@style/form_input" />  
 	    </TableRow> 	    
 	      	    
@@ -65,6 +67,7 @@
                 style="@style/form_label"/>
             <EditText
                 android:id="@+id/description"
+                android:maxLength="200"
                 android:hint=""
                 style="@style/form_input_multiline" />  
         </TableRow> 

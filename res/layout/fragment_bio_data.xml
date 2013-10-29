@@ -224,6 +224,7 @@
 				            <EditText
 				                android:id="@+id/sample_comments_input"
 				                android:hint=""
+				                android:maxLength="200"
                                 style="@style/form_input_multiline" />                                  
                         </TableRow> 			                                                                                   	                                    
 			        </TableLayout>    
