@@ -313,10 +313,7 @@ public class AppearanceFragment extends BioSampleActivityFragment implements OnF
         	currentSurvey.setEbullition((String)ebullitionSpinner.getSelectedItem());
         }
     	
-    	String temperature = ((EditText) rootView.findViewById(R.id.feature_temperature_input)).getText().toString();
-    	if (!temperature.isEmpty()) {
-    		currentSurvey.setTemperature(Double.parseDouble(temperature));
-    	}
+  		currentSurvey.setTemperature(UiUtil.getNumericInput(rootView, R.id.feature_temperature_input));
     	
     	currentSurvey.setObserver(((EditText) rootView.findViewById(R.id.observer_input)).getText().toString());
     	

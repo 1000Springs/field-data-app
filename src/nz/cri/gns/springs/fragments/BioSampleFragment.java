@@ -68,57 +68,22 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
 	}
 	
     public void updateSampleFromInput() {
-    	   	
-    	String temperature = ((EditText) rootView.findViewById(R.id.sample_temperature_input)).getText().toString();
-    	if (!temperature.isEmpty()) {
-    		currentSample.setTemperature(Double.parseDouble(temperature));
-    	}
     	
-    	String pH = ((EditText) rootView.findViewById(R.id.ph_input)).getText().toString();
-    	if (!pH.isEmpty()) {
-    		currentSample.setPh(Double.parseDouble(pH));
-    	}
-    	
-    	String orp = ((EditText) rootView.findViewById(R.id.orp_input)).getText().toString();
-    	if (!orp.isEmpty()) {
-    		currentSample.setOrp(Double.parseDouble(orp));
-    	}
-    	
-    	String conductivity = ((EditText) rootView.findViewById(R.id.conductivity_input)).getText().toString();
-    	if (!conductivity.isEmpty()) {
-    		currentSample.setConductivity(Double.parseDouble(conductivity));
-    	}
-    	
-    	String dO = ((EditText) rootView.findViewById(R.id.do_input)).getText().toString();
-    	if (!dO.isEmpty()) {
-    		currentSample.setDo(Double.parseDouble(dO));
-    	}
-    	
-    	String turbidity = ((EditText) rootView.findViewById(R.id.turbidity_input)).getText().toString();
-    	if (!turbidity.isEmpty()) {
-    		currentSample.setTurbidity(Double.parseDouble(turbidity));
-    	}
-    	
-    	String dna = ((EditText) rootView.findViewById(R.id.dna_input)).getText().toString();
-    	if (!dna.isEmpty()) {
-    		currentSample.setDnaVolume(Double.parseDouble(dna));
-    	}
-    	
-    	String ferrousIron = ((EditText) rootView.findViewById(R.id.ferrous_iron_input)).getText().toString();
-    	if (!ferrousIron.isEmpty()) {
-    		currentSample.setFerrousIronAbs(Double.parseDouble(ferrousIron));
-    	}
-    	
-    	String gasVolume = ((EditText) rootView.findViewById(R.id.gas_volume_input)).getText().toString();
-    	if (!gasVolume.isEmpty()) {
-    		currentSample.setGasVolume(Double.parseDouble(gasVolume));
-    	}
-    	
+    	currentSample.setTemperature(UiUtil.getNumericInput(rootView, R.id.sample_temperature_input));
+    	currentSample.setPh(UiUtil.getNumericInput(rootView, R.id.ph_input));
+    	currentSample.setOrp(UiUtil.getNumericInput(rootView, R.id.orp_input));
+		currentSample.setConductivity(UiUtil.getNumericInput(rootView, R.id.conductivity_input));
+		currentSample.setTds(UiUtil.getNumericInput(rootView, R.id.tds_input));
+		currentSample.setDo(UiUtil.getNumericInput(rootView, R.id.do_input));
+		currentSample.setTurbidity(UiUtil.getNumericInput(rootView,	R.id.turbidity_input));
+		currentSample.setDnaVolume(UiUtil.getNumericInput(rootView,	R.id.dna_input));
+		currentSample.setFerrousIronAbs(UiUtil.getNumericInput(rootView, R.id.ferrous_iron_input));
+		currentSample.setGasVolume(UiUtil.getNumericInput(rootView,	R.id.gas_volume_input));
+
     	currentSample.setComments(((EditText) rootView.findViewById(R.id.sample_comments_input)).getText().toString());
-    	
     	currentSample.setSoilCollected(((CheckBox) rootView.findViewById(R.id.soil_collected_checkbox)).isChecked());
-    	
     	currentSample.setWaterColumnCollected(((CheckBox) rootView.findViewById(R.id.water_column_collected_checkbox)).isChecked());
+    	currentSample.setSettledAt4C(((CheckBox) rootView.findViewById(R.id.settled_checkbox)).isChecked());
     	
     	getHelper().getBiologicalSampleDao().update(currentSample);
     	sampleUpdatedSinceLastSave = false;
@@ -143,6 +108,10 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	if (currentSample.getConductivity()!= null) {
     		((EditText) rootView.findViewById(R.id.conductivity_input)).setText(String.valueOf(currentSample.getConductivity()));
     	}
+    	
+    	if (currentSample.getTds()!= null) {
+    		((EditText) rootView.findViewById(R.id.tds_input)).setText(String.valueOf(currentSample.getTds()));
+    	}    	
     	
     	if (currentSample.getDo()!= null) {
     		((EditText) rootView.findViewById(R.id.do_input)).setText(String.valueOf(currentSample.getDo()));
@@ -175,6 +144,10 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
     	if (currentSample.getWaterColumnCollected() != null) {
     		((CheckBox) rootView.findViewById(R.id.water_column_collected_checkbox)).setChecked(currentSample.getWaterColumnCollected());
     	}
+    	
+    	if (currentSample.getSettledAt4C() != null) {
+    		((CheckBox) rootView.findViewById(R.id.settled_checkbox)).setChecked(currentSample.getSettledAt4C());
+    	}    	
 
     }
     
@@ -186,6 +159,9 @@ public class BioSampleFragment extends BioSampleActivityFragment implements OnFo
 			
 		} else if (buttonView.getId() == R.id.water_column_collected_checkbox) {
 			updateSampleFromInput();
+			
+		} else if (buttonView.getId() == R.id.settled_checkbox) {
+			updateSampleFromInput();			
 			
 		} else {
 			// Checklist checkbox toggled

@@ -162,19 +162,14 @@ public class FeatureIdFragment extends SpringsDialogFragment {
         	currentFeature.setDistrict(districtSpinner.getSelectedItem().toString());
         }  
     	
-    	String easting = ((EditText) rootView.findViewById(R.id.coord_latitude)).getText().toString();
-    	if (!easting.isEmpty()) {
-    		currentFeature.setCoordLatitude(Double.parseDouble(easting));
-    	}
-    	
-    	String northing = ((EditText) rootView.findViewById(R.id.coord_longitude)).getText().toString();
-    	if (!northing.isEmpty()) {
-    		currentFeature.setCoordLongitude(Double.parseDouble(northing));
-    	}
+    	currentFeature.setCoordLatitude(UiUtil.getNumericInput(rootView, R.id.coord_latitude));
+  		currentFeature.setCoordLongitude(UiUtil.getNumericInput(rootView, R.id.coord_longitude));
     	
     	String errorEst = ((EditText) rootView.findViewById(R.id.coord_error_est)).getText().toString();
     	if (!errorEst.isEmpty()) {
     		currentFeature.setCoordErrorEst(Float.parseFloat(errorEst));
+    	} else {
+    		currentFeature.setCoordErrorEst(null);
     	}
     	
     	EditText featureRel = (EditText) rootView.findViewById(R.id.coord_feature_rel);

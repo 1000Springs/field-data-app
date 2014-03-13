@@ -26,6 +26,7 @@
     <string name="rubberneck_label">Rubberneck (H\u2082S/HCO\u2083)</string>
     <string name="temperature_label">Temperature (\u00B0C)</string>
     <string name="conductivity_label">Conductivity (\u00B5S/cm)</string>   
+    <string name="settled_label">Settled at 4\u00B0C</string>  
     
     <string name="config_next_sample_number">nextSampleNumber</string>
     

@@ -153,7 +153,18 @@
 			                    android:hint=""
 			                    android:inputType="number|numberDecimal|numberSigned" 
 			                    style="@style/form_input" />  
-			            </TableRow>       
+			            </TableRow>   
+			            <TableRow
+			                style="@style/form_row" > 
+			                <TextView
+			                    android:text="TDS (ppm)"
+			                    style="@style/form_subsection_label"/>
+			                <EditText
+			                    android:id="@+id/tds_input"
+			                    android:hint=""
+			                    android:inputType="number|numberDecimal|numberSigned" 
+			                    style="@style/form_input" />  
+			            </TableRow>  			                
 			            <TableRow
 			                style="@style/form_row" > 
 			                <TextView
@@ -215,7 +226,16 @@
                             <CheckBox
                                 android:id="@+id/water_column_collected_checkbox" 
                                 style="@style/indented_checkbox" />  
-                        </TableRow>                                                			            
+                        </TableRow> 
+                        <TableRow
+                            style="@style/form_row" > 
+                            <TextView
+                                android:text="@string/settled_label"
+                                style="@style/form_subsection_label"/>
+                            <CheckBox
+                                android:id="@+id/settled_checkbox" 
+                                style="@style/indented_checkbox" />  
+                        </TableRow>                                                                       			            
                         <TableRow
                             style="@style/form_row" > 
                             <TextView
@@ -289,7 +309,28 @@
 			                <CheckBox
 			                    style="@style/indented_checkbox"      
 			                    android:tag="sulphate/chloride" />  
-			            </TableRow>             
+			            </TableRow>   
+			            
+			            <TableRow
+			                style="@style/form_row" > 
+			                <TextView
+			                    android:text="Arsenic/Antimony"
+			                    style="@style/form_subsection_label"/>
+			                <CheckBox
+			                    style="@style/indented_checkbox"      
+			                    android:tag="arsenic/antimony" />  
+			            </TableRow> 
+			            
+			            <TableRow
+			                style="@style/form_row" > 
+			                <TextView
+			                    android:text="Backup filtered sample"
+			                    style="@style/form_subsection_label"/>
+			                <CheckBox
+			                    style="@style/indented_checkbox"      
+			                    android:tag="backup_filtered_sample" />  
+			            </TableRow> 
+			            			            			            
 			        </TableLayout>			    
 		        </TableRow>		        
 		    </TableLayout>                 

@@ -224,4 +224,19 @@ public class UiUtil {
         	}     		
     	}
     }
+    
+    /**
+     * Reads a user-entered value as a Double.
+     * @param rootView view containing the specified input field
+     * @param inputId e.g R.id.conductivity_input
+     * @return the value entered, or null if the value is empty
+     */
+    public static Double getNumericInput(View rootView, int inputId) {
+    	String value = ((EditText) rootView.findViewById(inputId)).getText().toString();
+    	if (!value.isEmpty()) {
+    		return Double.parseDouble(value);
+    	} else {
+    		return null;
+    	}
+    }
 }
