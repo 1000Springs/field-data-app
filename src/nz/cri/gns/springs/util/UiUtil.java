@@ -17,6 +17,8 @@ import android.view.View.OnFocusChangeListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 /**
  * User interface utility functions.
@@ -201,5 +203,25 @@ public class UiUtil {
         Time now = new Time(Time.getCurrentTimezone());
        	now.set(date);
        	return now.format("%c");
+    }
+    
+    /**
+     * Sets a spinner (drop-down/select box) selection to the given selection.
+     * @param rootView view containing the specified spinner
+     * @param spinnerId e.g R.id.district_spinner
+     * @param selection value to set as the spinner's current selection.
+     */
+    public static void setSelectedValue(View rootView, int spinnerId, String selection) {
+    	if (selection != null) {
+    		Spinner spinner = (Spinner) rootView.findViewById(spinnerId);   
+    		SpinnerAdapter adapter = spinner.getAdapter();
+        	for (int i = 0; i < adapter.getCount(); i++) {
+        		String option = adapter.getItem(i).toString();
+        		if (selection.equals(option)) {
+        			spinner.setSelection(i);
+        			return;
+        		}
+        	}     		
+    	}
     }
 }

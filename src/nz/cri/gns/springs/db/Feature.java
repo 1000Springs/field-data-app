@@ -27,7 +27,9 @@ public class Feature extends PersistentObject {
 	@DatabaseField private String featureName;
 	@DatabaseField private String historicName;	
 	@DatabaseField private String featureType;	
+	@DatabaseField private String district;
 	@DatabaseField private String geothermalField;
+	@DatabaseField private String location;
 	@DatabaseField private Double coordLatitude;
 	@DatabaseField private Double coordLongitude;
 	@DatabaseField private Float coordErrorEst;
@@ -110,6 +112,18 @@ public class Feature extends PersistentObject {
 	public void setAccessType(String accessType) {
 		this.accessType = accessType;
 	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
 	public String toString() {
 		return this.getFeatureName();
 	}
@@ -129,7 +143,7 @@ public class Feature extends PersistentObject {
 		
 		String desc = (description != null) ? description.replace("\n", " ") : null;
 		return Util.join("\t", 
-				featureName, historicName, featureType, geothermalField, 
+				featureName, historicName, featureType, district, geothermalField, location,
 				Util.format(coordLatitude), Util.format(coordLongitude), Util.format(coordErrorEst),
 				coordFeatureRel, desc, accessType
 				);
@@ -137,7 +151,7 @@ public class Feature extends PersistentObject {
 	
 	public static String tsvStringColumns() {
 		return Util.join("\t", 
-				"FeatureName", "HistoricName", "FeatureType", "GeothermalField", 
+				"FeatureName", "HistoricName", "FeatureType", "District", "GeothermalField", "Location",
 				"LocationLatitude", "LocationLongitude", "LocationErrorEstimateMetres", 
 				"LocationRelationShipToFeature", "Description", "AccessType");		
 	}

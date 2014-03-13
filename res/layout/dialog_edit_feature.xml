@@ -8,7 +8,8 @@
 	<TableLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center">
+		android:layout_gravity="center_horizontal"
+		>
 		
 	    <TableRow
 	        style="@style/form_row" >       
@@ -45,7 +46,18 @@
 	            android:hint=""
 	            android:inputType="text" 
 	            style="@style/form_input" />  
-	    </TableRow>   
+	    </TableRow>  
+	    
+	    <TableRow
+	        style="@style/form_row" > 
+	        <TextView
+	            android:text="District"
+	            style="@style/form_label"/>
+            <Spinner
+                android:id="@+id/district_spinner"
+                style="@style/standard_spinner"
+                android:background="@drawable/btn_dropdown"/> 
+	    </TableRow> 	    
 	
 	    <TableRow
 	        style="@style/form_row" > 
@@ -58,7 +70,20 @@
 	            android:inputType="text" 
 	            android:maxLength="50"
 	            style="@style/form_input" />  
-	    </TableRow> 	    
+	    </TableRow> 
+	    
+	    <TableRow
+	        style="@style/form_row" > 
+	        <TextView
+	            android:text="Location"
+	            style="@style/form_label"/>
+	        <EditText
+	            android:id="@+id/location_input"
+	            android:hint="e.g 'Hells Gate'"
+	            android:inputType="text" 
+	            android:maxLength="50"
+	            style="@style/form_input" />  
+	    </TableRow> 	    	    
 	      	    
         <TableRow
             style="@style/form_row" > 

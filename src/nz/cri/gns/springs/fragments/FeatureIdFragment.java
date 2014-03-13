@@ -7,6 +7,7 @@ import nz.cri.gns.springs.db.Feature;
 import nz.cri.gns.springs.db.Feature.AccessType;
 import nz.cri.gns.springs.db.PersistentObject.Status;
 import nz.cri.gns.springs.db.SpringsDbHelper;
+import nz.cri.gns.springs.util.UiUtil;
 import android.app.Activity;
 import android.content.Intent;
 import android.location.Location;
@@ -18,7 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 /**
@@ -49,6 +49,7 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	addLocationButtonListener(rootView);
     	
     	setAccessTypeOptions(rootView);
+    	setDistrictOptions(rootView);
     	
     	if (feature != null) {
     		setInputFromFeature(rootView, feature);
@@ -123,19 +124,13 @@ public class FeatureIdFragment extends SpringsDialogFragment {
         spinner.setAdapter(dataAdapter);
 	} 
 	
-    public void setSelectedAccessType(View rootView, String selection) {
-    	// selection should be the Feature.AccessType enum name, e.g "PRIVATE"
-    	if (selection != null) {
-    		Spinner accessTypeSpinner = (Spinner) rootView.findViewById(R.id.access_type_spinner);   
-    		SpinnerAdapter adapter = accessTypeSpinner.getAdapter();
-        	for (int i = 0; i < adapter.getCount(); i++) {
-        		if (selection.equals(((AccessType)adapter.getItem(i)).name())) {
-        			accessTypeSpinner.setSelection(i);
-        			return;
-        		}
-        	}     		
-    	}
-    }
+	public void setDistrictOptions(View rootView) {
+        Spinner spinner = (Spinner) rootView.findViewById(R.id.district_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
+             R.array.district_array, R.layout.widget_spinner);
+        adapter.setDropDownViewResource(R.layout.widget_spinner_item);
+        spinner.setAdapter(adapter);
+	}
     
     public Feature setFeatureFromInput(View rootView, Feature currentFeature) {
     	 
@@ -151,13 +146,21 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	EditText geothermalField = (EditText) rootView.findViewById(R.id.geothermal_field_input);
     	currentFeature.setGeothermalField(geothermalField.getText().toString());
     	
+    	EditText locationField = (EditText) rootView.findViewById(R.id.location_input);
+    	currentFeature.setLocation(locationField.getText().toString());
+    	
     	EditText description = (EditText) rootView.findViewById(R.id.description);
     	currentFeature.setDescription(description.getText().toString());
     	
     	Spinner accessTypeSpinner = (Spinner) rootView.findViewById(R.id.access_type_spinner);
         if (accessTypeSpinner.getSelectedItem() != null) {
         	currentFeature.setAccessType(((AccessType)accessTypeSpinner.getSelectedItem()).name());
-        }    	
+        }   
+        
+    	Spinner districtSpinner = (Spinner) rootView.findViewById(R.id.district_spinner);
+        if (districtSpinner.getSelectedItem() != null) {
+        	currentFeature.setDistrict(districtSpinner.getSelectedItem().toString());
+        }  
     	
     	String easting = ((EditText) rootView.findViewById(R.id.coord_latitude)).getText().toString();
     	if (!easting.isEmpty()) {
@@ -199,10 +202,14 @@ public class FeatureIdFragment extends SpringsDialogFragment {
     	EditText geothermalField = (EditText) rootView.findViewById(R.id.geothermal_field_input);
     	geothermalField.setText(currentFeature.getGeothermalField());
     	
+    	EditText location = (EditText) rootView.findViewById(R.id.location_input);
+    	location.setText(currentFeature.getLocation());
+    	
     	EditText description = (EditText) rootView.findViewById(R.id.description);
     	description.setText(currentFeature.getDescription());
     	
-    	setSelectedAccessType(rootView, currentFeature.getAccessType());	
+    	UiUtil.setSelectedValue(rootView, R.id.access_type_spinner, AccessType.valueOf(currentFeature.getAccessType()).toString());
+    	UiUtil.setSelectedValue(rootView, R.id.district_spinner, currentFeature.getDistrict());
     	
     	setLocationFields(rootView, currentFeature.getCoordLatitude(), currentFeature.getCoordLongitude(), currentFeature.getCoordErrorEst());
     	

@@ -47,5 +47,13 @@
         <item>Fast flowing water body</item>
         <item>N/A</item>
     </string-array>
+    
+    <string-array name="district_array">
+        <item>Taupo/Turangi/Mangakino</item>
+        <item>Rotorua</item>
+        <item>Whakatane</item>
+        <item>Tauranga/Western Bay of Plenty</item>
+        <item>South Waikato</item>
+    </string-array>    
 
 </resources>
