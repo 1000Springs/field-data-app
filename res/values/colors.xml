@@ -20,10 +20,10 @@
     <color name="green_gradientS">#70c656</color>
     <color name="green_gradientE">#53933f</color>       
     
-    <color name="drop_target_border">#FFFFFF</color>   
+    <color name="drop_target_border">#000000</color>   
     
-    <color name="link">#0077cc</color>   
-    <color name="section_heading">#70c656</color>    
-    <color name="table_header_background">#333333</color>   
-    <color name="table_row_separator">#ffffff</color> 
+    <color name="link">#000000</color>   
+    <color name="section_heading">#000000</color>    
+    <color name="table_header_background">#FFFFFF</color>   
+    <color name="table_row_separator">#000000</color> 
 </resources>

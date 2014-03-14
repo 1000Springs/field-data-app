@@ -55,8 +55,7 @@
 	            style="@style/form_label"/>
             <Spinner
                 android:id="@+id/district_spinner"
-                style="@style/standard_spinner"
-                android:background="@drawable/btn_dropdown"/> 
+                style="@style/standard_spinner"/> 
 	    </TableRow> 	    
 	
 	    <TableRow
@@ -104,8 +103,7 @@
                 style="@style/form_label"/>
             <Spinner
                 android:id="@+id/access_type_spinner"
-                style="@style/standard_spinner"
-                android:background="@drawable/btn_dropdown"/>  
+                style="@style/standard_spinner"/>  
         </TableRow>         
         	    
         <TableRow

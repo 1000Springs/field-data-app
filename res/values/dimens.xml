@@ -1,4 +1,4 @@
 <resources>
     <dimen name="form_input_width">300dp</dimen>
-    <dimen name="line_height">35dp</dimen>
+    <dimen name="line_height">45dp</dimen>
 </resources>

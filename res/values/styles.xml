@@ -4,7 +4,7 @@
     <style name="main_menu_button">
         <item name="android:layout_width">160dp</item>
         <item name="android:layout_height">160dp</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">24sp</item>
         <item name="android:padding">10dp</item>
@@ -16,11 +16,11 @@
     
     <style name="standard_button" parent="@android:style/Widget.Button">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">35dp</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:padding">5dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/standard_button</item>
     </style>   
@@ -38,39 +38,40 @@
     </style>       
     
     <style name="standard_spinner" parent="android:Widget.TextView.SpinnerItem">
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:layout_width">@dimen/form_input_width</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>
 
 	<style name="standard_spinner_item" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
         <item name="android:background">#FFFFFF</item>
-        <item name="android:textColor">#808080</item>
+        <item name="android:textColor">#000000</item>
 	</style>
     
     <style name="standard_layout">
-        <item name="android:background">#000000</item>
+        <item name="android:background">#FFFFFF</item>
         <item name="android:editTextStyle">@style/standard_edit_text</item>
         <item name="android:buttonStyle">@style/standard_button</item>
     </style>
     
     <style name="dialog_layout" parent="@style/standard_layout">
-        <item name="android:background">#333333</item>
+        <item name="android:background">#FFFFFF</item>
     </style>
     
     <style name="form_label">
-        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_width">300dp</item>
         <item name="android:layout_height">@dimen/line_height</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>
     
     <style name="form_input">
         <item name="android:layout_width">@dimen/form_input_width</item>
         <item name="android:layout_height">@dimen/line_height</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:singleLine">true</item> 
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">#000000</item>
         <item name="android:background">@drawable/rounded_corners</item>
         <item name="android:ems">15</item>
     </style> 
@@ -112,7 +113,7 @@
         <item name="android:layout_margin">10dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     </style>
     
     <style name="image_tag_photo" parent="@style/image_tag">
@@ -138,8 +139,8 @@
     <style name="column">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/line_height</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
     </style> 
@@ -154,7 +155,7 @@
         <item name="android:background">@color/table_header_background</item>
         <item name="android:textColor">@color/section_heading</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
     </style> 
@@ -167,7 +168,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/line_height</item>
         <item name="android:textColor">@color/link</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>    
     
 </resources>

@@ -3,4 +3,5 @@
     android:layout_width="@dimen/form_input_width"
     android:layout_height="wrap_content"
     android:ellipsize="marquee" 
-    android:textIsSelectable="true"/>
+    android:textIsSelectable="true"
+    android:textSize="25sp"/>
