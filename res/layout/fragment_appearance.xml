@@ -116,7 +116,7 @@
                     
                     <Button 
                         android:id="@+id/choose_colour_from_image_button"
-                        android:text="Choose colour from image"
+                        android:text="Choose image colour"
                         style="@style/spaced_button"
                         android:layout_marginTop="20dp"
                         android:layout_width="270dp"/>

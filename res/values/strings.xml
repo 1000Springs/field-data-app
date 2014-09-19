@@ -50,7 +50,9 @@
     </string-array>
     
     <string-array name="district_array">
-        <item>Taupo/Turangi/Mangakino</item>
+        <item>Taupo</item>
+        <item>Turangi</item>
+        <item>Mangakino</item>
         <item>Rotorua</item>
         <item>Whakatane</item>
         <item>Tauranga/Western Bay of Plenty</item>

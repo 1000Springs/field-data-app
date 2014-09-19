@@ -88,12 +88,13 @@
             style="@style/form_row" > 
             <TextView
                 android:text="Description"
-                style="@style/form_label"/>
+                style="@style/form_label"/>        
             <EditText
                 android:id="@+id/description"
-                android:maxLength="200"
+                android:maxLength="500"
                 android:hint=""
-                style="@style/form_input_multiline" />  
+                style="@style/form_input_multiline" 
+                android:layout_height="300dp"/>  
         </TableRow> 
         
         <TableRow
